@@ -1,4 +1,4 @@
-// Poems Data
+// Poems Data with Page Information
 window.poemsData = {
   "praefatio": {
     "xml_id": "praefatio",
@@ -336,7 +336,17 @@ window.poemsData = {
     "rubrics": [
       "Praefatio"
     ],
-    "total_lines": 16
+    "total_lines": 16,
+    "page_info": [
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+    ]
   },
   "poem-I.1": {
     "xml_id": "poem-I.1",
@@ -818,7 +828,106 @@ window.poemsData = {
     "rubrics": [
       "Scribere Lucinae pauca coegit amor."
     ],
-    "total_lines": 23
+    "total_lines": 23,
+    "page_info": {
+      "pages": [
+        "9"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "9"
+        },
+        {
+          "line": 2,
+          "page": "9"
+        },
+        {
+          "line": 3,
+          "page": "9"
+        },
+        {
+          "line": 4,
+          "page": "9"
+        },
+        {
+          "line": 5,
+          "page": "9"
+        },
+        {
+          "line": 6,
+          "page": "9"
+        },
+        {
+          "line": 7,
+          "page": "9"
+        },
+        {
+          "line": 8,
+          "page": "9"
+        },
+        {
+          "line": 9,
+          "page": "9"
+        },
+        {
+          "line": 10,
+          "page": "9"
+        },
+        {
+          "line": 11,
+          "page": "9"
+        },
+        {
+          "line": 12,
+          "page": "9"
+        },
+        {
+          "line": 13,
+          "page": "9"
+        },
+        {
+          "line": 14,
+          "page": "9"
+        },
+        {
+          "line": 15,
+          "page": "9"
+        },
+        {
+          "line": 16,
+          "page": "9"
+        },
+        {
+          "line": 17,
+          "page": "9"
+        },
+        {
+          "line": 18,
+          "page": "9"
+        },
+        {
+          "line": 19,
+          "page": "9"
+        },
+        {
+          "line": 20,
+          "page": "9"
+        },
+        {
+          "line": 21,
+          "page": "9"
+        },
+        {
+          "line": 22,
+          "page": "9"
+        },
+        {
+          "line": 23,
+          "page": "9"
+        }
+      ]
+    }
   },
   "poem-I.2": {
     "xml_id": "poem-I.2",
@@ -1074,7 +1183,62 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "10"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "10"
+        },
+        {
+          "line": 2,
+          "page": "10"
+        },
+        {
+          "line": 3,
+          "page": "10"
+        },
+        {
+          "line": 4,
+          "page": "10"
+        },
+        {
+          "line": 5,
+          "page": "10"
+        },
+        {
+          "line": 6,
+          "page": "10"
+        },
+        {
+          "line": 7,
+          "page": "10"
+        },
+        {
+          "line": 8,
+          "page": "10"
+        },
+        {
+          "line": 9,
+          "page": "10"
+        },
+        {
+          "line": 10,
+          "page": "10"
+        },
+        {
+          "line": 11,
+          "page": "10"
+        },
+        {
+          "line": 12,
+          "page": "10"
+        }
+      ]
+    }
   },
   "poem-I.3": {
     "xml_id": "poem-I.3",
@@ -1290,7 +1454,55 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "11",
+        "12"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "11"
+        },
+        {
+          "line": 2,
+          "page": "11"
+        },
+        {
+          "line": 3,
+          "page": "11"
+        },
+        {
+          "line": 4,
+          "page": "11"
+        },
+        {
+          "line": 5,
+          "page": "11"
+        },
+        {
+          "line": 6,
+          "page": "11"
+        },
+        {
+          "line": 7,
+          "page": "11"
+        },
+        {
+          "line": 8,
+          "page": "11"
+        },
+        {
+          "line": 9,
+          "page": "11"
+        },
+        {
+          "line": 10,
+          "page": "11"
+        }
+      ]
+    }
   },
   "poem-I.4": {
     "xml_id": "poem-I.4",
@@ -1410,7 +1622,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "13",
+        "14"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "13"
+        },
+        {
+          "line": 2,
+          "page": "13"
+        },
+        {
+          "line": 3,
+          "page": "13"
+        },
+        {
+          "line": 4,
+          "page": "13"
+        },
+        {
+          "line": 5,
+          "page": "13"
+        },
+        {
+          "line": 6,
+          "page": "13"
+        }
+      ]
+    }
   },
   "poem-I.5": {
     "xml_id": "poem-I.5",
@@ -1786,7 +2030,87 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 18
+    "total_lines": 18,
+    "page_info": {
+      "pages": [
+        "15",
+        "16"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "15"
+        },
+        {
+          "line": 2,
+          "page": "15"
+        },
+        {
+          "line": 3,
+          "page": "15"
+        },
+        {
+          "line": 4,
+          "page": "15"
+        },
+        {
+          "line": 5,
+          "page": "15"
+        },
+        {
+          "line": 6,
+          "page": "15"
+        },
+        {
+          "line": 7,
+          "page": "15"
+        },
+        {
+          "line": 8,
+          "page": "15"
+        },
+        {
+          "line": 9,
+          "page": "15"
+        },
+        {
+          "line": 10,
+          "page": "15"
+        },
+        {
+          "line": 11,
+          "page": "15"
+        },
+        {
+          "line": 12,
+          "page": "15"
+        },
+        {
+          "line": 13,
+          "page": "15"
+        },
+        {
+          "line": 14,
+          "page": "15"
+        },
+        {
+          "line": 15,
+          "page": "15"
+        },
+        {
+          "line": 16,
+          "page": "15"
+        },
+        {
+          "line": 17,
+          "page": "15"
+        },
+        {
+          "line": 18,
+          "page": "15"
+        }
+      ]
+    }
   },
   "poem-I.6": {
     "xml_id": "poem-I.6",
@@ -2668,7 +2992,188 @@ window.poemsData = {
     "rubrics": [
       "Lucina, aetherii poli"
     ],
-    "total_lines": 43
+    "total_lines": 43,
+    "page_info": {
+      "pages": [
+        "17",
+        "18",
+        "19"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "17"
+        },
+        {
+          "line": 2,
+          "page": "17"
+        },
+        {
+          "line": 3,
+          "page": "17"
+        },
+        {
+          "line": 4,
+          "page": "17"
+        },
+        {
+          "line": 5,
+          "page": "17"
+        },
+        {
+          "line": 6,
+          "page": "17"
+        },
+        {
+          "line": 7,
+          "page": "17"
+        },
+        {
+          "line": 8,
+          "page": "17"
+        },
+        {
+          "line": 9,
+          "page": "17"
+        },
+        {
+          "line": 10,
+          "page": "17"
+        },
+        {
+          "line": 11,
+          "page": "17"
+        },
+        {
+          "line": 12,
+          "page": "17"
+        },
+        {
+          "line": 13,
+          "page": "17"
+        },
+        {
+          "line": 14,
+          "page": "17"
+        },
+        {
+          "line": 15,
+          "page": "17"
+        },
+        {
+          "line": 16,
+          "page": "17"
+        },
+        {
+          "line": 17,
+          "page": "17"
+        },
+        {
+          "line": 18,
+          "page": "17"
+        },
+        {
+          "line": 19,
+          "page": "17"
+        },
+        {
+          "line": 20,
+          "page": "17"
+        },
+        {
+          "line": 21,
+          "page": "17"
+        },
+        {
+          "line": 22,
+          "page": "17"
+        },
+        {
+          "line": 23,
+          "page": "18"
+        },
+        {
+          "line": 24,
+          "page": "18"
+        },
+        {
+          "line": 25,
+          "page": "18"
+        },
+        {
+          "line": 26,
+          "page": "18"
+        },
+        {
+          "line": 27,
+          "page": "18"
+        },
+        {
+          "line": 28,
+          "page": "18"
+        },
+        {
+          "line": 29,
+          "page": "18"
+        },
+        {
+          "line": 30,
+          "page": "18"
+        },
+        {
+          "line": 31,
+          "page": "18"
+        },
+        {
+          "line": 32,
+          "page": "18"
+        },
+        {
+          "line": 33,
+          "page": "18"
+        },
+        {
+          "line": 34,
+          "page": "18"
+        },
+        {
+          "line": 35,
+          "page": "18"
+        },
+        {
+          "line": 36,
+          "page": "18"
+        },
+        {
+          "line": 37,
+          "page": "18"
+        },
+        {
+          "line": 38,
+          "page": "18"
+        },
+        {
+          "line": 39,
+          "page": "18"
+        },
+        {
+          "line": 40,
+          "page": "18"
+        },
+        {
+          "line": 41,
+          "page": "18"
+        },
+        {
+          "line": 42,
+          "page": "18"
+        },
+        {
+          "line": 43,
+          "page": "18"
+        }
+      ]
+    }
   },
   "poem-I.7": {
     "xml_id": "poem-I.7",
@@ -2788,7 +3293,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "20",
+        "21"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "20"
+        },
+        {
+          "line": 2,
+          "page": "20"
+        },
+        {
+          "line": 3,
+          "page": "20"
+        },
+        {
+          "line": 4,
+          "page": "20"
+        },
+        {
+          "line": 5,
+          "page": "20"
+        },
+        {
+          "line": 6,
+          "page": "20"
+        }
+      ]
+    }
   },
   "poem-I.8": {
     "xml_id": "poem-I.8",
@@ -2908,7 +3445,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "22",
+        "23"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "22"
+        },
+        {
+          "line": 2,
+          "page": "22"
+        },
+        {
+          "line": 3,
+          "page": "22"
+        },
+        {
+          "line": 4,
+          "page": "22"
+        },
+        {
+          "line": 5,
+          "page": "22"
+        },
+        {
+          "line": 6,
+          "page": "22"
+        }
+      ]
+    }
   },
   "poem-I.9": {
     "xml_id": "poem-I.9",
@@ -3324,7 +3893,95 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 20
+    "total_lines": 20,
+    "page_info": {
+      "pages": [
+        "24",
+        "25"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "24"
+        },
+        {
+          "line": 2,
+          "page": "24"
+        },
+        {
+          "line": 3,
+          "page": "24"
+        },
+        {
+          "line": 4,
+          "page": "24"
+        },
+        {
+          "line": 5,
+          "page": "24"
+        },
+        {
+          "line": 6,
+          "page": "24"
+        },
+        {
+          "line": 7,
+          "page": "24"
+        },
+        {
+          "line": 8,
+          "page": "24"
+        },
+        {
+          "line": 9,
+          "page": "24"
+        },
+        {
+          "line": 10,
+          "page": "24"
+        },
+        {
+          "line": 11,
+          "page": "24"
+        },
+        {
+          "line": 12,
+          "page": "24"
+        },
+        {
+          "line": 13,
+          "page": "24"
+        },
+        {
+          "line": 14,
+          "page": "24"
+        },
+        {
+          "line": 15,
+          "page": "24"
+        },
+        {
+          "line": 16,
+          "page": "24"
+        },
+        {
+          "line": 17,
+          "page": "24"
+        },
+        {
+          "line": 18,
+          "page": "24"
+        },
+        {
+          "line": 19,
+          "page": "24"
+        },
+        {
+          "line": 20,
+          "page": "24"
+        }
+      ]
+    }
   },
   "poem-I.10": {
     "xml_id": "poem-I.10",
@@ -3412,7 +4069,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "26",
+        "27"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "26"
+        },
+        {
+          "line": 2,
+          "page": "26"
+        },
+        {
+          "line": 3,
+          "page": "26"
+        },
+        {
+          "line": 4,
+          "page": "26"
+        }
+      ]
+    }
   },
   "poem-I.11": {
     "xml_id": "poem-I.11",
@@ -3588,7 +4269,47 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "28",
+        "29"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "28"
+        },
+        {
+          "line": 2,
+          "page": "28"
+        },
+        {
+          "line": 3,
+          "page": "28"
+        },
+        {
+          "line": 4,
+          "page": "28"
+        },
+        {
+          "line": 5,
+          "page": "28"
+        },
+        {
+          "line": 6,
+          "page": "28"
+        },
+        {
+          "line": 7,
+          "page": "28"
+        },
+        {
+          "line": 8,
+          "page": "28"
+        }
+      ]
+    }
   },
   "poem-I.12": {
     "xml_id": "poem-I.12",
@@ -3764,7 +4485,47 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "30",
+        "31"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "30"
+        },
+        {
+          "line": 2,
+          "page": "30"
+        },
+        {
+          "line": 3,
+          "page": "30"
+        },
+        {
+          "line": 4,
+          "page": "30"
+        },
+        {
+          "line": 5,
+          "page": "30"
+        },
+        {
+          "line": 6,
+          "page": "30"
+        },
+        {
+          "line": 7,
+          "page": "30"
+        },
+        {
+          "line": 8,
+          "page": "30"
+        }
+      ]
+    }
   },
   "poem-I.13": {
     "xml_id": "poem-I.13",
@@ -3852,7 +4613,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "32",
+        "33"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "32"
+        },
+        {
+          "line": 2,
+          "page": "32"
+        },
+        {
+          "line": 3,
+          "page": "32"
+        },
+        {
+          "line": 4,
+          "page": "32"
+        }
+      ]
+    }
   },
   "poem-I.14": {
     "xml_id": "poem-I.14",
@@ -4108,7 +4893,63 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "34",
+        "35"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "34"
+        },
+        {
+          "line": 2,
+          "page": "34"
+        },
+        {
+          "line": 3,
+          "page": "34"
+        },
+        {
+          "line": 4,
+          "page": "34"
+        },
+        {
+          "line": 5,
+          "page": "34"
+        },
+        {
+          "line": 6,
+          "page": "34"
+        },
+        {
+          "line": 7,
+          "page": "34"
+        },
+        {
+          "line": 8,
+          "page": "34"
+        },
+        {
+          "line": 9,
+          "page": "34"
+        },
+        {
+          "line": 10,
+          "page": "34"
+        },
+        {
+          "line": 11,
+          "page": "34"
+        },
+        {
+          "line": 12,
+          "page": "34"
+        }
+      ]
+    }
   },
   "poem-I.15": {
     "xml_id": "poem-I.15",
@@ -5004,7 +5845,192 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 44
+    "total_lines": 44,
+    "page_info": {
+      "pages": [
+        "36",
+        "37",
+        "38"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "36"
+        },
+        {
+          "line": 2,
+          "page": "36"
+        },
+        {
+          "line": 3,
+          "page": "36"
+        },
+        {
+          "line": 4,
+          "page": "36"
+        },
+        {
+          "line": 5,
+          "page": "36"
+        },
+        {
+          "line": 6,
+          "page": "36"
+        },
+        {
+          "line": 7,
+          "page": "36"
+        },
+        {
+          "line": 8,
+          "page": "36"
+        },
+        {
+          "line": 9,
+          "page": "36"
+        },
+        {
+          "line": 10,
+          "page": "36"
+        },
+        {
+          "line": 11,
+          "page": "36"
+        },
+        {
+          "line": 12,
+          "page": "36"
+        },
+        {
+          "line": 13,
+          "page": "36"
+        },
+        {
+          "line": 14,
+          "page": "36"
+        },
+        {
+          "line": 15,
+          "page": "36"
+        },
+        {
+          "line": 16,
+          "page": "36"
+        },
+        {
+          "line": 17,
+          "page": "36"
+        },
+        {
+          "line": 18,
+          "page": "36"
+        },
+        {
+          "line": 19,
+          "page": "36"
+        },
+        {
+          "line": 20,
+          "page": "36"
+        },
+        {
+          "line": 21,
+          "page": "36"
+        },
+        {
+          "line": 22,
+          "page": "36"
+        },
+        {
+          "line": 23,
+          "page": "37"
+        },
+        {
+          "line": 24,
+          "page": "37"
+        },
+        {
+          "line": 25,
+          "page": "37"
+        },
+        {
+          "line": 26,
+          "page": "37"
+        },
+        {
+          "line": 27,
+          "page": "37"
+        },
+        {
+          "line": 28,
+          "page": "37"
+        },
+        {
+          "line": 29,
+          "page": "37"
+        },
+        {
+          "line": 30,
+          "page": "37"
+        },
+        {
+          "line": 31,
+          "page": "37"
+        },
+        {
+          "line": 32,
+          "page": "37"
+        },
+        {
+          "line": 33,
+          "page": "37"
+        },
+        {
+          "line": 34,
+          "page": "37"
+        },
+        {
+          "line": 35,
+          "page": "37"
+        },
+        {
+          "line": 36,
+          "page": "37"
+        },
+        {
+          "line": 37,
+          "page": "37"
+        },
+        {
+          "line": 38,
+          "page": "37"
+        },
+        {
+          "line": 39,
+          "page": "37"
+        },
+        {
+          "line": 40,
+          "page": "37"
+        },
+        {
+          "line": 41,
+          "page": "37"
+        },
+        {
+          "line": 42,
+          "page": "37"
+        },
+        {
+          "line": 43,
+          "page": "37"
+        },
+        {
+          "line": 44,
+          "page": "37"
+        }
+      ]
+    }
   },
   "poem-I.16": {
     "xml_id": "poem-I.16",
@@ -5092,7 +6118,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "39",
+        "40"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "39"
+        },
+        {
+          "line": 2,
+          "page": "39"
+        },
+        {
+          "line": 3,
+          "page": "39"
+        },
+        {
+          "line": 4,
+          "page": "39"
+        }
+      ]
+    }
   },
   "poem-I.17": {
     "xml_id": "poem-I.17",
@@ -5908,7 +6958,175 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 40
+    "total_lines": 40,
+    "page_info": {
+      "pages": [
+        "41",
+        "42"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "41"
+        },
+        {
+          "line": 2,
+          "page": "41"
+        },
+        {
+          "line": 3,
+          "page": "41"
+        },
+        {
+          "line": 4,
+          "page": "41"
+        },
+        {
+          "line": 5,
+          "page": "41"
+        },
+        {
+          "line": 6,
+          "page": "41"
+        },
+        {
+          "line": 7,
+          "page": "41"
+        },
+        {
+          "line": 8,
+          "page": "41"
+        },
+        {
+          "line": 9,
+          "page": "41"
+        },
+        {
+          "line": 10,
+          "page": "41"
+        },
+        {
+          "line": 11,
+          "page": "41"
+        },
+        {
+          "line": 12,
+          "page": "41"
+        },
+        {
+          "line": 13,
+          "page": "41"
+        },
+        {
+          "line": 14,
+          "page": "41"
+        },
+        {
+          "line": 15,
+          "page": "41"
+        },
+        {
+          "line": 16,
+          "page": "41"
+        },
+        {
+          "line": 17,
+          "page": "41"
+        },
+        {
+          "line": 18,
+          "page": "41"
+        },
+        {
+          "line": 19,
+          "page": "41"
+        },
+        {
+          "line": 20,
+          "page": "41"
+        },
+        {
+          "line": 21,
+          "page": "41"
+        },
+        {
+          "line": 22,
+          "page": "41"
+        },
+        {
+          "line": 23,
+          "page": "41"
+        },
+        {
+          "line": 24,
+          "page": "41"
+        },
+        {
+          "line": 25,
+          "page": "41"
+        },
+        {
+          "line": 26,
+          "page": "41"
+        },
+        {
+          "line": 27,
+          "page": "41"
+        },
+        {
+          "line": 28,
+          "page": "41"
+        },
+        {
+          "line": 29,
+          "page": "41"
+        },
+        {
+          "line": 30,
+          "page": "41"
+        },
+        {
+          "line": 31,
+          "page": "41"
+        },
+        {
+          "line": 32,
+          "page": "41"
+        },
+        {
+          "line": 33,
+          "page": "41"
+        },
+        {
+          "line": 34,
+          "page": "41"
+        },
+        {
+          "line": 35,
+          "page": "41"
+        },
+        {
+          "line": 36,
+          "page": "41"
+        },
+        {
+          "line": 37,
+          "page": "41"
+        },
+        {
+          "line": 38,
+          "page": "41"
+        },
+        {
+          "line": 39,
+          "page": "41"
+        },
+        {
+          "line": 40,
+          "page": "41"
+        }
+      ]
+    }
   },
   "poem-I.18": {
     "xml_id": "poem-I.18",
@@ -5980,7 +7198,27 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 3
+    "total_lines": 3,
+    "page_info": {
+      "pages": [
+        "43",
+        "44"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "43"
+        },
+        {
+          "line": 2,
+          "page": "43"
+        },
+        {
+          "line": 3,
+          "page": "43"
+        }
+      ]
+    }
   },
   "poem-I.19": {
     "xml_id": "poem-I.19",
@@ -6068,7 +7306,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "45",
+        "46"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "45"
+        },
+        {
+          "line": 2,
+          "page": "45"
+        },
+        {
+          "line": 3,
+          "page": "45"
+        },
+        {
+          "line": 4,
+          "page": "45"
+        }
+      ]
+    }
   },
   "poem-I.20": {
     "xml_id": "poem-I.20",
@@ -6724,7 +7986,143 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 32
+    "total_lines": 32,
+    "page_info": {
+      "pages": [
+        "47",
+        "48"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "47"
+        },
+        {
+          "line": 2,
+          "page": "47"
+        },
+        {
+          "line": 3,
+          "page": "47"
+        },
+        {
+          "line": 4,
+          "page": "47"
+        },
+        {
+          "line": 5,
+          "page": "47"
+        },
+        {
+          "line": 6,
+          "page": "47"
+        },
+        {
+          "line": 7,
+          "page": "47"
+        },
+        {
+          "line": 8,
+          "page": "47"
+        },
+        {
+          "line": 9,
+          "page": "47"
+        },
+        {
+          "line": 10,
+          "page": "47"
+        },
+        {
+          "line": 11,
+          "page": "47"
+        },
+        {
+          "line": 12,
+          "page": "47"
+        },
+        {
+          "line": 13,
+          "page": "47"
+        },
+        {
+          "line": 14,
+          "page": "47"
+        },
+        {
+          "line": 15,
+          "page": "47"
+        },
+        {
+          "line": 16,
+          "page": "47"
+        },
+        {
+          "line": 17,
+          "page": "47"
+        },
+        {
+          "line": 18,
+          "page": "47"
+        },
+        {
+          "line": 19,
+          "page": "47"
+        },
+        {
+          "line": 20,
+          "page": "47"
+        },
+        {
+          "line": 21,
+          "page": "47"
+        },
+        {
+          "line": 22,
+          "page": "47"
+        },
+        {
+          "line": 23,
+          "page": "47"
+        },
+        {
+          "line": 24,
+          "page": "47"
+        },
+        {
+          "line": 25,
+          "page": "47"
+        },
+        {
+          "line": 26,
+          "page": "47"
+        },
+        {
+          "line": 27,
+          "page": "47"
+        },
+        {
+          "line": 28,
+          "page": "47"
+        },
+        {
+          "line": 29,
+          "page": "47"
+        },
+        {
+          "line": 30,
+          "page": "47"
+        },
+        {
+          "line": 31,
+          "page": "47"
+        },
+        {
+          "line": 32,
+          "page": "47"
+        }
+      ]
+    }
   },
   "poem-I.21": {
     "xml_id": "poem-I.21",
@@ -6812,7 +8210,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "49",
+        "50"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "49"
+        },
+        {
+          "line": 2,
+          "page": "49"
+        },
+        {
+          "line": 3,
+          "page": "49"
+        },
+        {
+          "line": 4,
+          "page": "49"
+        }
+      ]
+    }
   },
   "poem-I.22": {
     "xml_id": "poem-I.22",
@@ -6988,7 +8410,47 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "51",
+        "52"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "51"
+        },
+        {
+          "line": 2,
+          "page": "51"
+        },
+        {
+          "line": 3,
+          "page": "51"
+        },
+        {
+          "line": 4,
+          "page": "51"
+        },
+        {
+          "line": 5,
+          "page": "51"
+        },
+        {
+          "line": 6,
+          "page": "51"
+        },
+        {
+          "line": 7,
+          "page": "51"
+        },
+        {
+          "line": 8,
+          "page": "51"
+        }
+      ]
+    }
   },
   "poem-I.23": {
     "xml_id": "poem-I.23",
@@ -7076,7 +8538,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "53",
+        "54"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "53"
+        },
+        {
+          "line": 2,
+          "page": "53"
+        },
+        {
+          "line": 3,
+          "page": "53"
+        },
+        {
+          "line": 4,
+          "page": "53"
+        }
+      ]
+    }
   },
   "poem-I.24": {
     "xml_id": "poem-I.24",
@@ -7692,7 +9178,135 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 30
+    "total_lines": 30,
+    "page_info": {
+      "pages": [
+        "55",
+        "56"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "55"
+        },
+        {
+          "line": 2,
+          "page": "55"
+        },
+        {
+          "line": 3,
+          "page": "55"
+        },
+        {
+          "line": 4,
+          "page": "55"
+        },
+        {
+          "line": 5,
+          "page": "55"
+        },
+        {
+          "line": 6,
+          "page": "55"
+        },
+        {
+          "line": 7,
+          "page": "55"
+        },
+        {
+          "line": 8,
+          "page": "55"
+        },
+        {
+          "line": 9,
+          "page": "55"
+        },
+        {
+          "line": 10,
+          "page": "55"
+        },
+        {
+          "line": 11,
+          "page": "55"
+        },
+        {
+          "line": 12,
+          "page": "55"
+        },
+        {
+          "line": 13,
+          "page": "55"
+        },
+        {
+          "line": 14,
+          "page": "55"
+        },
+        {
+          "line": 15,
+          "page": "55"
+        },
+        {
+          "line": 16,
+          "page": "55"
+        },
+        {
+          "line": 17,
+          "page": "55"
+        },
+        {
+          "line": 18,
+          "page": "55"
+        },
+        {
+          "line": 19,
+          "page": "55"
+        },
+        {
+          "line": 20,
+          "page": "55"
+        },
+        {
+          "line": 21,
+          "page": "55"
+        },
+        {
+          "line": 22,
+          "page": "55"
+        },
+        {
+          "line": 23,
+          "page": "55"
+        },
+        {
+          "line": 24,
+          "page": "55"
+        },
+        {
+          "line": 25,
+          "page": "55"
+        },
+        {
+          "line": 26,
+          "page": "55"
+        },
+        {
+          "line": 27,
+          "page": "55"
+        },
+        {
+          "line": 28,
+          "page": "55"
+        },
+        {
+          "line": 29,
+          "page": "55"
+        },
+        {
+          "line": 30,
+          "page": "55"
+        }
+      ]
+    }
   },
   "poem-I.25": {
     "xml_id": "poem-I.25",
@@ -8508,7 +10122,175 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 40
+    "total_lines": 40,
+    "page_info": {
+      "pages": [
+        "57",
+        "58"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "57"
+        },
+        {
+          "line": 2,
+          "page": "57"
+        },
+        {
+          "line": 3,
+          "page": "57"
+        },
+        {
+          "line": 4,
+          "page": "57"
+        },
+        {
+          "line": 5,
+          "page": "57"
+        },
+        {
+          "line": 6,
+          "page": "57"
+        },
+        {
+          "line": 7,
+          "page": "57"
+        },
+        {
+          "line": 8,
+          "page": "57"
+        },
+        {
+          "line": 9,
+          "page": "57"
+        },
+        {
+          "line": 10,
+          "page": "57"
+        },
+        {
+          "line": 11,
+          "page": "57"
+        },
+        {
+          "line": 12,
+          "page": "57"
+        },
+        {
+          "line": 13,
+          "page": "57"
+        },
+        {
+          "line": 14,
+          "page": "57"
+        },
+        {
+          "line": 15,
+          "page": "57"
+        },
+        {
+          "line": 16,
+          "page": "57"
+        },
+        {
+          "line": 17,
+          "page": "57"
+        },
+        {
+          "line": 18,
+          "page": "57"
+        },
+        {
+          "line": 19,
+          "page": "57"
+        },
+        {
+          "line": 20,
+          "page": "57"
+        },
+        {
+          "line": 21,
+          "page": "57"
+        },
+        {
+          "line": 22,
+          "page": "57"
+        },
+        {
+          "line": 23,
+          "page": "57"
+        },
+        {
+          "line": 24,
+          "page": "57"
+        },
+        {
+          "line": 25,
+          "page": "57"
+        },
+        {
+          "line": 26,
+          "page": "57"
+        },
+        {
+          "line": 27,
+          "page": "57"
+        },
+        {
+          "line": 28,
+          "page": "57"
+        },
+        {
+          "line": 29,
+          "page": "57"
+        },
+        {
+          "line": 30,
+          "page": "57"
+        },
+        {
+          "line": 31,
+          "page": "57"
+        },
+        {
+          "line": 32,
+          "page": "57"
+        },
+        {
+          "line": 33,
+          "page": "57"
+        },
+        {
+          "line": 34,
+          "page": "57"
+        },
+        {
+          "line": 35,
+          "page": "57"
+        },
+        {
+          "line": 36,
+          "page": "57"
+        },
+        {
+          "line": 37,
+          "page": "57"
+        },
+        {
+          "line": 38,
+          "page": "57"
+        },
+        {
+          "line": 39,
+          "page": "57"
+        },
+        {
+          "line": 40,
+          "page": "57"
+        }
+      ]
+    }
   },
   "poem-I.26": {
     "xml_id": "poem-I.26",
@@ -8628,7 +10410,38 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "59"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "59"
+        },
+        {
+          "line": 2,
+          "page": "59"
+        },
+        {
+          "line": 3,
+          "page": "59"
+        },
+        {
+          "line": 4,
+          "page": "59"
+        },
+        {
+          "line": 5,
+          "page": "59"
+        },
+        {
+          "line": 6,
+          "page": "59"
+        }
+      ]
+    }
   },
   "poem-I.27": {
     "xml_id": "poem-I.27",
@@ -8764,7 +10577,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "60",
+        "61"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "60"
+        },
+        {
+          "line": 2,
+          "page": "60"
+        },
+        {
+          "line": 3,
+          "page": "60"
+        },
+        {
+          "line": 4,
+          "page": "60"
+        },
+        {
+          "line": 5,
+          "page": "60"
+        },
+        {
+          "line": 6,
+          "page": "60"
+        }
+      ]
+    }
   },
   "poem-I.28": {
     "xml_id": "poem-I.28",
@@ -8852,7 +10697,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "62",
+        "63"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "62"
+        },
+        {
+          "line": 2,
+          "page": "62"
+        },
+        {
+          "line": 3,
+          "page": "62"
+        },
+        {
+          "line": 4,
+          "page": "62"
+        }
+      ]
+    }
   },
   "poem-I.29": {
     "xml_id": "poem-I.29",
@@ -8940,7 +10809,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "64",
+        "65"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "64"
+        },
+        {
+          "line": 2,
+          "page": "64"
+        },
+        {
+          "line": 3,
+          "page": "64"
+        },
+        {
+          "line": 4,
+          "page": "64"
+        }
+      ]
+    }
   },
   "poem-I.30": {
     "xml_id": "poem-I.30",
@@ -9676,7 +11569,159 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 36
+    "total_lines": 36,
+    "page_info": {
+      "pages": [
+        "66",
+        "67"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "66"
+        },
+        {
+          "line": 2,
+          "page": "66"
+        },
+        {
+          "line": 3,
+          "page": "66"
+        },
+        {
+          "line": 4,
+          "page": "66"
+        },
+        {
+          "line": 5,
+          "page": "66"
+        },
+        {
+          "line": 6,
+          "page": "66"
+        },
+        {
+          "line": 7,
+          "page": "66"
+        },
+        {
+          "line": 8,
+          "page": "66"
+        },
+        {
+          "line": 9,
+          "page": "66"
+        },
+        {
+          "line": 10,
+          "page": "66"
+        },
+        {
+          "line": 11,
+          "page": "66"
+        },
+        {
+          "line": 12,
+          "page": "66"
+        },
+        {
+          "line": 13,
+          "page": "66"
+        },
+        {
+          "line": 14,
+          "page": "66"
+        },
+        {
+          "line": 15,
+          "page": "66"
+        },
+        {
+          "line": 16,
+          "page": "66"
+        },
+        {
+          "line": 17,
+          "page": "66"
+        },
+        {
+          "line": 18,
+          "page": "66"
+        },
+        {
+          "line": 19,
+          "page": "66"
+        },
+        {
+          "line": 20,
+          "page": "66"
+        },
+        {
+          "line": 21,
+          "page": "66"
+        },
+        {
+          "line": 22,
+          "page": "66"
+        },
+        {
+          "line": 23,
+          "page": "66"
+        },
+        {
+          "line": 24,
+          "page": "66"
+        },
+        {
+          "line": 25,
+          "page": "66"
+        },
+        {
+          "line": 26,
+          "page": "66"
+        },
+        {
+          "line": 27,
+          "page": "66"
+        },
+        {
+          "line": 28,
+          "page": "66"
+        },
+        {
+          "line": 29,
+          "page": "66"
+        },
+        {
+          "line": 30,
+          "page": "66"
+        },
+        {
+          "line": 31,
+          "page": "66"
+        },
+        {
+          "line": 32,
+          "page": "66"
+        },
+        {
+          "line": 33,
+          "page": "66"
+        },
+        {
+          "line": 34,
+          "page": "66"
+        },
+        {
+          "line": 35,
+          "page": "66"
+        },
+        {
+          "line": 36,
+          "page": "66"
+        }
+      ]
+    }
   },
   "poem-I.31": {
     "xml_id": "poem-I.31",
@@ -9764,7 +11809,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "68",
+        "69"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "68"
+        },
+        {
+          "line": 2,
+          "page": "68"
+        },
+        {
+          "line": 3,
+          "page": "68"
+        },
+        {
+          "line": 4,
+          "page": "68"
+        }
+      ]
+    }
   },
   "poem-I.32": {
     "xml_id": "poem-I.32",
@@ -9852,7 +11921,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "70",
+        "71"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "70"
+        },
+        {
+          "line": 2,
+          "page": "70"
+        },
+        {
+          "line": 3,
+          "page": "70"
+        },
+        {
+          "line": 4,
+          "page": "70"
+        }
+      ]
+    }
   },
   "poem-I.33": {
     "xml_id": "poem-I.33",
@@ -9972,7 +12065,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "72",
+        "73"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "72"
+        },
+        {
+          "line": 2,
+          "page": "72"
+        },
+        {
+          "line": 3,
+          "page": "72"
+        },
+        {
+          "line": 4,
+          "page": "72"
+        },
+        {
+          "line": 5,
+          "page": "72"
+        },
+        {
+          "line": 6,
+          "page": "72"
+        }
+      ]
+    }
   },
   "poem-I.34": {
     "xml_id": "poem-I.34",
@@ -10060,7 +12185,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "74",
+        "75"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "74"
+        },
+        {
+          "line": 2,
+          "page": "74"
+        },
+        {
+          "line": 3,
+          "page": "74"
+        },
+        {
+          "line": 4,
+          "page": "74"
+        }
+      ]
+    }
   },
   "poem-I.35": {
     "xml_id": "poem-I.35",
@@ -10116,7 +12265,23 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "76",
+        "77"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "76"
+        },
+        {
+          "line": 2,
+          "page": "76"
+        }
+      ]
+    }
   },
   "poem-I.36": {
     "xml_id": "poem-I.36",
@@ -10372,7 +12537,63 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "78",
+        "79"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "78"
+        },
+        {
+          "line": 2,
+          "page": "78"
+        },
+        {
+          "line": 3,
+          "page": "78"
+        },
+        {
+          "line": 4,
+          "page": "78"
+        },
+        {
+          "line": 5,
+          "page": "78"
+        },
+        {
+          "line": 6,
+          "page": "78"
+        },
+        {
+          "line": 7,
+          "page": "78"
+        },
+        {
+          "line": 8,
+          "page": "78"
+        },
+        {
+          "line": 9,
+          "page": "78"
+        },
+        {
+          "line": 10,
+          "page": "78"
+        },
+        {
+          "line": 11,
+          "page": "78"
+        },
+        {
+          "line": 12,
+          "page": "78"
+        }
+      ]
+    }
   },
   "poem-I.37": {
     "xml_id": "poem-I.37",
@@ -10548,7 +12769,47 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "80",
+        "81"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "80"
+        },
+        {
+          "line": 2,
+          "page": "80"
+        },
+        {
+          "line": 3,
+          "page": "80"
+        },
+        {
+          "line": 4,
+          "page": "80"
+        },
+        {
+          "line": 5,
+          "page": "80"
+        },
+        {
+          "line": 6,
+          "page": "80"
+        },
+        {
+          "line": 7,
+          "page": "80"
+        },
+        {
+          "line": 8,
+          "page": "80"
+        }
+      ]
+    }
   },
   "poem-I.38": {
     "xml_id": "poem-I.38",
@@ -10668,7 +12929,39 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "82",
+        "83"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "82"
+        },
+        {
+          "line": 2,
+          "page": "82"
+        },
+        {
+          "line": 3,
+          "page": "82"
+        },
+        {
+          "line": 4,
+          "page": "82"
+        },
+        {
+          "line": 5,
+          "page": "82"
+        },
+        {
+          "line": 6,
+          "page": "82"
+        }
+      ]
+    }
   },
   "poem-I.39": {
     "xml_id": "poem-I.39",
@@ -11204,7 +13497,119 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 26
+    "total_lines": 26,
+    "page_info": {
+      "pages": [
+        "84",
+        "85"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "84"
+        },
+        {
+          "line": 2,
+          "page": "84"
+        },
+        {
+          "line": 3,
+          "page": "84"
+        },
+        {
+          "line": 4,
+          "page": "84"
+        },
+        {
+          "line": 5,
+          "page": "84"
+        },
+        {
+          "line": 6,
+          "page": "84"
+        },
+        {
+          "line": 7,
+          "page": "84"
+        },
+        {
+          "line": 8,
+          "page": "84"
+        },
+        {
+          "line": 9,
+          "page": "84"
+        },
+        {
+          "line": 10,
+          "page": "84"
+        },
+        {
+          "line": 11,
+          "page": "84"
+        },
+        {
+          "line": 12,
+          "page": "84"
+        },
+        {
+          "line": 13,
+          "page": "84"
+        },
+        {
+          "line": 14,
+          "page": "84"
+        },
+        {
+          "line": 15,
+          "page": "84"
+        },
+        {
+          "line": 16,
+          "page": "84"
+        },
+        {
+          "line": 17,
+          "page": "84"
+        },
+        {
+          "line": 18,
+          "page": "84"
+        },
+        {
+          "line": 19,
+          "page": "84"
+        },
+        {
+          "line": 20,
+          "page": "84"
+        },
+        {
+          "line": 21,
+          "page": "84"
+        },
+        {
+          "line": 22,
+          "page": "84"
+        },
+        {
+          "line": 23,
+          "page": "84"
+        },
+        {
+          "line": 24,
+          "page": "84"
+        },
+        {
+          "line": 25,
+          "page": "84"
+        },
+        {
+          "line": 26,
+          "page": "84"
+        }
+      ]
+    }
   },
   "poem-I.40": {
     "xml_id": "poem-I.40",
@@ -11292,7 +13697,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "86",
+        "87"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "86"
+        },
+        {
+          "line": 2,
+          "page": "86"
+        },
+        {
+          "line": 3,
+          "page": "86"
+        },
+        {
+          "line": 4,
+          "page": "86"
+        }
+      ]
+    }
   },
   "poem-I.41": {
     "xml_id": "poem-I.41",
@@ -11380,7 +13809,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "88",
+        "89"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "88"
+        },
+        {
+          "line": 2,
+          "page": "88"
+        },
+        {
+          "line": 3,
+          "page": "88"
+        },
+        {
+          "line": 4,
+          "page": "88"
+        }
+      ]
+    }
   },
   "poem-I.42": {
     "xml_id": "poem-I.42",
@@ -11596,7 +14049,55 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "90",
+        "91"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "90"
+        },
+        {
+          "line": 2,
+          "page": "90"
+        },
+        {
+          "line": 3,
+          "page": "90"
+        },
+        {
+          "line": 4,
+          "page": "90"
+        },
+        {
+          "line": 5,
+          "page": "90"
+        },
+        {
+          "line": 6,
+          "page": "90"
+        },
+        {
+          "line": 7,
+          "page": "90"
+        },
+        {
+          "line": 8,
+          "page": "90"
+        },
+        {
+          "line": 9,
+          "page": "90"
+        },
+        {
+          "line": 10,
+          "page": "90"
+        }
+      ]
+    }
   },
   "poem-I.43": {
     "xml_id": "poem-I.43",
@@ -13292,7 +15793,352 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 84
+    "total_lines": 84,
+    "page_info": {
+      "pages": [
+        "92",
+        "93",
+        "94"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "92"
+        },
+        {
+          "line": 2,
+          "page": "92"
+        },
+        {
+          "line": 3,
+          "page": "92"
+        },
+        {
+          "line": 4,
+          "page": "92"
+        },
+        {
+          "line": 5,
+          "page": "92"
+        },
+        {
+          "line": 6,
+          "page": "92"
+        },
+        {
+          "line": 7,
+          "page": "92"
+        },
+        {
+          "line": 8,
+          "page": "92"
+        },
+        {
+          "line": 9,
+          "page": "92"
+        },
+        {
+          "line": 10,
+          "page": "92"
+        },
+        {
+          "line": 11,
+          "page": "92"
+        },
+        {
+          "line": 12,
+          "page": "92"
+        },
+        {
+          "line": 13,
+          "page": "92"
+        },
+        {
+          "line": 14,
+          "page": "92"
+        },
+        {
+          "line": 15,
+          "page": "92"
+        },
+        {
+          "line": 16,
+          "page": "92"
+        },
+        {
+          "line": 17,
+          "page": "92"
+        },
+        {
+          "line": 18,
+          "page": "92"
+        },
+        {
+          "line": 19,
+          "page": "92"
+        },
+        {
+          "line": 20,
+          "page": "92"
+        },
+        {
+          "line": 21,
+          "page": "92"
+        },
+        {
+          "line": 22,
+          "page": "92"
+        },
+        {
+          "line": 23,
+          "page": "92"
+        },
+        {
+          "line": 24,
+          "page": "92"
+        },
+        {
+          "line": 25,
+          "page": "92"
+        },
+        {
+          "line": 26,
+          "page": "92"
+        },
+        {
+          "line": 27,
+          "page": "92"
+        },
+        {
+          "line": 28,
+          "page": "92"
+        },
+        {
+          "line": 29,
+          "page": "92"
+        },
+        {
+          "line": 30,
+          "page": "92"
+        },
+        {
+          "line": 31,
+          "page": "92"
+        },
+        {
+          "line": 32,
+          "page": "92"
+        },
+        {
+          "line": 33,
+          "page": "92"
+        },
+        {
+          "line": 34,
+          "page": "92"
+        },
+        {
+          "line": 35,
+          "page": "92"
+        },
+        {
+          "line": 36,
+          "page": "92"
+        },
+        {
+          "line": 37,
+          "page": "92"
+        },
+        {
+          "line": 38,
+          "page": "92"
+        },
+        {
+          "line": 39,
+          "page": "92"
+        },
+        {
+          "line": 40,
+          "page": "92"
+        },
+        {
+          "line": 41,
+          "page": "92"
+        },
+        {
+          "line": 42,
+          "page": "92"
+        },
+        {
+          "line": 43,
+          "page": "93"
+        },
+        {
+          "line": 44,
+          "page": "93"
+        },
+        {
+          "line": 45,
+          "page": "93"
+        },
+        {
+          "line": 46,
+          "page": "93"
+        },
+        {
+          "line": 47,
+          "page": "93"
+        },
+        {
+          "line": 48,
+          "page": "93"
+        },
+        {
+          "line": 49,
+          "page": "93"
+        },
+        {
+          "line": 50,
+          "page": "93"
+        },
+        {
+          "line": 51,
+          "page": "93"
+        },
+        {
+          "line": 52,
+          "page": "93"
+        },
+        {
+          "line": 53,
+          "page": "93"
+        },
+        {
+          "line": 54,
+          "page": "93"
+        },
+        {
+          "line": 55,
+          "page": "93"
+        },
+        {
+          "line": 56,
+          "page": "93"
+        },
+        {
+          "line": 57,
+          "page": "93"
+        },
+        {
+          "line": 58,
+          "page": "93"
+        },
+        {
+          "line": 59,
+          "page": "93"
+        },
+        {
+          "line": 60,
+          "page": "93"
+        },
+        {
+          "line": 61,
+          "page": "93"
+        },
+        {
+          "line": 62,
+          "page": "93"
+        },
+        {
+          "line": 63,
+          "page": "93"
+        },
+        {
+          "line": 64,
+          "page": "93"
+        },
+        {
+          "line": 65,
+          "page": "93"
+        },
+        {
+          "line": 66,
+          "page": "93"
+        },
+        {
+          "line": 67,
+          "page": "93"
+        },
+        {
+          "line": 68,
+          "page": "93"
+        },
+        {
+          "line": 69,
+          "page": "93"
+        },
+        {
+          "line": 70,
+          "page": "93"
+        },
+        {
+          "line": 71,
+          "page": "93"
+        },
+        {
+          "line": 72,
+          "page": "93"
+        },
+        {
+          "line": 73,
+          "page": "93"
+        },
+        {
+          "line": 74,
+          "page": "93"
+        },
+        {
+          "line": 75,
+          "page": "93"
+        },
+        {
+          "line": 76,
+          "page": "93"
+        },
+        {
+          "line": 77,
+          "page": "93"
+        },
+        {
+          "line": 78,
+          "page": "93"
+        },
+        {
+          "line": 79,
+          "page": "93"
+        },
+        {
+          "line": 80,
+          "page": "93"
+        },
+        {
+          "line": 81,
+          "page": "93"
+        },
+        {
+          "line": 82,
+          "page": "93"
+        },
+        {
+          "line": 83,
+          "page": "93"
+        },
+        {
+          "line": 84,
+          "page": "93"
+        }
+      ]
+    }
   },
   "poem-II.1": {
     "xml_id": "poem-II.1",
@@ -13492,7 +16338,51 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 9
+    "total_lines": 9,
+    "page_info": {
+      "pages": [
+        "95",
+        "96"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "95"
+        },
+        {
+          "line": 2,
+          "page": "95"
+        },
+        {
+          "line": 3,
+          "page": "95"
+        },
+        {
+          "line": 4,
+          "page": "95"
+        },
+        {
+          "line": 5,
+          "page": "95"
+        },
+        {
+          "line": 6,
+          "page": "95"
+        },
+        {
+          "line": 7,
+          "page": "95"
+        },
+        {
+          "line": 8,
+          "page": "95"
+        },
+        {
+          "line": 9,
+          "page": "95"
+        }
+      ]
+    }
   },
   "poem-II.2": {
     "xml_id": "poem-II.2",
@@ -14516,7 +17406,240 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 56
+    "total_lines": 56,
+    "page_info": {
+      "pages": [
+        "97",
+        "98",
+        "99"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "97"
+        },
+        {
+          "line": 2,
+          "page": "97"
+        },
+        {
+          "line": 3,
+          "page": "97"
+        },
+        {
+          "line": 4,
+          "page": "97"
+        },
+        {
+          "line": 5,
+          "page": "97"
+        },
+        {
+          "line": 6,
+          "page": "97"
+        },
+        {
+          "line": 7,
+          "page": "97"
+        },
+        {
+          "line": 8,
+          "page": "97"
+        },
+        {
+          "line": 9,
+          "page": "97"
+        },
+        {
+          "line": 10,
+          "page": "97"
+        },
+        {
+          "line": 11,
+          "page": "97"
+        },
+        {
+          "line": 12,
+          "page": "97"
+        },
+        {
+          "line": 13,
+          "page": "97"
+        },
+        {
+          "line": 14,
+          "page": "97"
+        },
+        {
+          "line": 15,
+          "page": "97"
+        },
+        {
+          "line": 16,
+          "page": "97"
+        },
+        {
+          "line": 17,
+          "page": "97"
+        },
+        {
+          "line": 18,
+          "page": "97"
+        },
+        {
+          "line": 19,
+          "page": "97"
+        },
+        {
+          "line": 20,
+          "page": "97"
+        },
+        {
+          "line": 21,
+          "page": "97"
+        },
+        {
+          "line": 22,
+          "page": "97"
+        },
+        {
+          "line": 23,
+          "page": "97"
+        },
+        {
+          "line": 24,
+          "page": "97"
+        },
+        {
+          "line": 25,
+          "page": "97"
+        },
+        {
+          "line": 26,
+          "page": "97"
+        },
+        {
+          "line": 27,
+          "page": "97"
+        },
+        {
+          "line": 28,
+          "page": "97"
+        },
+        {
+          "line": 29,
+          "page": "98"
+        },
+        {
+          "line": 30,
+          "page": "98"
+        },
+        {
+          "line": 31,
+          "page": "98"
+        },
+        {
+          "line": 32,
+          "page": "98"
+        },
+        {
+          "line": 33,
+          "page": "98"
+        },
+        {
+          "line": 34,
+          "page": "98"
+        },
+        {
+          "line": 35,
+          "page": "98"
+        },
+        {
+          "line": 36,
+          "page": "98"
+        },
+        {
+          "line": 37,
+          "page": "98"
+        },
+        {
+          "line": 38,
+          "page": "98"
+        },
+        {
+          "line": 39,
+          "page": "98"
+        },
+        {
+          "line": 40,
+          "page": "98"
+        },
+        {
+          "line": 41,
+          "page": "98"
+        },
+        {
+          "line": 42,
+          "page": "98"
+        },
+        {
+          "line": 43,
+          "page": "98"
+        },
+        {
+          "line": 44,
+          "page": "98"
+        },
+        {
+          "line": 45,
+          "page": "98"
+        },
+        {
+          "line": 46,
+          "page": "98"
+        },
+        {
+          "line": 47,
+          "page": "98"
+        },
+        {
+          "line": 48,
+          "page": "98"
+        },
+        {
+          "line": 49,
+          "page": "98"
+        },
+        {
+          "line": 50,
+          "page": "98"
+        },
+        {
+          "line": 51,
+          "page": "98"
+        },
+        {
+          "line": 52,
+          "page": "98"
+        },
+        {
+          "line": 53,
+          "page": "98"
+        },
+        {
+          "line": 54,
+          "page": "98"
+        },
+        {
+          "line": 55,
+          "page": "98"
+        },
+        {
+          "line": 56,
+          "page": "98"
+        }
+      ]
+    }
   },
   "poem-II.3": {
     "xml_id": "poem-II.3",
@@ -14604,7 +17727,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "100",
+        "101"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "100"
+        },
+        {
+          "line": 2,
+          "page": "100"
+        },
+        {
+          "line": 3,
+          "page": "100"
+        },
+        {
+          "line": 4,
+          "page": "100"
+        }
+      ]
+    }
   },
   "poem-II.4": {
     "xml_id": "poem-II.4",
@@ -14660,7 +17807,23 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "102",
+        "103"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "102"
+        },
+        {
+          "line": 2,
+          "page": "102"
+        }
+      ]
+    }
   },
   "poem-II.5": {
     "xml_id": "poem-II.5",
@@ -14956,7 +18119,71 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 14
+    "total_lines": 14,
+    "page_info": {
+      "pages": [
+        "104",
+        "105"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "104"
+        },
+        {
+          "line": 2,
+          "page": "104"
+        },
+        {
+          "line": 3,
+          "page": "104"
+        },
+        {
+          "line": 4,
+          "page": "104"
+        },
+        {
+          "line": 5,
+          "page": "104"
+        },
+        {
+          "line": 6,
+          "page": "104"
+        },
+        {
+          "line": 7,
+          "page": "104"
+        },
+        {
+          "line": 8,
+          "page": "104"
+        },
+        {
+          "line": 9,
+          "page": "104"
+        },
+        {
+          "line": 10,
+          "page": "104"
+        },
+        {
+          "line": 11,
+          "page": "104"
+        },
+        {
+          "line": 12,
+          "page": "104"
+        },
+        {
+          "line": 13,
+          "page": "104"
+        },
+        {
+          "line": 14,
+          "page": "104"
+        }
+      ]
+    }
   },
   "poem-II.6": {
     "xml_id": "poem-II.6",
@@ -15974,7 +19201,216 @@ window.poemsData = {
     "rubrics": [
       "Doctorum: Albrisii carmina riserint,"
     ],
-    "total_lines": 50
+    "total_lines": 50,
+    "page_info": {
+      "pages": [
+        "106",
+        "107",
+        "108"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "106"
+        },
+        {
+          "line": 2,
+          "page": "106"
+        },
+        {
+          "line": 3,
+          "page": "106"
+        },
+        {
+          "line": 4,
+          "page": "106"
+        },
+        {
+          "line": 5,
+          "page": "106"
+        },
+        {
+          "line": 6,
+          "page": "106"
+        },
+        {
+          "line": 7,
+          "page": "106"
+        },
+        {
+          "line": 8,
+          "page": "106"
+        },
+        {
+          "line": 9,
+          "page": "106"
+        },
+        {
+          "line": 10,
+          "page": "106"
+        },
+        {
+          "line": 11,
+          "page": "106"
+        },
+        {
+          "line": 12,
+          "page": "106"
+        },
+        {
+          "line": 13,
+          "page": "106"
+        },
+        {
+          "line": 14,
+          "page": "106"
+        },
+        {
+          "line": 15,
+          "page": "106"
+        },
+        {
+          "line": 16,
+          "page": "106"
+        },
+        {
+          "line": 17,
+          "page": "106"
+        },
+        {
+          "line": 18,
+          "page": "106"
+        },
+        {
+          "line": 19,
+          "page": "106"
+        },
+        {
+          "line": 20,
+          "page": "106"
+        },
+        {
+          "line": 21,
+          "page": "106"
+        },
+        {
+          "line": 22,
+          "page": "106"
+        },
+        {
+          "line": 23,
+          "page": "106"
+        },
+        {
+          "line": 24,
+          "page": "106"
+        },
+        {
+          "line": 25,
+          "page": "107"
+        },
+        {
+          "line": 26,
+          "page": "107"
+        },
+        {
+          "line": 27,
+          "page": "107"
+        },
+        {
+          "line": 28,
+          "page": "107"
+        },
+        {
+          "line": 29,
+          "page": "107"
+        },
+        {
+          "line": 30,
+          "page": "107"
+        },
+        {
+          "line": 31,
+          "page": "107"
+        },
+        {
+          "line": 32,
+          "page": "107"
+        },
+        {
+          "line": 33,
+          "page": "107"
+        },
+        {
+          "line": 34,
+          "page": "107"
+        },
+        {
+          "line": 35,
+          "page": "107"
+        },
+        {
+          "line": 36,
+          "page": "107"
+        },
+        {
+          "line": 37,
+          "page": "107"
+        },
+        {
+          "line": 38,
+          "page": "107"
+        },
+        {
+          "line": 39,
+          "page": "107"
+        },
+        {
+          "line": 40,
+          "page": "107"
+        },
+        {
+          "line": 41,
+          "page": "107"
+        },
+        {
+          "line": 42,
+          "page": "107"
+        },
+        {
+          "line": 43,
+          "page": "107"
+        },
+        {
+          "line": 44,
+          "page": "107"
+        },
+        {
+          "line": 45,
+          "page": "107"
+        },
+        {
+          "line": 46,
+          "page": "107"
+        },
+        {
+          "line": 47,
+          "page": "107"
+        },
+        {
+          "line": 48,
+          "page": "107"
+        },
+        {
+          "line": 49,
+          "page": "107"
+        },
+        {
+          "line": 50,
+          "page": "107"
+        }
+      ]
+    }
   },
   "poem-II.7": {
     "xml_id": "poem-II.7",
@@ -16062,7 +19498,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "109",
+        "110"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "109"
+        },
+        {
+          "line": 2,
+          "page": "109"
+        },
+        {
+          "line": 3,
+          "page": "109"
+        },
+        {
+          "line": 4,
+          "page": "109"
+        }
+      ]
+    }
   },
   "poem-II.8": {
     "xml_id": "poem-II.8",
@@ -16182,7 +19642,38 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "111"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "111"
+        },
+        {
+          "line": 2,
+          "page": "111"
+        },
+        {
+          "line": 3,
+          "page": "111"
+        },
+        {
+          "line": 4,
+          "page": "111"
+        },
+        {
+          "line": 5,
+          "page": "111"
+        },
+        {
+          "line": 6,
+          "page": "111"
+        }
+      ]
+    }
   },
   "poem-II.9": {
     "xml_id": "poem-II.9",
@@ -16398,7 +19889,55 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "112",
+        "113"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "112"
+        },
+        {
+          "line": 2,
+          "page": "112"
+        },
+        {
+          "line": 3,
+          "page": "112"
+        },
+        {
+          "line": 4,
+          "page": "112"
+        },
+        {
+          "line": 5,
+          "page": "112"
+        },
+        {
+          "line": 6,
+          "page": "112"
+        },
+        {
+          "line": 7,
+          "page": "112"
+        },
+        {
+          "line": 8,
+          "page": "112"
+        },
+        {
+          "line": 9,
+          "page": "112"
+        },
+        {
+          "line": 10,
+          "page": "112"
+        }
+      ]
+    }
   },
   "poem-II.10": {
     "xml_id": "poem-II.10",
@@ -16486,7 +20025,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "114",
+        "115"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "114"
+        },
+        {
+          "line": 2,
+          "page": "114"
+        },
+        {
+          "line": 3,
+          "page": "114"
+        },
+        {
+          "line": 4,
+          "page": "114"
+        }
+      ]
+    }
   },
   "poem-II.11": {
     "xml_id": "poem-II.11",
@@ -16542,7 +20105,23 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "116",
+        "117"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "116"
+        },
+        {
+          "line": 2,
+          "page": "116"
+        }
+      ]
+    }
   },
   "poem-II.12": {
     "xml_id": "poem-II.12",
@@ -16598,7 +20177,23 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "118",
+        "119"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "118"
+        },
+        {
+          "line": 2,
+          "page": "118"
+        }
+      ]
+    }
   },
   "poem-II.13": {
     "xml_id": "poem-II.13",
@@ -16686,7 +20281,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "120",
+        "121"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "120"
+        },
+        {
+          "line": 2,
+          "page": "120"
+        },
+        {
+          "line": 3,
+          "page": "120"
+        },
+        {
+          "line": 4,
+          "page": "120"
+        }
+      ]
+    }
   },
   "poem-II.14": {
     "xml_id": "poem-II.14",
@@ -19182,7 +22801,512 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 124
+    "total_lines": 124,
+    "page_info": {
+      "pages": [
+        "122",
+        "123",
+        "124"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "122"
+        },
+        {
+          "line": 2,
+          "page": "122"
+        },
+        {
+          "line": 3,
+          "page": "122"
+        },
+        {
+          "line": 4,
+          "page": "122"
+        },
+        {
+          "line": 5,
+          "page": "122"
+        },
+        {
+          "line": 6,
+          "page": "122"
+        },
+        {
+          "line": 7,
+          "page": "122"
+        },
+        {
+          "line": 8,
+          "page": "122"
+        },
+        {
+          "line": 9,
+          "page": "122"
+        },
+        {
+          "line": 10,
+          "page": "122"
+        },
+        {
+          "line": 11,
+          "page": "122"
+        },
+        {
+          "line": 12,
+          "page": "122"
+        },
+        {
+          "line": 13,
+          "page": "122"
+        },
+        {
+          "line": 14,
+          "page": "122"
+        },
+        {
+          "line": 15,
+          "page": "122"
+        },
+        {
+          "line": 16,
+          "page": "122"
+        },
+        {
+          "line": 17,
+          "page": "122"
+        },
+        {
+          "line": 18,
+          "page": "122"
+        },
+        {
+          "line": 19,
+          "page": "122"
+        },
+        {
+          "line": 20,
+          "page": "122"
+        },
+        {
+          "line": 21,
+          "page": "122"
+        },
+        {
+          "line": 22,
+          "page": "122"
+        },
+        {
+          "line": 23,
+          "page": "122"
+        },
+        {
+          "line": 24,
+          "page": "122"
+        },
+        {
+          "line": 25,
+          "page": "122"
+        },
+        {
+          "line": 26,
+          "page": "122"
+        },
+        {
+          "line": 27,
+          "page": "122"
+        },
+        {
+          "line": 28,
+          "page": "122"
+        },
+        {
+          "line": 29,
+          "page": "122"
+        },
+        {
+          "line": 30,
+          "page": "122"
+        },
+        {
+          "line": 31,
+          "page": "122"
+        },
+        {
+          "line": 32,
+          "page": "122"
+        },
+        {
+          "line": 33,
+          "page": "122"
+        },
+        {
+          "line": 34,
+          "page": "122"
+        },
+        {
+          "line": 35,
+          "page": "122"
+        },
+        {
+          "line": 36,
+          "page": "122"
+        },
+        {
+          "line": 37,
+          "page": "122"
+        },
+        {
+          "line": 38,
+          "page": "122"
+        },
+        {
+          "line": 39,
+          "page": "122"
+        },
+        {
+          "line": 40,
+          "page": "122"
+        },
+        {
+          "line": 41,
+          "page": "122"
+        },
+        {
+          "line": 42,
+          "page": "122"
+        },
+        {
+          "line": 43,
+          "page": "122"
+        },
+        {
+          "line": 44,
+          "page": "122"
+        },
+        {
+          "line": 45,
+          "page": "122"
+        },
+        {
+          "line": 46,
+          "page": "122"
+        },
+        {
+          "line": 47,
+          "page": "122"
+        },
+        {
+          "line": 48,
+          "page": "122"
+        },
+        {
+          "line": 49,
+          "page": "122"
+        },
+        {
+          "line": 50,
+          "page": "122"
+        },
+        {
+          "line": 51,
+          "page": "122"
+        },
+        {
+          "line": 52,
+          "page": "122"
+        },
+        {
+          "line": 53,
+          "page": "122"
+        },
+        {
+          "line": 54,
+          "page": "122"
+        },
+        {
+          "line": 55,
+          "page": "122"
+        },
+        {
+          "line": 56,
+          "page": "122"
+        },
+        {
+          "line": 57,
+          "page": "122"
+        },
+        {
+          "line": 58,
+          "page": "122"
+        },
+        {
+          "line": 59,
+          "page": "122"
+        },
+        {
+          "line": 60,
+          "page": "122"
+        },
+        {
+          "line": 61,
+          "page": "122"
+        },
+        {
+          "line": 62,
+          "page": "122"
+        },
+        {
+          "line": 63,
+          "page": "123"
+        },
+        {
+          "line": 64,
+          "page": "123"
+        },
+        {
+          "line": 65,
+          "page": "123"
+        },
+        {
+          "line": 66,
+          "page": "123"
+        },
+        {
+          "line": 67,
+          "page": "123"
+        },
+        {
+          "line": 68,
+          "page": "123"
+        },
+        {
+          "line": 69,
+          "page": "123"
+        },
+        {
+          "line": 70,
+          "page": "123"
+        },
+        {
+          "line": 71,
+          "page": "123"
+        },
+        {
+          "line": 72,
+          "page": "123"
+        },
+        {
+          "line": 73,
+          "page": "123"
+        },
+        {
+          "line": 74,
+          "page": "123"
+        },
+        {
+          "line": 75,
+          "page": "123"
+        },
+        {
+          "line": 76,
+          "page": "123"
+        },
+        {
+          "line": 77,
+          "page": "123"
+        },
+        {
+          "line": 78,
+          "page": "123"
+        },
+        {
+          "line": 79,
+          "page": "123"
+        },
+        {
+          "line": 80,
+          "page": "123"
+        },
+        {
+          "line": 81,
+          "page": "123"
+        },
+        {
+          "line": 82,
+          "page": "123"
+        },
+        {
+          "line": 83,
+          "page": "123"
+        },
+        {
+          "line": 84,
+          "page": "123"
+        },
+        {
+          "line": 85,
+          "page": "123"
+        },
+        {
+          "line": 86,
+          "page": "123"
+        },
+        {
+          "line": 87,
+          "page": "123"
+        },
+        {
+          "line": 88,
+          "page": "123"
+        },
+        {
+          "line": 89,
+          "page": "123"
+        },
+        {
+          "line": 90,
+          "page": "123"
+        },
+        {
+          "line": 91,
+          "page": "123"
+        },
+        {
+          "line": 92,
+          "page": "123"
+        },
+        {
+          "line": 93,
+          "page": "123"
+        },
+        {
+          "line": 94,
+          "page": "123"
+        },
+        {
+          "line": 95,
+          "page": "123"
+        },
+        {
+          "line": 96,
+          "page": "123"
+        },
+        {
+          "line": 97,
+          "page": "123"
+        },
+        {
+          "line": 98,
+          "page": "123"
+        },
+        {
+          "line": 99,
+          "page": "123"
+        },
+        {
+          "line": 100,
+          "page": "123"
+        },
+        {
+          "line": 101,
+          "page": "123"
+        },
+        {
+          "line": 102,
+          "page": "123"
+        },
+        {
+          "line": 103,
+          "page": "123"
+        },
+        {
+          "line": 104,
+          "page": "123"
+        },
+        {
+          "line": 105,
+          "page": "123"
+        },
+        {
+          "line": 106,
+          "page": "123"
+        },
+        {
+          "line": 107,
+          "page": "123"
+        },
+        {
+          "line": 108,
+          "page": "123"
+        },
+        {
+          "line": 109,
+          "page": "123"
+        },
+        {
+          "line": 110,
+          "page": "123"
+        },
+        {
+          "line": 111,
+          "page": "123"
+        },
+        {
+          "line": 112,
+          "page": "123"
+        },
+        {
+          "line": 113,
+          "page": "123"
+        },
+        {
+          "line": 114,
+          "page": "123"
+        },
+        {
+          "line": 115,
+          "page": "123"
+        },
+        {
+          "line": 116,
+          "page": "123"
+        },
+        {
+          "line": 117,
+          "page": "123"
+        },
+        {
+          "line": 118,
+          "page": "123"
+        },
+        {
+          "line": 119,
+          "page": "123"
+        },
+        {
+          "line": 120,
+          "page": "123"
+        },
+        {
+          "line": 121,
+          "page": "123"
+        },
+        {
+          "line": 122,
+          "page": "123"
+        },
+        {
+          "line": 123,
+          "page": "123"
+        },
+        {
+          "line": 124,
+          "page": "123"
+        }
+      ]
+    }
   },
   "poem-II.15": {
     "xml_id": "poem-II.15",
@@ -19270,7 +23394,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "125",
+        "126"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "125"
+        },
+        {
+          "line": 2,
+          "page": "125"
+        },
+        {
+          "line": 3,
+          "page": "125"
+        },
+        {
+          "line": 4,
+          "page": "125"
+        }
+      ]
+    }
   },
   "poem-II.16": {
     "xml_id": "poem-II.16",
@@ -19358,7 +23506,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "127",
+        "128"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "127"
+        },
+        {
+          "line": 2,
+          "page": "127"
+        },
+        {
+          "line": 3,
+          "page": "127"
+        },
+        {
+          "line": 4,
+          "page": "127"
+        }
+      ]
+    }
   },
   "poem-II.17": {
     "xml_id": "poem-II.17",
@@ -19446,7 +23618,31 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "129",
+        "130"
+      ],
+      "lines_with_pages": [
+        {
+          "line": 1,
+          "page": "129"
+        },
+        {
+          "line": 2,
+          "page": "129"
+        },
+        {
+          "line": 3,
+          "page": "129"
+        },
+        {
+          "line": 4,
+          "page": "129"
+        }
+      ]
+    }
   },
   "poem-II.18": {
     "xml_id": "poem-II.18",
@@ -19702,7 +23898,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "96"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.19": {
     "xml_id": "poem-II.19",
@@ -20198,7 +24400,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 24
+    "total_lines": 24,
+    "page_info": {
+      "pages": [
+        "98"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.20": {
     "xml_id": "poem-II.20",
@@ -20374,7 +24582,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "100"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.21": {
     "xml_id": "poem-II.21",
@@ -20950,7 +25164,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 28
+    "total_lines": 28,
+    "page_info": {
+      "pages": [
+        "102"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.22": {
     "xml_id": "poem-II.22",
@@ -22406,7 +26626,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 72
+    "total_lines": 72,
+    "page_info": {
+      "pages": [
+        "104"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.23": {
     "xml_id": "poem-II.23",
@@ -22862,7 +27088,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 22
+    "total_lines": 22,
+    "page_info": {
+      "pages": [
+        "106"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.24": {
     "xml_id": "poem-II.24",
@@ -23478,7 +27710,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 30
+    "total_lines": 30,
+    "page_info": {
+      "pages": [
+        "108"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.25": {
     "xml_id": "poem-II.25",
@@ -23534,7 +27772,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "110"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.26": {
     "xml_id": "poem-II.26",
@@ -23622,7 +27866,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "112"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.27": {
     "xml_id": "poem-II.27",
@@ -23710,7 +27960,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "114"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.28": {
     "xml_id": "poem-II.28",
@@ -23798,7 +28054,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "116"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.29": {
     "xml_id": "poem-II.29",
@@ -23918,7 +28180,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "118"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.30": {
     "xml_id": "poem-II.30",
@@ -24006,7 +28274,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "120"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.31": {
     "xml_id": "poem-II.31",
@@ -24094,7 +28368,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "122"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.32": {
     "xml_id": "poem-II.32",
@@ -24214,7 +28494,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "124"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.33": {
     "xml_id": "poem-II.33",
@@ -24302,7 +28588,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "126"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.34": {
     "xml_id": "poem-II.34",
@@ -24638,7 +28930,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 16
+    "total_lines": 16,
+    "page_info": {
+      "pages": [
+        "128"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.35": {
     "xml_id": "poem-II.35",
@@ -24814,7 +29112,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "130"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.36": {
     "xml_id": "poem-II.36",
@@ -25070,7 +29374,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "132"
+      ],
+      "estimated": true
+    }
   },
   "poem-II.37": {
     "xml_id": "poem-II.37",
@@ -25526,7 +29836,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 22
+    "total_lines": 22,
+    "page_info": {
+      "pages": [
+        "134"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.1": {
     "xml_id": "poem-III.1",
@@ -26128,7 +30444,13 @@ window.poemsData = {
     "rubrics": [
       "Aurelius Laurentius Albrisii Lucinae liber tercius incipit"
     ],
-    "total_lines": 29
+    "total_lines": 29,
+    "page_info": {
+      "pages": [
+        "112"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.2": {
     "xml_id": "poem-III.2",
@@ -26216,7 +30538,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "114"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.3": {
     "xml_id": "poem-III.3",
@@ -26336,7 +30664,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "116"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.4": {
     "xml_id": "poem-III.4",
@@ -26424,7 +30758,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "118"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.5": {
     "xml_id": "poem-III.5",
@@ -27040,7 +31380,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 30
+    "total_lines": 30,
+    "page_info": {
+      "pages": [
+        "120"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.6": {
     "xml_id": "poem-III.6",
@@ -27696,7 +32042,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 32
+    "total_lines": 32,
+    "page_info": {
+      "pages": [
+        "122"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.7": {
     "xml_id": "poem-III.7",
@@ -27912,7 +32264,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "124"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.8": {
     "xml_id": "poem-III.8",
@@ -28128,7 +32486,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "126"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.9": {
     "xml_id": "poem-III.9",
@@ -28584,7 +32948,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 22
+    "total_lines": 22,
+    "page_info": {
+      "pages": [
+        "128"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.10": {
     "xml_id": "poem-III.10",
@@ -29384,7 +33754,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 39
+    "total_lines": 39,
+    "page_info": {
+      "pages": [
+        "130"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.11": {
     "xml_id": "poem-III.11",
@@ -29440,7 +33816,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "132"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.12": {
     "xml_id": "poem-III.12",
@@ -30162,7 +34544,13 @@ window.poemsData = {
     "rubrics": [
       "Vive. Sed Albrisii memorem te fata secundent."
     ],
-    "total_lines": 35
+    "total_lines": 35,
+    "page_info": {
+      "pages": [
+        "134"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.13": {
     "xml_id": "poem-III.13",
@@ -31018,7 +35406,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 42
+    "total_lines": 42,
+    "page_info": {
+      "pages": [
+        "136"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.14": {
     "xml_id": "poem-III.14",
@@ -31234,7 +35628,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "138"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.15": {
     "xml_id": "poem-III.15",
@@ -31322,7 +35722,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "140"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.16": {
     "xml_id": "poem-III.16",
@@ -31938,7 +36344,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 30
+    "total_lines": 30,
+    "page_info": {
+      "pages": [
+        "142"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.17": {
     "xml_id": "poem-III.17",
@@ -32058,7 +36470,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "144"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.18": {
     "xml_id": "poem-III.18",
@@ -32660,7 +37078,13 @@ window.poemsData = {
     "rubrics": [
       "Clarior Albrisii carmine semper eris."
     ],
-    "total_lines": 29
+    "total_lines": 29,
+    "page_info": {
+      "pages": [
+        "146"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.19": {
     "xml_id": "poem-III.19",
@@ -32916,7 +37340,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "148"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.20": {
     "xml_id": "poem-III.20",
@@ -33004,7 +37434,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "150"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.21": {
     "xml_id": "poem-III.21",
@@ -33124,7 +37560,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "152"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.22": {
     "xml_id": "poem-III.22",
@@ -33244,7 +37686,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "154"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.23": {
     "xml_id": "poem-III.23",
@@ -33500,7 +37948,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 12
+    "total_lines": 12,
+    "page_info": {
+      "pages": [
+        "156"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.24": {
     "xml_id": "poem-III.24",
@@ -33588,7 +38042,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "158"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.25": {
     "xml_id": "poem-III.25",
@@ -33708,7 +38168,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "160"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.26": {
     "xml_id": "poem-III.26",
@@ -33796,7 +38262,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "162"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.27": {
     "xml_id": "poem-III.27",
@@ -33884,7 +38356,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "164"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.28": {
     "xml_id": "poem-III.28",
@@ -34620,7 +39098,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 36
+    "total_lines": 36,
+    "page_info": {
+      "pages": [
+        "166"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.29": {
     "xml_id": "poem-III.29",
@@ -35636,7 +40120,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 50
+    "total_lines": 50,
+    "page_info": {
+      "pages": [
+        "168"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.30": {
     "xml_id": "poem-III.30",
@@ -36372,7 +40862,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 36
+    "total_lines": 36,
+    "page_info": {
+      "pages": [
+        "170"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.31": {
     "xml_id": "poem-III.31",
@@ -37588,7 +42084,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 60
+    "total_lines": 60,
+    "page_info": {
+      "pages": [
+        "172"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.32": {
     "xml_id": "poem-III.32",
@@ -38124,7 +42626,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 26
+    "total_lines": 26,
+    "page_info": {
+      "pages": [
+        "174"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.33": {
     "xml_id": "poem-III.33",
@@ -38212,7 +42720,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "176"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.34": {
     "xml_id": "poem-III.34",
@@ -38300,7 +42814,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "178"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.35": {
     "xml_id": "poem-III.35",
@@ -38516,7 +43036,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 10
+    "total_lines": 10,
+    "page_info": {
+      "pages": [
+        "180"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.36": {
     "xml_id": "poem-III.36",
@@ -39116,7 +43642,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 29
+    "total_lines": 29,
+    "page_info": {
+      "pages": [
+        "182"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.37": {
     "xml_id": "poem-III.37",
@@ -39204,7 +43736,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 4
+    "total_lines": 4,
+    "page_info": {
+      "pages": [
+        "184"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.38": {
     "xml_id": "poem-III.38",
@@ -39260,7 +43798,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "186"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.39": {
     "xml_id": "poem-III.39",
@@ -39436,7 +43980,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 8
+    "total_lines": 8,
+    "page_info": {
+      "pages": [
+        "188"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.40": {
     "xml_id": "poem-III.40",
@@ -39492,7 +44042,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 2
+    "total_lines": 2,
+    "page_info": {
+      "pages": [
+        "190"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.41": {
     "xml_id": "poem-III.41",
@@ -39934,7 +44490,13 @@ window.poemsData = {
     "rubrics": [
       "Libertas, animo quae fuit usque meo."
     ],
-    "total_lines": 21
+    "total_lines": 21,
+    "page_info": {
+      "pages": [
+        "192"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.42": {
     "xml_id": "poem-III.42",
@@ -40310,7 +44872,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 18
+    "total_lines": 18,
+    "page_info": {
+      "pages": [
+        "194"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.43": {
     "xml_id": "poem-III.43",
@@ -41430,7 +45998,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 55
+    "total_lines": 55,
+    "page_info": {
+      "pages": [
+        "196"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.44": {
     "xml_id": "poem-III.44",
@@ -43406,7 +47980,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 98
+    "total_lines": 98,
+    "page_info": {
+      "pages": [
+        "198"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.45": {
     "xml_id": "poem-III.45",
@@ -43526,7 +48106,13 @@ window.poemsData = {
       }
     ],
     "rubrics": [],
-    "total_lines": 6
+    "total_lines": 6,
+    "page_info": {
+      "pages": [
+        "200"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.46": {
     "xml_id": "poem-III.46",
@@ -44128,7 +48714,13 @@ window.poemsData = {
     "rubrics": [
       "Lucinam, faciles crede Iacobe deos."
     ],
-    "total_lines": 29
+    "total_lines": 29,
+    "page_info": {
+      "pages": [
+        "202"
+      ],
+      "estimated": true
+    }
   },
   "poem-III.47": {
     "xml_id": "poem-III.47",
@@ -44786,6 +49378,12 @@ window.poemsData = {
     "rubrics": [
       "Lucina (heu) roseo nitore amantem."
     ],
-    "total_lines": 32
+    "total_lines": 32,
+    "page_info": {
+      "pages": [
+        "204"
+      ],
+      "estimated": true
+    }
   }
 };

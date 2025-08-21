@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lucina - Simple Synchronized View</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .left-panel, .right-panel {
+            width: 50%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .left-panel {
+            background: #f5f5f5;
+            border-right: 2px solid #333;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ddd;
+        }
+        
+        select {
+            padding: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        
+        .poem-text {
+            background: white;
+            padding: 20px;
+            min-height: 400px;
+        }
+        
+        .line {
+            margin: 5px 0;
+        }
+        
+        .line-number {
+            display: inline-block;
+            width: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .manuscript-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .error {
+            padding: 20px;
+            background: #fee;
+            color: #c00;
+            border: 1px solid #c00;
+        }
+        
+        .status {
+            padding: 10px;
+            background: #ffc;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT: Text -->
+        <div class="left-panel">
+            <div class="controls">
+                <select id="bookSelect">
+                    <option value="">Select Book...</option>
+                    <option value="bookI">Book I</option>
+                    <option value="bookII">Book II</option>
+                    <option value="bookIII">Book III</option>
+                </select>
+                <select id="poemSelect">
+                    <option value="">Select Poem...</option>
+                </select>
+            </div>
+            <div class="status" id="status">Ready</div>
+            <div class="poem-text" id="poemText">
+                Select a poem to begin
+            </div>
+        </div>
+        
+        <!-- RIGHT: Manuscript -->
+        <div class="right-panel">
+            <h3>Manuscript Page</h3>
+            <div id="imageContainer">
+                <p>Select a poem to view manuscript</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load poems data -->
+    <script src="poems-data-pages.js"></script>
+    <script src="books-data.js"></script>
+    
+    <script>
+        // Simple viewer class
+        class SimpleViewer {
+            constructor() {
+                this.currentPoem = null;
+                this.currentPage = null;
+                this.init();
+            }
+            
+            init() {
+                // Set up event handlers
+                document.getElementById('bookSelect').addEventListener('change', (e) => {
+                    this.selectBook(e.target.value);
+                });
+                
+                document.getElementById('poemSelect').addEventListener('change', (e) => {
+                    this.selectPoem(e.target.value);
+                });
+                
+                this.updateStatus('Ready - Select a book');
+            }
+            
+            updateStatus(msg) {
+                document.getElementById('status').textContent = msg;
+            }
+            
+            selectBook(bookId) {
+                if (!bookId) return;
+                
+                this.updateStatus(`Loading ${bookId}...`);
+                
+                const poemSelect = document.getElementById('poemSelect');
+                poemSelect.innerHTML = '<option value="">Select Poem...</option>';
+                
+                // Get poems for this book
+                const book = window.booksData[bookId];
+                if (!book || !book.poems) {
+                    this.updateStatus('No poems found in book');
+                    return;
+                }
+                
+                // Add poems to dropdown
+                book.poems.forEach(poemId => {
+                    const poem = window.poemsData[poemId];
+                    if (poem) {
+                        const option = document.createElement('option');
+                        option.value = poemId;
+                        option.textContent = `${poem.number}. ${poem.dedicatee || poem.title || 'Untitled'}`;
+                        poemSelect.appendChild(option);
+                    }
+                });
+                
+                this.updateStatus(`${bookId} loaded - ${book.poems.length} poems`);
+            }
+            
+            selectPoem(poemId) {
+                if (!poemId) return;
+                
+                const poem = window.poemsData[poemId];
+                if (!poem) {
+                    this.updateStatus('Poem not found!');
+                    return;
+                }
+                
+                this.currentPoem = poem;
+                this.updateStatus(`Loading ${poemId}...`);
+                
+                // Display poem text
+                this.displayPoem(poem);
+                
+                // Load manuscript image
+                this.loadImage(poem);
+            }
+            
+            displayPoem(poem) {
+                let html = `<h3>${poem.book}.${poem.number}</h3>`;
+                if (poem.dedicatee) {
+                    html += `<p><em>${poem.dedicatee}</em></p>`;
+                }
+                html += '<div style="margin-top: 20px;">';
+                
+                // Get all lines
+                let lines = [];
+                if (poem.line_groups) {
+                    poem.line_groups.forEach(lg => {
+                        if (lg.lines) lines = lines.concat(lg.lines);
+                    });
+                } else if (poem.lines) {
+                    lines = poem.lines;
+                }
+                
+                // Display lines
+                lines.forEach((line, i) => {
+                    html += `<div class="line">`;
+                    html += `<span class="line-number">${i + 1}</span>`;
+                    html += `<span>${line.text || ''}</span>`;
+                    html += `</div>`;
+                });
+                
+                html += '</div>';
+                document.getElementById('poemText').innerHTML = html;
+            }
+            
+            loadImage(poem) {
+                // Get page number from poem
+                let pageNum = null;
+                
+                if (poem.page_info) {
+                    if (Array.isArray(poem.page_info) && poem.page_info.length > 0) {
+                        pageNum = poem.page_info[0];
+                    } else if (poem.page_info.pages && poem.page_info.pages.length > 0) {
+                        pageNum = poem.page_info.pages[0];
+                    }
+                }
+                
+                if (!pageNum) {
+                    document.getElementById('imageContainer').innerHTML = 
+                        '<p class="error">No page information for this poem</p>';
+                    this.updateStatus('No page info available');
+                    return;
+                }
+                
+                // Calculate image filename
+                const pageInt = parseInt(pageNum);
+                const imageNum = Math.ceil(pageInt / 2);
+                const side = (pageInt % 2 === 1) ? 'left' : 'right';
+                
+                // Handle special variants
+                let variant = '1';
+                if (imageNum === 5 && pageInt >= 9) {
+                    variant = '2';
+                } else if (imageNum === 50 && pageInt >= 99) {
+                    variant = '2';
+                }
+                
+                const imageName = `image_${imageNum}_${variant}__${side}.jpg`;
+                
+                // Build path - check if local or GitHub Pages
+                // When opened as file:// the path needs to go up 2 levels
+                // From: docs/edition-3/web/simple_sync.html
+                // To: docs/facsimiles/
+                const imagePath = `../../facsimiles/${imageName}`;
+                
+                // Alternative: try absolute path for GitHub Pages
+                // const imagePath = `/diged-neolat/docs/facsimiles/${imageName}`;
+                
+                this.updateStatus(`Loading page ${pageNum}...`);
+                
+                // Display image
+                const container = document.getElementById('imageContainer');
+                container.innerHTML = `
+                    <p>Page ${pageNum} of 130</p>
+                    <img src="${imagePath}" 
+                         alt="Page ${pageNum}" 
+                         class="manuscript-image"
+                         onload="document.getElementById('status').textContent='Page ${pageNum} loaded successfully'"
+                         onerror="this.onerror=null; 
+                                  this.parentElement.innerHTML='<div class=\\'error\\'>Failed to load image:<br>${imagePath}<br>File: ${imageName}</div>';
+                                  document.getElementById('status').textContent='Image load failed'">
+                `;
+            }
+        }
+        
+        // Start the viewer when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            window.viewer = new SimpleViewer();
+        });
+    </script>
+</body>
+</html>

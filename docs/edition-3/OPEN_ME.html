@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lucina Digital Edition - Launcher</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .button:hover {
+            background: #45a049;
+        }
+        .test {
+            background: #2196F3;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lucina Digital Edition (1474)</h1>
+    <p>128 Latin poems by Aurelius Laurentius Albrisius</p>
+    
+    <h2>Open the Digital Edition:</h2>
+    <a href="web/simple_sync.html" class="button">Open Simple Synchronized View</a>
+    <a href="web/test_path.html" class="button test">Test Image Paths</a>
+    
+    <div class="status">
+        <h3>Quick Test:</h3>
+        <p>Testing if images load...</p>
+        <img src="../facsimiles/image_5_2__left.jpg" width="200" style="display:none"
+             onload="document.getElementById('test-result').innerHTML='✓ Images are working!'"
+             onerror="document.getElementById('test-result').innerHTML='✗ Image path issue - check console'">
+        <p id="test-result">Testing...</p>
+    </div>
+    
+    <h2>Structure:</h2>
+    <ul>
+        <li>4 Books (Praefatio + Books I-III)</li>
+        <li>128 Poems</li>
+        <li>130 Manuscript pages</li>
+        <li>97 Historical persons</li>
+    </ul>
+    
+    <h2>How to Use:</h2>
+    <ol>
+        <li>Click "Open Simple Synchronized View"</li>
+        <li>Select Book I</li>
+        <li>Select first poem</li>
+        <li>Text appears on left, manuscript on right</li>
+    </ol>
+</body>
+</html>

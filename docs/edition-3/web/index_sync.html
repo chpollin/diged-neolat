@@ -380,9 +380,9 @@
             
             async loadData() {
                 try {
-                    // Load poems data
+                    // Load poems data WITH PAGE INFORMATION
                     const poemsScript = document.createElement('script');
-                    poemsScript.src = 'poems-data.js';
+                    poemsScript.src = 'poems-data-pages.js';  // Use the new file with page info!
                     document.head.appendChild(poemsScript);
                     
                     // Load books data
@@ -508,9 +508,16 @@
                 html += `</div>`;
                 
                 // Add page marker at start if we have page info
-                if (poem.page_info && poem.page_info.pages) {
-                    const firstPage = poem.page_info.pages[0];
-                    html += `<div class="page-marker" data-page="${firstPage}">Page ${firstPage}</div>`;
+                let firstPage = null;
+                if (poem.page_info) {
+                    if (Array.isArray(poem.page_info) && poem.page_info.length > 0) {
+                        firstPage = poem.page_info[0];
+                    } else if (poem.page_info.pages && poem.page_info.pages.length > 0) {
+                        firstPage = poem.page_info.pages[0];
+                    }
+                    if (firstPage) {
+                        html += `<div class="page-marker" data-page="${firstPage}">Page ${firstPage}</div>`;
+                    }
                 }
                 
                 // Lines - handle both direct lines and line groups
@@ -559,8 +566,24 @@
                     `${poem.book}.${poem.number} - ${poem.dedicatee || 'Untitled'}`;
                 
                 // Load first page image
-                if (poem.page_info && poem.page_info.pages) {
-                    this.loadManuscriptPage(poem.page_info.pages[0]);
+                console.log('Checking page_info for image loading:', poem.page_info);
+                let firstPageToLoad = null;
+                if (poem.page_info) {
+                    if (Array.isArray(poem.page_info) && poem.page_info.length > 0) {
+                        firstPageToLoad = poem.page_info[0];
+                        console.log('Found page in array format:', firstPageToLoad);
+                    } else if (poem.page_info.pages && poem.page_info.pages.length > 0) {
+                        firstPageToLoad = poem.page_info.pages[0];
+                        console.log('Found page in object format:', firstPageToLoad);
+                    }
+                    if (firstPageToLoad) {
+                        console.log('Calling loadManuscriptPage with:', firstPageToLoad);
+                        this.loadManuscriptPage(firstPageToLoad);
+                    } else {
+                        console.warn('No first page found in page_info');
+                    }
+                } else {
+                    console.warn('No page_info for this poem');
                 }
                 
                 // Scroll to top
@@ -568,36 +591,60 @@
             }
             
             loadManuscriptPage(pageNum) {
+                console.log('=== loadManuscriptPage called with:', pageNum);
                 this.currentPage = pageNum;
                 
-                // Find the corresponding image file
-                // The naming pattern is: image_[num]_[variant]__[side].jpg
-                // Odd pages are left, even pages are right
-                const side = (parseInt(pageNum) % 2 === 0) ? 'right' : 'left';
+                // Map page number to actual image file
+                // The pattern from pb_tags.xml shows the actual naming
+                const pageInt = parseInt(pageNum);
+                console.log('Parsed page number:', pageInt);
+                let imageName = '';
                 
-                // Build the image path (we know ../../facsimiles/ works from the test)
-                const imagePath = `../../facsimiles/image_${pageNum}_1__${side}.jpg`;
+                // Direct mapping based on the pb_tags data
+                // Pages are sequential: image_1_1__left.jpg is page 1, image_1_1__right.jpg is page 2, etc.
+                const imageNum = Math.ceil(pageInt / 2);
+                const side = (pageInt % 2 === 1) ? 'left' : 'right';
+                
+                // Special cases for image_5_2 and image_50_2
+                let variant = '1';
+                if (imageNum === 5 && pageInt >= 9) {
+                    variant = '2';
+                } else if (imageNum === 50 && pageInt >= 99) {
+                    variant = '2';
+                }
+                
+                imageName = `image_${imageNum}_${variant}__${side}.jpg`;
+                
+                // Build the full path
+                // Check if we're on GitHub Pages or local
+                const isGitHubPages = window.location.hostname.includes('github.io');
+                const basePath = isGitHubPages ? '/diged-neolat/docs/facsimiles' : '../../facsimiles';
+                const imagePath = `${basePath}/${imageName}`;
                 
                 const viewer = document.getElementById('manuscriptViewer');
+                console.log('Manuscript viewer element found:', viewer !== null);
+                console.log('Creating image with path:', imagePath);
                 
-                // Create image with fallback
+                // Create image element
                 const imgHTML = `
                     <img src="${imagePath}" 
-                         alt="Page ${pageNum}" 
+                         alt="Page ${pageNum} - ${imageName}" 
                          class="manuscript-image"
                          onerror="this.onerror=null; 
-                                  // Try alternative naming patterns
-                                  var altPath = '../../facsimiles/image_${Math.ceil(parseInt('${pageNum}')/2)}_1__${side}.jpg';
-                                  this.src = altPath;
-                                  this.onerror = function() {
-                                      this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Image not found: Page ${pageNum}<br><small>Tried: ${imagePath}</small></div>';
-                                  };">
+                                  this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>
+                                      <h3>Image not found</h3>
+                                      <p>Page ${pageNum}</p>
+                                      <p><small>${imageName}</small></p>
+                                      <p><small>Path: ${imagePath}</small></p>
+                                  </div>';">
                 `;
                 
+                console.log('Inserting image HTML into viewer...');
                 viewer.innerHTML = imgHTML;
+                console.log('Image HTML inserted! Check the manuscriptViewer div now.');
                 
                 // Update page info
-                document.getElementById('pageInfo').textContent = `Page ${pageNum} of 176`;
+                document.getElementById('pageInfo').textContent = `Page ${pageNum} of 130`;
                 document.getElementById('currentPage').textContent = pageNum;
             }
             
@@ -662,7 +709,7 @@
                 if (!this.currentPage) return;
                 
                 const newPage = parseInt(this.currentPage) + direction;
-                if (newPage >= 1 && newPage <= 176) {
+                if (newPage >= 1 && newPage <= 130) {  // 130 pages total based on pb_tags
                     this.loadManuscriptPage(newPage);
                 }
             }
