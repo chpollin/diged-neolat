@@ -229,6 +229,15 @@
   <text>
     <front>
       <!-- Praefatio -->
+       <pb facs="image_1_1__left.jpg" n="1"/>
+       <pb facs="image_1_1__right.jpg" n="2"/>
+       <pb facs="image_2_1__left.jpg" n="3"/>
+       <pb facs="image_2_1__right.jpg" n="4"/>
+       <pb facs="image_3_1__left.jpg" n="5"/>
+       <pb facs="image_3_1__right.jpg" n="6"/>
+       <pb facs="image_4_1__left.jpg" n="7"/>
+       <pb facs="image_4_1__right.jpg" n="8"/>
+       <pb facs="image_5_2__left.jpg" n="9"/>
       <div type="praefatio" xml:id="praefatio">
         <head type="rubric" rend="red">Praefatio</head>
         <head type="author" rend="red">Aurelii Laurentii Albrisii praefatio in Lucinam</head>
@@ -260,6 +269,7 @@
         </lg>
         <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
           <l n="13" xml:id="praef.13">Mox aliis vitam studiis, ubi prima iuventus</l>
+          <pb facs="image_6_1__left.jpg" n="11"/>
           <l n="14" xml:id="praef.14" rend="indent">Coeperit atque alia flectere lora manu.</l>
         </lg>
         <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
@@ -298,6 +308,7 @@
           </lg>
           <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
             <l n="11" xml:id="poem-I.1.11">Fundere Apollineum nostra per ora iubar.</l>
+            <pb facs="image_6_1__right.jpg" n="12"/>
             <l n="12" xml:id="poem-I.1.12">Mirabar dulcis oculos et eburnea colla,</l>
           </lg>
           <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
@@ -341,6 +352,7 @@
           </lg>
           <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
             <l n="7" xml:id="poem-I.2.7">Signa meae Veneris suspiria traxit ab imo</l>
+            <pb facs="image_7_1__left.jpg" n="13"/>
             <l n="8" xml:id="poem-I.2.8">Pectoris. Erubuit nostra puella iocum.</l>
           </lg>
           <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
@@ -383,6 +395,7 @@
             <l n="1" xml:id="poem-I.4.1">Posteritas nostro si quicquam credet honori,</l>
             <l n="2" xml:id="poem-I.4.2">Servet honor quamvis scrinia nostra levis,</l>
             <l n="3" xml:id="poem-I.4.3">Quaeque meum carmen, haec te mirabitur aetas.</l>
+            <pb facs="image_7_1__right.jpg" n="14"/>
             <l n="4" xml:id="poem-I.4.4">Te propter clarus, Chiche, libellus erit.</l>
             <l n="5" xml:id="poem-I.4.5">Chiche, tui noster praeclara libellus habebit</l>
             <l n="6" xml:id="poem-I.4.6">Nomina. Candidior te feret aura deum.</l>
