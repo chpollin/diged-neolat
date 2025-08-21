@@ -1,6 +1,3 @@
-Here's your corrected Promptotyping Journal:
-
-```markdown
 # Promptotyping Journal
 
 This document documents the Promptotyping process and the decisions.
@@ -62,4 +59,17 @@ This document documents the Promptotyping process and the decisions.
 * I then have the Python script written with compact logging, create only body (to save output token) (we can feed that bacl to claude!)
 * A few iterations with the Python script and the logs. The result of this iteration is in the final folder and is called tei-final-1.xml. This is our first, still very rough and probably flawed tei xml version.
 
+## Preparing the images
 
+* from pdf
+* used GPT-5, where i uplaoded the pdf and said it shiud create a .zip with all images. 
+* than i said cut them in have, like the rigt and the left 
+* finally i said give me all <pb facs="{filename}" n="{number sequence}"/> return all <pb facs="{filename}" n="{number sequence}"/> for evfery image in a .xml
+* adding images to the tei needs to be down manually i guess; i did it for some entries; i tried chat gpt agents, but that is a very compalciated tasl for ai.
+
+## Edition 1
+
+* With the first TEI XML and the images prepared, I started to create the first version of the edition. I switched to Gemini 2.5 pro to write the Python script to create the index.html from the TEI XML, as Gemini 2.5 pro with its large context window can handle the full TEI XML.
+* I let Gemini 2.5 pro first create a plan and also added all context .md files to provide comprehensive background information.
+* I was very explicit with all path information to ensure the script would correctly locate and process files; also keeping it simple at this stage!
+* ~5 iterations with the Python script were needed to create the static index.html that properly rendered the edition.
