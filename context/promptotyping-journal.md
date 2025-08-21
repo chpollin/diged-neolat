@@ -73,3 +73,4 @@ This document documents the Promptotyping process and the decisions.
 * I let Gemini 2.5 pro first create a plan and also added all context .md files to provide comprehensive background information.
 * I was very explicit with all path information to ensure the script would correctly locate and process files; also keeping it simple at this stage!
 * ~5 iterations with the Python script were needed to create the static index.html that properly rendered the edition.
+* Some tips for the first prototyping iteration. This iteration can be used as a starting point for the next one.
