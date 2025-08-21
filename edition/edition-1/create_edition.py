@@ -8,9 +8,7 @@ HTML_OUTPUT_FILE = "index.html"
 CSS_FILE_NAME = "style.css"
 JS_FILE_NAME = "script.js"
 
-# Set the absolute path to your facsimiles folder.
-FACSIMILES_BASE_PATH = Path("C:/Users/Chrisi/Documents/GitHub/diged-neolat/facsimiles")
-
+# REMOVED the absolute path. The script now assumes a relative structure.
 
 def get_full_text(element):
     """Recursively gets all text from an element and its children."""
@@ -102,18 +100,15 @@ def generate_content_html(text_root, ns):
     """Recursively processes the XML tree to generate structurally correct HTML."""
     html_parts = []
     
-    # Process preface
     praefatio = text_root.find('tei:front/tei:div[@type="praefatio"]', ns)
     if praefatio is not None:
         html_parts.append('<section id="praefatio">')
-        # Wrap preface content in a single <article> for consistent styling
         html_parts.append('<article class="poem">')
         for element in praefatio:
             html_parts.append(process_element(element, ns))
         html_parts.append('</article>')
         html_parts.append('</section>')
 
-    # Process body
     body = text_root.find('tei:body', ns)
     if body is not None:
         for book in body.findall('tei:div[@type="book"]', ns):
@@ -126,7 +121,6 @@ def process_element(element, ns):
     tag = element.tag.replace(f"{{{ns['tei']}}}", "")
     parts = []
 
-    # --- Opening Tags ---
     if tag == 'div' and element.get('type') == 'book':
         book_id = element.get('id', '')
         parts.append(f'<section id="{book_id}">')
@@ -138,11 +132,12 @@ def process_element(element, ns):
         meta = f'<div class="poem-meta"><span>Poem: {poem_n}</span><span>Meter: {poem_met}</span><span>Genre: {poem_ana}</span></div>'
         parts.append(f'<article class="poem" id="{poem_id}">{meta}')
     
-    # --- Self-closing/Simple Tags ---
     if tag == 'pb':
-        image_src = (FACSIMILES_BASE_PATH / element.get('facs')).as_uri()
+        # --- FIX: Use a relative path for GitHub Pages ---
+        # This assumes your 'facsimiles' folder is two levels up from your index.html
+        image_path = f"../../facsimiles/{element.get('facs')}"
         page_num = element.get('n')
-        parts.append(f'<div class="page-marker" data-image-src="{image_src}" data-folio="{page_num}"></div>')
+        parts.append(f'<div class="page-marker" data-image-src="{image_path}" data-folio="{page_num}"></div>')
     elif tag == 'head':
         classes = "poem-header" + (' rubric' if element.get('type') == 'rubric' else '')
         head_content = ""
@@ -162,12 +157,10 @@ def process_element(element, ns):
         line_id = element.get('{http://www.w3.org/XML/1998/namespace}id', '')
         parts.append(f'<span class="{classes}" data-xml-id="{line_id}"><span class="line-number">{line_n}</span>{get_full_text(element)}</span>')
 
-    # --- Process Child Elements Recursively ---
     if tag in ['div', 'lg', 'front', 'body']:
         for child in element:
             parts.append(process_element(child, ns))
 
-    # --- Closing Tags ---
     if tag == 'div' and element.get('type') == 'book':
         parts.append('</section>')
     elif tag == 'div' and element.get('type') == 'poem':
@@ -177,7 +170,7 @@ def process_element(element, ns):
 
 
 def create_html_from_tei(xml_path, output_path):
-    """Loads the TEI XML, transforms it, and writes the index.html file with a modern UI."""
+    """Loads the TEI XML, transforms it, and writes the index.html file."""
     try:
         ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
         ET.register_namespace('', ns['tei'])
@@ -268,4 +261,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
