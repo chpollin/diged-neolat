@@ -64,7 +64,7 @@
   <head type="rubric">[Rubric text if present]</head>
   <lg type="[meter-type]" met="[metrical-pattern]">
     <l n="[number]" xml:id="[book].[poem].[line]">[verse]</l>
-    <l n="[number]" xml:id="[book].[poem].[line]" rend="indent">[verse]</l>
+    <l n="[number]" xml:id="[book].[poem].[line]">[verse]</l>
   </lg>
 </div>
 ```
@@ -83,7 +83,7 @@
 <!-- Elegiac couplets -->
 <lg type="elegiac" met="[pattern]">
   <l n="1">Hexameter line</l>
-  <l n="2" rend="indent">Pentameter line</l>
+  <l n="2">Pentameter line</l>
 </lg>
 
 <!-- Lyric stanzas -->
@@ -91,7 +91,7 @@
   <l n="1">First Sapphic line</l>
   <l n="2">Second Sapphic line</l>
   <l n="3">Third Sapphic line</l>
-  <l n="4" rend="indent">Adonic line</l>
+  <l n="4">Adonic line</l>
 </lg>
 ```
 
@@ -314,7 +314,7 @@
   <head type="dedication">Ad <persName ref="#person-id">Name</persName></head>
   <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
     <l n="1" xml:id="I.X.1">Hexameter verse</l>
-    <l n="2" xml:id="I.X.2" rend="indent">Pentameter verse</l>
+    <l n="2" xml:id="I.X.2">Pentameter verse</l>
   </lg>
   <note type="literary" target="#I.X.1">Commentary</note>
 </div>

@@ -2,7 +2,9 @@
 
 This document documents the Promptotyping process and the decisions.
 
-## Get Context - What a Digital Edition is?
+## Promptotyping Iteration 2
+
+### Get Context - What a Digital Edition is?
 
 * Used Claude Opus 4.1
 * Compressed "Criteria for Reviewing Scholarly Digital Editions, version 1.1" into a digital-edition-guide.md
@@ -10,14 +12,14 @@ This document documents the Promptotyping process and the decisions.
 * Used prompting to compress it to the information that I thought I need
 * I reuse this chat now and compare this information with the description of the edition (basic information about work and author)
 
-## Comparing digital-edition-guide.md with the Editorial Introduction ("Das Werk und der Autor")
+### Comparing digital-edition-guide.md with the Editorial Introduction ("Das Werk und der Autor")
 
 * Consider how this step relates to the 'Framework for Scholarly Digital Editions' and analyse it step by step
 * Prompt: "Write a compact editorial introduction to the edition and include all the necessary information! Write it in such a way that I can publish it as a webpage from this Markdown file."
 * editorial-introduction.md
 * This is context about the edition --> we need that to create requirements specifications
 
-## Creating the Editorial Guidelines
+### Creating the Editorial Guidelines
 
 * Analyze the plain text with the context of edition and editorial introduction and create the mapping to TEI
 * This needs expert knowledge also for the TEI standards and validation
@@ -39,7 +41,7 @@ This document documents the Promptotyping process and the decisions.
 * And I put all lists into standOff → this is okay for Claude to fail, because this is often in real TEI not correct → but that is really an example of "if you are an expert in TEI no problem. Only to create manually standOff and put it there → now it is valid."
 * Bring all information from all conversations together and merge them into a single GitHub commit. Now we have documented everything we did. Keeping stable versions is very important!
 
-## .docx to first TEI xml via python
+### .docx to first TEI xml via python
 
 * In the git are all .md files we have; we dont give it the full tei xml or the full edition trasnctipt as this are much too much tokens for the xcontext windwo
 * and we explcitly do not write code directly, but we want to create a plan; and we are not doing everything; we start with a frist simple tei xml; as we would do when we would code it manually
@@ -59,7 +61,7 @@ This document documents the Promptotyping process and the decisions.
 * I then have the Python script written with compact logging, create only body (to save output token) (we can feed that bacl to claude!)
 * A few iterations with the Python script and the logs. The result of this iteration is in the final folder and is called tei-final-1.xml. This is our first, still very rough and probably flawed tei xml version.
 
-## Preparing the images
+### Preparing the images
 
 * from pdf
 * used GPT-5, where i uplaoded the pdf and said it shiud create a .zip with all images. 
@@ -67,10 +69,17 @@ This document documents the Promptotyping process and the decisions.
 * finally i said give me all <pb facs="{filename}" n="{number sequence}"/> return all <pb facs="{filename}" n="{number sequence}"/> for evfery image in a .xml
 * adding images to the tei needs to be down manually i guess; i did it for some entries; i tried chat gpt agents, but that is a very compalciated tasl for ai.
 
-## Edition 1
+### Edition 1
 
 * With the first TEI XML and the images prepared, I started to create the first version of the edition. I switched to Gemini 2.5 pro to write the Python script to create the index.html from the TEI XML, as Gemini 2.5 pro with its large context window can handle the full TEI XML.
 * I let Gemini 2.5 pro first create a plan and also added all context .md files to provide comprehensive background information.
 * I was very explicit with all path information to ensure the script would correctly locate and process files; also keeping it simple at this stage!
 * ~5 iterations with the Python script were needed to create the static index.html that properly rendered the edition.
 * Some tips for the first prototyping iteration. This iteration can be used as a starting point for the next one.
+
+## Promptotyping Iteration 2
+
+* Die Analyse-Datei heißt analysis-tei-1.py und die Eingabe ist tei-final-1.xml. Ich möchte weiter herausfinden, was wir alles deterministisch machen können, um das TEI-XML zu verbessern. Das ist auch ein Validierungsschritt.
+* dann daraus ein python erzeugt um aus tei 1 tei 2 zu erzeugen
+* dann habe ich das tei xml analysieren lassen und gefragt was wir über die daten lernen --> das in ein DATA.md gegeben, dann nochmal das .docx zum gegen schecken
+* alel ergebnnise in ein DATA.md verdichtet

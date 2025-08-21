@@ -1,0 +1,827 @@
+{
+  "changes": [
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.1.4",
+      "text": "(Exacta fuerant iam nata crepuscula nocte)",
+      "full_line": "(Exacta fuerant iam nata crepuscula nocte),"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.1.13",
+      "text": "(ut polus astra)",
+      "full_line": "Mirabar roseos (ut polus astra) sinus."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.6.5",
+      "text": "(ut Marne vides)",
+      "full_line": "Ferri (ut Marne vides) queunt."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.6.40",
+      "text": "(si sapias)",
+      "full_line": "Molli (si sapias) mero"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.9.2",
+      "text": "(crede!)",
+      "full_line": "Sublimi et feries vertice (crede!) polum."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.9.18",
+      "text": "(Mecoenas animae est cura secunda meae!)",
+      "full_line": "(Mecoenas animae est cura secunda meae!):"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.24.15",
+      "text": "(puer ante)",
+      "full_line": "Nec modo flos (puer ante) suae data signa figurae,"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-I.43.25",
+      "text": "(,)",
+      "full_line": "Noctibus totis vigil usque(,) versat"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.8.1",
+      "text": "(l)",
+      "full_line": "Iul(l)ia pulch[r]a, simul formosa Fidelia gaudet"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.16.2",
+      "text": "(Incomptus nec enim forte libellus erit)",
+      "full_line": "(Incomptus nec enim forte libellus erit)"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.16.4",
+      "text": "(crede)",
+      "full_line": "Seria cumque iocis (crede) libellus habet."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.22.15",
+      "text": "(fatemur)",
+      "full_line": "Te velint parcae. Liquida hic (fatemur)"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.24.18",
+      "text": "(Heu frustra)",
+      "full_line": "(Heu frustra) querulo sollicitant cibo"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.24.30",
+      "text": "(z)",
+      "full_line": "Nostrum Stroz(z)a suo culmine verticem."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.32.5",
+      "text": "(mihi crede)",
+      "full_line": "Et pluviae tenues (mihi crede) et dulcia vina."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-II.34.16",
+      "text": "(crede)",
+      "full_line": "Et nos (crede) iugo cogit aheneo."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.6.31",
+      "text": "(iura)",
+      "full_line": "Simonetae, igitur post dulces (iura) Camoenas"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.9.10",
+      "text": "(crede)",
+      "full_line": "Torqueret nullus corpora (crede) dolor."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.12.29",
+      "text": "(precor)",
+      "full_line": "Tu (precor) insigni citius succurre Philelfo"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.12.32",
+      "text": "(crede)",
+      "full_line": "Sphorciada et feries vertice (crede) polum."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.18.13",
+      "text": "(modo licet)",
+      "full_line": "Festivasque (modo licet) exercete choreas"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.18.26",
+      "text": "(mea gloria)",
+      "full_line": "Quam Lambertinae cessent (mea gloria) laudes,"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.28.21",
+      "text": "(credite)",
+      "full_line": "Regnetis aegram (credite) latius"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.28.25",
+      "text": "(nostis)",
+      "full_line": "Obscura lustret (nostis) ut inclyta"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.31.26",
+      "text": "(ut lepus actus)",
+      "full_line": "Deserui accelerans (ut lepus actus) iter."
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.31.57",
+      "text": "(mihi credas)",
+      "full_line": "Petre (mihi credas) meritam dabis improbe poenam,"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.42.13",
+      "text": "(utinam)",
+      "full_line": "Forsitan hunc variis (utinam) tumescam percellis"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.44.56",
+      "text": "(modo advertas)",
+      "full_line": "Quanta (modo advertas) res fuit ista, loquar"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.44.89",
+      "text": "(r)",
+      "full_line": "Si ver(r)o est patiens mundi aspernata labores,"
+    },
+    {
+      "type": "parenthetical",
+      "line_id": "poem-III.47.17",
+      "text": "(heu crudelis amor)",
+      "full_line": "(heu crudelis amor) rosa hic miser fit."
+    },
+    {
+      "type": "direct_speech",
+      "line_id": "poem-I.2.6",
+      "verb": "diceret",
+      "speech": "“Ah, tantum clare poeta iaces!”",
+      "full_line": "Diceret: “Ah, tantum clare poeta iaces!”"
+    },
+    {
+      "type": "direct_speech",
+      "line_id": "poem-II.37.20",
+      "verb": "diceret",
+      "speech": "“Ista precor molliter ossa cubent.",
+      "full_line": "Diceret: “Ista precor molliter ossa cubent."
+    },
+    {
+      "type": "ref_generated",
+      "text": "[Editor Name]\n            [Editor Surname]",
+      "ref": "#editor-name------------editor-surname"
+    },
+    {
+      "type": "ref_generated",
+      "text": "[Encoder Name]",
+      "ref": "#encoder-name"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Aurelius\n               Laurentius\n               Albrisius\n               Aurelio Lorenzo Albrisio",
+      "ref": "#aurelius---------------laurentius---------------albrisius---------------aurelio-lorenzo-albrisio"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Cicco\n               Simonetta",
+      "ref": "#cicco---------------simonetta"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Giovanni\n               Simonetta",
+      "ref": "#giovanni---------------simonetta"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Gian Giacomo\n               Simonetta",
+      "ref": "#gian-giacomo---------------simonetta"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Giovanni\n               Bishop of San Lamberto",
+      "ref": "#giovanni---------------bishop-of-san-lamberto"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Philippus\n               Vicecomes\n               Visconti",
+      "ref": "#philippus---------------vicecomes---------------visconti"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Franciscus\n               Varensis",
+      "ref": "#franciscus---------------varensis"
+    },
+    {
+      "type": "ref_generated",
+      "text": "Iacobus\n               Marnus",
+      "ref": "#iacobus---------------marnus"
+    },
+    {
+      "type": "ref_added",
+      "text": "Lucina",
+      "ref": "#lucina"
+    },
+    {
+      "type": "person_added",
+      "person_id": "alexandrum-coletam",
+      "name": "Alexandrum Coletam"
+    },
+    {
+      "type": "person_added",
+      "person_id": "ambrogio-visconti",
+      "name": "Ambrogio Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "andrea-simonetta",
+      "name": "Andrea Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "andreotum-mainum",
+      "name": "Andreotum Mainum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "antonio-federico-simonetta",
+      "name": "Antonio Federico Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "antonium-guidonem",
+      "name": "Antonium Guidonem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "aptum-guidonem",
+      "name": "Aptum Guidonem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "ascanio-visconti",
+      "name": "Ascanio Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "aurelius---------------laurentius---------------albrisius---------------aurelio-lorenzo-albrisio",
+      "name": "Aurelius               Laurentius               Albrisius               Aurelio Lorenzo Albrisio"
+    },
+    {
+      "type": "person_added",
+      "person_id": "azone-visconti",
+      "name": "Azone Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "baldasarem-mellium",
+      "name": "Baldasarem Mellium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "baptistam-compatrem",
+      "name": "Baptistam Compatrem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "barbiton-cicho",
+      "name": "Barbiton Cicho"
+    },
+    {
+      "type": "person_added",
+      "person_id": "battista-piasio",
+      "name": "Battista Piasio"
+    },
+    {
+      "type": "person_added",
+      "person_id": "blasium",
+      "name": "Blasium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "boninum",
+      "name": "Boninum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "borsium-arsenociten",
+      "name": "Borsium Arsenociten"
+    },
+    {
+      "type": "person_added",
+      "person_id": "brandum-castillionem",
+      "name": "Brandum Castillionem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "canem-aemulum",
+      "name": "Canem Aemulum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "catharina-bonium",
+      "name": "Catharina Bonium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "cerverium",
+      "name": "Cerverium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "cicco---------------simonetta",
+      "name": "Cicco               Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "cupido",
+      "name": "Cupido"
+    },
+    {
+      "type": "person_added",
+      "person_id": "deus",
+      "name": "Deus"
+    },
+    {
+      "type": "person_added",
+      "person_id": "editor-name------------editor-surname",
+      "name": "Editor Name            Editor Surname"
+    },
+    {
+      "type": "person_added",
+      "person_id": "encoder-name",
+      "name": "Encoder Name"
+    },
+    {
+      "type": "person_added",
+      "person_id": "euterpem-mellii",
+      "name": "Euterpem Mellii"
+    },
+    {
+      "type": "person_added",
+      "person_id": "filippo-visconti",
+      "name": "Filippo Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "francesco-filelfo",
+      "name": "Francesco Filelfo"
+    },
+    {
+      "type": "person_added",
+      "person_id": "francesco-sforza",
+      "name": "Francesco Sforza"
+    },
+    {
+      "type": "person_added",
+      "person_id": "francha-polidorum",
+      "name": "Francha Polidorum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "franciscae-sepulcro",
+      "name": "Franciscae Sepulcro"
+    },
+    {
+      "type": "person_added",
+      "person_id": "franciscum-firmanum",
+      "name": "Franciscum Firmanum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "franciscum-varensem",
+      "name": "Franciscum Varensem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "franciscus---------------varensis",
+      "name": "Franciscus               Varensis"
+    },
+    {
+      "type": "person_added",
+      "person_id": "frederici-sepulcrum",
+      "name": "Frederici Sepulcrum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "fulgosium",
+      "name": "Fulgosium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "galeazzo-sforza",
+      "name": "Galeazzo Maria Sforza"
+    },
+    {
+      "type": "person_added",
+      "person_id": "galeotum",
+      "name": "Galeotum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "gaspare-visconti",
+      "name": "Gaspare Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giacomo-antiquario",
+      "name": "Giacomo Antiquario"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giacomo-bonarelli",
+      "name": "Giacomo Bonarelli"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giacomo-marno",
+      "name": "Giacomo Marno"
+    },
+    {
+      "type": "person_added",
+      "person_id": "gian-giacomo---------------simonetta",
+      "name": "Gian Giacomo               Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giovanni---------------bishop-of-san-lamberto",
+      "name": "Giovanni               Bishop Of San Lamberto"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giovanni---------------simonetta",
+      "name": "Giovanni               Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giovanni-campesio",
+      "name": "Giovanni Campesio"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giovanni-francesco-simonetta",
+      "name": "Giovanni Francesco Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "giovanni-stefano",
+      "name": "Giovanni Stefano"
+    },
+    {
+      "type": "person_added",
+      "person_id": "guido-antonio-simonetta",
+      "name": "Guido Antonio Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "guidonem-torellum",
+      "name": "Guidonem Torellum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "hieronymum-guidonem",
+      "name": "Hieronymum Guidonem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iacobus---------------marnus",
+      "name": "Iacobus               Marnus"
+    },
+    {
+      "type": "person_added",
+      "person_id": "io-simonetam",
+      "name": "Io Simonetam"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-attendulum",
+      "name": "Iohannem Attendulum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-cominum",
+      "name": "Iohannem Cominum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-gerrardum",
+      "name": "Iohannem Gerrardum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-hydropotem",
+      "name": "Iohannem Hydropotem"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-molum",
+      "name": "Iohannem Molum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "iohannem-vezanum",
+      "name": "Iohannem Vezanum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lamia",
+      "name": "Lamia"
+    },
+    {
+      "type": "person_added",
+      "person_id": "laurentium-landinum",
+      "name": "Laurentium Landinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "laurus",
+      "name": "Laurus"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lechnon",
+      "name": "Lechnon"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lector",
+      "name": "Lector"
+    },
+    {
+      "type": "person_added",
+      "person_id": "leonardum-glusianum",
+      "name": "Leonardum Glusianum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lodovico-simonetta",
+      "name": "Lodovico Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lodovicum-putea",
+      "name": "Lodovicum Putea"
+    },
+    {
+      "type": "person_added",
+      "person_id": "lorenzo-strozza",
+      "name": "Lorenzo Strozza"
+    },
+    {
+      "type": "person_added",
+      "person_id": "marcum-trotum",
+      "name": "Marcum Trotum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "paula-alphonsinum",
+      "name": "Paula Alphonsinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "petrum-vermium",
+      "name": "Petrum Vermium"
+    },
+    {
+      "type": "person_added",
+      "person_id": "philippum-ferufinum",
+      "name": "Philippum Ferufinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "philippum-ferusinum",
+      "name": "Philippum Ferusinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "philippus---------------vicecomes---------------visconti",
+      "name": "Philippus               Vicecomes               Visconti"
+    },
+    {
+      "type": "person_added",
+      "person_id": "picculum",
+      "name": "Picculum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "plantanidum",
+      "name": "Plantanidum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "serum-florentinum",
+      "name": "Serum Florentinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "sigismondo-simonetta",
+      "name": "Sigismondo Simonetta"
+    },
+    {
+      "type": "person_added",
+      "person_id": "somnus",
+      "name": "Somnus"
+    },
+    {
+      "type": "person_added",
+      "person_id": "tadaei-sepulchro",
+      "name": "Tadaei Sepulchro"
+    },
+    {
+      "type": "person_added",
+      "person_id": "tharsia-casate",
+      "name": "Tharsia Casate"
+    },
+    {
+      "type": "person_added",
+      "person_id": "thomam-haesinum",
+      "name": "Thomam Haesinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "thomam-hesinum",
+      "name": "Thomam Hesinum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "tonsum",
+      "name": "Tonsum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "venus",
+      "name": "Venus"
+    },
+    {
+      "type": "person_added",
+      "person_id": "vitulinum-barboum",
+      "name": "Vitulinum Barboum"
+    },
+    {
+      "type": "person_added",
+      "person_id": "vitulinum-lechnon",
+      "name": "Vitulinum Lechnon"
+    }
+  ],
+  "speech_review_needed": [
+    {
+      "line_id": "poem-I.14.1",
+      "text": "Regalem ad mensam tua prandia saepe rogasti,",
+      "verb": "rogas",
+      "next_line": "Desine capripedem saepe rogare serum!",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-I.24.3",
+      "text": "Carminibusne rogas tua nomina surgere nostris?",
+      "verb": "rogas",
+      "next_line": "Cedit ubi eloquio nostra Thalia gravi,",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-I.24.23",
+      "text": "“Vita”, inquit, “primis et adhuc tua floreat annis!”",
+      "verb": "inquit",
+      "next_line": "Cura tamen tenero Nestoris ore sedet.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-II.9.5",
+      "text": "”Cui patris obsequium” dixit ,“bene coniugis astu?",
+      "verb": "dixit",
+      "next_line": "Illo Iacobe tuum nomine nomen habes.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-II.14.81",
+      "text": "Obvium linquit iuvenem sinistra",
+      "verb": "inquit",
+      "next_line": "Parte, qua dexter puer ante lusit.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-II.22.9",
+      "text": "Nobilem dixit potior triumphum",
+      "verb": "dixit",
+      "next_line": "Saepe Sphorcina repetitus aula",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-II.24.24",
+      "text": "cessisse et didicit Calliopen sibi,",
+      "verb": "dicit",
+      "next_line": "Nos aeque attonitos carminibus datis",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-II.24.24",
+      "text": "cessisse et didicit Calliopen sibi,",
+      "verb": "dicit",
+      "potential_speech": "Calliopen sibi,",
+      "reason": "speech_verb_with_capital"
+    },
+    {
+      "line_id": "poem-III.2.3",
+      "text": "“Forte Boninus eris”, genitrix tua praescia dixit.",
+      "verb": "dixit",
+      "next_line": "Hoc quoniam tota rarius urbe venit.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.9.15",
+      "text": "Virginitate potest fera vindicis ira tonantis.",
+      "verb": "dicis",
+      "next_line": "Fata deum et flecti virginitate queunt.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.12.2",
+      "text": "Plaudite, “Io” tota dicite in urbe, nurus!",
+      "verb": "dicit",
+      "next_line": "Cardinei sublimis apex atque inclyta coetus",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.13.25",
+      "text": "Hic semper didicit suae",
+      "verb": "dicit",
+      "next_line": "Mentis teque animi iungere conscium.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.18.11",
+      "text": "Dicite “Io” comites, “Io Lambertine”, perennem",
+      "verb": "dicit",
+      "next_line": "Hunc praestate hilari voce manumque diem.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.29.31",
+      "text": "Mox ubi sunt clamata satis tua nomina Paule",
+      "verb": "clamat",
+      "next_line": "Nympha refert raucos quos tulit ante modos.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.36.17",
+      "text": "Innocuum lacerasse senem. Rude dixit iniquum",
+      "verb": "dixit",
+      "next_line": "Ancipiti carmen pede composuisse poetam.",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.36.22",
+      "text": "Dixit, teque suo deus insignivit honore.",
+      "verb": "dixit",
+      "next_line": "Parcit hic erratis veniamque precantis Iopae",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.43.26",
+      "text": "Terra inquit nostro congruet ipsa polo.",
+      "verb": "inquit",
+      "next_line": "Mox ubi tranquillae placuit sententia menti",
+      "reason": "speech_verb_with_following_line"
+    },
+    {
+      "line_id": "poem-III.44.43",
+      "text": "Nomina quisieram, Pauli data nomina dixit.",
+      "verb": "dixit",
+      "next_line": "Reddita quaesito consona verba loco.",
+      "reason": "speech_verb_with_following_line"
+    }
+  ],
+  "summary": {
+    "parentheticals_marked": 30,
+    "persons_added_to_standoff": 88,
+    "direct_speech_marked": 2,
+    "persons_with_ref_added": 11
+  }
+}
