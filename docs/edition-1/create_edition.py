@@ -135,7 +135,7 @@ def process_element(element, ns):
     if tag == 'pb':
         # --- FIX: Use a relative path for GitHub Pages ---
         # This assumes your 'facsimiles' folder is two levels up from your index.html
-        image_path = f"../../facsimiles/{element.get('facs')}"
+        image_path = f"../facsimiles/{element.get('facs')}"
         page_num = element.get('n')
         parts.append(f'<div class="page-marker" data-image-src="{image_path}" data-folio="{page_num}"></div>')
     elif tag == 'head':
