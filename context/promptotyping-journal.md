@@ -60,5 +60,6 @@ This document documents the Promptotyping process and the decisions.
 * docx-data.md --> now we have the exact structure
 * I asked what python-docx exactly does and asked again whether it can process all structures
 * I then have the Python script written with compact logging, create only body (to save output token) (we can feed that bacl to claude!)
+* A few iterations with the Python script and the logs. The result of this iteration is in the final folder and is called tei-final-1.xml. This is our first, still very rough and probably flawed tei xml version.
 
 
