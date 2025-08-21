@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Lucina: A Digital Edition</title>
+        <author>
+          <persName ref="#albrisius">
+            <forename>Aurelius</forename>
+            <forename>Laurentius</forename>
+            <surname>Albrisius</surname>
+          </persName>
+        </author>
+        <editor role="editor">
+          <persName>
+            <forename>[Editor Name]</forename>
+            <surname>[Editor Surname]</surname>
+          </persName>
+        </editor>
+        <respStmt>
+          <resp>TEI Encoding</resp>
+          <persName>[Encoder Name]</persName>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>[Publisher]</publisher>
+        <date when="2024">2024</date>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by/4.0/">
+            Creative Commons Attribution 4.0 International
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>Spain</country>
+            <settlement>Madrid</settlement>
+            <repository>Biblioteca Nacional</repository>
+            <collection>Manuscritos</collection>
+            <idno>Mss. 6028</idno>
+          </msIdentifier>
+          <msContents>
+            <summary>Collection of 128 Latin occasional poems in three books, comprising 2,224 verses total</summary>
+            <msItem>
+              <author ref="#albrisius">Aurelius Laurentius Albrisius</author>
+              <title>Lucina</title>
+              <colophon>Finita et perfecta II Augusti MCCCCLXXIIII</colophon>
+            </msItem>
+          </msContents>
+          <physDesc>
+            <objectDesc>
+              <supportDesc material="parchment">
+                <support>Parchment</support>
+                <extent>176 folios
+                  <dimensions type="leaf" unit="mm">
+                    <height>220</height>
+                    <width>145</width>
+                  </dimensions>
+                </extent>
+              </supportDesc>
+              <layoutDesc>
+                <layout columns="1" writtenLines="20">Single column, 20 lines per page</layout>
+              </layoutDesc>
+            </objectDesc>
+            <handDesc>
+              <handNote script="humanistic">Humanistic script</handNote>
+            </handDesc>
+            <decoDesc>
+              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely Simonetta)</decoNote>
+            </decoDesc>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1474-08-02">2 August 1474</origDate>
+              <origPlace>Northern Italy (likely Pavia or Milan)</origPlace>
+            </origin>
+            <provenance>Probably from Cicco Simonetta's library</provenance>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines with customizations for Renaissance Latin occasional poetry.</p>
+      </projectDesc>
+      <editorialDecl>
+        <correction>
+          <p>Manifest scribal errors corrected with original readings preserved in apparatus.</p>
+        </correction>
+        <normalization>
+          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal punctuation normalization for comprehension.</p>
+        </normalization>
+        <quotation>
+          <p>Quotation marks not in original; added editorially where appropriate.</p>
+        </quotation>
+      </editorialDecl>
+      <classDecl>
+        <taxonomy xml:id="genres">
+          <category xml:id="epideictic"><catDesc>Panegyric, encomium</catDesc></category>
+          <category xml:id="epitaph"><catDesc>Funeral poetry</catDesc></category>
+          <category xml:id="invective"><catDesc>Attack poems</catDesc></category>
+          <category xml:id="epistle"><catDesc>Verse letters</catDesc></category>
+          <category xml:id="erotic"><catDesc>Love poetry</catDesc></category>
+          <category xml:id="consolatio"><catDesc>Consolation poems</catDesc></category>
+          <category xml:id="propemptikon"><catDesc>Farewell poems</catDesc></category>
+          <category xml:id="paraenesis"><catDesc>Advice poetry</catDesc></category>
+          <category xml:id="prayer"><catDesc>Religious invocations</catDesc></category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      
+      <settingDesc>
+        <listPlace>
+          <place xml:id="pavia">
+            <placeName>Pavia</placeName>
+          </place>
+          <place xml:id="milan">
+            <placeName>Milan</placeName>
+          </place>
+          <place xml:id="cremona">
+            <placeName>Cremona</placeName>
+          </place>
+          <place xml:id="san-francesco-pavia">
+            <placeName>Church of San Francesco, Pavia</placeName>
+            <note>Location of first encounter with Lucina</note>
+          </place>
+        </listPlace>
+      </settingDesc>
+    </profileDesc>
+  </teiHeader>
+   <standOff>
+      <listPerson>
+         <!-- Author -->
+         <person xml:id="albrisius">
+            <persName>
+               <forename>Aurelius</forename>
+               <forename>Laurentius</forename>
+               <surname>Albrisius</surname>
+               <addName type="alternate">Aurelio Lorenzo Albrisio</addName>
+            </persName>
+            <birth notBefore="1440" notAfter="1445">
+               <placeName ref="#cremona">Cremona</placeName>
+            </birth>
+            <occupation>Poet laureate, priest, tutor</occupation>
+            <note>Crowned poet laureate by Emperor Frederick III (1468/69). Tutor to Cicco Simonetta's sons.</note>
+         </person>
+         
+         <!-- Primary dedicatees -->
+         <person xml:id="cicco-simonetta">
+            <persName>
+               <forename>Cicco</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <birth notBefore="1410" notAfter="1420"/>
+            <death when="1480"/>
+            <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
+            <note>Primary patron, addressed as "alter Maecenas"</note>
+         </person>
+         
+         <person xml:id="giovanni-simonetta">
+            <persName>
+               <forename>Giovanni</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <note>Son of Cicco Simonetta</note>
+         </person>
+         
+         <person xml:id="giacomo-simonetta">
+            <persName>
+               <forename>Gian Giacomo</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <note>Eldest son of Cicco Simonetta, dedicatee of Book II</note>
+         </person>
+         
+         <person xml:id="giovanni-san-lamberto">
+            <persName>
+               <forename>Giovanni</forename>
+               <roleName>Bishop of San Lamberto</roleName>
+            </persName>
+            <occupation>Bishop</occupation>
+            <note>Dedicatee of Book III, promises Albrisius a benefice</note>
+         </person>
+         
+         <!-- Other addressees -->
+         <person xml:id="philippus-vicecomes">
+            <persName>
+               <forename>Philippus</forename>
+               <surname>Vicecomes</surname>
+               <addName>Visconti</addName>
+            </persName>
+            <note>Member of the Visconti family</note>
+         </person>
+         
+         <person xml:id="franciscus-varensis">
+            <persName>
+               <forename>Franciscus</forename>
+               <surname>Varensis</surname>
+            </persName>
+            <note>Rival in love, addressee of I.5</note>
+         </person>
+         
+         <person xml:id="iacobus-marnus">
+            <persName>
+               <forename>Iacobus</forename>
+               <surname>Marnus</surname>
+            </persName>
+            <note>Addressee of I.6</note>
+         </person>
+         
+         <!-- Literary figure -->
+         <person xml:id="lucina" role="literary">
+            <persName>Lucina</persName>
+            <note>The beloved, central figure of the collection</note>
+         </person>
+      </listPerson>
+      
+      
+      <listRelation>
+         <relation name="patron-of" active="#cicco-simonetta" passive="#albrisius"/>
+         <relation name="father-of" active="#cicco-simonetta" passive="#giovanni-simonetta #giacomo-simonetta"/>
+         <relation name="rival-of" mutual="#albrisius #franciscus-varensis"/>
+         <relation name="beloved-of" active="#lucina" passive="#albrisius"/>
+      </listRelation>
+   </standOff>
+  
+  <text>
+    <front>
+      <!-- Praefatio -->
+      <div type="praefatio" xml:id="praefatio">
+        <head type="rubric" rend="red">Praefatio</head>
+        <head type="author" rend="red">Aurelii Laurentii Albrisii praefatio in Lucinam</head>
+        <head type="dedication" rend="red">ad mecoenatem <persName ref="#cicco-simonetta">Cichum Simonetam</persName></head>
+        
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="1" xml:id="praef.1">Mecoenas equitum, Calabrae quoque gloria gentis,</l>
+          <l n="2" xml:id="praef.2" rend="indent">insubrium et quinti maxima cura ducis!</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="3" xml:id="praef.3">Excipe, quae tenera parvo nec honore iuventa</l>
+          <l n="4" xml:id="praef.4" rend="indent">Scribere Lucinae pauca coegit amor.</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="5" xml:id="praef.5">Nostra prius dulci tepefacta Cupidinis ira</l>
+          <l n="6" xml:id="praef.6" rend="indent">Nec fuerant molli pectora tacta ioco.</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="7" xml:id="praef.7">Prima pharetratos <persName ref="#lucina">Lucina</persName> infixit amores.</l>
+          <l n="8" xml:id="praef.8" rend="indent">Usserat ante meum nulla puella iecur.</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="9" xml:id="praef.9">Dulcibus ergo puer flamis accensa puellae</l>
+          <l n="10" xml:id="praef.10" rend="indent">Supposui tenero mollia corda iugo.</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="11" xml:id="praef.11">Ducere concessis primos sub amoribus annos,</l>
+          <l n="12" xml:id="praef.12" rend="indent">Tristia fas dulci lavere cuncta mero,</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="13" xml:id="praef.13">Mox aliis vitam studiis, ubi prima iuventus</l>
+          <l n="14" xml:id="praef.14" rend="indent">Coeperit atque alia flectere lora manu.</l>
+        </lg>
+        <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+          <l n="15" xml:id="praef.15">Claudi lustra quater properabant, <persName ref="#cicco-simonetta">Ciche</persName>, poeta</l>
+          <l n="16" xml:id="praef.16" rend="indent">Quom lusit placido, quos legis, ore modos.</l>
+        </lg>
+      </div>
+    </front>
+    
+    <body>
+      <!-- Book I -->
+      <div type="book" n="1" xml:id="book1">
+        <head type="book">Liber Primus</head>
+        
+        <!-- Poem I.1 -->
+        <div type="poem" n="1" xml:id="poem-I.1" met="elegiac" ana="#erotic #epistle">
+          <head type="number">I, 1</head>
+          <head type="dedication">Ad <persName ref="#cicco-simonetta">Mecoenatem Cichum Simonetam</persName>.</head>
+          <head type="rubric">Aurelii Larentii Albrisii Lucina incipit.</head>
+          
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="1" xml:id="I.1.1">Saepe revertenti studiorum ad iura meorum,</l>
+            <l n="2" xml:id="I.1.2" rend="indent">Structa ubi <placeName ref="#san-francesco-pavia">Francisci surgere templa</placeName> vides</l>
+            <note type="historical" target="#I.1.2">Church of San Francesco in Pavia, site of first encounter with Lucina</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="3" xml:id="I.1.3">(<app><lem>Exacta</lem><rdg wit="#M">exactae</rdg></app> fuerant iam nata crepuscula <app><lem>nocte</lem><rdg wit="#M">noctis</rdg></app>),</l>
+            <l n="4" xml:id="I.1.4" rend="indent">Visa mihi niveo surgere nympha toro.</l>
+            <note type="literary" target="#I.1.4">Window scene echoes Petrarch's first encounter with Laura</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="5" xml:id="I.1.5">Auroram vidisse putes, ubi proximus orbem</l>
+            <l n="6" xml:id="I.1.6" rend="indent">Sol habet et resides ad iuga cogit equos.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="7" xml:id="I.1.7">Forte caput nitidum specula porrexerat alta,</l>
+            <l n="8" xml:id="I.1.8" rend="indent">Sensit enim socias concrepuisse fores.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="9" xml:id="I.1.9">Obstupui claram tanti vi luminis aedem</l>
+            <l n="10" xml:id="I.1.10" rend="indent">Fundere Apollineum nostra per ora iubar.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="11" xml:id="I.1.11">Mirabar dulcis oculos et eburnea colla,</l>
+            <l n="12" xml:id="I.1.12" rend="indent">Mirabar roseos <seg type="parenthesis">(ut polus astra)</seg> sinus.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="13" xml:id="I.1.13">Colligit in nodum neglectos luthea crinis</l>
+            <l n="14" xml:id="I.1.14" rend="indent">Vitta, tegunt sparsae lactea terga comae.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="15" xml:id="I.1.15">Inde videbatur Latonia surgere Phoebe,</l>
+            <l n="16" xml:id="I.1.16" rend="indent">Roscida syderio quom fugat axe diem.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="17" xml:id="I.1.17">Vidit ubi aspectus fugit prius inscia nostros</l>
+            <l n="18" xml:id="I.1.18" rend="indent"><app><lem>Attonitamque</lem><rdg wit="#M">attonitaque</rdg></app> scias delituisse domo.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="19" xml:id="I.1.19">Neve putes somnum falsa et commenta fateri:</l>
+            <l n="20" xml:id="I.1.20" rend="indent">Testor ego horrifici numen utrumque Iovis.</l>
+            <note type="literary" target="#I.1.19-20">Truth claim typical of elegiac poetry</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="21" xml:id="I.1.21">Hanc si forte roges, numquamque <persName ref="#lucina">Lucina</persName> negabit.</l>
+            <l n="22" xml:id="I.1.22" rend="indent">Nam convicinae rettulit ista meae.</l>
+          </lg>
+        </div>
+        
+        <!-- Poem I.2 -->
+        <div type="poem" n="2" xml:id="poem-I.2" met="elegiac" ana="#erotic #epistle">
+          <head type="number">I, 2</head>
+          <head type="dedication">Ad <persName ref="#philippus-vicecomes">Philippum Vicecomitem</persName>.</head>
+          
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="1" xml:id="I.2.1">Virginei vultus facies mentita pudorem</l>
+            <l n="2" xml:id="I.2.2" rend="indent">Sedit et in roseo pallidus ore rubor.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="3" xml:id="I.2.3">Subrisu tenero suavis miratus ocellos</l>
+            <l n="4" xml:id="I.2.4" rend="indent">Horruit insano mixtus amore timor.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="5" xml:id="I.2.5">Et tacui, Comitum ne quis fortasse meorum</l>
+            <l n="6" xml:id="I.2.6" rend="indent">Diceret: <said who="#companion" rend="quoted">"Ah, tantum clare poeta iaces!"</said></l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="7" xml:id="I.2.7">Signa meae Veneris suspiria traxit ab imo</l>
+            <l n="8" xml:id="I.2.8" rend="indent">Pectoris. Erubuit nostra puella iocum.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="9" xml:id="I.2.9">Meque salutifera conspersit protinus unda,</l>
+            <l n="10" xml:id="I.2.10" rend="indent">hanc vetuit templi nec sua relligio.</l>
+            <note type="historical" target="#I.2.9-10">Holy water blessing in church context</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="11" xml:id="I.2.11">Candida si dabitur collo dare brachia circum,</l>
+            <l n="12" xml:id="I.2.12" rend="indent">Haec, quae principium, finis amoris erit.</l>
+          </lg>
+        </div>
+        
+        <!-- Poem I.3 -->
+        <div type="poem" n="3" xml:id="poem-I.3" met="elegiac" ana="#erotic #epistle">
+          <head type="number">I, 3</head>
+          <head type="dedication">Ad <persName ref="#giovanni-simonetta">Iohannem Simonetam</persName>.</head>
+          
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="1" xml:id="I.3.1">Illius heu nimium rapidis confixus ocellis</l>
+            <l n="2" xml:id="I.3.2" rend="indent">Deposui vacuo languida membra toro.</l>
+            <note type="literary" target="#I.3.1-2">Love-sickness topos from Ovid</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="3" xml:id="I.3.3">Carmina nulla valent miserum lenire furorem,</l>
+            <l n="4" xml:id="I.3.4" rend="indent">Haud dulces citharae, pieridumve manus.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="5" xml:id="I.3.5">Illa sinus roseos et eburnea colla sereno</l>
+            <l n="6" xml:id="I.3.6" rend="indent">Praecipitat gemitus sole perusta meos.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="7" xml:id="I.3.7">Lesistis celeres – ah! – lactea crura quadrigae,</l>
+            <l n="8" xml:id="I.3.8" rend="indent">Digna geri Paphia nec bene tuta manu.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="9" xml:id="I.3.9">Parce, minus siquid grave <persName ref="#giovanni-simonetta">Simoneta Iohannes</persName></l>
+            <l n="10" xml:id="I.3.10" rend="indent">Luditur! Invitum scribere cogit amor.</l>
+          </lg>
+        </div>
+        
+        <!-- Poem I.4 -->
+        <div type="poem" n="4" xml:id="poem-I.4" met="elegiac" ana="#epideictic #epistle">
+          <head type="number">I, 4</head>
+          <head type="dedication">Ad <persName ref="#cicco-simonetta">Mecoenatem Cichum</persName>.</head>
+          
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="1" xml:id="I.4.1">Posteritas nostro si quicquam credet honori,</l>
+            <l n="2" xml:id="I.4.2" rend="indent">Servet honor quamvis scrinia nostra levis,</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="3" xml:id="I.4.3">Quaeque meum carmen, haec te mirabitur aetas.</l>
+            <l n="4" xml:id="I.4.4" rend="indent">Te propter clarus, <persName ref="#cicco-simonetta">Chiche</persName>, libellus erit.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="5" xml:id="I.4.5"><persName ref="#cicco-simonetta">Chiche</persName>, tui noster praeclara libellus habebit</l>
+            <l n="6" xml:id="I.4.6" rend="indent">Nomina. Candidior te feret aura deum.</l>
+            <note type="literary" target="#I.4">Maecenas topos - patron immortalized through poetry</note>
+          </lg>
+        </div>
+        
+        <!-- Poem I.5 -->
+        <div type="poem" n="5" xml:id="poem-I.5" met="elegiac" ana="#invective #erotic">
+          <head type="number">I, 5</head>
+          <head type="dedication">Ad <persName ref="#franciscus-varensis">Franciscum Varensem</persName>.</head>
+          
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="1" xml:id="I.5.1">Illa prius nostro tua foemina canduit igni,</l>
+            <l n="2" xml:id="I.5.2" rend="indent">Crevit et aurata cuspide fixus amor.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="3" xml:id="I.5.3">Vana dabant veri sterilem tunc ocia mentem,</l>
+            <l n="4" xml:id="I.5.4" rend="indent"><app><lem>sospitumque</lem><rdg wit="#M">sopitumque</rdg></app> meae torpuit artis opus.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="5" xml:id="I.5.5">Omnia desierant divina poemata: Cordis</l>
+            <l n="6" xml:id="I.5.6" rend="indent">Haec decus, haec mores hauserat una meos.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="7" xml:id="I.5.7">Non liber et leges iusto data cura Lycurgo</l>
+            <l n="8" xml:id="I.5.8" rend="indent">Iuvit et implicitum Thessalis ulla caput.</l>
+            <note type="historical" target="#I.5.7-8">Abandonment of legal studies for love</note>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="9" xml:id="I.5.9">At solus tantos sperasti solvere nexus.</l>
+            <l n="10" xml:id="I.5.10" rend="indent">Me quoque purpureo dissociare sinu!</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="11" xml:id="I.5.11">Communemque torum despecta virgine nactus</l>
+            <l n="12" xml:id="I.5.12" rend="indent">Spe sine iam nostri limen amoris adis.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="13" xml:id="I.5.13">Quod tibi contigerit castum temerasse cubile,</l>
+            <l n="14" xml:id="I.5.14" rend="indent">Deflebis, miseram quom dabit hora diem.</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="15" xml:id="I.5.15">Desine! Surgentis nec adhuc contacta puellae</l>
+            <l n="16" xml:id="I.5.16" rend="indent">Appete cognata cingere colla manu!</l>
+          </lg>
+          <lg type="elegiac" met="-uu|-uu|-uu|-uu|-uu|-uu || -uu|-uu|- | -uu|-uu|-">
+            <l n="17" xml:id="I.5.17">Nos licet una duos, <persName ref="#franciscus-varensis">Francisce</persName>, revinxerit ingens</l>
+            <l n="18" xml:id="I.5.18" rend="indent">Gratia, rivalem ferre nequibit amor.</l>
+            <note type="prosopographical" target="#I.5">Franciscus Varensis appears as rival for Lucina's affections</note>
+          </lg>
+        </div>
+        
+        <!-- Poem I.6 -->
+        <div type="poem" n="6" xml:id="poem-I.6" met="lyric" ana="#paraenesis #epistle">
+          <head type="number">I, 6</head>
+          <head type="dedication">Ad <persName ref="#iacobus-marnus">Iacobum Marnum</persName>.</head>
+          
+          <note type="editorial">The metrical structure of this poem requires further analysis. The line divisions in the manuscript may not correspond to metrical units. Provisionally encoded as lyric verse, possibly Sapphic or another Horatian meter.</note>
+          
+          <lg type="lyric">
+            <l n="1" xml:id="I.6.1">Altae rura tegunt nives,</l>
+            <l n="2" xml:id="I.6.2">Concretam glaciem stringit et horridus</l>
+            <l n="3" xml:id="I.6.3">Insano boreas gelu.</l>
+            <l n="4" xml:id="I.6.4">Nec iam plena suis flumina cursibus</l>
+            <l n="5" xml:id="I.6.5">Ferri (ut <persName ref="#iacobus-marnus">Marne</persName> vides) queunt.</l>
+            <l n="6" xml:id="I.6.6">Campis nulla tuis gramina surgere,</l>
+            <l n="7" xml:id="I.6.7">servari at stabulo pecus</l>
+            <l n="8" xml:id="I.6.8">cernis, ruri colas ocia ducere,</l>
+            <l n="9" xml:id="I.6.9">festosque in numerum dies.</l>
+            <l n="10" xml:id="I.6.10">Te silvae nemorum, te mihi sordida</l>
+            <l n="11" xml:id="I.6.11">Quamvis celsa palatia</l>
+            <l n="12" xml:id="I.6.12">Et te culta tui pinguia <placeName>Trigoli</placeName></l>
+            <l n="13" xml:id="I.6.13">Dudum surripiunt mihi.</l>
+            <l n="14" xml:id="I.6.14">Quid te noster amor serius alligant</l>
+            <l n="15" xml:id="I.6.15">Culmi sordidulae domus?</l>
+            <l n="16" xml:id="I.6.16">Mugitusne boum te pecudum iuvant</l>
+            <l n="17" xml:id="I.6.17">Ballantumve greges? Tibi</l>
+            <l n="18" xml:id="I.6.18">Pastorum aut pueros iungere compares?</l>
+            <l n="19" xml:id="I.6.19">At forsan lepores agis</l>
+            <l n="20" xml:id="I.6.20">Accinctus comitum tu agminibus feris.</l>
+            <l n="21" xml:id="I.6.21">Si tunc hinulus obviet,</l>
+            <l n="22" xml:id="I.6.22">Vel iam dama tuas transiliat plagas:</l>
+            <l n="23" xml:id="I.6.23">Gens haec, lege ruit sine</l>
+            <l n="24" xml:id="I.6.24">Et vexat timidas stulta cohors feras</l>
+            <l n="25" xml:id="I.6.25">Conspecto pavitans lupo.</l>
+            <l n="26" xml:id="I.6.26">Nec te, <persName ref="#iacobus-marnus">Marne</persName>, pudet per validas nives</l>
+            <l n="27" xml:id="I.6.27">Ignavum iaculis pecus</l>
+            <l n="28" xml:id="I.6.28">– Heu praedam miseram! – figere fortibus?</l>
+            <l n="29" xml:id="I.6.29">Venatu abstineas rogo et</l>
+            <note type="literary" target="#I.6">Winter scene with Horatian overtones, cf. Odes 1.9</note>
+          </lg>
+        </div>
+        
+        <!-- Additional poems would continue here through I.43 -->
+        
+      </div>
+      
+      <!-- Book II -->
+      <div type="book" n="2" xml:id="book2">
+        <head type="book">Liber Secundus</head>
+        <head type="dedication">Ad <persName ref="#giacomo-simonetta">Gian Giacomum Simonetam</persName></head>
+        
+        <!-- Poems II.1 through II.37 would be encoded here -->
+        <!-- Including the crucial II.37 with erotic banquet scene -->
+        
+      </div>
+      
+      <!-- Book III -->
+      <div type="book" n="3" xml:id="book3">
+        <head type="book">Liber Tertius</head>
+        <head type="dedication">Ad <persName ref="#giovanni-san-lamberto">Iohannem Episcopum Sancti Lamberti</persName></head>
+        
+        <!-- Poems III.1 through III.47 would be encoded here -->
+        <!-- Including III.9 (retrospective virginity claim) and III.47 (transformation to priest) -->
+        
+      </div>
+    </body>
+  </text>
+</TEI>
