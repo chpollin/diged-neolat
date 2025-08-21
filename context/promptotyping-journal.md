@@ -40,4 +40,25 @@ This document documents the Promptotyping process and the decisions.
 * Now with the full TEI XML I had some TEI problems
 * But I removed the geo as this is hallucinated
 * And I put all lists into standOff → this is okay for Claude to fail, because this is often in real TEI not correct → but that is really an example of "if you are an expert in TEI no problem. Only to create manually standOff and put it there → now it is valid."
-* bring all information from all conversatiosn together and merge them into a single github commit. now we have documented everythign we did. keeping stable version sis very imporant!
+* Bring all information from all conversations together and merge them into a single GitHub commit. Now we have documented everything we did. Keeping stable versions is very important!
+
+## .docx to first TEI xml via python
+
+* In the git are all .md files we have; we dont give it the full tei xml or the full edition trasnctipt as this are much too much tokens for the xcontext windwo
+* and we explcitly do not write code directly, but we want to create a plan; and we are not doing everything; we start with a frist simple tei xml; as we would do when we would code it manually
+* Let claude now that you are doing promptotyping; it is so meta aware that this works; that is mosething that did not work a year ago: you muc more lied to the model; no you can just say !ah you are an llm and you simulate the project --> tis comes from the Promptotyping Journal --> so maybe this is a good way of prompting this!
+* Docx→TEI Conversion Plan for Albrisius’s Lucina
+  * Status & Foundations: TEI mapping guidelines; sample TEI (poems 1–6); encoding principles; Oxygen-based validation.
+  * Corpus & Structure: 128 poems in 3 books (43/37/47); hierarchy Praefatio → Books I–III → poems → line groups → lines; rich metadata (dedicatees, meter, genre); 50+ named individuals; multi-layer annotations.
+  * Objective: Python script to convert Edition.docx into valid TEI XML.
+  * Phased Workflow: (1) Analyze docx (poem boundaries, metadata marks, line numbering, variants). (2) Build minimal TEI scaffold (teiHeader, standOff, front, body). (3) Add poems, lines, entities, apparatus, metrical patterns. (4) Validate schema, IDs, meters in Oxygen.
+  * Technical Stack: python-docx, lxml; pattern matching; deterministic ID conventions; iterative validation.
+  * Architecture Sketch: LucinaProcessor with create_tei_skeleton, extract_poems, generate_poem_id, process_line_groups, extract_named_entities.
+  * Open Points: Sample formatting of Edition.docx; variant notation; initial scope (structure-only vs apparatus; Book I POC); person/place sources; metrical detection (auto vs lookup).
+* Uploaded entire Word document
+* docx-to-tei-xml.py, but not yet executed, because you need a rough overview of what it does
+* docx-data.md --> now we have the exact structure
+* I asked what python-docx exactly does and asked again whether it can process all structures
+* I then have the Python script written with compact logging, create only body (to save output token) (we can feed that bacl to claude!)
+
+
