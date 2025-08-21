@@ -1,0 +1,212 @@
+2025-08-21 20:34:42,237 - LucinaDigitalEdition - INFO - Initializing Lucina Digital Edition processor
+2025-08-21 20:34:42,238 - LucinaDigitalEdition - INFO - TEI file: tei-final-2.xml (350,287 bytes)
+2025-08-21 20:34:42,238 - LucinaDigitalEdition - INFO - Loading TEI XML file...
+2025-08-21 20:34:42,242 - LucinaDigitalEdition - INFO - XML loaded successfully
+2025-08-21 20:34:42,242 - LucinaDigitalEdition - INFO - Root element: {http://www.tei-c.org/ns/1.0}TEI
+2025-08-21 20:34:42,242 - LucinaDigitalEdition - INFO - Namespace: Using ElementTree
+2025-08-21 20:34:42,242 - LucinaDigitalEdition - INFO - Starting comprehensive TEI processing...
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO - Processing manuscript metadata...
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO - Created Manuscript: Mss. 6028 (Biblioteca Nacional)
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO - Manuscript metadata processed: Mss. 6028
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO -    Repository: Biblioteca Nacional, Madrid
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO -    Date: 1474-08-02
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO -    Material: Parchment
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO -    Extent: 176 folios
+                  
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO - Processing prosopographical data...
+2025-08-21 20:34:42,244 - LucinaDigitalEdition - INFO - Found 97 persons in standOff
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Processed 97 persons
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Aurelius Laurentius Albrisius (albrisius)
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Cicco Simonetta (cicco-simonetta)
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Giovanni Simonetta (giovanni-simonetta)
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Gian Giacomo Simonetta (giacomo-simonetta)
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Giovanni  (giovanni-san-lamberto)
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Processing text structure...
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Processing praefatio...
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem praefatio: Book Praefatio.0 - 16 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Book praefatio: 1 poems, 16 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Praefatio processed: 16 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Processing main body (books)...
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Found 3 books
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Processing bookI (Book 1)...
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO -    Found 43 poems in bookI
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem poem-I.1: Book 1.1 - 23 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem poem-I.2: Book 1.2 - 12 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem poem-I.3: Book 1.3 - 10 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem poem-I.4: Book 1.4 - 6 lines
+2025-08-21 20:34:42,245 - LucinaDigitalEdition - INFO - Created Poem poem-I.5: Book 1.5 - 18 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.6: Book 1.6 - 43 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.7: Book 1.7 - 6 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.8: Book 1.8 - 6 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.9: Book 1.9 - 20 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.10: Book 1.10 - 4 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.11: Book 1.11 - 8 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.12: Book 1.12 - 8 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.13: Book 1.13 - 4 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.14: Book 1.14 - 12 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.15: Book 1.15 - 44 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.16: Book 1.16 - 4 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.17: Book 1.17 - 40 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.18: Book 1.18 - 3 lines
+2025-08-21 20:34:42,246 - LucinaDigitalEdition - INFO - Created Poem poem-I.19: Book 1.19 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.20: Book 1.20 - 32 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.21: Book 1.21 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.22: Book 1.22 - 8 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.23: Book 1.23 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.24: Book 1.24 - 30 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.25: Book 1.25 - 40 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.26: Book 1.26 - 6 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.27: Book 1.27 - 6 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.28: Book 1.28 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.29: Book 1.29 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.30: Book 1.30 - 36 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.31: Book 1.31 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.32: Book 1.32 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.33: Book 1.33 - 6 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.34: Book 1.34 - 4 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.35: Book 1.35 - 2 lines
+2025-08-21 20:34:42,247 - LucinaDigitalEdition - INFO - Created Poem poem-I.36: Book 1.36 - 12 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.37: Book 1.37 - 8 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.38: Book 1.38 - 6 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.39: Book 1.39 - 26 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.40: Book 1.40 - 4 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.41: Book 1.41 - 4 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.42: Book 1.42 - 10 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-I.43: Book 1.43 - 84 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Book bookI: 43 poems, 623 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - bookI completed: 43 poems, 623 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Processing bookII (Book 2)...
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO -    Found 37 poems in bookII
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-II.1: Book 2.1 - 9 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-II.2: Book 2.2 - 56 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-II.3: Book 2.3 - 4 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-II.4: Book 2.4 - 2 lines
+2025-08-21 20:34:42,248 - LucinaDigitalEdition - INFO - Created Poem poem-II.5: Book 2.5 - 14 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.6: Book 2.6 - 50 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.7: Book 2.7 - 4 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.8: Book 2.8 - 6 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.9: Book 2.9 - 10 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.10: Book 2.10 - 4 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.11: Book 2.11 - 2 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.12: Book 2.12 - 2 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.13: Book 2.13 - 4 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.14: Book 2.14 - 124 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.15: Book 2.15 - 4 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.16: Book 2.16 - 4 lines
+2025-08-21 20:34:42,249 - LucinaDigitalEdition - INFO - Created Poem poem-II.17: Book 2.17 - 4 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.18: Book 2.18 - 12 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.19: Book 2.19 - 24 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.20: Book 2.20 - 8 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.21: Book 2.21 - 28 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.22: Book 2.22 - 72 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.23: Book 2.23 - 22 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.24: Book 2.24 - 30 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.25: Book 2.25 - 2 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.26: Book 2.26 - 4 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.27: Book 2.27 - 4 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.28: Book 2.28 - 4 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.29: Book 2.29 - 6 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.30: Book 2.30 - 4 lines
+2025-08-21 20:34:42,250 - LucinaDigitalEdition - INFO - Created Poem poem-II.31: Book 2.31 - 4 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.32: Book 2.32 - 6 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.33: Book 2.33 - 4 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.34: Book 2.34 - 16 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.35: Book 2.35 - 8 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.36: Book 2.36 - 12 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-II.37: Book 2.37 - 22 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Book bookII: 37 poems, 595 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - bookII completed: 37 poems, 595 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Processing bookIII (Book 3)...
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO -    Found 47 poems in bookIII
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.1: Book 3.1 - 29 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.2: Book 3.2 - 4 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.3: Book 3.3 - 6 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.4: Book 3.4 - 4 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.5: Book 3.5 - 30 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.6: Book 3.6 - 32 lines
+2025-08-21 20:34:42,251 - LucinaDigitalEdition - INFO - Created Poem poem-III.7: Book 3.7 - 10 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.8: Book 3.8 - 10 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.9: Book 3.9 - 22 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.10: Book 3.10 - 39 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.11: Book 3.11 - 2 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.12: Book 3.12 - 35 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.13: Book 3.13 - 42 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.14: Book 3.14 - 10 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.15: Book 3.15 - 4 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.16: Book 3.16 - 30 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.17: Book 3.17 - 6 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.18: Book 3.18 - 29 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.19: Book 3.19 - 12 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.20: Book 3.20 - 4 lines
+2025-08-21 20:34:42,252 - LucinaDigitalEdition - INFO - Created Poem poem-III.21: Book 3.21 - 6 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.22: Book 3.22 - 6 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.23: Book 3.23 - 12 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.24: Book 3.24 - 4 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.25: Book 3.25 - 6 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.26: Book 3.26 - 4 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.27: Book 3.27 - 4 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.28: Book 3.28 - 36 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.29: Book 3.29 - 50 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.30: Book 3.30 - 36 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.31: Book 3.31 - 60 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.32: Book 3.32 - 26 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.33: Book 3.33 - 4 lines
+2025-08-21 20:34:42,253 - LucinaDigitalEdition - INFO - Created Poem poem-III.34: Book 3.34 - 4 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.35: Book 3.35 - 10 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.36: Book 3.36 - 29 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.37: Book 3.37 - 4 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.38: Book 3.38 - 2 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.39: Book 3.39 - 8 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.40: Book 3.40 - 2 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.41: Book 3.41 - 21 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.42: Book 3.42 - 18 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.43: Book 3.43 - 55 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.44: Book 3.44 - 98 lines
+2025-08-21 20:34:42,254 - LucinaDigitalEdition - INFO - Created Poem poem-III.45: Book 3.45 - 6 lines
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Created Poem poem-III.46: Book 3.46 - 29 lines
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Created Poem poem-III.47: Book 3.47 - 32 lines
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Created Book bookIII: 47 poems, 932 lines
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - bookIII completed: 47 poems, 932 lines
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Processed 3 books
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Total person references: 130
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Most referenced persons:
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO -    Cicco Simonetta: 12 refs
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO -     : 7 refs
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO -    Gian Giacomo Simonetta: 5 refs
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO -     : 5 refs
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO -     : 4 refs
+2025-08-21 20:34:42,255 - LucinaDigitalEdition - INFO - Calculating final statistics...
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    Total poems: 128
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    Total lines: 2166
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    Total books: 4
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - TEI processing completed successfully!
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Processing time: 0.01 seconds
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - 
+============================================================
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - FINAL PROCESSING STATISTICS
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - ============================================================
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Processing time: 0.01 seconds
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Books processed: 4
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Poems processed: 128
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Lines processed: 2166
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Persons in database: 97
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Person references: 130
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - 
+Meter distribution:
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    elegiac: 66 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    hendecasyllabic: 60 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    sapphic: 1 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - 
+Genre distribution:
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    epistle: 109 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    prayer: 9 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    erotic: 3 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    epitaph: 3 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    epideictic: 2 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO -    paraenesis: 1 poems
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - ============================================================
+2025-08-21 20:34:42,256 - LucinaDigitalEdition - INFO - Generating complete data structure...
+2025-08-21 20:34:42,310 - LucinaDigitalEdition - INFO - Exporting data to JSON: C:\Users\Chrisi\Documents\GitHub\diged-neolat\docs\edition-3\lucina_complete_data.json
+2025-08-21 20:34:42,310 - LucinaDigitalEdition - INFO - Generating complete data structure...
+2025-08-21 20:34:42,463 - LucinaDigitalEdition - INFO - JSON export completed: C:\Users\Chrisi\Documents\GitHub\diged-neolat\docs\edition-3\lucina_complete_data.json
+2025-08-21 20:34:42,463 - LucinaDigitalEdition - INFO -    File size: 3,478,573 bytes

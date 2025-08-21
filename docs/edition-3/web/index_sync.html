@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucina Digital Edition - Synchronized View</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #f5f5f5;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: normal;
+            text-align: center;
+        }
+        
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .header-controls select,
+        .header-controls button {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .header-controls select option {
+            background: #2c3e50;
+        }
+        
+        /* Main Container */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 120px);
+            position: relative;
+        }
+        
+        /* Left Panel - Text */
+        .text-panel {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            background: white;
+            position: relative;
+        }
+        
+        .text-content {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Page Markers */
+        .page-marker {
+            display: block;
+            margin: 2rem 0;
+            padding: 0.5rem;
+            background: #f0f0f0;
+            border-left: 4px solid #8b4513;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+        }
+        
+        .page-marker::before {
+            content: "📄";
+            margin-right: 0.5rem;
+        }
+        
+        /* Poem Structure */
+        .poem-section {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .poem-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .poem-number {
+            font-size: 1.2rem;
+            color: #8b4513;
+            margin-bottom: 0.5rem;
+        }
+        
+        .poem-dedicatee {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .verse-line {
+            display: flex;
+            margin-bottom: 0.3rem;
+        }
+        
+        .line-number {
+            width: 40px;
+            text-align: right;
+            padding-right: 1rem;
+            color: #999;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+        
+        .line-text {
+            flex: 1;
+        }
+        
+        .line-text.indented {
+            padding-left: 2rem;
+        }
+        
+        /* Right Panel - Manuscript */
+        .manuscript-panel {
+            width: 50%;
+            background: #2c2c2c;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: calc(100vh - 120px);
+        }
+        
+        .manuscript-controls {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .page-info {
+            font-size: 0.9rem;
+        }
+        
+        .manuscript-viewer {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem;
+        }
+        
+        .manuscript-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .image-placeholder {
+            background: #444;
+            color: #aaa;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        /* Divider */
+        .panel-divider {
+            width: 4px;
+            background: #ddd;
+            cursor: col-resize;
+            position: relative;
+        }
+        
+        .panel-divider:hover {
+            background: #8b4513;
+        }
+        
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            z-index: 100;
+        }
+        
+        .sync-indicator {
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .manuscript-panel {
+                width: 45%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .manuscript-panel {
+                width: 100%;
+                height: 40vh;
+                position: relative;
+            }
+            
+            .panel-divider {
+                width: 100%;
+                height: 4px;
+                cursor: row-resize;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <h3>Loading Lucina Digital Edition...</h3>
+        <p>Preparing texts and manuscripts...</p>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <h1>Lucina · Aurelius Laurentius Albrisius · 1474</h1>
+        <div class="header-controls">
+            <select id="bookSelector">
+                <option value="">Select Book...</option>
+                <option value="praefatio">Praefatio</option>
+                <option value="bookI">Book I (43 poems)</option>
+                <option value="bookII">Book II (37 poems)</option>
+                <option value="bookIII">Book III (47 poems)</option>
+            </select>
+            
+            <select id="poemSelector">
+                <option value="">Select Poem...</option>
+            </select>
+            
+            <button id="prevPoem">← Previous</button>
+            <button id="nextPoem">Next →</button>
+            <button id="toggleLineNumbers">Line №</button>
+            <button id="fitImage">Fit Image</button>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Text Panel -->
+        <div class="text-panel" id="textPanel">
+            <div class="text-content" id="textContent">
+                <div style="text-align: center; padding: 4rem 0; color: #666;">
+                    <h2>Welcome to the Synchronized Edition</h2>
+                    <p style="margin-top: 1rem;">Select a book and poem from the menu above to begin reading.</p>
+                    <p style="margin-top: 0.5rem;">The manuscript image will automatically follow as you scroll.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Divider -->
+        <div class="panel-divider" id="panelDivider"></div>
+        
+        <!-- Manuscript Panel -->
+        <div class="manuscript-panel">
+            <div class="manuscript-controls">
+                <button id="prevPage">← Previous Page</button>
+                <span class="page-info" id="pageInfo">Page - of -</span>
+                <button id="nextPage">Next Page →</button>
+            </div>
+            <div class="manuscript-viewer" id="manuscriptViewer">
+                <div class="image-placeholder">
+                    <h3>Manuscript Viewer</h3>
+                    <p>Select a poem to view the corresponding manuscript pages</p>
+                    <p style="margin-top: 1rem; font-size: 0.85rem;">
+                        Madrid, Biblioteca Nacional, Mss. 6028
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <span>Current: <span id="currentLocation">-</span></span>
+        <span>Sync Active <span class="sync-indicator"></span></span>
+        <span>Page: <span id="currentPage">-</span></span>
+    </div>
+    
+    <script>
+        // Lucina Synchronized Edition
+        class SynchronizedEdition {
+            constructor() {
+                this.currentBook = null;
+                this.currentPoem = null;
+                this.currentPage = null;
+                this.poems = {};
+                this.books = {};
+                this.pageBreaks = [];
+                this.scrollSync = true;
+                
+                this.init();
+            }
+            
+            async init() {
+                console.log('Initializing Synchronized Edition...');
+                
+                // Load data
+                await this.loadData();
+                
+                // Setup event listeners
+                this.setupEventListeners();
+                
+                // Log data structure for debugging
+                console.log('Books structure:', this.books);
+                console.log('Sample book (bookI):', this.books.bookI);
+                console.log('Sample poems:', Object.keys(this.poems).slice(0, 5));
+                
+                // Hide loading screen
+                document.getElementById('loading').style.display = 'none';
+            }
+            
+            async loadData() {
+                try {
+                    // Load poems data
+                    const poemsScript = document.createElement('script');
+                    poemsScript.src = 'poems-data.js';
+                    document.head.appendChild(poemsScript);
+                    
+                    // Load books data
+                    const booksScript = document.createElement('script');
+                    booksScript.src = 'books-data.js';
+                    document.head.appendChild(booksScript);
+                    
+                    // Wait for data to load
+                    await new Promise(resolve => {
+                        const checkData = setInterval(() => {
+                            if (window.poemsData && window.booksData) {
+                                clearInterval(checkData);
+                                this.poems = window.poemsData;
+                                this.books = window.booksData;
+                                console.log(`Loaded ${Object.keys(this.poems).length} poems`);
+                                console.log(`Loaded ${Object.keys(this.books).length} books`);
+                                resolve();
+                            }
+                        }, 100);
+                    });
+                    
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                }
+            }
+            
+            setupEventListeners() {
+                // Book selector
+                document.getElementById('bookSelector').addEventListener('change', (e) => {
+                    this.selectBook(e.target.value);
+                });
+                
+                // Poem selector
+                document.getElementById('poemSelector').addEventListener('change', (e) => {
+                    this.loadPoem(e.target.value);
+                });
+                
+                // Navigation
+                document.getElementById('prevPoem').addEventListener('click', () => this.navigatePoem(-1));
+                document.getElementById('nextPoem').addEventListener('click', () => this.navigatePoem(1));
+                
+                // Page navigation
+                document.getElementById('prevPage').addEventListener('click', () => this.navigatePage(-1));
+                document.getElementById('nextPage').addEventListener('click', () => this.navigatePage(1));
+                
+                // Scroll synchronization
+                document.getElementById('textPanel').addEventListener('scroll', () => {
+                    if (this.scrollSync) {
+                        this.syncManuscriptToScroll();
+                    }
+                });
+                
+                // Toggle line numbers
+                document.getElementById('toggleLineNumbers').addEventListener('click', () => {
+                    document.getElementById('textContent').classList.toggle('hide-numbers');
+                });
+            }
+            
+            selectBook(bookId) {
+                if (!bookId) return;
+                
+                this.currentBook = bookId;
+                const book = this.books[bookId];
+                
+                if (!book) {
+                    console.error('Book not found:', bookId);
+                    return;
+                }
+                
+                // Update poem selector
+                const poemSelector = document.getElementById('poemSelector');
+                poemSelector.innerHTML = '<option value="">Select Poem...</option>';
+                
+                if (book.poems) {
+                    // Check if poems is an array of objects or IDs
+                    book.poems.forEach(poemData => {
+                        let poem, poemId;
+                        
+                        // Handle both data structures
+                        if (typeof poemData === 'string') {
+                            // It's an ID
+                            poemId = poemData;
+                            poem = this.poems[poemId];
+                        } else if (typeof poemData === 'object') {
+                            // It's the poem object itself
+                            poem = poemData;
+                            poemId = poem.xml_id;
+                            // Also store it in our poems collection
+                            this.poems[poemId] = poem;
+                        }
+                        
+                        if (poem) {
+                            const option = document.createElement('option');
+                            option.value = poemId;
+                            option.textContent = `${poem.book}.${poem.number} - ${poem.dedicatee || poem.title || 'Untitled'}`;
+                            poemSelector.appendChild(option);
+                        }
+                    });
+                }
+            }
+            
+            loadPoem(poemId) {
+                if (!poemId) return;
+                
+                const poem = this.poems[poemId];
+                if (!poem) {
+                    console.error('Poem not found:', poemId);
+                    return;
+                }
+                
+                this.currentPoem = poemId;
+                console.log('Loading poem:', poemId, poem);
+                
+                // Build HTML for poem
+                let html = `<div class="poem-section" data-poem="${poemId}">`;
+                
+                // Header
+                html += `<div class="poem-header">`;
+                html += `<div class="poem-number">${poem.book}.${poem.number}</div>`;
+                if (poem.dedicatee) {
+                    html += `<div class="poem-dedicatee">Ad ${poem.dedicatee}</div>`;
+                }
+                html += `</div>`;
+                
+                // Add page marker at start if we have page info
+                if (poem.page_info && poem.page_info.pages) {
+                    const firstPage = poem.page_info.pages[0];
+                    html += `<div class="page-marker" data-page="${firstPage}">Page ${firstPage}</div>`;
+                }
+                
+                // Lines - handle both direct lines and line groups
+                let allLines = [];
+                
+                if (poem.line_groups && poem.line_groups.length > 0) {
+                    // Extract lines from line groups
+                    poem.line_groups.forEach(lg => {
+                        if (lg.lines) {
+                            allLines = allLines.concat(lg.lines);
+                        }
+                    });
+                } else if (poem.lines && poem.lines.length > 0) {
+                    // Direct lines
+                    allLines = poem.lines;
+                }
+                
+                if (allLines.length > 0) {
+                    allLines.forEach((line, index) => {
+                        // Check if we need to insert a page break
+                        if (poem.page_info && poem.page_info.lines_with_pages) {
+                            const pageChange = poem.page_info.lines_with_pages.find(lp => lp.line === index + 1);
+                            if (pageChange && index > 0) {
+                                html += `<div class="page-marker" data-page="${pageChange.page}">Page ${pageChange.page}</div>`;
+                            }
+                        }
+                        
+                        const indentClass = line.indent ? 'indented' : '';
+                        html += `<div class="verse-line" data-line="${index + 1}">`;
+                        html += `<span class="line-number">${line.number || (index + 1)}</span>`;
+                        html += `<span class="line-text ${indentClass}">${line.text || ''}</span>`;
+                        html += `</div>`;
+                    });
+                } else {
+                    html += '<p style="padding: 2rem; color: #666;">No text available for this poem.</p>';
+                    console.warn('No lines found for poem:', poemId, poem);
+                }
+                
+                html += `</div>`;
+                
+                // Update content
+                document.getElementById('textContent').innerHTML = html;
+                
+                // Update status
+                document.getElementById('currentLocation').textContent = 
+                    `${poem.book}.${poem.number} - ${poem.dedicatee || 'Untitled'}`;
+                
+                // Load first page image
+                if (poem.page_info && poem.page_info.pages) {
+                    this.loadManuscriptPage(poem.page_info.pages[0]);
+                }
+                
+                // Scroll to top
+                document.getElementById('textPanel').scrollTop = 0;
+            }
+            
+            loadManuscriptPage(pageNum) {
+                this.currentPage = pageNum;
+                
+                // Find the corresponding image file
+                // The naming pattern is: image_[num]_[variant]__[side].jpg
+                // Odd pages are left, even pages are right
+                const side = (parseInt(pageNum) % 2 === 0) ? 'right' : 'left';
+                
+                // Build the image path (we know ../../facsimiles/ works from the test)
+                const imagePath = `../../facsimiles/image_${pageNum}_1__${side}.jpg`;
+                
+                const viewer = document.getElementById('manuscriptViewer');
+                
+                // Create image with fallback
+                const imgHTML = `
+                    <img src="${imagePath}" 
+                         alt="Page ${pageNum}" 
+                         class="manuscript-image"
+                         onerror="this.onerror=null; 
+                                  // Try alternative naming patterns
+                                  var altPath = '../../facsimiles/image_${Math.ceil(parseInt('${pageNum}')/2)}_1__${side}.jpg';
+                                  this.src = altPath;
+                                  this.onerror = function() {
+                                      this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Image not found: Page ${pageNum}<br><small>Tried: ${imagePath}</small></div>';
+                                  };">
+                `;
+                
+                viewer.innerHTML = imgHTML;
+                
+                // Update page info
+                document.getElementById('pageInfo').textContent = `Page ${pageNum} of 176`;
+                document.getElementById('currentPage').textContent = pageNum;
+            }
+            
+            syncManuscriptToScroll() {
+                // Get current scroll position
+                const textPanel = document.getElementById('textPanel');
+                const scrollTop = textPanel.scrollTop;
+                const scrollHeight = textPanel.scrollHeight;
+                const clientHeight = textPanel.clientHeight;
+                
+                // Find visible page markers
+                const pageMarkers = document.querySelectorAll('.page-marker');
+                let currentPageMarker = null;
+                
+                pageMarkers.forEach(marker => {
+                    const rect = marker.getBoundingClientRect();
+                    const panelRect = textPanel.getBoundingClientRect();
+                    
+                    // Check if marker is in the visible area
+                    if (rect.top >= panelRect.top && rect.top <= panelRect.bottom) {
+                        currentPageMarker = marker;
+                    }
+                });
+                
+                // Update manuscript if page changed
+                if (currentPageMarker) {
+                    const pageNum = currentPageMarker.dataset.page;
+                    if (pageNum && pageNum !== this.currentPage) {
+                        this.loadManuscriptPage(pageNum);
+                    }
+                }
+            }
+            
+            navigatePoem(direction) {
+                if (!this.currentBook || !this.currentPoem) return;
+                
+                const book = this.books[this.currentBook];
+                if (!book || !book.poems) return;
+                
+                // Find current poem index
+                let currentIndex = -1;
+                for (let i = 0; i < book.poems.length; i++) {
+                    const poemData = book.poems[i];
+                    const poemId = (typeof poemData === 'string') ? poemData : poemData.xml_id;
+                    if (poemId === this.currentPoem) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+                
+                const newIndex = currentIndex + direction;
+                
+                if (newIndex >= 0 && newIndex < book.poems.length) {
+                    const newPoemData = book.poems[newIndex];
+                    const newPoemId = (typeof newPoemData === 'string') ? newPoemData : newPoemData.xml_id;
+                    document.getElementById('poemSelector').value = newPoemId;
+                    this.loadPoem(newPoemId);
+                }
+            }
+            
+            navigatePage(direction) {
+                if (!this.currentPage) return;
+                
+                const newPage = parseInt(this.currentPage) + direction;
+                if (newPage >= 1 && newPage <= 176) {
+                    this.loadManuscriptPage(newPage);
+                }
+            }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.syncEdition = new SynchronizedEdition();
+        });
+    </script>
+</body>
+</html>

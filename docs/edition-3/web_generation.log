@@ -1,0 +1,20 @@
+2025-08-21 20:46:59,818 - INFO - Initializing Web Edition Generator
+2025-08-21 20:46:59,818 - INFO - Data source: C:\Users\Chrisi\Documents\GitHub\diged-neolat\docs\edition-3\lucina_complete_data.json
+2025-08-21 20:46:59,818 - INFO - Output directory: C:\Users\Chrisi\Documents\GitHub\diged-neolat\docs\edition-3\web
+2025-08-21 20:46:59,818 - INFO - Loading processed data...
+2025-08-21 20:46:59,844 - INFO - Data loaded successfully
+2025-08-21 20:46:59,844 - INFO -   Poems: 128
+2025-08-21 20:46:59,844 - INFO -   Persons: 97
+2025-08-21 20:46:59,844 - INFO -   Books: 4
+2025-08-21 20:46:59,844 - INFO - Starting web edition generation...
+2025-08-21 20:46:59,848 - INFO - Generating index.html...
+2025-08-21 20:46:59,848 - INFO - Generated index.html (14,862 bytes)
+2025-08-21 20:46:59,848 - INFO - Generating styles.css...
+2025-08-21 20:46:59,848 - INFO - Generated styles.css (10,435 bytes)
+2025-08-21 20:46:59,848 - INFO - Generating app.js...
+2025-08-21 20:46:59,848 - INFO - Generated app.js (13,190 bytes)
+2025-08-21 20:46:59,848 - INFO - Generating data files...
+2025-08-21 20:46:59,882 - INFO - Generated poems-data.js (1,267,770 bytes)
+2025-08-21 20:46:59,883 - INFO - Generated persons-data.js (30,659 bytes)
+2025-08-21 20:46:59,918 - INFO - Generated books-data.js (1,445,798 bytes)
+2025-08-21 20:46:59,918 - INFO - Web edition generation completed successfully!

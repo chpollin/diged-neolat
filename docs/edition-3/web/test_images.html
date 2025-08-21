@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Facsimile Images</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test-image { 
+            margin: 10px; 
+            border: 1px solid #ccc; 
+            padding: 10px;
+            display: inline-block;
+        }
+        img { max-width: 200px; height: auto; }
+        .status { margin-top: 5px; font-size: 12px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Testing Facsimile Image Paths</h1>
+    <p>Checking if manuscript images are accessible...</p>
+    
+    <div id="results"></div>
+    
+    <script>
+        // Test different possible image paths
+        const testPaths = [
+            // Relative to web folder
+            '../facsimiles/image_1_1__left.jpg',
+            '../../facsimiles/image_1_1__left.jpg',
+            '../../../docs/facsimiles/image_1_1__left.jpg',
+            
+            // Direct paths
+            '/docs/facsimiles/image_1_1__left.jpg',
+            'facsimiles/image_1_1__left.jpg',
+            
+            // Test a few specific images
+            '../../facsimiles/image_1_1__right.jpg',
+            '../../facsimiles/image_2_1__left.jpg',
+            '../../facsimiles/image_3_1__left.jpg'
+        ];
+        
+        const results = document.getElementById('results');
+        
+        testPaths.forEach(path => {
+            const container = document.createElement('div');
+            container.className = 'test-image';
+            
+            const img = document.createElement('img');
+            img.src = path;
+            
+            const status = document.createElement('div');
+            status.className = 'status';
+            
+            img.onload = function() {
+                status.className = 'status success';
+                status.textContent = '✓ Found: ' + path;
+            };
+            
+            img.onerror = function() {
+                status.className = 'status error';
+                status.textContent = '✗ Not found: ' + path;
+            };
+            
+            container.appendChild(img);
+            container.appendChild(status);
+            results.appendChild(container);
+        });
+    </script>
+</body>
+</html>
