@@ -40,3 +40,4 @@ This document documents the Promptotyping process and the decisions.
 * Now with the full TEI XML I had some TEI problems
 * But I removed the geo as this is hallucinated
 * And I put all lists into standOff → this is okay for Claude to fail, because this is often in real TEI not correct → but that is really an example of "if you are an expert in TEI no problem. Only to create manually standOff and put it there → now it is valid."
+* bring all information from all conversatiosn together and merge them into a single github commit. now we have documented everythign we did. keeping stable version sis very imporant!
