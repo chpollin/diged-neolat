@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Missing facsimile">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#f2f2f2"/>
+      <path d="M40,0 L0,0 0,40" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <rect x="40" y="40" width="1120" height="720" fill="none" stroke="#b3b3b3" stroke-width="4"/>
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="380" font-size="48" fill="#666">Facsimile not found</text>
+    <text id="missingName" x="600" y="440" font-size="28" fill="#999">Using placeholder</text>
+  </g>
+</svg>

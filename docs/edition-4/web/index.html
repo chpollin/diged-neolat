@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Digital Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/app.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1 id="work-title">Digital Edition</h1>
+      <p class="byline">by <span id="work-author">—</span></p>
+    </div>
+    <nav class="top-nav">
+      <a id="front-link" href="#">Front</a>
+      <a id="home-link" href="#" onclick="location.reload();return false;">Home</a>
+      <a class="gh" href="https://pages.github.com/" rel="noopener" target="_blank" title="Hosted on GitHub Pages">GitHub Pages</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Contents</h2>
+      <ul id="nav" class="toc"></ul>
+    </aside>
+
+    <section id="main" class="textpanel">
+      <noscript>Please enable JavaScript to view the edition.</noscript>
+    </section>
+
+    <aside class="viewer">
+      <figure class="folio">
+        <img id="folio" alt="Facsimile page"/>
+        <figcaption id="folio-caption"></figcaption>
+      </figure>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <small>Built from TEI with <code>build_edition.py</code>.</small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

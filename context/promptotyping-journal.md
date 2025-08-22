@@ -98,3 +98,16 @@ This document documents the Promptotyping process and the decisions.
 * stichproben artig kontrolliert und tei xml ist valide --> das ist tei-final-3-0.xml
 * Removes unreliable auto-detection of genre, metrics, and rubrics --> da musste ich sogar nochmal genauer schauen; also opus versucht sehr gerne zu viel zu machen; das hätte ich am anfang schon besser prompten müssen was ich genau haben will (ich hatte habe vibe coding gemach tund habe so die daten kennen gelernt)
 * genre und reimerkennug klann ich dann mit einem llm machen (todo!)
+* und noch ein bisste iteration und kontrolle bis ich ein stabiles tei xml habe ..-> tei-final-3-1.xml
+* hier woltle ich jetzt die pb manuall einfügen hatte aber noch eine idee für einen prompt für dei chatgpt agents --> sie können es nciht direkt einfügen, aber sie können mir den ersten satz vl geben und das jeweilige pb, damit ich dann immer nur copy paste suche nach dem ersten satz und dann das pb einfügebn kann (und ich kann es auch gleich überpüfen) --> ziel ist ein wirklich solides tei xml + pb für die erste gute und korrekte ansicht (während die agents arbeiten habe ich maisl beantwortet und kaffe gemacht)
+* it did not work in the first try
+* the secodn try was okay, but also not really. only telling you nes page --> new poem. 
+
+### UI Design
+
+* Now I take the simple edition-2 web prototype with a screenshot to Claude Opus 4 and develop the UI together, throwing in what I want and removing what I don't want
+* Then I add the context .md files and iterate to produce a DESIGN.md
+* Reduce/refine the DESIGN.md again
+* Generate the design.md and cross-check it with the data --> snippet of the data and TEI header
+* Developed the interface as a prototype with GPT-5 Pro and Gemini 2.5 Pro and Opus (in a new chat!). Just simple index.html and style.css
+* Then gave the finished DESIGN.md to edition 3; we will then combine all insights from edition-2 with the better data and the refined UI, along with the generalizations, and create the next promptotype
