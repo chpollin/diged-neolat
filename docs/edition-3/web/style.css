@@ -66,10 +66,28 @@ button, select, input{
   background: var(--gray-light);
   border-bottom: 1px solid #e3e6ea;
 }
+.nav-left{
+  display: flex;
+  align-items: center;
+  gap: var(--gap-2);
+}
 .nav-left .brand{
   font-weight: 700;
   font-size: 20px;
   white-space: nowrap;
+}
+.nav-link-btn{
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.nav-link-btn:hover{
+  color: var(--secondary);
+  text-decoration: underline;
 }
 .nav-center{
   display: flex;

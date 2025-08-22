@@ -11,6 +11,9 @@
     <header class="nav" role="banner">
         <div class="nav-left">
             <div class="brand">Lucina Digital Edition</div>
+            <button class="nav-link-btn" id="aboutBtn">About</button>
+            <button class="nav-link-btn" id="editorialBtn">Editorial Introduction</button>
+            <button class="nav-link-btn" id="indexBtn">Index</button>
         </div>
 
         <div class="nav-center">
@@ -41,8 +44,6 @@
                 </div>
             </div>
 
-            <button id="infoBtn" class="icon-btn">ℹ️</button>
-            <button id="debugBtn" class="icon-btn" title="Toggle Debug">🐛</button>
         </div>
     </header>
 
@@ -86,21 +87,6 @@
         </section>
     </main>
 
-    <!-- About Dialog -->
-    <div id="aboutDialog" hidden>
-        <div class="dialog-content">
-            <h2>About Lucina Digital Edition</h2>
-            <p>Digital edition of Aurelius Laurentius Albrisius's <em>Lucina</em> (1474)</p>
-            <p>Madrid, Biblioteca Nacional, Mss. 6028</p>
-            <p>128 Latin elegiac poems in three books</p>
-            <button id="closeDialog" class="btn" style="margin-top: 1rem;">Close</button>
-        </div>
-    </div>
-
-    <!-- Debug Panel -->
-    <div id="debugPanel" class="debug-panel">
-        <div id="debugContent"></div>
-    </div>
 
     <script>
         // Global State with extensive logging
@@ -114,31 +100,12 @@
         let searchResults = [];
         let currentSearchIndex = -1;
         let allPages = [];
-        let debugMode = false;
 
-        // Debug logging function
+        // Simple logging function
         function debugLog(category, message, data = null) {
             const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
             const logMsg = `[${timestamp}] ${category}: ${message}`;
-            
             console.log(logMsg, data || '');
-            
-            if (debugMode) {
-                const debugContent = document.getElementById('debugContent');
-                if (debugContent) {
-                    const entry = document.createElement('div');
-                    entry.innerHTML = `<strong>${category}:</strong> ${message}`;
-                    if (data) {
-                        entry.innerHTML += ` <code>${JSON.stringify(data, null, 2).substring(0, 100)}</code>`;
-                    }
-                    debugContent.insertBefore(entry, debugContent.firstChild);
-                    
-                    // Keep only last 20 entries
-                    while (debugContent.children.length > 20) {
-                        debugContent.removeChild(debugContent.lastChild);
-                    }
-                }
-            }
         }
 
         // Initialize Application
@@ -742,12 +709,17 @@
         function setupEventListeners() {
             debugLog('INIT', 'Setting up event listeners');
             
-            // Debug toggle
-            document.getElementById('debugBtn').addEventListener('click', () => {
-                debugMode = !debugMode;
-                const panel = document.getElementById('debugPanel');
-                panel.classList.toggle('show', debugMode);
-                debugLog('DEBUG', `Debug mode: ${debugMode ? 'ON' : 'OFF'}`);
+            // New nav buttons (placeholders for now)
+            document.getElementById('aboutBtn')?.addEventListener('click', () => {
+                alert('About section - coming soon');
+            });
+            
+            document.getElementById('editorialBtn')?.addEventListener('click', () => {
+                alert('Editorial Introduction - coming soon');
+            });
+            
+            document.getElementById('indexBtn')?.addEventListener('click', () => {
+                alert('Index - coming soon');
             });
             
             // Book selector
@@ -824,20 +796,6 @@
                 navigateSearch(1);
             });
             
-            // Info dialog
-            document.getElementById('infoBtn').addEventListener('click', () => {
-                document.getElementById('aboutDialog').removeAttribute('hidden');
-            });
-            
-            document.getElementById('closeDialog').addEventListener('click', () => {
-                document.getElementById('aboutDialog').setAttribute('hidden', '');
-            });
-            
-            document.getElementById('aboutDialog').addEventListener('click', (e) => {
-                if (e.target === e.currentTarget) {
-                    document.getElementById('aboutDialog').setAttribute('hidden', '');
-                }
-            });
         }
 
         // Update zoom
