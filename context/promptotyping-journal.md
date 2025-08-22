@@ -118,3 +118,9 @@ This document documents the Promptotyping process and the decisions.
 * feedback gegeben; bilder und text weurden angezeigt
 * cladue code can direkt dei commits ausführen und arbeitenm hintergrund; das ist wieder ein ganz anders arbeiten, da muss man allgemein mitdenkenund claude code guiden. es erzeugt alel files immer selber. funktionerit erschreckend gut
 * habe habe nur fehler berichtet und aufgeschrieben 
+
+* edition 4
+
+* kopie von edition 3, weild as ein schöner stand war
+* jetzt ist mein ziel die fußnoten mitzubeziehen aus dem word.
+* mit einem pythons cript und Claude Opus die footnotes aus dem word gezpgen und zum vorhadnen tei xml dazugebastelt. also aufteilen in mehrer teilschritte (wir könne)
