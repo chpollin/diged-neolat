@@ -11,9 +11,9 @@
     <header class="nav" role="banner">
         <div class="nav-left">
             <div class="brand">Lucina Digital Edition</div>
-            <button class="nav-link-btn" id="aboutBtn">About</button>
-            <button class="nav-link-btn" id="editorialBtn">Editorial Introduction</button>
-            <button class="nav-link-btn" id="indexBtn">Index</button>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <a href="editorial.html" class="nav-link-btn">Editorial Introduction</a>
+            <a href="indices.html" class="nav-link-btn">Index</a>
         </div>
 
         <div class="nav-center">
@@ -848,18 +848,7 @@
         function setupEventListeners() {
             debugLog('INIT', 'Setting up event listeners');
             
-            // New nav buttons (placeholders for now)
-            document.getElementById('aboutBtn')?.addEventListener('click', () => {
-                alert('About section - coming soon');
-            });
-            
-            document.getElementById('editorialBtn')?.addEventListener('click', () => {
-                alert('Editorial Introduction - coming soon');
-            });
-            
-            document.getElementById('indexBtn')?.addEventListener('click', () => {
-                alert('Index - coming soon');
-            });
+            // Nav buttons are now direct links - no JS needed
             
             // Book selector
             document.getElementById('bookSelect').addEventListener('change', (e) => {
