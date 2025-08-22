@@ -355,6 +355,175 @@ mark.hl.pulse{
   pointer-events: none;
 }
 
+/* ========== Critical Apparatus ========== */
+/* Badge for navigation */
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Apparatus Panel */
+.apparatus-panel {
+  position: fixed;
+  right: -400px;
+  top: var(--nav-h);
+  bottom: 0;
+  width: 400px;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+}
+
+.apparatus-panel.open {
+  right: 0;
+}
+
+.apparatus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--gap-2);
+  border-bottom: 1px solid #e9ecef;
+  background: var(--gray-light);
+}
+
+.apparatus-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.apparatus-stats {
+  padding: 12px var(--gap-2);
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  color: var(--gray-mid);
+  font-size: 14px;
+}
+
+.apparatus-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--gap-2);
+}
+
+.apparatus-section {
+  margin-bottom: var(--gap-3);
+}
+
+.apparatus-poem-title {
+  font-size: 16px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.apparatus-entry {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.apparatus-entry:hover {
+  background: #e9ecef;
+  transform: translateX(-4px);
+}
+
+.apparatus-entry.active {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+}
+
+.apparatus-line {
+  font-size: 12px;
+  color: var(--gray-mid);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.apparatus-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.apparatus-lemma {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.apparatus-reading {
+  font-style: italic;
+  color: #495057;
+}
+
+/* Inline apparatus display */
+.apparatus-inline {
+  display: inline;
+  position: relative;
+}
+
+.apparatus-lemma-inline {
+  font-weight: 600;
+  color: var(--primary);
+  background: linear-gradient(180deg, transparent 70%, rgba(255, 234, 167, 0.5) 70%);
+  padding: 0 2px;
+}
+
+.apparatus-bracket {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin: 0 2px;
+}
+
+.apparatus-wit {
+  color: #6c757d;
+  font-size: 0.85em;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.apparatus-variant {
+  font-style: italic;
+  color: #c9302c;
+  font-size: 0.95em;
+}
+
+/* Hover effect for the entire apparatus */
+.apparatus-inline:hover .apparatus-lemma-inline {
+  background: rgba(255, 234, 167, 0.8);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Optional: Add a subtle animation */
+.apparatus-inline {
+  transition: all 0.2s ease;
+}
+
+/* For smaller screens, make the apparatus more compact */
+@media (max-width: 767.98px) {
+  .apparatus-variant,
+  .apparatus-wit {
+    font-size: 0.8em;
+  }
+}
+
 /* Dialog */
 #aboutDialog{
   position: fixed;
@@ -378,6 +547,14 @@ mark.hl.pulse{
 /* ========== Responsive Breakpoints ========== */
 /* Mobile: < 768px */
 @media (max-width: 767.98px){
+  .apparatus-panel {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .apparatus-panel.open {
+    right: 0;
+  }
   :root{
     --control-h: 44px; /* Larger touch targets */
   }

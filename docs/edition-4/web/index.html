@@ -94,6 +94,7 @@
         let poems = [];
         let pageMapping = {};
         let persons = {};
+        let apparatusData = [];
         let currentPage = null;
         let currentZoom = 1;
         let currentRotation = 0;
@@ -122,7 +123,7 @@
 
         // Load and Parse TEI XML
         async function loadTEI() {
-            const teiPath = './tei-final-3-1.xml';
+            const teiPath = './tei-final-3-2.xml';
             debugLog('TEI', `Loading TEI from: ${teiPath}`);
             
             try {
@@ -149,6 +150,7 @@
                 extractPageMapping();
                 extractPersons();
                 extractPoems();
+                extractApparatus();
                 
                 // Verify extraction
                 verifyExtraction();
@@ -201,6 +203,64 @@
             console.log('Total pages mapped:', Object.keys(pageMapping).length);
             console.log('All page numbers:', allPages);
             debugLog('EXTRACT', `Extracted ${Object.keys(pageMapping).length} page mappings`);
+        }
+
+        // Extract critical apparatus from TEI
+        function extractApparatus() {
+            debugLog('EXTRACT', 'Starting apparatus extraction');
+            
+            const appElements = teiDoc.querySelectorAll('app');
+            debugLog('EXTRACT', `Found ${appElements.length} apparatus elements`);
+            console.log('App elements found:', appElements);
+            
+            apparatusData = [];
+            
+            appElements.forEach((app, index) => {
+                const lem = app.querySelector('lem');
+                const rdgs = app.querySelectorAll('rdg');
+                
+                console.log(`Processing app ${index}:`, app, 'lem:', lem, 'rdgs:', rdgs);
+                
+                if (lem && rdgs.length > 0) {
+                    const lemWit = lem.getAttribute('wit') || '#M';  // Default to #M if no wit attribute
+                    const lemText = lem.textContent.trim();
+                    
+                    const readings = [];
+                    rdgs.forEach(rdg => {
+                        const wit = rdg.getAttribute('wit');
+                        const text = rdg.textContent.trim();
+                        readings.push({ wit, text });
+                    });
+                    
+                    // Find the line this apparatus belongs to
+                    let lineElement = app.closest('l');
+                    let lineNum = lineElement ? lineElement.getAttribute('n') : null;
+                    
+                    // Find the poem this belongs to
+                    let poemDiv = app.closest('div[type="poem"], div[type="praefatio"]');
+                    let poemId = poemDiv ? poemDiv.getAttribute('xml:id') : null;
+                    
+                    console.log(`App ${index} details:`, {
+                        lemText, lemWit, readings, lineNum, poemId
+                    });
+                    
+                    const entry = {
+                        id: `app-${index}`,
+                        lemma: { wit: lemWit, text: lemText },
+                        readings: readings,
+                        lineNum: lineNum,
+                        poemId: poemId,
+                        element: app
+                    };
+                    
+                    apparatusData.push(entry);
+                    
+                    debugLog('APPARATUS', `Entry ${index}: "${lemText}" (${lemWit}) vs "${readings.map(r => r.text).join(', ')}" in line ${lineNum} of poem ${poemId}`);
+                }
+            });
+            
+            console.log('Final extracted apparatus entries:', apparatusData);
+            console.log('Apparatus data length:', apparatusData.length);
         }
 
         // Extract person data from standOff
@@ -278,10 +338,24 @@
                         if (node.nodeType === 1) { // Element node
                             if (node.tagName === 'l') {
                                 const lineNum = node.getAttribute('n');
-                                const lineText = node.textContent.trim();
+                                // Get line text, preserving app elements
+                                let lineText = '';
+                                node.childNodes.forEach(child => {
+                                    if (child.nodeType === 3) { // Text node
+                                        lineText += child.textContent;
+                                    } else if (child.tagName === 'app') {
+                                        // Use lemma text for display
+                                        const lem = child.querySelector('lem');
+                                        if (lem) {
+                                            lineText += lem.textContent;
+                                        }
+                                    } else {
+                                        lineText += child.textContent;
+                                    }
+                                });
                                 lines.push({
                                     n: parseInt(lineNum) || lines.length + 1,
-                                    text: lineText
+                                    text: lineText.trim()
                                 });
                             } else if (node.tagName === 'pb') {
                                 const n = node.getAttribute('n');
@@ -314,8 +388,11 @@
                     }
                 }
                 
+                // Check if the poem has an xml:id and use it
+                const xmlId = poemDiv.getAttribute('xml:id');
+                
                 const poem = {
-                    id: isPraefatio ? 'praefatio' : `poem-${bookNum}.${poemNum}`,
+                    id: xmlId || (isPraefatio ? 'praefatio' : `poem-${bookNum}.${poemNum}`),
                     book: parseInt(bookNum),
                     number: parseInt(poemNum),
                     poemNumber: poemNumber,  // Store the formatted number
@@ -490,9 +567,11 @@
                     // Create line element
                     const lineEl = document.createElement('div');
                     lineEl.className = line.n % 2 === 1 ? 'line hex' : 'line pent';
+                    lineEl.dataset.lineNum = line.n;
+                    lineEl.dataset.poemId = poem.id;
                     lineEl.innerHTML = `
                         <span class="ln">${line.n}</span>
-                        <span class="txt">${wrapPersonReferences(line.text)}</span>
+                        <span class="txt">${processLineWithApparatus(line.text, poem.id, line.n)}</span>
                     `;
                     
                     // Group into couplets
@@ -532,6 +611,66 @@
                 
                 latinView.appendChild(poemEl);
             });
+        }
+
+        // Process line text with apparatus markers
+        function processLineWithApparatus(text, poemId, lineNum) {
+            // Debug all calls
+            if (poemId === 'poem-1.1' && lineNum == 3) {
+                console.log('SPECIAL DEBUG: Processing line 3 of poem-1.1');
+                console.log('Available apparatus data:', apparatusData);
+                console.log('Looking for poemId:', poemId, 'lineNum:', lineNum);
+            }
+            
+            // Find apparatus entries for this line
+            const lineApparatus = apparatusData.filter(app => 
+                app.poemId === poemId && app.lineNum == lineNum
+            );
+            
+            if (lineApparatus.length > 0) {
+                console.log(`Processing line ${lineNum} of poem ${poemId}:`, {
+                    text,
+                    apparatusEntries: lineApparatus
+                });
+            }
+            
+            if (lineApparatus.length === 0) {
+                return text;
+            }
+            
+            let processedText = text;
+            
+            // Replace each apparatus lemma with inline apparatus
+            lineApparatus.forEach(app => {
+                const lemmaText = app.lemma.text;
+                const regex = new RegExp(`\\b${escapeRegex(lemmaText)}\\b`, 'gi');
+                console.log(`Attempting to replace "${lemmaText}" in "${text}" with regex:`, regex);
+                
+                processedText = processedText.replace(regex, (match) => {
+                    console.log(`Matched "${match}", creating inline apparatus`);
+                    // Create inline apparatus display
+                    const variants = app.readings.map(r => 
+                        `<span class="apparatus-variant">${r.text}</span> <span class="apparatus-wit">${r.wit}</span>`
+                    ).join(', ');
+                    
+                    return `<span class="apparatus-inline">
+                        <span class="apparatus-lemma-inline">${match}</span>
+                        <span class="apparatus-bracket">[</span><span class="apparatus-wit">${app.lemma.wit}</span><span class="apparatus-bracket">:</span>
+                        ${variants}<span class="apparatus-bracket">]</span>
+                    </span>`;
+                });
+            });
+            
+            if (processedText !== text) {
+                console.log(`Line ${lineNum} transformed from: "${text}" to:`, processedText);
+            }
+            
+            return processedText;
+        }
+        
+        // Escape special regex characters
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
 
         // Wrap person references with tooltips - DISABLED due to display issues
