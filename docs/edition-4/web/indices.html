@@ -560,34 +560,51 @@
                 const birth = person.querySelector('birth');
                 const death = person.querySelector('death');
                 const occupation = person.querySelector('occupation')?.textContent;
-                const note = person.querySelector('note')?.textContent;
                 const role = person.getAttribute('role');
+                
+                // Extract notes - both general and appearances
+                const notes = person.querySelectorAll('note');
+                let generalNote = '';
+                let appearances = [];
+                
+                notes.forEach(note => {
+                    if (note.getAttribute('type') === 'appearances') {
+                        // Parse appearances like "II,1; II,5; II,9"
+                        const appearanceText = note.textContent;
+                        appearances = appearanceText.split(';').map(ref => ref.trim()).filter(ref => ref);
+                    } else {
+                        generalNote = note.textContent;
+                    }
+                });
                 
                 let name = '';
                 let alternateNames = [];
                 
                 if (persName) {
-                    const forenames = Array.from(persName.querySelectorAll('forename')).map(f => f.textContent).join(' ');
-                    const surname = persName.querySelector('surname')?.textContent || '';
-                    const roleName = persName.querySelector('roleName')?.textContent || '';
-                    const addNames = Array.from(persName.querySelectorAll('addName'));
-                    
-                    // Consolidate names properly
-                    if (roleName) {
-                        name = `Giovanni, ${roleName}`;
-                    } else {
+                    // Handle new structure with <name> wrapper
+                    const nameElement = persName.querySelector('name');
+                    if (nameElement) {
+                        // Extract all forenames
+                        const forenames = Array.from(nameElement.querySelectorAll('forename')).map(f => f.textContent).join(' ');
+                        const surname = nameElement.querySelector('surname')?.textContent || '';
+                        const addNames = Array.from(nameElement.querySelectorAll('addName'));
+                        
                         name = `${forenames} ${surname}`.trim();
-                    }
-                    
-                    // Handle Visconti/Vicecomes
-                    if (addNames.length > 0) {
-                        const visconti = addNames.find(n => n.textContent === 'Visconti');
-                        if (visconti && name.includes('Vicecomes')) {
-                            name = name.replace('Vicecomes', 'Vicecomes (Visconti)');
-                            alternateNames = addNames.filter(n => n.textContent !== 'Visconti').map(n => n.textContent);
+                        alternateNames = addNames.map(n => n.textContent);
+                    } else {
+                        // Fallback for old structure
+                        const forenames = Array.from(persName.querySelectorAll('forename')).map(f => f.textContent).join(' ');
+                        const surname = persName.querySelector('surname')?.textContent || '';
+                        const roleName = persName.querySelector('roleName')?.textContent || '';
+                        
+                        if (roleName) {
+                            name = `Giovanni, ${roleName}`;
                         } else {
-                            alternateNames = addNames.map(n => n.textContent);
+                            name = `${forenames} ${surname}`.trim();
                         }
+                        
+                        const addNames = Array.from(persName.querySelectorAll('addName'));
+                        alternateNames = addNames.map(n => n.textContent);
                     }
                 }
                 
@@ -624,7 +641,7 @@
                     category = 'Patrons & Family';
                 } else if (occupation?.toLowerCase().includes('bishop') || id === 'giovanni-san-lamberto') {
                     category = 'Clergy';
-                } else if (note?.toLowerCase().includes('rival')) {
+                } else if (generalNote?.toLowerCase().includes('rival')) {
                     category = 'Rivals & Associates';
                 }
                 
@@ -635,7 +652,8 @@
                     birthInfo,
                     deathInfo,
                     occupation,
-                    note,
+                    note: generalNote,
+                    appearances,
                     role,
                     category
                 });

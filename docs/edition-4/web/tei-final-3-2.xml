@@ -9,25 +9,26 @@
             <forename>Aurelius</forename>
             <forename>Laurentius</forename>
             <surname>Albrisius</surname>
-          </persName>
+            <addName type="alternate">Aurelio Lorenzo Albrisio</addName>
+            <addName type="alternate">Albrisi</addName></persName>
         </author>
         <editor role="editor">
           <persName>
             <forename>[Editor Name]</forename>
-            <surname>[Editor Surname]</surname>
-          </persName>
+            <surname>[Editor Surname]</surname></persName>
         </editor>
         <respStmt>
           <resp>TEI Encoding</resp>
-          <persName>[Encoder Name]</persName>
+          <persName><name>[Encoder Name]</name></persName>
         </respStmt>
       </titleStmt>
       <publicationStmt>
         <publisher>[Publisher]</publisher>
         <date when="2024">2024</date>
         <availability>
-          <licence target="https://creativecommons.org/licenses/by/4.0/"> Creative Commons
-            Attribution 4.0 International </licence>
+          <licence target="https://creativecommons.org/licenses/by/4.0/">
+            Creative Commons Attribution 4.0 International
+          </licence>
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -40,11 +41,45 @@
             <idno>Mss. 6028</idno>
           </msIdentifier>
           <msContents>
-            <summary>Collection of 128 Latin occasional poems in three books, comprising 2,224
-              verses total</summary>
+            <summary>Collection of 128 Latin occasional poems (Gelegenheitsgedichte) in three books, 
+                     comprising 2,224 verses total. Individual poems range from 2 to 124 verses.</summary>
             <msItem>
               <author ref="#albrisius">Aurelius Laurentius Albrisius</author>
               <title>Lucina</title>
+              <note>The collection includes a prefatory dedication poem (praefatio) to Cicco Simonetta
+                    and three books with the following structure:</note>
+              <msItem n="praef">
+                <locus>[To be determined from manuscript]</locus>
+                <title>Praefatio</title>
+                <rubric>Dedication to Cicco Simonetta</rubric>
+                <note>Defends youthful love begun at age twenty (knapp zwanzig Jahre alt) as 
+                      temporally bounded episode that found fulfillment (concessis)</note>
+              </msItem>
+              <msItem n="1">
+                <locus>[To be determined from manuscript]</locus>
+                <title>Liber Primus</title>
+                <note>43 poems. Depicts yearning for Lucina. Opening poem (I.1) narrates first 
+                      encounter with Lucina early in the morning (am frühen Morgen) at the church 
+                      of San Francesco while heading to law studies (studiorum ad iura meorum). 
+                      She appears with beautiful form (wunderschönen Gestalt) at window. 
+                      Includes conflict with rival Franciscus Varensis, numerous epigrams in 
+                      Martial's style.</note>
+              </msItem>
+              <msItem n="2">
+                <locus>[To be determined from manuscript]</locus>
+                <title>Liber Secundus</title>
+                <note>37 poems. Dedicated to Gian Giacomo Simonetta (Cicco's eldest son). 
+                      Culminates in poem II.37 with erotic banquet scene.</note>
+              </msItem>
+              <msItem n="3">
+                <locus>[To be determined from manuscript]</locus>
+                <title>Liber Tertius</title>
+                <note>47 poems. Dedicated to Bishop Giovanni of San Lamberto. Depicts renunciation 
+                      of secular love for ecclesiastical career. In III.9 claims Lucina remained 
+                      virgin. Final poem (III.47) confirms transformation to priest and confessor, 
+                      quotes: "custos rigidus, focum et sacerdos Vestalem pavitans vigilque servo..." 
+                      Mentions muse Euterpe restricting his lyre.</note>
+              </msItem>
               <colophon>Finita et perfecta II Augusti MCCCCLXXIIII</colophon>
             </msItem>
           </msContents>
@@ -52,7 +87,8 @@
             <objectDesc>
               <supportDesc material="parchment">
                 <support>Parchment</support>
-                <extent>176 folios <dimensions type="leaf" unit="mm">
+                <extent>176 folios 
+                  <dimensions type="leaf" unit="mm">
                     <height>220</height>
                     <width>145</width>
                   </dimensions>
@@ -66,189 +102,1080 @@
               <handNote script="humanistic">Humanistic script</handNote>
             </handDesc>
             <decoDesc>
-              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely
-                Simonetta)</decoNote>
+              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely Simonetta)</decoNote>
             </decoDesc>
           </physDesc>
           <history>
             <origin>
               <origDate when="1474-08-02">2 August 1474</origDate>
-              <origPlace>Northern Italy (likely Pavia or Milan)</origPlace>
+              <origPlace cert="low">Northern Italy</origPlace>
+              <note>Manuscript marks biographical caesura as Albrisius compiled poems from his 
+                    time as teacher and student before entering ecclesiastical service</note>
             </origin>
             <provenance>Probably from Cicco Simonetta's library</provenance>
           </history>
         </msDesc>
-      <listWit><witness xml:id="M">Madrid, Biblioteca Nacional, Mss. 6028 (base text)</witness><witness xml:id="C">Manuscript C (corrections and variants)</witness></listWit></sourceDesc>
+        
+        <!-- Additional manuscripts -->
+        <listWit>
+          <witness xml:id="M">Madrid, Biblioteca Nacional, Mss. 6028 (complete text)</witness>
+          <witness xml:id="R">Florence, Biblioteca Riccardiana 1458 (contains 2 poems, 
+                              one also in Lucina)</witness>
+          <witness xml:id="A">Milan, Biblioteca Ambrosiana E 12 sup. (astronomical texts 
+                              copied by Albrisius 1476, includes occasional verses)</witness>
+        </listWit>
+        
+        <!-- Literary models explicitly mentioned in sources -->
+        <listBibl type="literary-models">
+          <head>Literary Models and Influences</head>
+          <bibl>Ovid (especially Amores) - model for Lucina figure and motifs</bibl>
+          <bibl>Tibullus (Delia) - elegiac precedent</bibl>
+          <bibl>Propertius (Cynthia) - elegiac model</bibl>
+          <bibl>Catullus - influences meter (Hendekasyllabus) and language</bibl>
+          <bibl>Martial - model for witty epigrams and invectives</bibl>
+          <bibl>Horace - influences strophic forms (Sapphic, Asclepiadean) and Maecenas topos 
+                (Cicco Simonetta as "alter Maecenas")</bibl>
+          <bibl>Petrarch (Canzoniere and Epistulae metricae) - three-book structure, 
+                autobiographical claims, metrical variety</bibl>
+          <bibl>Andreas Capellanus - structural model for love's progression</bibl>
+        </listBibl>
+      </sourceDesc>
     </fileDesc>
+    
     <encodingDesc>
       <projectDesc>
-        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines
-          with customizations for Renaissance Latin occasional poetry.</p>
+        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines 
+           with customizations for Renaissance Latin occasional poetry. The work represents a 
+           Petrarchan carmina collection functioning as literary autobiography and professional 
+           portfolio (Bewerbungsmappe), a popular form (beliebte Darstellungsmöglichkeit) for 
+           Quattrocento poets.</p>
       </projectDesc>
       <editorialDecl>
         <correction>
           <p>Manifest scribal errors corrected with original readings preserved in apparatus.</p>
         </correction>
         <normalization>
-          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal punctuation
-            normalization for comprehension.</p>
+          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal 
+             punctuation normalization for comprehension.</p>
         </normalization>
         <quotation>
           <p>Quotation marks not in original; added editorially where appropriate.</p>
         </quotation>
       </editorialDecl>
       <classDecl>
+        <!-- Genre taxonomy based on genres actually mentioned in sources -->
         <taxonomy xml:id="genres">
+          <category xml:id="erotic">
+            <catDesc>Love poetry / Liebeselegien</catDesc>
+          </category>
           <category xml:id="epideictic">
             <catDesc>Panegyric, encomium</catDesc>
           </category>
-          <category xml:id="epitaph">
-            <catDesc>Funeral poetry</catDesc>
-          </category>
-          <category xml:id="invective">
-            <catDesc>Attack poems</catDesc>
-          </category>
           <category xml:id="epistle">
-            <catDesc>Verse letters</catDesc>
-          </category>
-          <category xml:id="erotic">
-            <catDesc>Love poetry</catDesc>
-          </category>
-          <category xml:id="consolatio">
-            <catDesc>Consolation poems</catDesc>
+            <catDesc>Verse letters / Briefgedichte</catDesc>
           </category>
           <category xml:id="propemptikon">
-            <catDesc>Farewell poems</catDesc>
+            <catDesc>Farewell poems / Abschiedsgedichte</catDesc>
           </category>
-          <category xml:id="paraenesis">
-            <catDesc>Advice poetry</catDesc>
+          <category xml:id="epitaph">
+            <catDesc>Funeral poetry / Totenklagen, Grabepigramme</catDesc>
+          </category>
+          <category xml:id="petition">
+            <catDesc>Request poems / Bittgedichte</catDesc>
+          </category>
+          <category xml:id="apology">
+            <catDesc>Apologies / Entschuldigungen</catDesc>
+          </category>
+          <category xml:id="invective">
+            <catDesc>Attack poems / Spottgedichte und Invektiven</catDesc>
+          </category>
+          <category xml:id="triumph">
+            <catDesc>Triumph songs / Triumphgesänge</catDesc>
+          </category>
+          <category xml:id="consolatio">
+            <catDesc>Consolation poems / Trostschreiben</catDesc>
+          </category>
+          <category xml:id="blessing">
+            <catDesc>Blessings / Segenswünsche</catDesc>
+          </category>
+          <category xml:id="admonition">
+            <catDesc>Warnings / Mahnungen</catDesc>
+          </category>
+          <category xml:id="friendship">
+            <catDesc>Praise of friendship / Lob der Freundschaft</catDesc>
+          </category>
+          <category xml:id="dietary">
+            <catDesc>Dietary recommendations / Empfehlungen zu Ernährung</catDesc>
+          </category>
+          <category xml:id="resignation">
+            <catDesc>Resignation requests / Entlassungsgesuche</catDesc>
           </category>
           <category xml:id="prayer">
-            <catDesc>Religious invocations</catDesc>
+            <catDesc>Prayers / Gebete</catDesc>
+          </category>
+          <category xml:id="epigram">
+            <catDesc>Epigrams in Martial's style</catDesc>
+          </category>
+          <category xml:id="heroidean">
+            <catDesc>Heroidean letters / Heroidenbriefe</catDesc>
+          </category>
+          <category xml:id="poetological">
+            <catDesc>Programmatic and poetological-literary sociological texts</catDesc>
+          </category>
+        </taxonomy>
+        
+        <!-- Metrical forms mentioned in sources -->
+        <taxonomy xml:id="meters">
+          <category xml:id="hendecasyllable">
+            <catDesc>Hendecasyllables (Hendekasyllabus)</catDesc>
+          </category>
+          <category xml:id="elegiac">
+            <catDesc>Elegiac distichs</catDesc>
+          </category>
+          <category xml:id="sapphic">
+            <catDesc>Sapphic stanzas</catDesc>
+          </category>
+          <category xml:id="asclepiadean">
+            <catDesc>Asclepiadean stanzas</catDesc>
           </category>
         </taxonomy>
       </classDecl>
     </encodingDesc>
+    
     <profileDesc>
-
-      <settingDesc>
-        <listPlace>
-          <place xml:id="pavia">
-            <placeName>Pavia</placeName>
-          </place>
-          <place xml:id="milan">
-            <placeName>Milan</placeName>
-          </place>
-          <place xml:id="cremona">
-            <placeName>Cremona</placeName>
-          </place>
-          <place xml:id="san-francesco-pavia">
-            <placeName>Church of San Francesco, Pavia</placeName>
-            <note>Location of first encounter with Lucina</note>
-          </place>
-        </listPlace>
-      </settingDesc>
+      <creation>
+        <date cert="low">[Poems composed over period ending 1474]</date>
+      </creation>
+      <langUsage>
+        <language ident="la">Latin</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <term>Quattrocento poetry</term>
+          <term>Sforza court</term>
+          <term>Occasional poetry (Gelegenheitsgedichte)</term>
+          <term>Petrarchan carmina collection</term>
+          <term>Literary autobiography</term>
+        </keywords>
+      </textClass>
     </profileDesc>
   </teiHeader>
   <standOff>
+  <listPlace>
+          <place xml:id="pavia">
+            <placeName>Pavia</placeName>
+            <note>Location of Sforza court; many addressees located here</note>
+          </place>
+          <place xml:id="milan">
+            <placeName>Milan</placeName>
+            <note>Location of Sforza court; many addressees located here</note>
+          </place>
+          <place xml:id="cremona">
+            <placeName>Cremona</placeName>
+            <note>Albrisius's birthplace (ca. 1440-1445); some addressees located here</note>
+          </place>
+          <place xml:id="ferrara">
+            <placeName>Ferrara</placeName>
+            <note>Some addressees located here</note>
+          </place>
+          <place xml:id="perugia">
+            <placeName>Perugia</placeName>
+            <note>Where Albrisius studied canon law (Kanonistik)</note>
+          </place>
+          <place xml:id="san-francesco">
+            <placeName>Church of San Francesco</placeName>
+            <note>Location of first encounter with Lucina (I.1)</note>
+          </place>
+          <place xml:id="rome">
+            <placeName>Rome</placeName>
+            <note>Likely location of poet laureate coronation</note>
+          </place>
+        </listPlace>
     <listPerson>
-      
-      <person xml:id="albrisius">
-        <persName>
-          <forename>Aurelius</forename>
-          <forename>Laurentius</forename>
-          <surname>Albrisius</surname>
-          <addName type="alternate">Aurelio Lorenzo Albrisio</addName>
-        </persName>
-        <birth notBefore="1440" notAfter="1445">
-          <placeName ref="#cremona">Cremona</placeName>
-        </birth>
-        <occupation>Poet laureate, priest, tutor</occupation>
-        <note>Crowned poet laureate by Emperor Frederick III (1468/69). Tutor to Cicco Simonetta's
-          sons.</note>
-      </person>
 
-      
-      <person xml:id="cicco-simonetta">
-        <persName>
-          <forename>Cicco</forename>
-          <surname>Simonetta</surname>
-        </persName>
-        <birth notBefore="1410" notAfter="1420" />
-        <death when="1480" />
-        <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
-        <note>Primary patron, addressed as "alter Maecenas"</note>
-      </person>
+  <!-- AUTHOR -->
+  <person xml:id="albrisius">
+    <persName><name>
+      <forename>Aurelius</forename>
+      <forename>Laurentius</forename>
+      <surname>Albrisius</surname>
+    </name></persName>
+    <occupation>Poet laureate, priest</occupation>
+    <note>Author of the Lucina collection</note>
+  </person>
 
-      <person xml:id="giovanni-simonetta">
-        <persName>
-          <forename>Giovanni</forename>
-          <surname>Simonetta</surname>
-        </persName>
-        <note>Son of Cicco Simonetta</note>
-      </person>
+  <!-- PRIMARY PATRON -->
+  <person xml:id="cicco-simonetta">
+    <persName><name>
+      <forename>Cicco</forename>
+      <surname>Simonetta</surname>
+      <addName>Cichus</addName>
+      <addName>Mecoenas</addName>
+    </name></persName>
+    <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
+    <note>Primary patron, addressed as "Mecoenas"</note>
+    <note type="appearances">Praefatio; I,1; I,4; I,17; I,19; I,25; I,35; III,10; III,21; III,26; III,47</note>
+  </person>
 
-      <person xml:id="giacomo-simonetta">
-        <persName>
-          <forename>Gian Giacomo</forename>
-          <surname>Simonetta</surname>
-        </persName>
-        <note>Eldest son of Cicco Simonetta, dedicatee of Book II</note>
-      </person>
+  <!-- SFORZA DYNASTY -->
+  <person xml:id="galeazzo-sforza">
+    <persName><name>
+      <forename>Galeazzo</forename>
+      <forename>Maria</forename>
+      <surname>Sforza</surname>
+      <addName>Galeacius</addName>
+      <addName>Caesar</addName>
+    </name></persName>
+    <occupation>Duke of Milan</occupation>
+    <note type="appearances">I,9; I,15; I,21; I,30; II,22</note>
+  </person>
 
-      <person xml:id="giovanni-san-lamberto">
-        <persName>
-          <forename>Giovanni</forename>
-          <roleName>Bishop of San Lamberto</roleName>
-        </persName>
-        <occupation>Bishop</occupation>
-        <note>Dedicatee of Book III, promises Albrisius a benefice</note>
-      </person>
+  <person xml:id="francesco-sforza">
+    <persName><name>
+      <forename>Francesco</forename>
+      <surname>Sforza</surname>
+      <addName>Franciscus Sphorcia</addName>
+    </name></persName>
+    <occupation>Duke of Milan</occupation>
+    <note type="appearances">III,41</note>
+  </person>
 
-      
-      <person xml:id="philippus-vicecomes">
-        <persName>
-          <forename>Philippus</forename>
-          <surname>Vicecomes</surname>
-          <addName>Visconti</addName>
-        </persName>
-        <note>Member of the Visconti family</note>
-      </person>
+  <!-- SIMONETTA FAMILY -->
+  <person xml:id="giovanni-simonetta">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <surname>Simonetta</surname>
+      <addName>Iohannes</addName>
+    </name></persName>
+    <note type="appearances">I,3</note>
+  </person>
 
-      <person xml:id="franciscus-varensis">
-        <persName>
-          <forename>Franciscus</forename>
-          <surname>Varensis</surname>
-        </persName>
-        <note>Rival in love, addressee of I.5</note>
-      </person>
+  <person xml:id="giovanni-giacomo-simonetta">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Giacomo</forename>
+      <surname>Simonetta</surname>
+      <addName>Iohannes Iacobus</addName>
+    </name></persName>
+    <note>Son of Cicco Simonetta</note>
+    <note type="appearances">II,1; II,5; II,9; II,20; II,37; III,46</note>
+  </person>
 
-      <person xml:id="iacobus-marnus">
-        <persName>
-          <forename>Iacobus</forename>
-          <surname>Marnus</surname>
-        </persName>
-        <note>Addressee of I.6</note>
-      </person>
-      
-      <person xml:id="lucina" role="literary">
-        <persName>Lucina</persName>
-        <note>The beloved, central figure of the collection</note>
-      </person>
-    </listPerson>
+  <person xml:id="sigismondo-simonetta">
+    <persName><name>
+      <forename>Sigismondo</forename>
+      <surname>Simonetta</surname>
+      <addName>Sigismundus</addName>
+    </name></persName>
+    <occupation>Bishop</occupation>
+    <note type="appearances">II,3; II,18; II,27</note>
+  </person>
+
+  <person xml:id="andrea-simonetta">
+    <persName><name>
+      <forename>Andrea</forename>
+      <surname>Simonetta</surname>
+    </name></persName>
+    <note type="appearances">I,38</note>
+  </person>
+
+  <person xml:id="antonio-federico-simonetta">
+    <persName><name>
+      <forename>Antonio</forename>
+      <forename>Federico</forename>
+      <surname>Simonetta</surname>
+      <addName>Antonius Fredericus</addName>
+    </name></persName>
+    <note type="appearances">II,23; III,14</note>
+  </person>
+
+  <person xml:id="lodovico-simonetta">
+    <persName><name>
+      <forename>Lodovico</forename>
+      <surname>Simonetta</surname>
+      <addName>Lodovicus</addName>
+    </name></persName>
+    <note type="appearances">II,21; III,22</note>
+  </person>
+
+  <person xml:id="guido-antonio-simonetta">
+    <persName><name>
+      <forename>Guido</forename>
+      <forename>Antonio</forename>
+      <surname>Simonetta</surname>
+      <addName>Guidonus Antonius</addName>
+    </name></persName>
+    <note type="appearances">III,15; III,44</note>
+  </person>
+
+  <person xml:id="giovanni-francesco-simonetta">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Francesco</forename>
+      <surname>Simonetta</surname>
+      <addName>Iohannes Franciscus</addName>
+    </name></persName>
+    <note type="appearances">II,32</note>
+  </person>
+
+  <!-- VISCONTI FAMILY -->
+  <person xml:id="filippo-visconti">
+    <persName><name>
+      <forename>Filippo</forename>
+      <surname>Visconti</surname>
+      <addName>Philippus Vicecomes</addName>
+    </name></persName>
+    <note type="appearances">I,2</note>
+  </person>
+
+  <person xml:id="gaspare-visconti">
+    <persName><name>
+      <forename>Gaspare</forename>
+      <surname>Visconti</surname>
+      <addName>Gasparem Vicecomitem</addName>
+    </name></persName>
+    <note type="appearances">I,12</note>
+  </person>
+
+  <person xml:id="azone-visconti">
+    <persName><name>
+      <forename>Azone</forename>
+      <surname>Visconti</surname>
+      <addName>Azo Vicecomes</addName>
+    </name></persName>
+    <note type="appearances">I,16</note>
+  </person>
+
+  <person xml:id="ambrogio-visconti">
+    <persName><name>
+      <forename>Ambrogio</forename>
+      <surname>Visconti</surname>
+      <addName>Ambrosius Vicecomes</addName>
+    </name></persName>
+    <note type="appearances">I,27</note>
+  </person>
+
+  <person xml:id="ascanio-visconti">
+    <persName><name>
+      <forename>Ascanio</forename>
+      <surname>Visconti</surname>
+      <addName>Ascanius Vicecomes</addName>
+    </name></persName>
+    <occupation>Protonotary, later Cardinal</occupation>
+    <note type="appearances">II,2; III,12</note>
+  </person>
+
+  <!-- HUMANISTS AND POETS -->
+  <person xml:id="francesco-filelfo">
+    <persName><name>
+      <forename>Francesco</forename>
+      <surname>Filelfo</surname>
+      <addName>Franciscus Philelfus</addName>
+    </name></persName>
+    <occupation>Humanist, poet</occupation>
+    <note type="appearances">I,11; III,23; III,36</note>
+  </person>
+
+  <person xml:id="battista-plasio">
+    <persName><name>
+      <forename>Battista</forename>
+      <surname>Plasio</surname>
+      <addName>Baptista Plasius</addName>
+    </name></persName>
+    <occupation>Poet</occupation>
+    <note type="appearances">II,6; III,37</note>
+  </person>
+
+  <person xml:id="tito-strozzi">
+    <persName><name>
+      <forename>Tito</forename>
+      <surname>Strozzi</surname>
+      <addName>Titus Strozza</addName>
+    </name></persName>
+    <occupation>Poet</occupation>
+    <note type="appearances">II,15; II,26</note>
+  </person>
+
+  <person xml:id="lorenzo-strozzi">
+    <persName><name>
+      <forename>Lorenzo</forename>
+      <surname>Strozzi</surname>
+      <addName>Laurentius Strozza</addName>
+    </name></persName>
+    <occupation>Poet</occupation>
+    <note type="appearances">II,24; II,26</note>
+  </person>
+
+  <!-- CHURCH OFFICIALS -->
+  <person xml:id="giovanni-stefano-bortigella">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Stefano</forename>
+      <surname>Bortigella</surname>
+      <addName>Iohannes Stephanus Borthigela</addName>
+    </name></persName>
+    <occupation>Bishop</occupation>
+    <note type="appearances">I,20; I,37</note>
+  </person>
+
+  <person xml:id="giovanni-lamberto">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <roleName>Bishop of San Lamberto</roleName>
+      <addName>Iohannes Sancti Lamberti</addName>
+    </name></persName>
+    <occupation>Bishop</occupation>
+    <note type="appearances">III,1; III,18</note>
+  </person>
+
+  <person xml:id="giovanni-campisio">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <surname>Campisio</surname>
+      <addName>Iohannes Campisius</addName>
+    </name></persName>
+    <occupation>Bishop</occupation>
+    <note type="appearances">III,25</note>
+  </person>
+
+  <!-- NOBILITY -->
+  <person xml:id="pietro-verme">
+    <persName><name>
+      <forename>Pietro</forename>
+      <surname>Verme</surname>
+      <addName>Petrus Vermius</addName>
+    </name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">I,14</note>
+  </person>
+
+  <person xml:id="guido-torello">
+    <persName><name>
+      <forename>Guido</forename>
+      <forename>Galeazzo</forename>
+      <surname>Torello</surname>
+      <addName>Guidonus Galeacius Torellus</addName>
+    </name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">I,24; II,4; III,24</note>
+  </person>
+
+  <person xml:id="antonio-guidone">
+    <persName><name>
+      <forename>Antonio</forename>
+      <surname>Guidone</surname>
+      <addName>Antonius Guidonus</addName>
+    </name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">II,19; II,28</note>
+  </person>
+
+  <person xml:id="galeotto">
+    <persName><name>
+      <forename>Galeotto</forename>
+      <addName>Galeotus</addName>
+    </name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">I,9; II,31</note>
+  </person>
+
+  <person xml:id="giovanni-attendolo">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <surname>Attendolo</surname>
+      <addName>Iohannes Attendulus</addName>
+    </name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">I,29</note>
+  </person>
+
+  <!-- LAMIA FAMILY -->
+  <person xml:id="lamia-formio">
+    <persName><name>
+      <forename>Lamia</forename>
+      <surname>Formio</surname>
+      <addName>Lamias Formius</addName>
+    </name></persName>
+    <note type="appearances">I,10; I,13; I,23; I,40; II,13</note>
+  </person>
+
+  <person xml:id="guglielmo-lamia">
+    <persName><name>
+      <forename>Guglielmo</forename>
+      <surname>Lamia</surname>
+      <addName>Guilielminus Lamias</addName>
+    </name></persName>
+    <note type="appearances">II,35; III,16; III,28</note>
+  </person>
+
+  <!-- OTHER PERSONS -->
+  <person xml:id="francesco-varense">
+    <persName><name>
+      <forename>Francesco</forename>
+      <surname>Varense</surname>
+      <addName>Franciscus Varensis</addName>
+    </name></persName>
+    <note type="appearances">I,5</note>
+  </person>
+
+  <person xml:id="giacomo-marno">
+    <persName><name>
+      <forename>Giacomo</forename>
+      <surname>Marno</surname>
+      <addName>Iacobus Marnus</addName>
+    </name></persName>
+    <note type="appearances">I,6; III,9</note>
+  </person>
+
+  <person xml:id="giovanni-giacomo-idropota">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Giacomo</forename>
+      <addName>hydropotes</addName>
+    </name></persName>
+    <note type="appearances">I,7</note>
+  </person>
+
+  <person xml:id="brando-castiglione">
+    <persName><name>
+      <forename>Brando</forename>
+      <surname>Castiglione</surname>
+      <addName>Brandus Castillionem</addName>
+    </name></persName>
+    <note type="appearances">I,13</note>
+  </person>
+
+  <person xml:id="giovanni-antonio-vezano">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Antonio</forename>
+      <surname>Vezano</surname>
+      <addName>Iohannes Antonus Vezanus</addName>
+    </name></persName>
+    <note type="appearances">I,18</note>
+  </person>
+
+  <person xml:id="tommaso-aesino">
+    <persName><name>
+      <forename>Tommaso</forename>
+      <surname>Aesino</surname>
+      <addName>Thomas Haesinus/Hesinus</addName>
+    </name></persName>
+    <note type="appearances">I,22; II,30</note>
+  </person>
+
+  <person xml:id="giovanni-pietro-comino">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Pietro</forename>
+      <surname>Comino</surname>
+      <addName>Iohannes Petrus Cominus</addName>
+    </name></persName>
+    <note type="appearances">I,26</note>
+  </person>
+
+  <person xml:id="sero-florentino">
+    <persName><name>
+      <forename>Sero</forename>
+      <addName>Florentinus</addName>
+    </name></persName>
+    <note type="appearances">I,28; II,15</note>
+  </person>
+
+  <person xml:id="blasio">
+    <persName><name>
+      <forename>Blasio</forename>
+      <addName>Blasius</addName>
+    </name></persName>
+    <note type="appearances">I,32; II,12</note>
+  </person>
+
+  <person xml:id="vitulino-barboo">
+    <persName><name>
+      <forename>Vitulino</forename>
+      <surname>Barboo</surname>
+      <addName>Vitulinus Barbous</addName>
+    </name></persName>
+    <note type="appearances">I,33</note>
+  </person>
+
+  <person xml:id="lodovico-petrobono">
+    <persName><name>
+      <forename>Lodovico</forename>
+      <forename>Petrobono</forename>
+      <surname>Putea</surname>
+      <addName>Lodovicus Petrobonus</addName>
+    </name></persName>
+    <note type="appearances">I,39</note>
+  </person>
+
+  <person xml:id="giacomo-bonarello">
+    <persName><name>
+      <forename>Giacomo</forename>
+      <surname>Bonarello</surname>
+      <addName>Iacobus Bonarellus</addName>
+    </name></persName>
+    <note type="appearances">I,41; III,11</note>
+  </person>
+
+  <person xml:id="leonardo-glusiano">
+    <persName><name>
+      <forename>Leonardo</forename>
+      <surname>Glusiano</surname>
+      <addName>Leonardus Glusianum</addName>
+    </name></persName>
+    <note type="appearances">I,42; III,21</note>
+  </person>
+
+  <person xml:id="battista-ponzono">
+    <persName><name>
+      <forename>Battista</forename>
+      <surname>Ponzono</surname>
+      <addName>Baptista Ponçonos</addName>
+    </name></persName>
+    <note type="appearances">II,8</note>
+  </person>
+
+  <person xml:id="margarita-ponzono">
+    <persName><name>
+      <forename>Margarita</forename>
+      <surname>Ponzono</surname>
+    </name></persName>
+    <note type="appearances">II,8</note>
+  </person>
+
+  <person xml:id="baldassarre-mellio">
+    <persName><name>
+      <forename>Baldassarre</forename>
+      <surname>Mellio</surname>
+      <addName>Baldasar Mellium</addName>
+    </name></persName>
+    <note type="appearances">II,14; II,29</note>
+  </person>
+
+  <person xml:id="filippo-ferusino">
+    <persName><name>
+      <forename>Filippo</forename>
+      <surname>Ferusino</surname>
+      <addName>Philippus Ferufinus</addName>
+    </name></persName>
+    <note type="appearances">II,16; III,40</note>
+  </person>
+
+  <person xml:id="alessandro-coleta">
+    <persName><name>
+      <forename>Alessandro</forename>
+      <surname>Coleta</surname>
+      <addName>Alexander Coleta</addName>
+    </name></persName>
+    <note type="appearances">II,25</note>
+  </person>
+
+  <person xml:id="francesco-firmano">
+    <persName><name>
+      <forename>Francesco</forename>
+      <surname>Firmano</surname>
+      <addName>Franciscus Firmanus</addName>
+    </name></persName>
+    <note type="appearances">II,33</note>
+  </person>
+
+  <person xml:id="gerolamo-guidone">
+    <persName><name>
+      <forename>Gerolamo</forename>
+      <surname>Guidone</surname>
+      <addName>Hieronymus Guidonus</addName>
+    </name></persName>
+    <note type="appearances">II,36</note>
+  </person>
+
+  <person xml:id="bonino">
+    <persName><name>
+      <forename>Bonino</forename>
+      <addName>Boninus</addName>
+    </name></persName>
+    <note type="appearances">III,2</note>
+  </person>
+
+  <person xml:id="plantanide">
+    <persName><name>
+      <forename>Plantanide</forename>
+      <addName>Plantanidum</addName>
+    </name></persName>
+    <note type="appearances">III,4</note>
+  </person>
+
+  <person xml:id="giacomo-antiquario">
+    <persName><name>
+      <forename>Giacomo</forename>
+      <surname>Antiquario</surname>
+      <addName>Iacobus Antiquarius</addName>
+    </name></persName>
+    <note type="appearances">III,8</note>
+  </person>
+
+  <person xml:id="andreotto-maino">
+    <persName><name>
+      <forename>Andreotto</forename>
+      <surname>Maino</surname>
+      <addName>Andreotus Mainus</addName>
+    </name></persName>
+    <note type="appearances">III,13</note>
+  </person>
+
+  <person xml:id="fulgosio">
+    <persName><name>
+      <forename>Fulgosio</forename>
+      <addName>Fulgosius</addName>
+    </name></persName>
+    <note type="appearances">III,17</note>
+  </person>
+
+  <person xml:id="marco-troto">
+    <persName><name>
+      <forename>Marco</forename>
+      <surname>Troto</surname>
+      <addName>Marcus Trotus</addName>
+    </name></persName>
+    <note type="appearances">III,19</note>
+  </person>
+
+  <person xml:id="giovanni-molo">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <surname>Molo</surname>
+      <addName>Iohannes Molus</addName>
+    </name></persName>
+    <note type="appearances">III,20</note>
+  </person>
+
+  <person xml:id="lorenzo-landino">
+    <persName><name>
+      <forename>Lorenzo</forename>
+      <surname>Landino</surname>
+      <addName>Laurentius Landinus</addName>
+    </name></persName>
+    <note type="appearances">III,27</note>
+  </person>
+
+  <person xml:id="lauro">
+    <persName><name>
+      <forename>Lauro</forename>
+      <addName>Laurus</addName>
+    </name></persName>
+    <note type="appearances">III,30</note>
+  </person>
+
+  <person xml:id="giovanni-antonio-gerrardo">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Antonio</forename>
+      <surname>Gerrardo</surname>
+      <addName>Iohannes Antonius Gerrardus</addName>
+    </name></persName>
+    <note type="appearances">III,33</note>
+  </person>
+
+  <!-- ANTAGONISTS/CRITICIZED -->
+  <person xml:id="cerverio">
+    <persName><name>
+      <forename>Cerverio</forename>
+      <addName>Cerverius</addName>
+    </name></persName>
+    <note type="appearances">II,34; III,3; III,23</note>
+  </person>
+
+  <person xml:id="piccolo">
+    <persName><name>
+      <forename>Piccolo</forename>
+      <addName>Picculus</addName>
+    </name></persName>
+    <note type="appearances">III,35; III,39</note>
+  </person>
+
+  <person xml:id="tonso">
+    <persName><name>
+      <forename>Tonso</forename>
+      <addName>Tonsum</addName>
+    </name></persName>
+    <note type="appearances">II,10</note>
+  </person>
+
+  <person xml:id="vitulino-lechno">
+    <persName><name>
+      <forename>Vitulino</forename>
+      <surname>Lechno</surname>
+      <addName>Lechnon</addName>
+    </name></persName>
+    <note type="appearances">I,36; III,38</note>
+  </person>
+
+  <person xml:id="borsio-arsenocita">
+    <persName><name>
+      <forename>Borsio</forename>
+      <addName>Arsenociten</addName>
+    </name></persName>
+    <note type="appearances">II,7</note>
+  </person>
+
+  <person xml:id="apto">
+    <persName><name>
+      <forename>Apto</forename>
+      <addName>Aptus</addName>
+    </name></persName>
+    <note type="appearances">II,28</note>
+  </person>
+
+  <!-- DECEASED PERSONS -->
+  <person xml:id="taddeo-dovarense">
+    <persName><name>
+      <forename>Taddeo</forename>
+      <addName>Dovarensis</addName>
+    </name></persName>
+    <note>Deceased, mentioned in sepulchral poem</note>
+    <note type="appearances">II,17</note>
+  </person>
+
+  <person xml:id="federico-malumbra">
+    <persName><name>
+      <forename>Federico</forename>
+      <surname>Malumbra</surname>
+      <addName>Fredericus Malumbrae</addName>
+    </name></persName>
+    <note>Deceased, mentioned in sepulchral poem</note>
+    <note type="appearances">III,34</note>
+  </person>
+
+  <person xml:id="francesca-bonarella">
+    <persName><name>
+      <forename>Francesca</forename>
+      <surname>Bonarella</surname>
+      <addName>Franciscae Bonarellae</addName>
+    </name></persName>
+    <note>Wife of Giacomo Bonarello, deceased</note>
+    <note type="appearances">III,11</note>
+  </person>
+
+  <!-- LITERARY/FICTIONAL WOMEN -->
+  <person xml:id="lucina" role="literary">
+    <persName><name>Lucina</name></persName>
+    <note>The beloved, central figure of the collection</note>
+    <note type="appearances">I,8; I,17; I,34; I,43; II,34; II,37; III,9; III,46 and many more</note>
+  </person>
+
+  <person xml:id="barbara" role="literary">
+    <persName><name>Barbara</name></persName>
+    <note type="appearances">II,32</note>
+  </person>
+
+  <person xml:id="blanca" role="literary">
+    <persName><name>Blanca</name></persName>
+    <note type="appearances">II,20; III,13</note>
+  </person>
+
+  <person xml:id="lydia" role="literary">
+    <persName><name>Lydia</name></persName>
+    <note type="appearances">I,29</note>
+  </person>
+
+  <person xml:id="lampronina" role="literary">
+    <persName><name>Lampronina</name></persName>
+    <note type="appearances">II,33</note>
+  </person>
+
+  <person xml:id="tharsia" role="literary">
+    <persName><name>Tharsia</name></persName>
+    <note type="appearances">III,31</note>
+  </person>
+
+  <person xml:id="paula" role="literary">
+    <persName><name>Paula</name></persName>
+    <note type="appearances">III,43</note>
+  </person>
+
+  <person xml:id="catharina" role="literary">
+    <persName><name>Catharina</name></persName>
+    <note type="appearances">III,29</note>
+  </person>
+
+  <person xml:id="francha-camilla" role="literary">
+    <persName><name>
+      <forename>Francha</forename>
+      <surname>Camilla</surname>
+    </name></persName>
+    <note type="appearances">III,42</note>
+  </person>
+
+  <!-- ADDITIONAL PERSONS IN POEMS -->
+  <person xml:id="cicinello">
+    <persName><name>Cicinello</name></persName>
+    <note type="appearances">I,7</note>
+  </person>
+
+  <person xml:id="cirillo">
+    <persName><name>Cirillo</name></persName>
+    <note type="appearances">I,27</note>
+  </person>
+
+  <person xml:id="alba">
+    <persName><name>Alba</name></persName>
+    <note type="appearances">I,27</note>
+  </person>
+
+  <person xml:id="giusto">
+    <persName><name>Giusto</name></persName>
+    <note type="appearances">I,36</note>
+  </person>
+
+  <person xml:id="ruffo">
+    <persName><name>Ruffo</name></persName>
+    <note type="appearances">I,36</note>
+  </person>
+
+  <person xml:id="bartolomeo">
+    <persName><name>Bartolomeo</name></persName>
+    <note type="appearances">II,35</note>
+  </person>
+
+  <person xml:id="leuceo">
+    <persName><name>Leuceo</name></persName>
+    <note type="appearances">II,33</note>
+  </person>
+
+  <person xml:id="antrace">
+    <persName><name>Antrace</name></persName>
+    <note type="appearances">II,33</note>
+  </person>
+
+  <person xml:id="cavalcabove">
+    <persName><name>Cavalcabove</name></persName>
+    <note type="appearances">II,14</note>
+  </person>
+
+  <person xml:id="quintilius-carbo">
+    <persName><name>
+      <forename>Quintilius</forename>
+      <surname>Carbo</surname>
+    </name></persName>
+    <note type="appearances">I,15; III,1</note>
+  </person>
+
+  <person xml:id="giovanni-pietro-casate">
+    <persName><name>
+      <forename>Giovanni</forename>
+      <forename>Pietro</forename>
+      <surname>de Casate</surname>
+      <addName>Iohannes Petrus de Casate</addName>
+    </name></persName>
+    <note type="appearances">III,31</note>
+  </person>
+
+  <person xml:id="paolo-bonino">
+    <persName><name>
+      <forename>Paolo</forename>
+      <surname>Bonino</surname>
+      <addName>Paulus Boninus</addName>
+    </name></persName>
+    <note type="appearances">III,29</note>
+  </person>
+
+  <person xml:id="polidoro">
+    <persName><name>Polidoro</name></persName>
+    <note type="appearances">III,42</note>
+  </person>
+
+  <person xml:id="alfonso">
+    <persName><name>Alfonso</name></persName>
+    <occupation>Count</occupation>
+    <note type="appearances">III,43</note>
+  </person>
+
+  <person xml:id="gelio">
+    <persName><name>Gelio</name></persName>
+    <note type="appearances">III,15</note>
+  </person>
+
+  <person xml:id="rizardo">
+    <persName><name>Rizardo</name></persName>
+    <note>Father of Federico Malumbra</note>
+    <note type="appearances">III,34</note>
+  </person>
+
+  <person xml:id="archigene">
+    <persName><name>Archigene</name></persName>
+    <occupation>Physician</occupation>
+    <note type="appearances">II,18</note>
+  </person>
+
+  <person xml:id="marco-antonio">
+    <persName><name>
+      <forename>Marco</forename>
+      <forename>Antonio</forename>
+      <addName>Marcusantonius</addName>
+    </name></persName>
+    <note type="appearances">II,8</note>
+  </person>
+
+  <person xml:id="giovanni">
+    <persName><name>Giovanni</name></persName>
+    <note type="appearances">II,8; III,5</note>
+  </person>
+
+  <person xml:id="iulia">
+    <persName><name>Iulia</name></persName>
+    <note type="appearances">II,8</note>
+  </person>
+
+  <person xml:id="fidelia">
+    <persName><name>Fidelia</name></persName>
+    <note type="appearances">II,8</note>
+  </person>
+
+  <person xml:id="cipello">
+    <persName><name>Cipello</name></persName>
+    <note type="appearances">II,14</note>
+  </person>
+
+  <person xml:id="craessa">
+    <persName><name>Craessa</name></persName>
+    <note>puella</note>
+    <note type="appearances">I,24</note>
+  </person>
+
+  <person xml:id="melliae">
+    <persName><name>Melliae</name></persName>
+    <note>puella</note>
+    <note type="appearances">II,14</note>
+  </person>
+
+  <person xml:id="lycamber">
+    <persName><name>Lycamber</name></persName>
+    <note type="appearances">III,23</note>
+  </person>
+
+  <person xml:id="cherilus">
+    <persName><name>Cherilus</name></persName>
+    <note type="appearances">III,23</note>
+  </person>
+
+  <person xml:id="iopas">
+    <persName><name>Iopas</name></persName>
+    <note type="appearances">III,36</note>
+  </person>
+
+</listPerson>
     <listRelation>
-      <relation name="patron-of" active="#cicco-simonetta" passive="#albrisius" />
-      <relation name="father-of" active="#cicco-simonetta" passive="#giovanni-simonetta #giacomo-simonetta" />
-      <relation name="rival-of" mutual="#albrisius #franciscus-varensis" />
-      <relation name="beloved-of" active="#lucina" passive="#albrisius" />
+      <relation name="patron-of" active="#cicco-simonetta" passive="#albrisius"/>
+      <relation name="father-of" active="#cicco-simonetta"
+        passive="#giovanni-simonetta #giacomo-simonetta"/>
+      <relation name="rival-of" mutual="#albrisius #franciscus-varensis"/>
+      <relation name="beloved-of" active="#lucina" passive="#albrisius"/>
     </listRelation>
   </standOff>
   <text>
     <front>
-      <pb facs="image_5_2__right.jpg" n="5.2" />
+      <pb facs="image_5_2__right.jpg" n="5.2"/>
       <div type="praefatio" xml:id="praefatio">
-        <head type="author">Aurelii Laurentii Albrisii praefatio in Lucinam</head>
-        <head type="dedication">ad mecoenatem Cichum Simonetam</head>
         <lg type="elegiac">
           <l n="1">Aurelii Laurentii Albrisii praefatio in Lucinam</l>
           <l n="2">ad mecoenatem Cichum Simonetam</l>
@@ -279,7 +1206,7 @@
         </lg>
         <lg type="elegiac">
           <l n="15">Mox aliis vitam studiis, ubi prima iuventus</l>
-          <pb facs="image_6_1__left.jpg" n="6.1" />
+          <pb facs="image_6_1__left.jpg" n="6.1"/>
           <l n="16">Coeperit atque alia flectere lora manu.</l>
         </lg>
         <lg type="elegiac">
@@ -299,7 +1226,14 @@
             <l n="2">Structa ubi Francisci surgere templa vides</l>
           </lg>
           <lg type="elegiac">
-            <l n="3">(Exacta fuerant iam nata crepuscula nocte),</l><l n="4">Visa mihi niveo surgere nympha toro.</l>
+            <l n="3">(<app>
+              <lem>Exacta</lem>
+              <rdg wit="#C">exactae</rdg>
+            </app> fuerant iam nata crepuscula  <app>
+              <lem>nocte</lem>
+              <rdg wit="#C">noctis</rdg>
+            </app>),</l>
+            <l n="4">Visa mihi niveo surgere nympha toro.</l>
           </lg>
           <lg type="elegiac">
             <l n="5">Auroram vidisse putes, ubi proximus orbem</l>
@@ -313,7 +1247,7 @@
             <l n="9">Obstupui claram tanti vi luminis aedem</l>
             <l n="10">Fundere Apollineum nostra per ora iubar.</l>
           </lg>
-          <pb facs="image_6_1__right.jpg" n="6.2" />
+          <pb facs="image_6_1__right.jpg" n="6.2"/>
           <lg type="elegiac">
             <l n="11">Mirabar dulcis oculos et eburnea colla,</l>
             <l n="12">Mirabar roseos (ut polus astra) sinus.</l>
@@ -328,7 +1262,11 @@
           </lg>
           <lg type="elegiac">
             <l n="17">Vidit ubi aspectus fugit prius inscia nostros</l>
-            <l n="18"><app><lem wit="#M">Attonitamque</lem><rdg wit="#C">attonitaque</rdg></app> scias delituisse domo.</l></lg>
+            <l n="18"><app>
+                <lem wit="#M">Attonitamque</lem>
+                <rdg wit="#C">attonitaque</rdg>
+              </app> scias delituisse domo.</l>
+          </lg>
           <lg type="elegiac">
             <l n="19">Neve putes somnum falsa et commenta fateri:</l>
             <l n="20">Testor ego horrifici numen utrumque Iovis.</l>
@@ -355,7 +1293,7 @@
           </lg>
           <lg type="elegiac">
             <l n="7">Signa meae Veneris suspiria traxit ab imo</l>
-            <pb facs="image_7_1__left.jpg" n="7.1" />
+            <pb facs="image_7_1__left.jpg" n="7.1"/>
             <l n="8">Pectoris. Erubuit nostra puella iocum.</l>
           </lg>
           <lg type="elegiac">
@@ -400,7 +1338,7 @@
           </lg>
           <lg type="elegiac">
             <l n="3">Quaeque meum carmen, haec te mirabitur aetas.</l>
-            <pb facs="image_7_1__right.jpg" n="7.2" />
+            <pb facs="image_7_1__right.jpg" n="7.2"/>
             <l n="4">Te propter clarus, Chiche, libellus erit.</l>
           </lg>
           <lg type="elegiac">
@@ -417,7 +1355,11 @@
           </lg>
           <lg type="elegiac">
             <l n="3">Vana dabant veri sterilem tunc ocia mentem,</l>
-            <l n="4"><app><lem wit="#M">sospitumque</lem><rdg wit="#C">sopitumque</rdg></app> meae torpuit artis opus.</l></lg>
+            <l n="4"><app>
+                <lem wit="#M">sospitumque</lem>
+                <rdg wit="#C">sopitumque</rdg>
+              </app> meae torpuit artis opus.</l>
+          </lg>
           <lg type="elegiac">
             <l n="5">Omnia desierant divina poemata: Cordis</l>
             <l n="6">Haec decus, haec mores hauserat una meos.</l>
@@ -443,7 +1385,7 @@
             <l n="16">Appete cognata cingere colla manu!</l>
           </lg>
           <lg type="elegiac">
-            <pb facs="image_8_1__left.jpg" n="8.1" />
+            <pb facs="image_8_1__left.jpg" n="8.1"/>
             <l n="17">Nos licet una duos, Francisce, revinxerit ingens</l>
             <l n="18">Gratia, rivalem ferre nequibit amor.</l>
           </lg>
@@ -485,7 +1427,7 @@
           </lg>
           <lg type="elegiac">
             <l n="17">Ballantumve greges? Tibi</l>
-            <pb facs="image_8_1__right.jpg" n="8.2" />
+            <pb facs="image_8_1__right.jpg" n="8.2"/>
             <l n="18">Pastorum aut pueros iungere compares?</l>
           </lg>
           <lg type="elegiac">
@@ -526,7 +1468,7 @@
           </lg>
           <lg type="elegiac">
             <l n="37">Lucina, aetherii poli</l>
-            <pb facs="image_9_1__left.jpg" n="9.1" />
+            <pb facs="image_9_1__left.jpg" n="9.1"/>
             <l n="38">Astris splendidior, sydus Apollinis</l>
           </lg>
           <lg type="elegiac">
@@ -566,7 +1508,7 @@
             <l n="2">Pigraque ab arctoo frigore torpet humus.</l>
           </lg>
           <lg type="elegiac">
-            <pb facs="image_9_1__right.jpg" n="9.2" />
+            <pb facs="image_9_1__right.jpg" n="9.2"/>
             <l n="3">Forte aberas Lucina, meus quom pertulit hymbres</l>
             <l n="4">Laetus ager mixta grandine caeruleos.</l>
           </lg>
@@ -608,7 +1550,7 @@
           </lg>
           <lg type="elegiac">
             <l n="15">Hoc duce sestinant. Tua curia iussa facessunt</l>
-            <pb facs="image_10_1__left.jpg" n="10.1" />
+            <pb facs="image_10_1__left.jpg" n="10.1"/>
             <l n="16">Maturatque suas ordine quisque vices.</l>
           </lg>
           <lg type="elegiac">
@@ -656,7 +1598,7 @@
           <head type="number">I, 12</head>
           <head type="dedication">Ad Gasparem Vicecomitem</head>
           <lg type="elegiac">
-            <pb facs="image_10_1__right.jpg" n="10.2" />
+            <pb facs="image_10_1__right.jpg" n="10.2"/>
             <l n="1">Par sedes ambos habuit. Discriminis idem</l>
             <l n="2">Ordo duos templo coepit habere pares.</l>
           </lg>
@@ -701,7 +1643,7 @@
             <l n="6">Me Dryadum parili torret amore Dryas.</l>
           </lg>
           <lg type="elegiac">
-            <pb facs="image_11_1__left.jpg" n="11.1" />
+            <pb facs="image_11_1__left.jpg" n="11.1"/>
             <l n="7">Haec si abiit, secum dulces abiere camoenae.</l>
             <l n="8">Ingenii vires abstulit una mei.</l>
           </lg>
@@ -743,7 +1685,7 @@
           </lg>
           <lg type="elegiac">
             <l n="13">Quid Tolentinas capiet Philelfus?</l>
-            <pb facs="image_11_1__right.jpg" n="11.2" />
+            <pb facs="image_11_1__right.jpg" n="11.2"/>
             <l n="14">Qui tuum tanto celebrat nitore</l>
           </lg>
           <lg type="elegiac">
@@ -784,7 +1726,7 @@
           </lg>
           <lg type="elegiac">
             <l n="33">Perdidit claros licet ipse fontes,</l>
-            <pb facs="image_12_1__left.jpg" n="12.1" />
+            <pb facs="image_12_1__left.jpg" n="12.1"/>
             <l n="34">Hic tamen sperat duce te, superbam</l>
           </lg>
           <lg type="elegiac">
@@ -829,7 +1771,7 @@
           </lg>
           <lg type="elegiac">
             <l n="3">Urimur infelix iecur ardentique favilla</l>
-            <pb facs="image_12_1__right.jpg" n="12.2" />
+            <pb facs="image_12_1__right.jpg" n="12.2"/>
             <l n="4">Perdimur, heu miserum, nocte dieque caput!</l>
           </lg>
           <lg type="elegiac">
@@ -870,7 +1812,7 @@
           </lg>
           <lg type="elegiac">
             <l n="23">Una puella suis miserum sic fixit ocellis,</l>
-            <pb facs="image_13_1__left.jpg" n="13.1" />
+            <pb facs="image_13_1__left.jpg" n="13.1"/>
             <l n="24">Ut non sit toto qui iuvet orbe nitor.</l>
           </lg>
           <lg type="elegiac">
@@ -912,7 +1854,7 @@
           <lg>
             <l n="1">Si te candidulae furor puellae</l>
             <l n="2">In praedam dederit, salax acuto</l>
-            <pb facs="image_13_1__right.jpg" n="13.2" />
+            <pb facs="image_13_1__right.jpg" n="13.2"/>
             <l n="3">Testes vepre tuos domes memento.</l>
           </lg>
         </div>
@@ -984,7 +1926,11 @@
             <l n="26">Is fulget auro purior igneo?</l>
           </lg>
           <lg type="elegiac">
-            <l n="27">Esto Iohanni <app><lem wit="#M">praesul</lem><rdg wit="#C">paesul</rdg></app> usque</l><l n="28">Aetheria potiaris aura!</l>
+            <l n="27">Esto Iohanni <app>
+                <lem wit="#M">praesul</lem>
+                <rdg wit="#C">paesul</rdg>
+              </app> usque</l>
+            <l n="28">Aetheria potiaris aura!</l>
           </lg>
           <lg type="elegiac">
             <l n="29">Pacatus ultro carmina perlege</l>
@@ -992,7 +1938,11 @@
           </lg>
           <lg type="elegiac">
             <l n="31">Praesul, vale! Vatis memor sis,</l>
-            <l n="32">Stephane, <app><lem wit="#M">Nestoreos</lem><rdg wit="#C">Naestores</rdg></app> in annos!</l></lg>
+            <l n="32">Stephane, <app>
+                <lem wit="#M">Nestoreos</lem>
+                <rdg wit="#C">Naestores</rdg>
+              </app> in annos!</l>
+          </lg>
         </div>
         <div type="poem" n="21" xml:id="poem-I.21">
           <head type="number">I, 21</head>
@@ -1091,7 +2041,11 @@
           </lg>
           <lg type="elegiac">
             <l n="25">Haud mortalis erat quae talem foemina partum</l>
-            <l n="26"><app><lem wit="#M">edidit</lem><rdg wit="#C">Aedidit</rdg></app>, aeternum fas superesse fuit.</l></lg>
+            <l n="26"><app>
+                <lem wit="#M">edidit</lem>
+                <rdg wit="#C">Aedidit</rdg>
+              </app>, aeternum fas superesse fuit.</l>
+          </lg>
           <lg type="elegiac">
             <l n="27">Huc nitor urbis ades! Mistum spes sola iacentem</l>
             <l n="28">Tolle piumque meae redde quietis opus!</l>
