@@ -111,3 +111,9 @@ This document documents the Promptotyping process and the decisions.
 * Generate the design.md and cross-check it with the data --> snippet of the data and TEI header
 * Developed the interface as a prototype with GPT-5 Pro and Gemini 2.5 Pro and Opus (in a new chat!). Just simple index.html and style.css
 * Then gave the finished DESIGN.md to edition 3; we will then combine all insights from edition-2 with the better data and the refined UI, along with the generalizations, and create the next promptotype
+
+* edition 3
+
+* aus den vorhadnen contexten design und daten iterativ eienn system prompt gebaut, und mit diesem systme prompt dann mit claude code Opus 4.1 gearbeitet.
+* feedback gegeben; bilder und text weurden angezeigt
+* cladue code 

@@ -193,12 +193,18 @@
                 setupScrollObserver();
                 
                 // Remove loading state
-                document.querySelector('.loading').style.display = 'none';
+                const loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.style.display = 'none';
+                }
                 
             } catch (error) {
                 console.error('Failed to load TEI:', error);
                 debugLog('ERROR', `TEI loading failed: ${error.message}`);
-                document.querySelector('.loading').textContent = `Failed to load: ${error.message}`;
+                const loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.textContent = `Failed to load: ${error.message}`;
+                }
             }
         }
 
@@ -270,8 +276,22 @@
                 const bookDiv = poemDiv.closest('div[type="book"]');
                 const bookNum = bookDiv?.getAttribute('n') || '1';
                 const poemNum = poemDiv.getAttribute('n') || (index + 1).toString();
-                const head = poemDiv.querySelector('head');
-                const title = head ? head.textContent.trim() : 'Untitled';
+                // Extract both head elements for number and dedication
+                const heads = poemDiv.querySelectorAll('head');
+                let poemNumber = '';
+                let dedication = '';
+                
+                heads.forEach(head => {
+                    const type = head.getAttribute('type');
+                    if (type === 'number') {
+                        poemNumber = head.textContent.trim();
+                    } else if (type === 'dedication') {
+                        dedication = head.textContent.trim();
+                    }
+                });
+                
+                // Combine for full title
+                const title = dedication || 'Untitled';
                 
                 // Extract lines and page breaks
                 const lines = [];
@@ -325,6 +345,7 @@
                     id: `poem-${bookNum}.${poemNum}`,
                     book: parseInt(bookNum),
                     number: parseInt(poemNum),
+                    poemNumber: poemNumber,  // Store the formatted number
                     title: title,
                     lines: lines,
                     pageBreaks: pageBreaks,
@@ -418,7 +439,10 @@
             filteredPoems.forEach(poem => {
                 const option = document.createElement('option');
                 option.value = poem.id;
-                option.textContent = `${poem.book}, ${poem.number} — ${poem.title.substring(0, 40)}${poem.title.length > 40 ? '...' : ''}`;
+                const displayText = poem.poemNumber ? 
+                    `${poem.poemNumber} — ${poem.title}` : 
+                    `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                option.textContent = displayText.substring(0, 60) + (displayText.length > 60 ? '...' : '');
                 poemSelect.appendChild(option);
             });
         }
@@ -447,10 +471,13 @@
                     poemEl.dataset.startPage = poem.startPage;
                 }
                 
-                // Add title
+                // Add title - combine number and dedication on one line
+                const displayTitle = poem.poemNumber ? 
+                    `${poem.poemNumber} — ${poem.title}` : 
+                    `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                
                 const titleHtml = `
-                    <h3 class="poem-id">${getRomanNumeral(poem.book)}, ${poem.number}</h3>
-                    <h4 class="poem-title">${wrapPersonReferences(poem.title)}</h4>
+                    <h3 class="poem-title">${displayTitle}</h3>
                 `;
                 poemEl.innerHTML = titleHtml;
                 
@@ -521,8 +548,13 @@
             });
         }
 
-        // Wrap person references with tooltips
+        // Wrap person references with tooltips - DISABLED due to display issues
         function wrapPersonReferences(text) {
+            // Temporarily disabled person wrapping to fix display issues
+            // Will need proper HTML escaping and careful regex matching
+            return text;
+            
+            /* Original code - needs fixing:
             let result = text;
             
             Object.entries(persons).forEach(([id, person]) => {
@@ -541,6 +573,7 @@
             });
             
             return result;
+            */
         }
 
         // Convert number to Roman numeral
@@ -566,8 +599,8 @@
                     }
                 });
             }, { 
-                threshold: 0.5,
-                rootMargin: '-100px 0px -100px 0px'
+                threshold: 0.3,  // Trigger earlier for better sync
+                rootMargin: '-50px 0px -200px 0px'  // Adjusted for better alignment
             });
 
             // Observe poems and page breaks
@@ -620,9 +653,16 @@
                 img.onerror = () => {
                     debugLog('ERROR', `Failed to load image: ${fullPath}`);
                     console.error('Image load failed:', fullPath);
+                    // Show placeholder image or message
                     if (overlay) {
                         overlay.style.display = 'flex';
-                        overlay.textContent = `Image not available: ${imagePath}`;
+                        overlay.innerHTML = `
+                            <div style="text-align: center; padding: 20px;">
+                                <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                                <div>Page ${pageNumber}</div>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">Image not available</div>
+                            </div>
+                        `;
                     }
                 };
                 
@@ -632,7 +672,13 @@
                 debugLog('IMAGE', `No image mapping for page ${pageNumber}`);
                 if (overlay) {
                     overlay.style.display = 'flex';
-                    overlay.textContent = `No image available for page ${pageNumber}`;
+                    overlay.innerHTML = `
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                            <div>Page ${pageNumber}</div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Manuscript page not yet mapped</div>
+                        </div>
+                    `;
                 }
             }
         }
