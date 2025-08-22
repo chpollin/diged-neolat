@@ -269,13 +269,15 @@
         function extractPoems() {
             debugLog('EXTRACT', 'Starting poem extraction');
             
-            const poemDivs = teiDoc.querySelectorAll('div[type="poem"]');
-            debugLog('EXTRACT', `Found ${poemDivs.length} poem divs`);
+            // Include both poems and the praefatio
+            const poemDivs = teiDoc.querySelectorAll('div[type="poem"], div[type="praefatio"]');
+            debugLog('EXTRACT', `Found ${poemDivs.length} poem/praefatio divs`);
             
             poemDivs.forEach((poemDiv, index) => {
+                const isPraefatio = poemDiv.getAttribute('type') === 'praefatio';
                 const bookDiv = poemDiv.closest('div[type="book"]');
-                const bookNum = bookDiv?.getAttribute('n') || '1';
-                const poemNum = poemDiv.getAttribute('n') || (index + 1).toString();
+                const bookNum = isPraefatio ? '0' : (bookDiv?.getAttribute('n') || '1');
+                const poemNum = isPraefatio ? '0' : (poemDiv.getAttribute('n') || (index + 1).toString());
                 // Extract both head elements for number and dedication
                 const heads = poemDiv.querySelectorAll('head');
                 let poemNumber = '';
@@ -286,6 +288,10 @@
                     if (type === 'number') {
                         poemNumber = head.textContent.trim();
                     } else if (type === 'dedication') {
+                        dedication = head.textContent.trim();
+                    } else if (type === 'author' && isPraefatio) {
+                        // For praefatio, use author head as main text
+                        poemNumber = 'Praefatio';
                         dedication = head.textContent.trim();
                     }
                 });
@@ -342,14 +348,15 @@
                 }
                 
                 const poem = {
-                    id: `poem-${bookNum}.${poemNum}`,
+                    id: isPraefatio ? 'praefatio' : `poem-${bookNum}.${poemNum}`,
                     book: parseInt(bookNum),
                     number: parseInt(poemNum),
                     poemNumber: poemNumber,  // Store the formatted number
                     title: title,
                     lines: lines,
                     pageBreaks: pageBreaks,
-                    startPage: startPage
+                    startPage: startPage,
+                    isPraefatio: isPraefatio
                 };
                 
                 poems.push(poem);
@@ -431,17 +438,23 @@
             
             poemSelect.innerHTML = '<option value="">Select Poem</option>';
             
+            // For praefatio (book 0), only show it when "All Books" is selected
             const filteredPoems = selectedBook ? 
-                poems.filter(p => p.book == selectedBook) : poems;
+                poems.filter(p => p.book == selectedBook && !p.isPraefatio) : poems;
             
             debugLog('UI', `Populating poem selector with ${filteredPoems.length} poems`);
             
             filteredPoems.forEach(poem => {
                 const option = document.createElement('option');
                 option.value = poem.id;
-                const displayText = poem.poemNumber ? 
-                    `${poem.poemNumber} — ${poem.title}` : 
-                    `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                let displayText;
+                if (poem.isPraefatio) {
+                    displayText = `Praefatio — ${poem.title}`;
+                } else if (poem.poemNumber) {
+                    displayText = `${poem.poemNumber} — ${poem.title}`;
+                } else {
+                    displayText = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                }
                 option.textContent = displayText.substring(0, 60) + (displayText.length > 60 ? '...' : '');
                 poemSelect.appendChild(option);
             });
@@ -455,8 +468,9 @@
             const bookSelect = document.getElementById('bookSelect');
             const selectedBook = bookSelect.value;
             
+            // For praefatio (book 0), only show it when "All Books" is selected
             const filteredPoems = selectedBook ? 
-                poems.filter(p => p.book == selectedBook) : poems;
+                poems.filter(p => p.book == selectedBook && !p.isPraefatio) : poems;
             
             debugLog('RENDER', `Rendering ${filteredPoems.length} poems`);
             
@@ -472,9 +486,14 @@
                 }
                 
                 // Add title - combine number and dedication on one line
-                const displayTitle = poem.poemNumber ? 
-                    `${poem.poemNumber} — ${poem.title}` : 
-                    `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                let displayTitle;
+                if (poem.isPraefatio) {
+                    displayTitle = `Praefatio — ${poem.title}`;
+                } else if (poem.poemNumber) {
+                    displayTitle = `${poem.poemNumber} — ${poem.title}`;
+                } else {
+                    displayTitle = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                }
                 
                 const titleHtml = `
                     <h3 class="poem-title">${displayTitle}</h3>

@@ -116,4 +116,4 @@ This document documents the Promptotyping process and the decisions.
 
 * aus den vorhadnen contexten design und daten iterativ eienn system prompt gebaut, und mit diesem systme prompt dann mit claude code Opus 4.1 gearbeitet.
 * feedback gegeben; bilder und text weurden angezeigt
-* cladue code 
+* cladue code can direkt dei commits ausführen und arbeitenm hintergrund; das ist wieder ein ganz anders arbeiten, da muss man allgemein mitdenkenund claude code guiden. es erzeugt alel files immer selber. funktionerit erschreckend gut
