@@ -95,3 +95,6 @@ This document documents the Promptotyping process and the decisions.
 * ✗ ~21 poems with non-'Ad' patterns need manual review. Is it possible that we can fix that with Python too? --> That sounds to me like we could also do this with Python --> so I'll have Claude Opus 4.1 work out a plan.
 * Use Gemini 2.5 to check the entire text with the plan; I'll then give the analysis report on whether this approach works back to Opus Claude
 * A few iterations with Opus and Gemini and I have a "Success Rate: 87.6% (127/145 poems)" --> Gemini has the entire text in the context window, so it knows more about the source and Opus focuses on the coding --> Gemini finds out that there are actually 128 poems! So you really have to be careful and always check values, or know your data, or build in verification workflows!
+* stichproben artig kontrolliert und tei xml ist valide --> das ist tei-final-3-0.xml
+* Removes unreliable auto-detection of genre, metrics, and rubrics --> da musste ich sogar nochmal genauer schauen; also opus versucht sehr gerne zu viel zu machen; das hätte ich am anfang schon besser prompten müssen was ich genau haben will (ich hatte habe vibe coding gemach tund habe so die daten kennen gelernt)
+* genre und reimerkennug klann ich dann mit einem llm machen (todo!)

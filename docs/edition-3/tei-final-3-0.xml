@@ -1,54 +1,282 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Lucina: A Digital Edition</title>
+        <author>
+          <persName ref="#albrisius">
+            <forename>Aurelius</forename>
+            <forename>Laurentius</forename>
+            <surname>Albrisius</surname>
+          </persName>
+        </author>
+        <editor role="editor">
+          <persName>
+            <forename>[Editor Name]</forename>
+            <surname>[Editor Surname]</surname>
+          </persName>
+        </editor>
+        <respStmt>
+          <resp>TEI Encoding</resp>
+          <persName>[Encoder Name]</persName>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>[Publisher]</publisher>
+        <date when="2024">2024</date>
+        <availability>
+          <licence target="https://creativecommons.org/licenses/by/4.0/">
+            Creative Commons Attribution 4.0 International
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>Spain</country>
+            <settlement>Madrid</settlement>
+            <repository>Biblioteca Nacional</repository>
+            <collection>Manuscritos</collection>
+            <idno>Mss. 6028</idno>
+          </msIdentifier>
+          <msContents>
+            <summary>Collection of 128 Latin occasional poems in three books, comprising 2,224 verses total</summary>
+            <msItem>
+              <author ref="#albrisius">Aurelius Laurentius Albrisius</author>
+              <title>Lucina</title>
+              <colophon>Finita et perfecta II Augusti MCCCCLXXIIII</colophon>
+            </msItem>
+          </msContents>
+          <physDesc>
+            <objectDesc>
+              <supportDesc material="parchment">
+                <support>Parchment</support>
+                <extent>176 folios
+                  <dimensions type="leaf" unit="mm">
+                    <height>220</height>
+                    <width>145</width>
+                  </dimensions>
+                </extent>
+              </supportDesc>
+              <layoutDesc>
+                <layout columns="1" writtenLines="20">Single column, 20 lines per page</layout>
+              </layoutDesc>
+            </objectDesc>
+            <handDesc>
+              <handNote script="humanistic">Humanistic script</handNote>
+            </handDesc>
+            <decoDesc>
+              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely Simonetta)</decoNote>
+            </decoDesc>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1474-08-02">2 August 1474</origDate>
+              <origPlace>Northern Italy (likely Pavia or Milan)</origPlace>
+            </origin>
+            <provenance>Probably from Cicco Simonetta's library</provenance>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines with customizations for Renaissance Latin occasional poetry.</p>
+      </projectDesc>
+      <editorialDecl>
+        <correction>
+          <p>Manifest scribal errors corrected with original readings preserved in apparatus.</p>
+        </correction>
+        <normalization>
+          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal punctuation normalization for comprehension.</p>
+        </normalization>
+        <quotation>
+          <p>Quotation marks not in original; added editorially where appropriate.</p>
+        </quotation>
+      </editorialDecl>
+      <classDecl>
+        <taxonomy xml:id="genres">
+          <category xml:id="epideictic"><catDesc>Panegyric, encomium</catDesc></category>
+          <category xml:id="epitaph"><catDesc>Funeral poetry</catDesc></category>
+          <category xml:id="invective"><catDesc>Attack poems</catDesc></category>
+          <category xml:id="epistle"><catDesc>Verse letters</catDesc></category>
+          <category xml:id="erotic"><catDesc>Love poetry</catDesc></category>
+          <category xml:id="consolatio"><catDesc>Consolation poems</catDesc></category>
+          <category xml:id="propemptikon"><catDesc>Farewell poems</catDesc></category>
+          <category xml:id="paraenesis"><catDesc>Advice poetry</catDesc></category>
+          <category xml:id="prayer"><catDesc>Religious invocations</catDesc></category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+    <profileDesc>
+      
+      <settingDesc>
+        <listPlace>
+          <place xml:id="pavia">
+            <placeName>Pavia</placeName>
+          </place>
+          <place xml:id="milan">
+            <placeName>Milan</placeName>
+          </place>
+          <place xml:id="cremona">
+            <placeName>Cremona</placeName>
+          </place>
+          <place xml:id="san-francesco-pavia">
+            <placeName>Church of San Francesco, Pavia</placeName>
+            <note>Location of first encounter with Lucina</note>
+          </place>
+        </listPlace>
+      </settingDesc>
+    </profileDesc>
+  </teiHeader>
+   <standOff>
+      <listPerson>
+         <!-- Author -->
+         <person xml:id="albrisius">
+            <persName>
+               <forename>Aurelius</forename>
+               <forename>Laurentius</forename>
+               <surname>Albrisius</surname>
+               <addName type="alternate">Aurelio Lorenzo Albrisio</addName>
+            </persName>
+            <birth notBefore="1440" notAfter="1445">
+               <placeName ref="#cremona">Cremona</placeName>
+            </birth>
+            <occupation>Poet laureate, priest, tutor</occupation>
+            <note>Crowned poet laureate by Emperor Frederick III (1468/69). Tutor to Cicco Simonetta's sons.</note>
+         </person>
+         
+         <!-- Primary dedicatees -->
+         <person xml:id="cicco-simonetta">
+            <persName>
+               <forename>Cicco</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <birth notBefore="1410" notAfter="1420"/>
+            <death when="1480"/>
+            <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
+            <note>Primary patron, addressed as "alter Maecenas"</note>
+         </person>
+         
+         <person xml:id="giovanni-simonetta">
+            <persName>
+               <forename>Giovanni</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <note>Son of Cicco Simonetta</note>
+         </person>
+         
+         <person xml:id="giacomo-simonetta">
+            <persName>
+               <forename>Gian Giacomo</forename>
+               <surname>Simonetta</surname>
+            </persName>
+            <note>Eldest son of Cicco Simonetta, dedicatee of Book II</note>
+         </person>
+         
+         <person xml:id="giovanni-san-lamberto">
+            <persName>
+               <forename>Giovanni</forename>
+               <roleName>Bishop of San Lamberto</roleName>
+            </persName>
+            <occupation>Bishop</occupation>
+            <note>Dedicatee of Book III, promises Albrisius a benefice</note>
+         </person>
+         
+         <!-- Other addressees -->
+         <person xml:id="philippus-vicecomes">
+            <persName>
+               <forename>Philippus</forename>
+               <surname>Vicecomes</surname>
+               <addName>Visconti</addName>
+            </persName>
+            <note>Member of the Visconti family</note>
+         </person>
+         
+         <person xml:id="franciscus-varensis">
+            <persName>
+               <forename>Franciscus</forename>
+               <surname>Varensis</surname>
+            </persName>
+            <note>Rival in love, addressee of I.5</note>
+         </person>
+         
+         <person xml:id="iacobus-marnus">
+            <persName>
+               <forename>Iacobus</forename>
+               <surname>Marnus</surname>
+            </persName>
+            <note>Addressee of I.6</note>
+         </person>
+         
+         <!-- Literary figure -->
+         <person xml:id="lucina" role="literary">
+            <persName>Lucina</persName>
+            <note>The beloved, central figure of the collection</note>
+         </person>
+      </listPerson>
+      
+      
+      <listRelation>
+         <relation name="patron-of" active="#cicco-simonetta" passive="#albrisius"/>
+         <relation name="father-of" active="#cicco-simonetta" passive="#giovanni-simonetta #giacomo-simonetta"/>
+         <relation name="rival-of" mutual="#albrisius #franciscus-varensis"/>
+         <relation name="beloved-of" active="#lucina" passive="#albrisius"/>
+      </listRelation>
+   </standOff>
+  
   <text>
     <front>
       <div type="praefatio" xml:id="praefatio">
+        <head type="rubric">Praefatio</head>
         <head type="author">Aurelii Laurentii Albrisii praefatio in Lucinam</head>
         <head type="dedication">ad mecoenatem Cichum Simonetam</head>
+        <head type="rubric">Aurelii Laurentii Albrisii praefatio in Lucinam</head>
         <lg type="elegiac">
-          <l n="1">Aurelii Laurentii Albrisii praefatio in Lucinam</l>
-          <l n="2">ad mecoenatem Cichum Simonetam</l>
+          <l n="1">ad mecoenatem Cichum Simonetam</l>
+          <l n="2">Mecoenas equitum, Calabrae quoque gloria gentis,</l>
         </lg>
         <lg type="elegiac">
-          <l n="3">Mecoenas equitum, Calabrae quoque gloria gentis,</l>
-          <l n="4">insubrium et quinti maxima cura ducis!</l>
+          <l n="3">insubrium et quinti maxima cura ducis!</l>
+          <l n="4">Excipe, quae tenera parvo nec honore iuventa</l>
         </lg>
         <lg type="elegiac">
-          <l n="5">Excipe, quae tenera parvo nec honore iuventa</l>
-          <l n="6">Scribere Lucinae pauca coegit amor.</l>
+          <l n="5">Scribere Lucinae pauca coegit amor.</l>
+          <l n="6">Nostra prius dulci tepefacta Cupidinis ira</l>
         </lg>
         <lg type="elegiac">
-          <l n="7">Nostra prius dulci tepefacta Cupidinis ira</l>
-          <l n="8">Nec fuerant molli pectora tacta ioco.</l>
+          <l n="7">Nec fuerant molli pectora tacta ioco.</l>
+          <l n="8">Prima pharetratos Lucina infixit amores.</l>
         </lg>
         <lg type="elegiac">
-          <l n="9">Prima pharetratos Lucina infixit amores.</l>
-          <l n="10">Usserat ante meum nulla puella iecur.</l>
+          <l n="9">Usserat ante meum nulla puella iecur.</l>
+          <l n="10">Dulcibus ergo puer flamis accensa puellae</l>
         </lg>
         <lg type="elegiac">
-          <l n="11">Dulcibus ergo puer flamis accensa puellae</l>
-          <l n="12">Supposui tenero mollia corda iugo.</l>
+          <l n="11">Supposui tenero mollia corda iugo.</l>
+          <l n="12">Ducere concessis primos sub amoribus annos,</l>
         </lg>
         <lg type="elegiac">
-          <l n="13">Ducere concessis primos sub amoribus annos,</l>
-          <l n="14">Tristia fas dulci lavere cuncta mero,</l>
+          <l n="13">Tristia fas dulci lavere cuncta mero,</l>
+          <l n="14">Mox aliis vitam studiis, ubi prima iuventus</l>
         </lg>
         <lg type="elegiac">
-          <l n="15">Mox aliis vitam studiis, ubi prima iuventus</l>
-          <l n="16">Coeperit atque alia flectere lora manu.</l>
+          <l n="15">Coeperit atque alia flectere lora manu.</l>
+          <l n="16">Claudi lustra quater properabant, Ciche, poeta</l>
         </lg>
         <lg type="elegiac">
-          <l n="17">Claudi lustra quater properabant, Ciche, poeta</l>
-          <l n="18">Quom lusit placido, quos legis, ore modos.</l>
+          <l n="17">Quom lusit placido, quos legis, ore modos.</l>
         </lg>
       </div>
     </front>
     <body>
       <div type="book" n="1" xml:id="bookI">
         <head type="book">Liber Primus</head>
-        <div type="poem" n="1" xml:id="poem-I.1">
+        <div type="poem" n="1" xml:id="poem-I.1" ana="#epistle">
           <head type="number">I, 1</head>
           <head type="dedication">Ad Mecoenatem Cichum Simonetam</head>
+          <head type="rubric">Aurelii Larentii Albrisii Lucina incipit.</head>
           <lg type="elegiac">
             <l n="1">Saepe revertenti studiorum ad iura meorum,</l>
             <l n="2">Structa ubi Francisci surgere templa vides</l>
@@ -94,7 +322,7 @@
             <l n="22">Nam convicinae rettulit ista meae.</l>
           </lg>
         </div>
-        <div type="poem" n="2" xml:id="poem-I.2">
+        <div type="poem" n="2" xml:id="poem-I.2" ana="#epistle">
           <head type="number">I, 2</head>
           <head type="dedication">Ad Philippum Vicecomitem</head>
           <lg type="elegiac">
@@ -122,7 +350,7 @@
             <l n="12">Haec, quae principium, finis amoris erit.</l>
           </lg>
         </div>
-        <div type="poem" n="3" xml:id="poem-I.3">
+        <div type="poem" n="3" xml:id="poem-I.3" ana="#epistle">
           <head type="number">I, 3</head>
           <head type="dedication">Ad Iohannem Simonetam</head>
           <lg type="elegiac">
@@ -146,7 +374,7 @@
             <l n="10">Luditur! Invitum scribere cogit amor.</l>
           </lg>
         </div>
-        <div type="poem" n="4" xml:id="poem-I.4">
+        <div type="poem" n="4" xml:id="poem-I.4" ana="#epistle">
           <head type="number">I, 4</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
           <lg type="elegiac">
@@ -162,7 +390,7 @@
             <l n="6">Nomina. Candidior te feret aura deum.</l>
           </lg>
         </div>
-        <div type="poem" n="5" xml:id="poem-I.5">
+        <div type="poem" n="5" xml:id="poem-I.5" ana="#epistle">
           <head type="number">I, 5</head>
           <head type="dedication">Ad Franciscum Varensem</head>
           <lg type="elegiac">
@@ -202,7 +430,7 @@
             <l n="18">Gratia, rivalem ferre nequibit amor.</l>
           </lg>
         </div>
-        <div type="poem" n="6" xml:id="poem-I.6">
+        <div type="poem" n="6" xml:id="poem-I.6" ana="#epistle">
           <head type="number">I, 6</head>
           <head type="dedication">Ad Iacobum Marnum</head>
           <lg type="elegiac">
@@ -294,7 +522,7 @@
             <l n="44">Mecum dura veni solvere frigora!</l>
           </lg>
         </div>
-        <div type="poem" n="7" xml:id="poem-I.7">
+        <div type="poem" n="7" xml:id="poem-I.7" ana="#epistle">
           <head type="number">I, 7</head>
           <head type="dedication">Ad Iohannem Iacobum hydropotem</head>
           <lg type="elegiac">
@@ -310,7 +538,7 @@
             <l n="6">Frangat ut immeritos nulla podagra pedes.</l>
           </lg>
         </div>
-        <div type="poem" n="8" xml:id="poem-I.8">
+        <div type="poem" n="8" xml:id="poem-I.8" ana="#erotic">
           <head type="number">I, 8</head>
           <head type="dedication">Ad Lucinam</head>
           <lg type="elegiac">
@@ -326,7 +554,7 @@
             <l n="6">Depulsa rediit nube serena dies.</l>
           </lg>
         </div>
-        <div type="poem" n="9" xml:id="poem-I.9">
+        <div type="poem" n="9" xml:id="poem-I.9" ana="#prayer">
           <head type="number">I, 9</head>
           <head type="dedication">Ad Deum Galeacium Sphortiam</head>
           <lg type="elegiac">
@@ -370,7 +598,7 @@
             <l n="20">Parebunt screptris ultima regna tuis.</l>
           </lg>
         </div>
-        <div type="poem" n="10" xml:id="poem-I.10">
+        <div type="poem" n="10" xml:id="poem-I.10" ana="#epistle">
           <head type="number">I, 10</head>
           <head type="dedication">Ad Lamiam Formium</head>
           <lg type="elegiac">
@@ -382,7 +610,7 @@
             <l n="4">Barbam Formius odit in poeta.</l>
           </lg>
         </div>
-        <div type="poem" n="11" xml:id="poem-I.11">
+        <div type="poem" n="11" xml:id="poem-I.11" ana="#epistle">
           <head type="number">I, 11</head>
           <head type="dedication">Ad Franciscum Philelfum</head>
           <lg type="elegiac">
@@ -402,7 +630,7 @@
             <l n="8">Invidet. Est merito functus honore prior.</l>
           </lg>
         </div>
-        <div type="poem" n="12" xml:id="poem-I.12">
+        <div type="poem" n="12" xml:id="poem-I.12" ana="#epistle">
           <head type="number">I, 12</head>
           <head type="dedication">Ad Gasparem Vicecomitem</head>
           <lg type="elegiac">
@@ -422,7 +650,7 @@
             <l n="8">Nostra tamen parvo est sub lare laeta domus.</l>
           </lg>
         </div>
-        <div type="poem" n="13" xml:id="poem-I.13">
+        <div type="poem" n="13" xml:id="poem-I.13" ana="#epistle">
           <head type="number">I, 13</head>
           <head type="dedication">Ad Brandum Castillionem</head>
           <lg type="elegiac">
@@ -434,7 +662,7 @@
             <l n="4">Est vates quoniam atticos locutus.</l>
           </lg>
         </div>
-        <div type="poem" n="14" xml:id="poem-I.14">
+        <div type="poem" n="14" xml:id="poem-I.14" ana="#epistle">
           <head type="number">I, 14</head>
           <head type="dedication">Ad Comitem Petrum Vermium</head>
           <lg type="elegiac">
@@ -462,7 +690,7 @@
             <l n="12">Vinxit amatorem grata puella suum.</l>
           </lg>
         </div>
-        <div type="poem" n="15" xml:id="poem-I.15">
+        <div type="poem" n="15" xml:id="poem-I.15" ana="#prayer">
           <head type="number">I, 15</head>
           <head type="dedication">Ad Deum Galeacium Sphortiam</head>
           <lg type="elegiac">
@@ -554,7 +782,7 @@
             <l n="44">Nomina saeclo.</l>
           </lg>
         </div>
-        <div type="poem" n="16" xml:id="poem-I.16">
+        <div type="poem" n="16" xml:id="poem-I.16" ana="#epistle">
           <head type="number">I, 16</head>
           <head type="dedication">Ad Azonem Vicecomitem</head>
           <lg type="elegiac">
@@ -566,7 +794,7 @@
             <l n="4">Percipit. Aegra deo pectora solus habes!</l>
           </lg>
         </div>
-        <div type="poem" n="17" xml:id="poem-I.17">
+        <div type="poem" n="17" xml:id="poem-I.17" ana="#epistle">
           <head type="number">I, 17</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
           <lg type="elegiac">
@@ -650,16 +878,18 @@
             <l n="40">Pignus, amatrici datque poeta suae.</l>
           </lg>
         </div>
-        <div type="poem" n="18" xml:id="poem-I.18">
+        <div type="poem" n="18" xml:id="poem-I.18" ana="#epistle">
           <head type="number">I, 18</head>
           <head type="dedication">Ad Iohannem Antonum Vezanum</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Si te candidulae furor puellae</l>
             <l n="2">In praedam dederit, salax acuto</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Testes vepre tuos domes memento.</l>
           </lg>
         </div>
-        <div type="poem" n="19" xml:id="poem-I.19">
+        <div type="poem" n="19" xml:id="poem-I.19" ana="#epistle">
           <head type="number">I, 19</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
           <lg type="elegiac">
@@ -671,7 +901,7 @@
             <l n="4">Quod manibus pura saepe lavatur aqua.</l>
           </lg>
         </div>
-        <div type="poem" n="20" xml:id="poem-I.20">
+        <div type="poem" n="20" xml:id="poem-I.20" ana="#epistle">
           <head type="number">I, 20</head>
           <head type="dedication">Ad Iohannem Stephanum Borthigelam praesulem</head>
           <lg type="elegiac">
@@ -739,7 +969,7 @@
             <l n="32">Stephane, Nestoreos in annos!</l>
           </lg>
         </div>
-        <div type="poem" n="21" xml:id="poem-I.21">
+        <div type="poem" n="21" xml:id="poem-I.21" ana="#prayer">
           <head type="number">I, 21</head>
           <head type="dedication">Ad Deum Galaecium</head>
           <lg type="elegiac">
@@ -751,7 +981,7 @@
             <l n="4">Parebunt sceptris regnaque cuncta tuis.</l>
           </lg>
         </div>
-        <div type="poem" n="22" xml:id="poem-I.22">
+        <div type="poem" n="22" xml:id="poem-I.22" ana="#epistle">
           <head type="number">I, 22</head>
           <head type="dedication">Ad Thomam Hesinum</head>
           <lg type="elegiac">
@@ -771,7 +1001,7 @@
             <l n="8">Versibus, ipsa canet te quoque posteritas.</l>
           </lg>
         </div>
-        <div type="poem" n="23" xml:id="poem-I.23">
+        <div type="poem" n="23" xml:id="poem-I.23" ana="#epistle">
           <head type="number">I, 23</head>
           <head type="dedication">Ad Lamiam</head>
           <lg type="elegiac">
@@ -783,7 +1013,7 @@
             <l n="4">Blandicias fugiet nulla puella tuas!</l>
           </lg>
         </div>
-        <div type="poem" n="24" xml:id="poem-I.24">
+        <div type="poem" n="24" xml:id="poem-I.24" ana="#epistle">
           <head type="number">I, 24</head>
           <head type="dedication">Ad comitem Guidonem Galeacium Torellum</head>
           <lg type="elegiac">
@@ -847,7 +1077,7 @@
             <l n="30">Gratia, si tantum vota secundet amor.</l>
           </lg>
         </div>
-        <div type="poem" n="25" xml:id="poem-I.25">
+        <div type="poem" n="25" xml:id="poem-I.25" ana="#epistle">
           <head type="number">I, 25</head>
           <head type="dedication">Ad Barbiton pro Mecoenate Cicho</head>
           <lg type="elegiac">
@@ -931,7 +1161,7 @@
             <l n="40">Iuppiter annos!</l>
           </lg>
         </div>
-        <div type="poem" n="26" xml:id="poem-I.26">
+        <div type="poem" n="26" xml:id="poem-I.26" ana="#epistle">
           <head type="number">I, 26</head>
           <head type="dedication">Ad Iohannem Petrum Cominum</head>
           <lg type="elegiac">
@@ -947,7 +1177,7 @@
             <l n="6">tu, Petre, Albrisio distichon aede tuo.</l>
           </lg>
         </div>
-        <div type="poem" n="27" xml:id="poem-I.27">
+        <div type="poem" n="27" xml:id="poem-I.27" ana="#epistle">
           <head type="number">I, 27</head>
           <head type="dedication">Ad Ambrosium Vicecomitem</head>
           <lg type="elegiac">
@@ -963,7 +1193,7 @@
             <l n="6">Poenitea! Fractae non rediere vices.</l>
           </lg>
         </div>
-        <div type="poem" n="28" xml:id="poem-I.28">
+        <div type="poem" n="28" xml:id="poem-I.28" ana="#epistle">
           <head type="number">I, 28</head>
           <head type="dedication">Ad Serum Florentinum</head>
           <lg type="elegiac">
@@ -975,7 +1205,7 @@
             <l n="4">Serus pervigil omne sic facessis.</l>
           </lg>
         </div>
-        <div type="poem" n="29" xml:id="poem-I.29">
+        <div type="poem" n="29" xml:id="poem-I.29" ana="#epistle">
           <head type="number">I, 29</head>
           <head type="dedication">Ad comitem Iohannem Attendulum</head>
           <lg type="elegiac">
@@ -987,7 +1217,7 @@
             <l n="4">Lydia solliciti finis amoris erit.</l>
           </lg>
         </div>
-        <div type="poem" n="30" xml:id="poem-I.30">
+        <div type="poem" n="30" xml:id="poem-I.30" ana="#prayer">
           <head type="number">I, 30</head>
           <head type="dedication">Ad Deum Galeacium</head>
           <lg type="elegiac">
@@ -1063,7 +1293,7 @@
             <l n="36">Vivant incolumes saecula Naestoris.</l>
           </lg>
         </div>
-        <div type="poem" n="31" xml:id="poem-I.31">
+        <div type="poem" n="31" xml:id="poem-I.31" ana="#prayer">
           <head type="number">I, 31</head>
           <head type="dedication">Ad Venerem</head>
           <lg type="elegiac">
@@ -1075,7 +1305,7 @@
             <l n="4">Coena duos uno iungat opima toro.</l>
           </lg>
         </div>
-        <div type="poem" n="32" xml:id="poem-I.32">
+        <div type="poem" n="32" xml:id="poem-I.32" ana="#epistle">
           <head type="number">I, 32</head>
           <head type="dedication">Ad Blasium</head>
           <lg type="elegiac">
@@ -1087,7 +1317,7 @@
             <l n="4">Huc ades! Adventu Delius alter ero.</l>
           </lg>
         </div>
-        <div type="poem" n="33" xml:id="poem-I.33">
+        <div type="poem" n="33" xml:id="poem-I.33" ana="#epistle">
           <head type="number">I, 33</head>
           <head type="dedication">Ad Vitulinum Barboum</head>
           <lg type="elegiac">
@@ -1103,7 +1333,7 @@
             <l n="6">Adsit. Et adventu Tethyos instar ero.</l>
           </lg>
         </div>
-        <div type="poem" n="34" xml:id="poem-I.34">
+        <div type="poem" n="34" xml:id="poem-I.34" ana="#erotic">
           <head type="number">I, 34</head>
           <head type="dedication">Ad Lucinam</head>
           <lg type="elegiac">
@@ -1115,7 +1345,7 @@
             <l n="4">Tu, quia somnus abest, nostra puella, veni!</l>
           </lg>
         </div>
-        <div type="poem" n="35" xml:id="poem-I.35">
+        <div type="poem" n="35" xml:id="poem-I.35" ana="#epistle">
           <head type="number">I, 35</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
           <lg type="elegiac">
@@ -1123,7 +1353,7 @@
             <l n="2">Dent reditum, et faciles diique deaeque moras.</l>
           </lg>
         </div>
-        <div type="poem" n="36" xml:id="poem-I.36">
+        <div type="poem" n="36" xml:id="poem-I.36" ana="#invective">
           <head type="number">I, 36</head>
           <head type="dedication">In Lechnon</head>
           <lg type="elegiac">
@@ -1151,7 +1381,7 @@
             <l n="12">Aequis sortibus omne fit repensum.</l>
           </lg>
         </div>
-        <div type="poem" n="37" xml:id="poem-I.37">
+        <div type="poem" n="37" xml:id="poem-I.37" ana="#epistle">
           <head type="number">I, 37</head>
           <head type="dedication">Ad Iohannem Stephanum praesulem</head>
           <lg type="elegiac">
@@ -1171,7 +1401,7 @@
             <l n="8">Credita firma dabit perstabilemque manum.</l>
           </lg>
         </div>
-        <div type="poem" n="38" xml:id="poem-I.38">
+        <div type="poem" n="38" xml:id="poem-I.38" ana="#epistle">
           <head type="number">I, 38</head>
           <head type="dedication">Ad Andream Simonetam</head>
           <lg type="elegiac">
@@ -1187,7 +1417,7 @@
             <l n="6">Iuppiter. Hic terris imperat. Ipse Vale.</l>
           </lg>
         </div>
-        <div type="poem" n="39" xml:id="poem-I.39">
+        <div type="poem" n="39" xml:id="poem-I.39" ana="#epistle">
           <head type="number">I, 39</head>
           <head type="dedication">Ad Lodovicum Petrobonum Putea</head>
           <lg type="elegiac">
@@ -1243,7 +1473,7 @@
             <l n="26">Iunone inferior non ego maxima.</l>
           </lg>
         </div>
-        <div type="poem" n="40" xml:id="poem-I.40">
+        <div type="poem" n="40" xml:id="poem-I.40" ana="#epistle">
           <head type="number">I, 40</head>
           <head type="dedication">Ad Lamiam</head>
           <lg type="elegiac">
@@ -1255,7 +1485,7 @@
             <l n="4">Et potui Lamiae tunc placuisse meo.</l>
           </lg>
         </div>
-        <div type="poem" n="41" xml:id="poem-I.41">
+        <div type="poem" n="41" xml:id="poem-I.41" ana="#epistle">
           <head type="number">I, 41</head>
           <head type="dedication">Ad Iacobum Bonarellum</head>
           <lg type="elegiac">
@@ -1267,7 +1497,7 @@
             <l n="4">Hic ducis anguigeri cuncta tuentis amat.</l>
           </lg>
         </div>
-        <div type="poem" n="42" xml:id="poem-I.42">
+        <div type="poem" n="42" xml:id="poem-I.42" ana="#epistle">
           <head type="number">I, 42</head>
           <head type="dedication">Ad Leonardum Glusianum</head>
           <lg type="elegiac">
@@ -1291,92 +1521,174 @@
             <l n="10">Accipiat primus, caetera posterior.</l>
           </lg>
         </div>
-        <div type="poem" n="43" xml:id="poem-I.43">
+        <div type="poem" n="43" xml:id="poem-I.43" ana="#prayer">
           <head type="number">I, 43</head>
           <head type="dedication">Ad Somnum</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Dulcius terris superisque numen,</l>
             <l n="2">Fessa qui duro reparas labori</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Corpora, effoetis operum quietem</l>
             <l n="4">Reddis amicam.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Ocio cuius fruitur supremo</l>
             <l n="6">Nescius cura/curae, sua facta quisquis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Ponit. Optato iacet inde victus</l>
             <l n="8">Membra sopore.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Aridas fauces vigil ardet hydrops.</l>
             <l n="10">Si venis, nullo rapitur furore.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Quam sitim tellus nequit, astra, pontus</l>
             <l n="12">Vincere: pellis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Fronde sub nota volucres teguntur,</l>
             <l n="14">sternitur sacrum nemus. Urget auram</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">spiritus nullam. Tacitus quiescit</l>
             <l n="16">Aequore piscis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Nesciunt saevi rabiem leones.</l>
             <l n="18">Nec canem damae metuunt fugaces.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Pax fovet cunctos. Timor aegra nullus</l>
             <l n="20">Corpora vexat.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Somne, si cunctis facilis vocatus</l>
             <l n="22">Redderis prona vice. Quid/quod rogantem</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Dic precor vatem decies petitus</l>
             <l n="24">Deseris ultro?</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Noctibus totis vigil usque(,) versat</l>
             <l n="26">Membra, sint quamvis niveo cubili</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Strata, vel puri prope fontis amnem</l>
             <l n="28">Inscia solis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Mulceat cantu liquidum canoro</l>
             <l n="30">Aethera et quamvis sacer ales, omnis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="31">Hunc tamen spernit sopor, ac diurnae</l>
             <l n="32">Dona quietis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="33">Sparsit an sacros cineres parentum</l>
             <l n="34">Impiis atrox manibus? Peremit</l>
+          </lg>
+          <lg type="elegiac">
             <l n="35">Hospitem fidum, tenebris cruento</l>
             <l n="36">Perfidus ense?</l>
+          </lg>
+          <lg type="elegiac">
             <l n="37">Hicne divinae pietatis audax</l>
             <l n="38">Forte contemptor fuit? An deorum</l>
+          </lg>
+          <lg type="elegiac">
             <l n="39">Templa, vel sacrae violavit unquam</l>
             <l n="40">Virginis aram?</l>
+          </lg>
+          <lg type="elegiac">
             <l n="41">Colchicas nunquam meditatus artes</l>
             <l n="42">Grandinem claro tonitrusve caelo</l>
+          </lg>
+          <lg type="elegiac">
             <l n="43">Iussit, aut altos pelago minatus</l>
             <l n="44">Surgere ventos.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="45">Inferis poenae minuuntur umbris</l>
             <l n="46">Nec sitit semper media sub unda</l>
+          </lg>
+          <lg type="elegiac">
             <l n="47">Tantalus. Magnum neque versat usque</l>
             <l n="48">Sissyphus orbem.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="49">Parcius fibras lacerat renatas</l>
             <l n="50">Vultur. Obliquum rota torquet axem,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="51">Parcius scindunt vada nigra mersis</l>
             <l n="52">Belides urnis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="53">Iam minus fervent phlegetontis ignes,</l>
             <l n="54">Tristius semper neque torpet aequor</l>
+          </lg>
+          <lg type="elegiac">
             <l n="55">Quam timent caelum Stygis. Hinc remittunt</l>
             <l n="56">Flumina luctus.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="57">Gaudet interdum placido receptus</l>
             <l n="58">Alveo exultans Acheron, diuque</l>
+          </lg>
+          <lg type="elegiac">
             <l n="59">Stagna tranquillae meminisse dicunt</l>
             <l n="60">Marcida Lethes.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="61">Squallor horrentes herebi relaxat</l>
             <l n="62">Noctis aeternae tenebras. Qui scit</l>
+          </lg>
+          <lg type="elegiac">
             <l n="63">Cnosius. Fortes, nec, avara versat</l>
             <l n="64">Urna minaces.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="65">At levat nullus sopor hunc, Quietis</l>
             <l n="66">Nulla quaesitae pietas. nec audis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="67">Somne poscentem veniam benigno</l>
             <l n="68">Carmine vatem.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="69">Miscuit forsan dapibus cruorem</l>
             <l n="70">Aspidum nostris. Tenerae unxit atris</l>
+          </lg>
+          <lg type="elegiac">
             <l n="71">Forte Lucinae caput immerenti</l>
             <l n="72">Blonda cicutis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="73">Quippe Lucinam superi tuentur</l>
             <l n="74">Cingat Albrisi ut niveis lacertis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="75">Ipsa cervicem, varietque flavos</l>
             <l n="76">Pectine crinis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="77">Somne si nulla prece supplicantum</l>
             <l n="78">Flecteris, saltem memorem poetae</l>
+          </lg>
+          <lg type="elegiac">
             <l n="79">Usque Lucinam, memoremque diae</l>
             <l n="80">Redde poetam.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="81">Imbuet sacras tener haedus aras,</l>
             <l n="82">victor et vates cumulabit ultro</l>
+          </lg>
+          <lg type="elegiac">
             <l n="83">Maximis donis tua cum Iacobo</l>
             <l n="84">Limina Marno.</l>
           </lg>
@@ -1384,9 +1696,10 @@
       </div>
       <div type="book" n="2" xml:id="bookII">
         <head type="book">Liber Secundus</head>
-        <div type="poem" n="1" xml:id="poem-II.1">
+        <div type="poem" n="1" xml:id="poem-II.1" ana="#epistle">
           <head type="number">II, 1</head>
           <head type="dedication">Ad Iohannem Iacobum Simonetam</head>
+          <head type="rubric">Aurelii Laurentii Albrisii Luninae liber secundus incipit.</head>
           <lg type="elegiac">
             <l n="1">CICHI ADES, IACOBE, MIHI! SI CAESAR ADESSES,</l>
             <l n="2">PERDERET INSANUS NON MEA CORDA FUROR.</l>
@@ -1404,7 +1717,7 @@
             <l n="8">Saltem claude pia lumina maesta manu!</l>
           </lg>
         </div>
-        <div type="poem" n="2" xml:id="poem-II.2">
+        <div type="poem" n="2" xml:id="poem-II.2" ana="#epistle">
           <head type="number">II, 2</head>
           <head type="dedication">Ad Ascanium Vicecomitem protonotarium</head>
           <lg type="elegiac">
@@ -1520,7 +1833,7 @@
             <l n="56">Colle supremum.</l>
           </lg>
         </div>
-        <div type="poem" n="3" xml:id="poem-II.3">
+        <div type="poem" n="3" xml:id="poem-II.3" ana="#epistle">
           <head type="number">II, 3</head>
           <head type="dedication">Ad Sigismundum Simonetam praesulem</head>
           <lg type="elegiac">
@@ -1532,7 +1845,7 @@
             <l n="4">Lambet honoratum praesulis usque caput.</l>
           </lg>
         </div>
-        <div type="poem" n="4" xml:id="poem-II.4">
+        <div type="poem" n="4" xml:id="poem-II.4" ana="#epistle">
           <head type="number">II, 4</head>
           <head type="dedication">Ad comitem Guidonem Torellum</head>
           <lg type="elegiac">
@@ -1540,7 +1853,7 @@
             <l n="2">Munera, Guidonis nomina semper amo.</l>
           </lg>
         </div>
-        <div type="poem" n="5" xml:id="poem-II.5">
+        <div type="poem" n="5" xml:id="poem-II.5" ana="#epistle">
           <head type="number">II, 5</head>
           <head type="dedication">Ad Io. Iacobum Simonetam</head>
           <lg type="elegiac">
@@ -1572,64 +1885,114 @@
             <l n="14">Et tua sola mihi gratia sufficiet.</l>
           </lg>
         </div>
-        <div type="poem" n="6" xml:id="poem-II.6">
+        <div type="poem" n="6" xml:id="poem-II.6" ana="#epistle">
           <head type="number">II, 6</head>
           <head type="dedication">Ad Baptistam Plasium</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Si terrae et pelagi, si Iovis impii</l>
             <l n="2">Astrorumque minas merserit in diem,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Quis divum miseris gentibus ultimum</l>
             <l n="4">Ardentive polo sanguineas comas</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Portendi exitium iusserit? Omnibus</l>
             <l n="6">Naturae laceris legibus undique.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Antiquum citius reddiderit cahos</l>
             <l n="8">Bacchatam rabiem, si pelago ciens</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Hauster depopulet per freta, navium</l>
             <l n="10">Avulsis pavidos remigiis duces,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Concretam boreas flatibus asperet</l>
             <l n="12">Arctoam glaciem, turbinis aut potens</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Fulmen terrifici, torqueat impiger</l>
             <l n="14">Consumptis iaculis; syderis abditi,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Phoebes sitve labor, non tamen ultimi</l>
             <l n="16">Has saecli tenebras crediderim, duce</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Te Plasi: duce te, sospite Plasio.</l>
             <l n="18">Plasi, tu Italiae perspicuum decus,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Tu splendor patriae. Gloria vatibus,</l>
             <l n="20">Tu Baptista animae maxima pars meae.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Nostro nocte die pectore figeris.</l>
             <l n="22">Inter sive epulas et studiis graves</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Sermonum cupidi scripsimus aut Iocos</l>
             <l n="24">Lecturis avide seria posteris,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Seu ponat stabiles Calliope modos</l>
             <l n="26">Percurrens numeros ordinis impares,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Seu caprum meruit carmine foetidum</l>
             <l n="28">Ultricem rabidive Archilochi lyram</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Excussit calamo vindice criminum,</l>
             <l n="30">Lucinam Albrisii delicias tui,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="31">Seu lusit tenerum pronuba Cynthium:</l>
             <l n="32">Semper nostra regis carmina, Plasius.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="33">Ergo si populo praescius indicas</l>
             <l n="34">Motus ambiguos syderii poli,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="35">Fallunt astronomum non ea Plasium</l>
             <l n="36">Qaestus aetheriis abdita cursibus.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="37">Plasi te superos perque homines rogo</l>
             <l n="38">Tantum corda calent quid mea Plasio.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="39">Dulcis noster amor dic age./! Pectoris</l>
             <l n="40">Cur tam dulce mei pascitur intima?</l>
+          </lg>
+          <lg type="elegiac">
             <l n="41">Ritus mille virum. Ducitur ordine</l>
             <l n="42">Rerum quisque suo. Fert sua quemlibet</l>
+          </lg>
+          <lg type="elegiac">
             <l n="43">Captivum cohibens imperio Venus.</l>
             <l n="44">At me Pieriis dicere versibus</l>
+          </lg>
+          <lg type="elegiac">
             <l n="45">Insignem lyrico carmine Plasium.</l>
             <l n="46">Me notam liquidi tramitis orbitam</l>
+          </lg>
+          <lg type="elegiac">
             <l n="47">Cotrivisse vivat. Nam mea Plasius</l>
             <l n="48">Ponis scripta sacro qualia sint loco.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="49">Quod si numinibus, si tibi maxime</l>
             <l n="50">Doctorum: Albrisii carmina riserint,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="51">Transcendam merito nomine posteros.</l>
           </lg>
         </div>
-        <div type="poem" n="7" xml:id="poem-II.7">
+        <div type="poem" n="7" xml:id="poem-II.7" ana="#invective">
           <head type="number">II, 7</head>
           <head type="dedication">In Borsium Arsenociten</head>
           <lg type="elegiac">
@@ -1641,7 +2004,7 @@
             <l n="4">Perdite funestum diique deaeque caput!</l>
           </lg>
         </div>
-        <div type="poem" n="8" xml:id="poem-II.8">
+        <div type="poem" n="8" xml:id="poem-II.8" ana="#epistle">
           <head type="number">II, 8</head>
           <head type="dedication">Ad Baptistam et Margaritam Ponçonos, compatrem</head>
           <lg type="elegiac">
@@ -1657,7 +2020,7 @@
             <l n="6">Gaudia. Sic foveat me mea Calliope.</l>
           </lg>
         </div>
-        <div type="poem" n="9" xml:id="poem-II.9">
+        <div type="poem" n="9" xml:id="poem-II.9" ana="#epistle">
           <head type="number">II, 9</head>
           <head type="dedication">Ad Iohannem Iacobum Simonetam</head>
           <lg type="elegiac">
@@ -1681,7 +2044,7 @@
             <l n="10">Abstulit, ipse tua relligione capis.</l>
           </lg>
         </div>
-        <div type="poem" n="10" xml:id="poem-II.10">
+        <div type="poem" n="10" xml:id="poem-II.10" ana="#invective">
           <head type="number">II, 10</head>
           <head type="dedication">In Tonsum</head>
           <lg type="elegiac">
@@ -1693,7 +2056,7 @@
             <l n="4">Me sine carminulis tundere Tonse tuis.</l>
           </lg>
         </div>
-        <div type="poem" n="11" xml:id="poem-II.11">
+        <div type="poem" n="11" xml:id="poem-II.11" ana="#invective">
           <head type="number">II, 11</head>
           <head type="dedication">In canem aemulum</head>
           <lg type="elegiac">
@@ -1701,7 +2064,7 @@
             <l n="2">Sordidus? Id domino ne videare facis.</l>
           </lg>
         </div>
-        <div type="poem" n="12" xml:id="poem-II.12">
+        <div type="poem" n="12" xml:id="poem-II.12" ana="#epistle">
           <head type="number">II, 12</head>
           <head type="dedication">Ad Blasium</head>
           <lg type="elegiac">
@@ -1709,7 +2072,7 @@
             <l n="2">At tibi cur Blasi carmina bina negem.</l>
           </lg>
         </div>
-        <div type="poem" n="13" xml:id="poem-II.13">
+        <div type="poem" n="13" xml:id="poem-II.13" ana="#epistle">
           <head type="number">II, 13</head>
           <head type="dedication">Ad Lamiam Formium</head>
           <lg type="elegiac">
@@ -1721,7 +2084,7 @@
             <l n="4">Laetor enim paribus. Formius imparibus.</l>
           </lg>
         </div>
-        <div type="poem" n="14" xml:id="poem-II.14">
+        <div type="poem" n="14" xml:id="poem-II.14" ana="#epistle">
           <head type="number">II, 14</head>
           <head type="dedication">Ad Euterpem in Sympsium Bal. Mellii</head>
           <lg type="elegiac">
@@ -1973,7 +2336,7 @@
             <l n="124">Sydere nomen.</l>
           </lg>
         </div>
-        <div type="poem" n="15" xml:id="poem-II.15">
+        <div type="poem" n="15" xml:id="poem-II.15" ana="#epistle">
           <head type="number">II, 15</head>
           <head type="dedication">Ad Serum Florentinum</head>
           <lg type="elegiac">
@@ -1985,7 +2348,7 @@
             <l n="4">Nobilis, at Titi Laurea nobilior.</l>
           </lg>
         </div>
-        <div type="poem" n="16" xml:id="poem-II.16">
+        <div type="poem" n="16" xml:id="poem-II.16" ana="#epistle">
           <head type="number">II, 16</head>
           <head type="dedication">Ad Philippum Ferusinum</head>
           <lg type="elegiac">
@@ -1997,7 +2360,7 @@
             <l n="4">Seria cumque iocis (crede) libellus habet.</l>
           </lg>
         </div>
-        <div type="poem" n="17" xml:id="poem-II.17">
+        <div type="poem" n="17" xml:id="poem-II.17" ana="#epitaph">
           <head type="number">II, 17</head>
           <head type="dedication">In Tadaei Dovarensis Sepulchro</head>
           <lg type="elegiac">
@@ -2009,7 +2372,7 @@
             <l n="4">Virtusque aeterna dant tibi pace frui.</l>
           </lg>
         </div>
-        <div type="poem" n="18" xml:id="poem-II.18">
+        <div type="poem" n="18" xml:id="poem-II.18" ana="#epistle">
           <head type="number">II, 18</head>
           <head type="dedication">Ad Sigismundum Simonetam</head>
           <lg type="elegiac">
@@ -2037,7 +2400,7 @@
             <l n="12">Senserit, oblati muneris adde vices.</l>
           </lg>
         </div>
-        <div type="poem" n="19" xml:id="poem-II.19">
+        <div type="poem" n="19" xml:id="poem-II.19" ana="#epistle">
           <head type="number">II, 19</head>
           <head type="dedication">Ad comitem Antonium Guidonem</head>
           <lg type="elegiac">
@@ -2089,7 +2452,7 @@
             <l n="24">Aegroto baculum redde celer pedi.</l>
           </lg>
         </div>
-        <div type="poem" n="20" xml:id="poem-II.20">
+        <div type="poem" n="20" xml:id="poem-II.20" ana="#epistle">
           <head type="number">II, 20</head>
           <head type="dedication">Ad Iohannem Iacobum Simonetam</head>
           <lg type="elegiac">
@@ -2109,7 +2472,7 @@
             <l n="8">Simoneta, aliis ignibus implicitum.</l>
           </lg>
         </div>
-        <div type="poem" n="21" xml:id="poem-II.21">
+        <div type="poem" n="21" xml:id="poem-II.21" ana="#epistle">
           <head type="number">II, 21</head>
           <head type="dedication">Ad Lodovicum Simonetam</head>
           <lg type="elegiac">
@@ -2169,7 +2532,7 @@
             <l n="28">Mutuus alterno pectore vivet amor.</l>
           </lg>
         </div>
-        <div type="poem" n="22" xml:id="poem-II.22">
+        <div type="poem" n="22" xml:id="poem-II.22" ana="#prayer">
           <head type="number">II, 22</head>
           <head type="dedication">Ad Deum Galeacium</head>
           <lg type="elegiac">
@@ -2317,7 +2680,7 @@
             <l n="72">Carmine laudes.</l>
           </lg>
         </div>
-        <div type="poem" n="23" xml:id="poem-II.23">
+        <div type="poem" n="23" xml:id="poem-II.23" ana="#epistle">
           <head type="number">II, 23</head>
           <head type="dedication">Ad Antonium Fredericum Simonetam</head>
           <lg type="elegiac">
@@ -2365,7 +2728,7 @@
             <l n="22">Charta, vacare deo pectora nostra scias.</l>
           </lg>
         </div>
-        <div type="poem" n="24" xml:id="poem-II.24">
+        <div type="poem" n="24" xml:id="poem-II.24" ana="#epistle">
           <head type="number">II, 24</head>
           <head type="dedication">Ad Laurentium Stroçam</head>
           <lg type="elegiac">
@@ -2429,7 +2792,7 @@
             <l n="30">Nostrum Stroz(z)a suo culmine verticem.</l>
           </lg>
         </div>
-        <div type="poem" n="25" xml:id="poem-II.25">
+        <div type="poem" n="25" xml:id="poem-II.25" ana="#epistle">
           <head type="number">II, 25</head>
           <head type="dedication">Ad Alexandrum Coletam</head>
           <lg type="elegiac">
@@ -2437,7 +2800,7 @@
             <l n="2">Solus Apollinea tempora fronde tegat.</l>
           </lg>
         </div>
-        <div type="poem" n="26" xml:id="poem-II.26">
+        <div type="poem" n="26" xml:id="poem-II.26" ana="#epistle">
           <head type="number">II, 26</head>
           <head type="dedication">Ad Titum et Laurentium Stroçam</head>
           <lg type="elegiac">
@@ -2449,7 +2812,7 @@
             <l n="4">Contigerit, medius non ero. Primus ero.</l>
           </lg>
         </div>
-        <div type="poem" n="27" xml:id="poem-II.27">
+        <div type="poem" n="27" xml:id="poem-II.27" ana="#epistle">
           <head type="number">II, 27</head>
           <head type="dedication">Ad Sigismundum Simonetam</head>
           <lg type="elegiac">
@@ -2461,7 +2824,7 @@
             <l n="4">Allia far scombri coena futura tibi est.</l>
           </lg>
         </div>
-        <div type="poem" n="28" xml:id="poem-II.28">
+        <div type="poem" n="28" xml:id="poem-II.28" ana="#invective">
           <head type="number">II, 28</head>
           <head type="dedication">In Aptum. Ad comitem Antonium Guidonem</head>
           <lg type="elegiac">
@@ -2473,7 +2836,7 @@
             <l n="4">Ergo tuus cunctis Aptus ineptus erit.</l>
           </lg>
         </div>
-        <div type="poem" n="29" xml:id="poem-II.29">
+        <div type="poem" n="29" xml:id="poem-II.29" ana="#epistle">
           <head type="number">II, 29</head>
           <head type="dedication">Ad Baldasarem Mellium</head>
           <lg type="elegiac">
@@ -2489,7 +2852,7 @@
             <l n="6">Principe quid nostro carius esse potest.</l>
           </lg>
         </div>
-        <div type="poem" n="30" xml:id="poem-II.30">
+        <div type="poem" n="30" xml:id="poem-II.30" ana="#epistle">
           <head type="number">II, 30</head>
           <head type="dedication">Ad Thomam Haesinum</head>
           <lg type="elegiac">
@@ -2501,7 +2864,7 @@
             <l n="4">Gloria, convivis cogit abesse tuis.</l>
           </lg>
         </div>
-        <div type="poem" n="31" xml:id="poem-II.31">
+        <div type="poem" n="31" xml:id="poem-II.31" ana="#epistle">
           <head type="number">II, 31</head>
           <head type="dedication">Ad comitem Galeotum</head>
           <lg type="elegiac">
@@ -2513,7 +2876,7 @@
             <l n="4">Accelerant gressus ad mea metra suos.</l>
           </lg>
         </div>
-        <div type="poem" n="32" xml:id="poem-II.32">
+        <div type="poem" n="32" xml:id="poem-II.32" ana="#epistle">
           <head type="number">II, 32</head>
           <head type="dedication">Ad Iohannem Franciscum Simonetam</head>
           <lg type="elegiac">
@@ -2529,7 +2892,7 @@
             <l n="6">Decipit et cunctos foemina nuda viros.</l>
           </lg>
         </div>
-        <div type="poem" n="33" xml:id="poem-II.33">
+        <div type="poem" n="33" xml:id="poem-II.33" ana="#epistle">
           <head type="number">II, 33</head>
           <head type="dedication">Ad Franciscum Firmanum</head>
           <lg type="elegiac">
@@ -2541,7 +2904,7 @@
             <l n="4">Leuceos eiicitur. Anthrace andra fovet.</l>
           </lg>
         </div>
-        <div type="poem" n="34" xml:id="poem-II.34">
+        <div type="poem" n="34" xml:id="poem-II.34" ana="#erotic">
           <head type="number">II, 34</head>
           <head type="dedication">Lucina in Cerverium</head>
           <lg type="elegiac">
@@ -2577,7 +2940,7 @@
             <l n="16">Et nos (crede) iugo cogit aheneo.</l>
           </lg>
         </div>
-        <div type="poem" n="35" xml:id="poem-II.35">
+        <div type="poem" n="35" xml:id="poem-II.35" ana="#epistle">
           <head type="number">II, 35</head>
           <head type="dedication">Ad Guilielminum Lamiam</head>
           <lg type="elegiac">
@@ -2597,7 +2960,7 @@
             <l n="8">Hoc erit, illa viri, coniugis iste decus.</l>
           </lg>
         </div>
-        <div type="poem" n="36" xml:id="poem-II.36">
+        <div type="poem" n="36" xml:id="poem-II.36" ana="#epistle">
           <head type="number">II, 36</head>
           <head type="dedication">Ad Hieronymum Guidonem</head>
           <lg type="elegiac">
@@ -2625,7 +2988,7 @@
             <l n="12">Si fugat, Albrisium iam Guido semper habe.</l>
           </lg>
         </div>
-        <div type="poem" n="37" xml:id="poem-II.37">
+        <div type="poem" n="37" xml:id="poem-II.37" ana="#epistle">
           <head type="number">II, 37</head>
           <head type="dedication">Ad Iohannem Iacobum Simonetam</head>
           <lg type="elegiac">
@@ -2676,42 +3039,70 @@
       </div>
       <div type="book" n="3" xml:id="bookIII">
         <head type="book">Liber Tertius</head>
-        <div type="poem" n="1" xml:id="poem-III.1">
+        <div type="poem" n="1" xml:id="poem-III.1" ana="#erotic">
           <head type="number">III, 1</head>
-          <head type="dedication">Ad Iohannem sancti Lamberti praesulem</head>
-          <lg>
+          <head type="dedication">Ad Iohannem sancti Lamberti praesulem Aurelius Laurentius Albrisii Lucinae liber tercius incipit</head>
+          <lg type="elegiac">
             <l n="1">Lambertinus adest incolumis pater,</l>
             <l n="2">Sol terrae, tenebris redditus est dies.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Spirarunt posito turbine mitius</l>
             <l n="4">Surgentes Zephyri, depulit horridum</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Adventu borean, hic nebulas suis</l>
             <l n="6">Disiecit roseis luminibus graves.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Adsunt deliciae carminibus meae,</l>
             <l n="8">Iam Primus citharae suggeritur vigor</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Festivamque regit gratia barbiton.</l>
             <l n="10">Formosum lyricis cantibus advenam</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Augustumque tuens Caesareum decus</l>
             <l n="12">Tutelam populis, nobili et inclytum</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Mireris Latio Calliope Ducem.</l>
             <l n="14">Quod vitae requies, moribus integer</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Lambertinus honor, spes amor et nitor,</l>
             <l n="16">Carpensem propior contigerit domum,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Vos nymphae nemorum capripedas sacros</l>
             <l n="18">Et sparsas variis montibus Orchadas</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Praestetis faciles in numerum choros.</l>
             <l n="20">Fert ardens celerem Quintilius gradum</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Carbo, maeonia splendidior lyra.</l>
             <l n="22">Excitas fidibus senserit ut manus,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Componet modulum pectinis ordinem</l>
             <l n="24">Maternum resonans Threicius melos.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Dicentur liquidis vocibus optimi</l>
             <l n="26">Lambertine suis astra super modi.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">At nos si viridi fronde caput decens</l>
             <l n="28">Ornaris, memores Caesaris et tui</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Reddemus merito carmine posteros.</l>
           </lg>
         </div>
-        <div type="poem" n="2" xml:id="poem-III.2">
+        <div type="poem" n="2" xml:id="poem-III.2" ana="#epistle">
           <head type="number">III, 2</head>
           <head type="dedication">Ad Boninum</head>
           <lg type="elegiac">
@@ -2723,7 +3114,7 @@
             <l n="4">Hoc quoniam tota rarius urbe venit.</l>
           </lg>
         </div>
-        <div type="poem" n="3" xml:id="poem-III.3">
+        <div type="poem" n="3" xml:id="poem-III.3" ana="#invective">
           <head type="number">III, 3</head>
           <head type="dedication">In Cerverium</head>
           <lg type="elegiac">
@@ -2739,7 +3130,7 @@
             <l n="6">A te quis potuit tutus abisse comes.</l>
           </lg>
         </div>
-        <div type="poem" n="4" xml:id="poem-III.4">
+        <div type="poem" n="4" xml:id="poem-III.4" ana="#epistle">
           <head type="number">III, 4</head>
           <head type="dedication">Ad Plantanidum</head>
           <lg type="elegiac">
@@ -2751,7 +3142,7 @@
             <l n="4">Sic sua Plantanidum carmina missa iuvent.</l>
           </lg>
         </div>
-        <div type="poem" n="5" xml:id="poem-III.5">
+        <div type="poem" n="5" xml:id="poem-III.5" ana="#prayer">
           <head type="number">III, 5</head>
           <head type="dedication">Ad aeternum Deum</head>
           <lg type="elegiac">
@@ -2815,7 +3206,7 @@
             <l n="30">Atque pia nostras concipe mente preces.</l>
           </lg>
         </div>
-        <div type="poem" n="6" xml:id="poem-III.6">
+        <div type="poem" n="6" xml:id="poem-III.6" ana="#epistle">
           <head type="number">III, 6</head>
           <head type="dedication">Ad Cichidas</head>
           <lg type="elegiac">
@@ -2883,7 +3274,7 @@
             <l n="32">Sumite vel saltem principis officium.</l>
           </lg>
         </div>
-        <div type="poem" n="7" xml:id="poem-III.7">
+        <div type="poem" n="7" xml:id="poem-III.7" ana="#epistle">
           <head type="number">III, 7</head>
           <head type="dedication">Ad amicos et Cupidinem</head>
           <lg type="elegiac">
@@ -2907,7 +3298,7 @@
             <l n="10">Claudetur firma nostra puella sera.</l>
           </lg>
         </div>
-        <div type="poem" n="8" xml:id="poem-III.8">
+        <div type="poem" n="8" xml:id="poem-III.8" ana="#epistle">
           <head type="number">III, 8</head>
           <head type="dedication">Ad Iacobum Antiquarium</head>
           <lg type="elegiac">
@@ -2931,7 +3322,7 @@
             <l n="10">Servabit sola nocte dieque domo.</l>
           </lg>
         </div>
-        <div type="poem" n="9" xml:id="poem-III.9">
+        <div type="poem" n="9" xml:id="poem-III.9" ana="#epistle">
           <head type="number">III, 9</head>
           <head type="dedication">Ad Iacobum Marnum</head>
           <lg type="elegiac">
@@ -2979,52 +3370,90 @@
             <l n="22">Teque meis clarum, Marne Iacobe. Vale!</l>
           </lg>
         </div>
-        <div type="poem" n="10" xml:id="poem-III.10">
+        <div type="poem" n="10" xml:id="poem-III.10" ana="#epistle">
           <head type="number">III, 10</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Nil firmum stabile aut sub Iove cernimus.</l>
             <l n="2">Heu pennata fluunt tempora, non minus</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Impellunt celeris fata manu vices.</l>
             <l n="4">Immatura ruit mors. Nece tristius</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Morborum omne genus. Iam nova febrium</l>
             <l n="6">Artus vis populat. Iam sitis aridas</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Fauces assiduis decoquit ignibus.</l>
             <l n="8">Nunc carae patimur funera coniugis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Nunc dulcis pueri, nunc rogus hospitis</l>
             <l n="10">Antiqui, miseris aspiciendus. Et</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Orcho dedita fas subdere corpora.</l>
             <l n="12">Nec laetum pietas ulla coercuit.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Nec flecti indocilem pierides movent</l>
             <l n="14">Plutona. Hunc repetit quodque fuit modo.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Haec sint dura licet, sint licet aspera,</l>
             <l n="16">Mecoenas, homini sint tamen omnia</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Debellanda. Feri maxima poscimus</l>
             <l n="18">Sub belli fremitu praemia maximo.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Te virtus animi conscia nobilis</l>
             <l n="20">Moresque ingenui, te probitas docet</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Quod fati est, solido pectore perpeti.</l>
             <l n="22">Magno saepe malo proveniunt bona.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Exactis tenebris cernis Apollinem</l>
             <l n="24">Almum, syderio surgere lumine.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">At Romam illiacae relliquiae struunt</l>
             <l n="26">Deiectis Asiae moenibus undique.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Servavit patriam numine concito</l>
             <l n="28">Paccatam proprio funere Curcius.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Caeso sponte ferus te duce vincitur</l>
             <l n="30">Hostis. Codre iaces gloria posteris.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="31">Humani generis noxia solvitur</l>
             <l n="32">Aeterni roseo sanguine filii.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="33">Hae rebus properae sic redeunt vices</l>
             <l n="34">Ut terrena petant corpora pristinae</l>
+          </lg>
+          <lg type="elegiac">
             <l n="35">Naturae seriem. Spiritus integer</l>
             <l n="36">Transcendat liquidum purior aethera.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="37">At mondi illecebras falsave gaudia</l>
             <l n="38">Saevus si rigida lance coerceas,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="39">Laetus cuncta potes solvere tristia.</l>
           </lg>
         </div>
-        <div type="poem" n="11" xml:id="poem-III.11">
+        <div type="poem" n="11" xml:id="poem-III.11" ana="#epitaph">
           <head type="number">III, 11</head>
           <head type="dedication">In Franciscae Bonarellae sepulcro</head>
           <lg type="elegiac">
@@ -3032,7 +3461,7 @@
             <l n="2">Coniugis ossa. Diu qui legis ista: Vale.</l>
           </lg>
         </div>
-        <div type="poem" n="12" xml:id="poem-III.12">
+        <div type="poem" n="12" xml:id="poem-III.12" ana="#epistle">
           <head type="number">III, 12</head>
           <head type="dedication">Ad Ascanium Vicecomitem</head>
           <lg type="elegiac">
@@ -3108,7 +3537,7 @@
             <l n="36">Annuat optatis Iupiter usque tuis.</l>
           </lg>
         </div>
-        <div type="poem" n="13" xml:id="poem-III.13">
+        <div type="poem" n="13" xml:id="poem-III.13" ana="#epistle">
           <head type="number">III, 13</head>
           <head type="dedication">Ad Andreotum Mainum</head>
           <lg type="elegiac">
@@ -3196,7 +3625,7 @@
             <l n="42">Sub dio Ligurum principe factitent.</l>
           </lg>
         </div>
-        <div type="poem" n="14" xml:id="poem-III.14">
+        <div type="poem" n="14" xml:id="poem-III.14" ana="#epistle">
           <head type="number">III, 14</head>
           <head type="dedication">Ad Antonium Fredericum Simonetam</head>
           <lg type="elegiac">
@@ -3220,7 +3649,7 @@
             <l n="10">Sic poteris, claro et semper honore frui.</l>
           </lg>
         </div>
-        <div type="poem" n="15" xml:id="poem-III.15">
+        <div type="poem" n="15" xml:id="poem-III.15" ana="#epistle">
           <head type="number">III, 15</head>
           <head type="dedication">Ad Guidonem Antonium Simonetam</head>
           <lg type="elegiac">
@@ -3232,7 +3661,7 @@
             <l n="4">Scribentur Latia disticha quaque manu.</l>
           </lg>
         </div>
-        <div type="poem" n="16" xml:id="poem-III.16">
+        <div type="poem" n="16" xml:id="poem-III.16" ana="#epistle">
           <head type="number">III, 16</head>
           <head type="dedication">Ad Guilielminum Lamiam</head>
           <lg type="elegiac">
@@ -3296,7 +3725,7 @@
             <l n="30">Nulla sorte habitam reddere coniugi.</l>
           </lg>
         </div>
-        <div type="poem" n="17" xml:id="poem-III.17">
+        <div type="poem" n="17" xml:id="poem-III.17" ana="#epistle">
           <head type="number">III, 17</head>
           <head type="dedication">Ad Fulgosium</head>
           <lg type="elegiac">
@@ -3312,7 +3741,7 @@
             <l n="6">Fulgosi sacra turtures habeto.</l>
           </lg>
         </div>
-        <div type="poem" n="18" xml:id="poem-III.18">
+        <div type="poem" n="18" xml:id="poem-III.18" ana="#epistle">
           <head type="number">III, 18</head>
           <head type="dedication">Ad Iohannem Sancti Lamberti praesulem</head>
           <lg type="elegiac">
@@ -3376,7 +3805,7 @@
             <l n="30">Fata. Vale nostri nominis usque memor.</l>
           </lg>
         </div>
-        <div type="poem" n="19" xml:id="poem-III.19">
+        <div type="poem" n="19" xml:id="poem-III.19" ana="#epistle">
           <head type="number">III, 19</head>
           <head type="dedication">Ad Marcum Trotum</head>
           <lg type="elegiac">
@@ -3404,7 +3833,7 @@
             <l n="12">Quaesita est forti lurida parca manu.</l>
           </lg>
         </div>
-        <div type="poem" n="20" xml:id="poem-III.20">
+        <div type="poem" n="20" xml:id="poem-III.20" ana="#epistle">
           <head type="number">III, 20</head>
           <head type="dedication">Ad Iohannem Molum</head>
           <lg type="elegiac">
@@ -3416,7 +3845,7 @@
             <l n="4">Me virtus, faciles dii tibi sint. Vale.</l>
           </lg>
         </div>
-        <div type="poem" n="21" xml:id="poem-III.21">
+        <div type="poem" n="21" xml:id="poem-III.21" ana="#epistle">
           <head type="number">III, 21</head>
           <head type="dedication">Ad Mecoenatem Cichum</head>
           <lg type="elegiac">
@@ -3432,7 +3861,7 @@
             <l n="6">Ferre nequit vanum docta caterva senem.</l>
           </lg>
         </div>
-        <div type="poem" n="22" xml:id="poem-III.22">
+        <div type="poem" n="22" xml:id="poem-III.22" ana="#epistle">
           <head type="number">III, 22</head>
           <head type="dedication">Ad Lodovicum Simonetam</head>
           <lg type="elegiac">
@@ -3448,7 +3877,7 @@
             <l n="6">Ridet equus, nec adhuc sanna diurna tumet.</l>
           </lg>
         </div>
-        <div type="poem" n="23" xml:id="poem-III.23">
+        <div type="poem" n="23" xml:id="poem-III.23" ana="#epistle">
           <head type="number">III, 23</head>
           <head type="dedication">Ad Franciscum Philelfum</head>
           <lg type="elegiac">
@@ -3476,7 +3905,7 @@
             <l n="12">Invideat nostre pignus amiciciae.</l>
           </lg>
         </div>
-        <div type="poem" n="24" xml:id="poem-III.24">
+        <div type="poem" n="24" xml:id="poem-III.24" ana="#epistle">
           <head type="number">III, 24</head>
           <head type="dedication">Ad comitem Guidonem Torellum</head>
           <lg type="elegiac">
@@ -3488,7 +3917,7 @@
             <l n="4">Ales ne vigili provocet ore diem.</l>
           </lg>
         </div>
-        <div type="poem" n="25" xml:id="poem-III.25">
+        <div type="poem" n="25" xml:id="poem-III.25" ana="#epistle">
           <head type="number">III, 25</head>
           <head type="dedication">Ad Iohannem Campisium praesulem</head>
           <lg type="elegiac">
@@ -3504,7 +3933,7 @@
             <l n="6">Inter eris nostras hostia grata preces.</l>
           </lg>
         </div>
-        <div type="poem" n="26" xml:id="poem-III.26">
+        <div type="poem" n="26" xml:id="poem-III.26" ana="#epistle">
           <head type="number">III, 26</head>
           <head type="dedication">Ad Cichum Mecoenatem</head>
           <lg type="elegiac">
@@ -3516,7 +3945,7 @@
             <l n="4">Ut secura fero sit tua dente seges.</l>
           </lg>
         </div>
-        <div type="poem" n="27" xml:id="poem-III.27">
+        <div type="poem" n="27" xml:id="poem-III.27" ana="#epistle">
           <head type="number">III, 27</head>
           <head type="dedication">Ad Laurentium Landinum</head>
           <lg type="elegiac">
@@ -3528,7 +3957,7 @@
             <l n="4">Si nunquam, toto tempore bellus eris.</l>
           </lg>
         </div>
-        <div type="poem" n="28" xml:id="poem-III.28">
+        <div type="poem" n="28" xml:id="poem-III.28" ana="#epistle">
           <head type="number">III, 28</head>
           <head type="dedication">Ad Guili Lamiam</head>
           <lg type="elegiac">
@@ -3604,7 +4033,7 @@
             <l n="36">Et rabiem secuisse ponti.</l>
           </lg>
         </div>
-        <div type="poem" n="29" xml:id="poem-III.29">
+        <div type="poem" n="29" xml:id="poem-III.29" ana="#poem">
           <head type="number">III, 29</head>
           <head type="dedication">Catharina ad pari Bonium</head>
           <lg type="elegiac">
@@ -3708,7 +4137,7 @@
             <l n="50">Neu peream, citius Paule bonine redi.</l>
           </lg>
         </div>
-        <div type="poem" n="30" xml:id="poem-III.30">
+        <div type="poem" n="30" xml:id="poem-III.30" ana="#epistle">
           <head type="number">III, 30</head>
           <head type="dedication">Ad Laurum</head>
           <lg type="elegiac">
@@ -3784,7 +4213,7 @@
             <l n="36">Plaudere montes.</l>
           </lg>
         </div>
-        <div type="poem" n="31" xml:id="poem-III.31">
+        <div type="poem" n="31" xml:id="poem-III.31" ana="#poem">
           <head type="number">III, 31</head>
           <head type="dedication">Tharsia ad Iohannem Petrum de Casate</head>
           <lg type="elegiac">
@@ -3908,7 +4337,7 @@
             <l n="60">Par tamen in fato poena duobus erit.</l>
           </lg>
         </div>
-        <div type="poem" n="32" xml:id="poem-III.32">
+        <div type="poem" n="32" xml:id="poem-III.32" ana="#prayer">
           <head type="number">III, 32</head>
           <head type="dedication">Ad aeternum Deum</head>
           <lg type="elegiac">
@@ -3964,7 +4393,7 @@
             <l n="26">Quod gratum fuerit dicere canticum.</l>
           </lg>
         </div>
-        <div type="poem" n="33" xml:id="poem-III.33">
+        <div type="poem" n="33" xml:id="poem-III.33" ana="#epistle">
           <head type="number">III, 33</head>
           <head type="dedication">Ad Iohannem Antonium Gerrardum</head>
           <lg type="elegiac">
@@ -3976,7 +4405,7 @@
             <l n="4">Charta. Vale pario marmore candidior.</l>
           </lg>
         </div>
-        <div type="poem" n="34" xml:id="poem-III.34">
+        <div type="poem" n="34" xml:id="poem-III.34" ana="#epitaph">
           <head type="number">III, 34</head>
           <head type="dedication">In Frederici Malumbrae sepulcrum</head>
           <lg type="elegiac">
@@ -3988,7 +4417,7 @@
             <l n="4">Ossa Fredericus hac sua clausit humo.</l>
           </lg>
         </div>
-        <div type="poem" n="35" xml:id="poem-III.35">
+        <div type="poem" n="35" xml:id="poem-III.35" ana="#invective">
           <head type="number">III, 35</head>
           <head type="dedication">In Picculum</head>
           <lg type="elegiac">
@@ -4012,42 +4441,70 @@
             <l n="10">Sit voto miseri mors neque prona tui.</l>
           </lg>
         </div>
-        <div type="poem" n="36" xml:id="poem-III.36">
+        <div type="poem" n="36" xml:id="poem-III.36" ana="#epistle">
           <head type="number">III, 36</head>
           <head type="dedication">Ad Franciscum Philelfum</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Delion exusta calamos fregisse tabella</l>
             <l n="2">Pulsa novercali quereris tua tempora vatem</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Irritasse manu, positos Francisce capillos</l>
             <l n="4">Vel gemis obduco caput impetiisse flagello?</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Non clamosa tuam vexarunt iurgia mentem</l>
             <l n="6">Longaevo contempta situ. Penitus timor omnis</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Excussus forti de pectore. Nulla Charybdim</l>
             <l n="8">Iusticia expavit. Surda fremitum maris aure</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Praeteriit, motos per inania protinus haustros</l>
             <l n="10">In portum tutae sic effugere carinae.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Legimus egregium scaedam extraxisse poetam</l>
             <l n="12">Ignibus, evertisse focos. Non passus honorem est</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Vatis apollinei medio succendier igni.</l>
             <l n="14">Ille rogat veniam mediaque excanduit ira</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Ascraeusque senex vetulum miseratus inertem.</l>
             <l n="16">Parcite “Io” clamat, iam percite clamat Iopas</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Innocuum lacerasse senem. Rude dixit iniquum</l>
             <l n="18">Ancipiti carmen pede composuisse poetam.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Noverit ille tuos blaeso sermone libellos</l>
             <l n="20">Incusasse vafer, sua quo quom pagina turget</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Censor honorata bene cudat carmina dextra.</l>
             <l n="22">Dixit, teque suo deus insignivit honore.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Parcit hic erratis veniamque precantis Iopae</l>
             <l n="24">Admisisse licet, doluit bene dicta maligno</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Praecurrisse oculo tenebris offensus opimis.</l>
             <l n="26">Tum certe horrebat permixtis hymbribus aether</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Totaque hyperboreos vellebant flamina montes.</l>
             <l n="28">Olim lector ero, non censor, amice Philelfe</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Vatibus ergo suum petimus praestemus honorem.</l>
           </lg>
         </div>
-        <div type="poem" n="37" xml:id="poem-III.37">
+        <div type="poem" n="37" xml:id="poem-III.37" ana="#epistle">
           <head type="number">III, 37</head>
           <head type="dedication">Ad Baptistam Plasium</head>
           <lg type="elegiac">
@@ -4059,7 +4516,7 @@
             <l n="4">Vel domus eventu nominis omen habet.</l>
           </lg>
         </div>
-        <div type="poem" n="38" xml:id="poem-III.38">
+        <div type="poem" n="38" xml:id="poem-III.38" ana="#invective">
           <head type="number">III, 38</head>
           <head type="dedication">In Vitulinum Lechnon</head>
           <lg type="elegiac">
@@ -4067,7 +4524,7 @@
             <l n="2">Qui legit. Ficos nesciat usque tuos.</l>
           </lg>
         </div>
-        <div type="poem" n="39" xml:id="poem-III.39">
+        <div type="poem" n="39" xml:id="poem-III.39" ana="#invective">
           <head type="number">III, 39</head>
           <head type="dedication">In Picculum</head>
           <lg type="elegiac">
@@ -4087,7 +4544,7 @@
             <l n="8">Sed furis, usque furis teque furore ligas.</l>
           </lg>
         </div>
-        <div type="poem" n="40" xml:id="poem-III.40">
+        <div type="poem" n="40" xml:id="poem-III.40" ana="#epistle">
           <head type="number">III, 40</head>
           <head type="dedication">Ad Philippum Ferufinum</head>
           <lg type="elegiac">
@@ -4095,7 +4552,7 @@
             <l n="2">Gloria, discedo, clare poeta Vale.</l>
           </lg>
         </div>
-        <div type="poem" n="41" xml:id="poem-III.41">
+        <div type="poem" n="41" xml:id="poem-III.41" ana="#epistle">
           <head type="number">III, 41</head>
           <head type="dedication">Ad Divum Franciscum Sphorciam</head>
           <lg type="elegiac">
@@ -4143,7 +4600,7 @@
             <l n="22">Gratia. Habe superos in tua vota duces.</l>
           </lg>
         </div>
-        <div type="poem" n="42" xml:id="poem-III.42">
+        <div type="poem" n="42" xml:id="poem-III.42" ana="#poem">
           <head type="number">III, 42</head>
           <head type="dedication">Francha camilla ad Polidorum</head>
           <lg type="elegiac">
@@ -4183,68 +4640,122 @@
             <l n="18">Effice, nam coniunx nulla noverca ferar.</l>
           </lg>
         </div>
-        <div type="poem" n="43" xml:id="poem-III.43">
+        <div type="poem" n="43" xml:id="poem-III.43" ana="#poem">
           <head type="number">III, 43</head>
           <head type="dedication">Paula ad comitem Alphonsinum</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Paula tuum cupiens comes Alphonsine cubile</l>
             <l n="2">Hanc te secreto carmine poscit opem.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Una salus nobis, etiam tu mortis origo</l>
             <l n="4">Esse potes, perimat me tua forma prius.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Fausta libens viduo dicar nova nupta marito,</l>
             <l n="6">Et peragam seros in tua vota dies.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Quam mea si quiras alii seruire tyranno</l>
             <l n="8">Connubia et thalami foedera pacta mei,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Excidium regni et multas patiere ruinas,</l>
             <l n="10">Et cadet imperium post mea fata tuum.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Certe ego cognatas pro munere nubilis arces</l>
             <l n="12">Accipiam et dotem vix tua sceptra meam.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">At nos si cupido iungemus corpora lecto,</l>
             <l n="14">Par amor et geminis par erit imperium.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Iupiter insidias quondam fugisse perentis</l>
             <l n="16">Fertur, hamalteae et sustinuisse cibum.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Grata procis ubi mox annis adolere iuventus.</l>
             <l n="18">Coeperat, aerias praetulit altus opes.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Sorte alius tam ventosa pro aequora ductor</l>
             <l n="20">Imperat, est Stygiis Dis quoque mersus aquis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Iupiter ut parvae Iunonis sceptra subisse</l>
             <l n="22">Et genus omne hominum cunctaque regna videt,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Anxia sollicito tacitus sic corde volutat,</l>
             <l n="24">Et cupit atque audet posse cupita sequi.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Quam bene syderio dabitur regnata tonanti</l>
             <l n="26">Terra inquit nostro congruet ipsa polo.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Mox ubi tranquillae placuit sententia menti</l>
             <l n="28">Adiuvere tui seve Cupido Ioci.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Improbe ubi solitis virguncula pectora flamis</l>
             <l n="30">Ussisti, illa suum deperit usque Iovem</l>
+          </lg>
+          <lg type="elegiac">
             <l n="31">Saucia fraternos ut iuno intraret amores</l>
             <l n="32">Laeta fuit tanto coniuge posse capi.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="33">Festa dies aderat, superorum tota coronat</l>
             <l n="34">Turba Iovem, cuncti carmina, dant superi.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="35">His Hymenaeus opem, necnon Citherea ferebat</l>
             <l n="36">Inde suum Bromius mite levamen agit</l>
+          </lg>
+          <lg type="elegiac">
             <l n="37">Luxuriantque dapes, magnum cratera reponunt</l>
             <l n="38">Saepe dei, festis personat aula iocis.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="39">Quom perfusa mero tabuissent corda, deorum</l>
             <l n="40">Insiluit stratis sacra caterva thoris.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="41">Nupta iovis thalamo soror haec eademque tonantis</l>
             <l n="42">Accipitur, Iovis haec, coniugis ille nitor.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="43">Iupiter accepta pro coniuge continet omnis</l>
             <l n="44">Ipse polos, de et sub sua iura solum.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="45">Tu quom deserto sociam me iunge cubili</l>
             <l n="46">Et praebe in teneros basia multa sinus.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="47">Sic tua contigent felicia sceptra nepotes,</l>
             <l n="48">Par erit antiquae nobilitatis honor.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="49">Pace fruens superum longa et veneranda senectus</l>
             <l n="50">Nostra fluat, felix sit quom posteritas.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="51">Sed tua cum nostris gaudia misce deis.</l>
             <l n="52">At mihi si turpem dabis Alphonsine repulsam,</l>
+          </lg>
+          <lg type="elegiac">
             <l n="53">Et dabis optato posse carere sinu,</l>
             <l n="54">Elident laquei iam iam mea guttura turpes</l>
+          </lg>
+          <lg type="elegiac">
             <l n="55">Et tibi tartareis mortua mergar aquis.</l>
           </lg>
         </div>
-        <div type="poem" n="44" xml:id="poem-III.44">
+        <div type="poem" n="44" xml:id="poem-III.44" ana="#epistle">
           <head type="number">III, 44</head>
           <head type="dedication">Ad Guidonem Antonium Simonetam</head>
           <lg type="elegiac">
@@ -4444,7 +4955,7 @@
             <l n="98">Albrisiique prius supplicis ora fove.</l>
           </lg>
         </div>
-        <div type="poem" n="45" xml:id="poem-III.45">
+        <div type="poem" n="45" xml:id="poem-III.45" ana="#epistle">
           <head type="number">III, 45</head>
           <head type="dedication">Ad Lectorem</head>
           <lg type="elegiac">
@@ -4460,7 +4971,7 @@
             <l n="6">Lucinae Albrisius nitor puellae.</l>
           </lg>
         </div>
-        <div type="poem" n="46" xml:id="poem-III.46">
+        <div type="poem" n="46" xml:id="poem-III.46" ana="#epistle">
           <head type="number">III, 46</head>
           <head type="dedication">Ad Iohannem Iacobum Simonetam</head>
           <lg type="elegiac">
@@ -4524,52 +5035,78 @@
             <l n="30">Lucinam, faciles crede Iacobe deos.</l>
           </lg>
         </div>
-        <div type="poem" n="47" xml:id="poem-III.47">
+        <div type="poem" n="47" xml:id="poem-III.47" ana="#epistle">
           <head type="number">III, 47</head>
           <head type="dedication">Ad Mecoenatem Cichum Simonetam</head>
-          <lg>
+          <lg type="elegiac">
             <l n="1">Quanquam me tenerae colant puellae,</l>
             <l n="2">Non languere gravi vident amore</l>
+          </lg>
+          <lg type="elegiac">
             <l n="3">Me, me nulla venus terit iacentem,</l>
             <l n="4">Nec poscit numeros amica dulces</l>
+          </lg>
+          <lg type="elegiac">
             <l n="5">Quos lusi tepida calens iuventa.</l>
             <l n="6">Dum capro licuit, meae sonabant</l>
+          </lg>
+          <lg type="elegiac">
             <l n="7">Lucinam citharae, deos canenti</l>
             <l n="8">Invidisse putes, duobus idem</l>
+          </lg>
+          <lg type="elegiac">
             <l n="9">Parque et caecus amor, suum peremit</l>
             <l n="10">Lucina (heu) roseo nitore amantem.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="11">Haud formosa secus Iovem puella</l>
             <l n="12">Exussit positis humi pharetris.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="13">Haud Mavorte Venus decens recepto.</l>
             <l n="14">Pastore atque helene rotisve sertae</l>
+          </lg>
+          <lg type="elegiac">
             <l n="15">Exarsit iuvenis memor quadrigae.</l>
             <l n="16">Nec tantum vitrea puer sub unda</l>
+          </lg>
+          <lg type="elegiac">
             <l n="17">Delusus, periit suique captus</l>
             <l n="18">(heu crudelis amor) rosa hic miser fit.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="19">Haec olim levibus modo iocis et</l>
             <l n="20">Cantu iam paphio lyram coercet</l>
+          </lg>
+          <lg type="elegiac">
             <l n="21">Euterpe, numerosque tibiasque.</l>
             <l n="22">Nam custos rigidus, focum et sacerdos</l>
+          </lg>
+          <lg type="elegiac">
             <l n="23">Vestalem pavitans virgilque serus.</l>
             <l n="24">Dianae associat choris, volentem</l>
+          </lg>
+          <lg type="elegiac">
             <l n="25">Me Phoebus iuvenum loqui furores.</l>
             <l n="26">Nec sivit data barbiton vagari</l>
+          </lg>
+          <lg type="elegiac">
             <l n="27">Ultra signa. Movent trahuntque nostrum</l>
             <l n="28">Insignes patrio ast honore carmen</l>
+          </lg>
+          <lg type="elegiac">
             <l n="29">Nati CICHE tui. Domusque, toti</l>
             <l n="30">Quos virtute foves rogant clientes.</l>
+          </lg>
+          <lg type="elegiac">
             <l n="31">Laudes deinde tuas pater canemus</l>
             <l n="32">Quom tempus mihi, fortiore plectro.</l>
+          </lg>
+          <lg type="elegiac">
+            <l n="33">Quarto Nonas Augustas.</l>
           </lg>
         </div>
       </div>
     </body>
-    <back>
-      <div type="colophon">
-        <p>CDiis Immor.</p>
-        <p>Actum Papiae. Anno christi 1474</p>
-        <p>Quarto Nonas Augustas.</p>
-      </div>
-    </back>
   </text>
 </TEI>
