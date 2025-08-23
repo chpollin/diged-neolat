@@ -167,6 +167,10 @@
                 renderPoems();
                 setupScrollObserver();
                 
+                // Mark content as fully rendered for hash navigation
+                window.teiContentReady = true;
+                debugLog('TEI', 'TEI content rendering complete');
+                
                 // Remove loading state
                 const loadingEl = document.querySelector('.loading');
                 if (loadingEl) {
@@ -175,9 +179,10 @@
                 
                 // Handle URL hash navigation after content is loaded
                 debugLog('TEI', 'Content loaded, checking for URL hash navigation');
+                // Wait a bit longer for DOM to settle, especially on external navigation
                 setTimeout(() => {
                     handleURLState();
-                }, 100);
+                }, 500);
                 
             } catch (error) {
                 console.error('Failed to load TEI:', error);
@@ -1046,29 +1051,47 @@
             const hash = window.location.hash;
             if (hash) {
                 const poemId = hash.substring(1);
-                debugLog('URL', `Hash detected: ${poemId}`);
+                debugLog('URL', `Hash detected: ${poemId}, content ready: ${window.teiContentReady || false}`);
                 
-                // Try to find the element immediately
-                let poem = document.getElementById(poemId);
-                if (poem) {
-                    setTimeout(() => {
-                        poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 500);
-                } else {
-                    // If not found, wait for content to load and try again
-                    debugLog('URL', `Element ${poemId} not found, waiting for content...`);
-                    const checkForElement = () => {
-                        poem = document.getElementById(poemId);
-                        if (poem) {
-                            debugLog('URL', `Element ${poemId} found, scrolling...`);
+                // Enhanced element finder with persistent retry
+                const findAndScrollToPoem = (attempts = 0, maxAttempts = 50) => {
+                    // Check if content is ready and element exists
+                    const poem = document.getElementById(poemId);
+                    
+                    if (poem) {
+                        debugLog('URL', `Element ${poemId} found after ${attempts} attempts, scrolling...`);
+                        // Give a moment for any final rendering
+                        setTimeout(() => {
                             poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        } else {
-                            // Keep checking every 500ms for up to 10 seconds
-                            setTimeout(checkForElement, 500);
-                        }
-                    };
-                    setTimeout(checkForElement, 1000);
-                }
+                            // Highlight the target poem briefly for visual feedback
+                            poem.style.backgroundColor = 'rgba(44, 90, 160, 0.1)';
+                            setTimeout(() => {
+                                poem.style.backgroundColor = '';
+                            }, 2000);
+                        }, 200);
+                        return;
+                    }
+                    
+                    // If content isn't ready yet, wait longer between attempts
+                    const waitTime = window.teiContentReady ? 200 : 500;
+                    
+                    // If not found and haven't exceeded max attempts
+                    if (attempts < maxAttempts) {
+                        debugLog('URL', `Element ${poemId} not found, attempt ${attempts + 1}/${maxAttempts} (waiting ${waitTime}ms)`);
+                        setTimeout(() => {
+                            findAndScrollToPoem(attempts + 1, maxAttempts);
+                        }, waitTime);
+                    } else {
+                        debugLog('URL', `Element ${poemId} not found after ${maxAttempts} attempts, giving up`);
+                        // List available poem elements for debugging
+                        const availablePoems = document.querySelectorAll('[id^="poem-"]');
+                        console.warn(`Failed to find ${poemId}. Available poems:`, 
+                            Array.from(availablePoems).slice(0, 10).map(p => p.id));
+                    }
+                };
+                
+                // Start the search
+                findAndScrollToPoem();
             }
             
             // Update URL when scrolling
