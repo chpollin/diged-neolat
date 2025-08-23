@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Lucina Digital Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .index-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        /* Sticky Tab navigation */
+        .index-tabs-wrapper {
+            position: sticky;
+            top: 60px;
+            z-index: 10;
+            background: #f8f9fa;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .index-tabs {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 3px solid #dee2e6;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .tab-button:hover {
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .tab-button.active {
+            color: white;
+            background: #0066cc;
+            font-weight: 600;
+        }
+        
+        .tab-count {
+            background: rgba(255,255,255,0.3);
+            color: inherit;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+        }
+        
+        .tab-button.active .tab-count {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Tab content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Search box */
+        .index-search {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .index-search input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .index-search input:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
+        .index-search::before {
+            content: "🔍";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+        
+        /* Alphabetical navigation */
+        .alpha-nav {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .alpha-nav-title {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .alpha-letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .alpha-letter {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.2s;
+        }
+        
+        .alpha-letter:hover:not(.disabled) {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+            transform: translateY(-2px);
+        }
+        
+        .alpha-letter.active {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+        
+        .alpha-letter.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        /* Two-column layout for persons/places */
+        .index-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Person groups */
+        .person-group {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .person-group h3 {
+            color: #333;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        /* Enhanced person cards */
+        .person-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #0066cc;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .person-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .person-card.expanded {
+            background: white;
+            border-left-color: #c9302c;
+        }
+        
+        .person-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .person-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .person-dates {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .expand-icon {
+            color: #666;
+            transition: transform 0.2s;
+        }
+        
+        .person-card.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+        
+        .person-details {
+            color: #495057;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            display: none;
+            line-height: 1.6;
+        }
+        
+        .person-card.expanded .person-details {
+            display: block;
+        }
+        
+        .person-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .person-meta-item {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        .person-meta-item strong {
+            color: #333;
+        }
+        
+        /* Place items */
+        .place-item {
+            padding: 1rem;
+            margin: 0.75rem 0;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+            transition: all 0.2s;
+        }
+        
+        .place-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .place-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.05rem;
+        }
+        
+        .place-note {
+            color: #495057;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Relations */
+        .relation-item {
+            padding: 1rem;
+            margin: 0.75rem 0;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .relation-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .relation-type {
+            background: #6f42c1;
+            color: white;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .relation-desc {
+            color: #333;
+            font-size: 1rem;
+            flex: 1;
+        }
+        
+        .relation-desc a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #0066cc;
+        }
+        
+        .relation-desc a:hover {
+            border-bottom-style: solid;
+        }
+        
+        /* Loading skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .skeleton-card {
+            height: 80px;
+            margin: 0.75rem 0;
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .empty-state-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .empty-state-text {
+            font-size: 0.95rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .index-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .index-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                width: 100%;
+                text-align: left;
+            }
+            
+            .alpha-letter {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="nav" role="banner">
+        <div class="nav-left">
+            <div class="brand">Lucina Digital Edition</div>
+            <a href="index.html" class="nav-link-btn">← Back to Edition</a>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <a href="editorial.html" class="nav-link-btn">Editorial Introduction</a>
+            <button class="nav-link-btn active">Index</button>
+        </div>
+    </header>
+
+    <main class="index-container">
+        <h1>Index</h1>
+        
+        <!-- Sticky Tab Navigation -->
+        <div class="index-tabs-wrapper">
+            <div class="index-tabs">
+                <button class="tab-button active" data-tab="persons">
+                    Persons <span class="tab-count" id="persons-count">0</span>
+                </button>
+                <button class="tab-button" data-tab="places">
+                    Places <span class="tab-count" id="places-count">0</span>
+                </button>
+                <button class="tab-button" data-tab="relations">
+                    Relations <span class="tab-count" id="relations-count">0</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Persons Tab -->
+        <div id="persons-tab" class="tab-content active">
+            <div class="index-search">
+                <input type="text" id="person-search" placeholder="Search persons by name, role, or description...">
+            </div>
+            <div class="alpha-nav" id="persons-alpha-nav">
+                <div class="alpha-nav-title">Jump to:</div>
+                <div class="alpha-letters" id="persons-alpha-letters"></div>
+            </div>
+            <div id="persons-content">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+        
+        <!-- Places Tab -->
+        <div id="places-tab" class="tab-content">
+            <div class="index-search">
+                <input type="text" id="place-search" placeholder="Search places by name or description...">
+            </div>
+            <div id="places-content">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+        
+        <!-- Relations Tab -->
+        <div id="relations-tab" class="tab-content">
+            <div class="index-search">
+                <input type="text" id="relation-search" placeholder="Search relationships...">
+            </div>
+            <div id="relations-content">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let teiData = null;
+        let personsData = [];
+        let placesData = [];
+        let relationsData = [];
+        
+        // Tab switching
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                document.getElementById(`${button.dataset.tab}-tab`).classList.add('active');
+            });
+        });
+        
+        // Load and parse TEI
+        async function loadIndexData() {
+            try {
+                const response = await fetch('./tei-final-3-2.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                teiData = parser.parseFromString(xmlText, 'text/xml');
+                
+                // Check for parsing errors
+                if (teiData.querySelector('parsererror')) {
+                    throw new Error('Failed to parse TEI XML');
+                }
+                
+                extractPersons();
+                extractPlaces();
+                extractRelations();
+                
+                updateCounts();
+                displayPersons();
+                displayPlaces();
+                displayRelations();
+                
+                setupSearch();
+                setupAlphabeticalNav();
+                
+            } catch (error) {
+                console.error('Failed to load index data:', error);
+                showError('persons-content', 'Failed to load persons data');
+                showError('places-content', 'Failed to load places data');
+                showError('relations-content', 'Failed to load relations data');
+            }
+        }
+        
+        function showError(containerId, message) {
+            document.getElementById(containerId).innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">⚠️</div>
+                    <div class="empty-state-title">Error Loading Data</div>
+                    <div class="empty-state-text">${message}</div>
+                </div>
+            `;
+        }
+        
+        // Update counts in tabs
+        function updateCounts() {
+            document.getElementById('persons-count').textContent = personsData.length;
+            document.getElementById('places-count').textContent = placesData.length;
+            document.getElementById('relations-count').textContent = relationsData.length;
+        }
+        
+        // Extract persons from standOff
+        function extractPersons() {
+            const persons = teiData.querySelectorAll('standOff listPerson person');
+            personsData = [];
+            
+            persons.forEach(person => {
+                const id = person.getAttribute('xml:id');
+                const persName = person.querySelector('persName');
+                const birth = person.querySelector('birth');
+                const death = person.querySelector('death');
+                const occupation = person.querySelector('occupation')?.textContent;
+                const role = person.getAttribute('role');
+                
+                // Extract notes - both general and appearances
+                const notes = person.querySelectorAll('note');
+                let generalNote = '';
+                let appearances = [];
+                
+                notes.forEach(note => {
+                    if (note.getAttribute('type') === 'appearances') {
+                        // Parse appearances like "II,1; II,5; II,9"
+                        const appearanceText = note.textContent;
+                        appearances = appearanceText.split(';').map(ref => ref.trim()).filter(ref => ref);
+                    } else {
+                        generalNote = note.textContent;
+                    }
+                });
+                
+                let name = '';
+                let alternateNames = [];
+                
+                if (persName) {
+                    // Handle new structure with <name> wrapper
+                    const nameElement = persName.querySelector('name');
+                    if (nameElement) {
+                        // Extract all forenames
+                        const forenames = Array.from(nameElement.querySelectorAll('forename')).map(f => f.textContent).join(' ');
+                        const surname = nameElement.querySelector('surname')?.textContent || '';
+                        const addNames = Array.from(nameElement.querySelectorAll('addName'));
+                        
+                        name = `${forenames} ${surname}`.trim();
+                        alternateNames = addNames.map(n => n.textContent);
+                    } else {
+                        // Fallback for old structure
+                        const forenames = Array.from(persName.querySelectorAll('forename')).map(f => f.textContent).join(' ');
+                        const surname = persName.querySelector('surname')?.textContent || '';
+                        const roleName = persName.querySelector('roleName')?.textContent || '';
+                        
+                        if (roleName) {
+                            name = `Giovanni, ${roleName}`;
+                        } else {
+                            name = `${forenames} ${surname}`.trim();
+                        }
+                        
+                        const addNames = Array.from(persName.querySelectorAll('addName'));
+                        alternateNames = addNames.map(n => n.textContent);
+                    }
+                }
+                
+                let birthInfo = '';
+                if (birth) {
+                    const place = birth.querySelector('placeName')?.textContent;
+                    const notBefore = birth.getAttribute('notBefore');
+                    const notAfter = birth.getAttribute('notAfter');
+                    const when = birth.getAttribute('when');
+                    
+                    if (when) {
+                        birthInfo = when;
+                    } else if (notBefore && notAfter) {
+                        birthInfo = `ca. ${notBefore}-${notAfter}`;
+                    }
+                    if (place) {
+                        birthInfo += ` in ${place}`;
+                    }
+                }
+                
+                let deathInfo = '';
+                if (death) {
+                    const when = death.getAttribute('when');
+                    if (when) {
+                        deathInfo = when;
+                    }
+                }
+                
+                // Determine category
+                let category = 'Other';
+                if (role === 'literary') {
+                    category = 'Literary Figures';
+                } else if (id === 'cicco-simonetta' || id === 'giovanni-simonetta' || id === 'giacomo-simonetta') {
+                    category = 'Patrons & Family';
+                } else if (occupation?.toLowerCase().includes('bishop') || id === 'giovanni-san-lamberto') {
+                    category = 'Clergy';
+                } else if (generalNote?.toLowerCase().includes('rival')) {
+                    category = 'Rivals & Associates';
+                }
+                
+                personsData.push({
+                    id,
+                    name,
+                    alternateNames,
+                    birthInfo,
+                    deathInfo,
+                    occupation,
+                    note: generalNote,
+                    appearances,
+                    role,
+                    category
+                });
+            });
+            
+            // Sort alphabetically by last name
+            personsData.sort((a, b) => {
+                const lastNameA = a.name.split(' ').pop();
+                const lastNameB = b.name.split(' ').pop();
+                return lastNameA.localeCompare(lastNameB);
+            });
+        }
+        
+        // Extract places
+        function extractPlaces() {
+            const places = teiData.querySelectorAll('standOff listPlace place, settingDesc listPlace place');
+            placesData = [];
+            
+            places.forEach(place => {
+                const id = place.getAttribute('xml:id');
+                const placeName = place.querySelector('placeName')?.textContent;
+                const note = place.querySelector('note')?.textContent;
+                
+                if (placeName) {
+                    placesData.push({
+                        id,
+                        name: placeName,
+                        note
+                    });
+                }
+            });
+            
+            placesData.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        
+        // Extract relations
+        function extractRelations() {
+            const relations = teiData.querySelectorAll('standOff listRelation relation');
+            relationsData = [];
+            
+            relations.forEach(relation => {
+                const name = relation.getAttribute('name');
+                const active = relation.getAttribute('active');
+                const passive = relation.getAttribute('passive');
+                const mutual = relation.getAttribute('mutual');
+                
+                relationsData.push({
+                    type: name,
+                    active: active ? active.split(' ') : [],
+                    passive: passive ? passive.split(' ') : [],
+                    mutual: mutual ? mutual.split(' ') : []
+                });
+            });
+        }
+        
+        // Display persons with grouping
+        function displayPersons(filter = '') {
+            const container = document.getElementById('persons-content');
+            
+            const filtered = filter 
+                ? personsData.filter(p => 
+                    p.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    p.alternateNames.some(n => n.toLowerCase().includes(filter.toLowerCase())) ||
+                    (p.note && p.note.toLowerCase().includes(filter.toLowerCase())) ||
+                    (p.occupation && p.occupation.toLowerCase().includes(filter.toLowerCase()))
+                  )
+                : personsData;
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-title">No Persons Found</div>
+                        <div class="empty-state-text">
+                            ${filter ? `No persons match "${filter}"` : 'No persons available'}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Group by category
+            const groups = {
+                'Patrons & Family': [],
+                'Clergy': [],
+                'Rivals & Associates': [],
+                'Literary Figures': [],
+                'Other': []
+            };
+            
+            filtered.forEach(person => {
+                groups[person.category].push(person);
+            });
+            
+            let html = '<div class="index-columns">';
+            
+            Object.entries(groups).forEach(([category, persons]) => {
+                if (persons.length === 0) return;
+                
+                html += `
+                    <div class="person-group">
+                        <h3>${category} (${persons.length})</h3>
+                `;
+                
+                persons.forEach(person => {
+                    const personId = `person-${person.id}`;
+                    html += `
+                        <div class="person-card" id="${personId}" onclick="togglePersonCard('${personId}')">
+                            <div class="person-header">
+                                <div>
+                                    <span class="person-name">${person.name}</span>
+                                    ${person.birthInfo || person.deathInfo ? 
+                                        `<span class="person-dates">(${person.birthInfo}${person.deathInfo ? ' – ' + person.deathInfo : ''})</span>` 
+                                        : ''}
+                                </div>
+                                <span class="expand-icon">▶</span>
+                            </div>
+                            <div class="person-details">
+                    `;
+                    
+                    if (person.alternateNames.length > 0) {
+                        html += `<div class="person-meta-item"><strong>Also known as:</strong> ${person.alternateNames.join(', ')}</div>`;
+                    }
+                    
+                    if (person.occupation) {
+                        html += `<div class="person-meta-item"><strong>Occupation:</strong> ${person.occupation}</div>`;
+                    }
+                    
+                    if (person.note) {
+                        html += `<div class="person-meta-item">${person.note}</div>`;
+                    }
+                    
+                    // Add cross-references
+                    const relatedRelations = relationsData.filter(r => 
+                        r.active.includes('#' + person.id) || 
+                        r.passive.includes('#' + person.id) || 
+                        r.mutual.includes('#' + person.id)
+                    );
+                    
+                    if (relatedRelations.length > 0) {
+                        html += '<div class="person-meta-item"><strong>Relationships:</strong> ';
+                        relatedRelations.forEach(rel => {
+                            const relType = rel.type.replace(/-/g, ' ');
+                            if (rel.passive.includes('#' + person.id)) {
+                                const activePerson = personsData.find(p => '#' + p.id === rel.active[0]);
+                                if (activePerson) {
+                                    html += `${relType} of <a href="#person-${activePerson.id}" onclick="event.stopPropagation(); scrollToPersonAndExpand('${activePerson.id}')">${activePerson.name}</a>; `;
+                                }
+                            }
+                        });
+                        html = html.slice(0, -2) + '</div>';
+                    }
+                    
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+        
+        // Display places
+        function displayPlaces(filter = '') {
+            const container = document.getElementById('places-content');
+            
+            const filtered = filter 
+                ? placesData.filter(p => 
+                    p.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    (p.note && p.note.toLowerCase().includes(filter.toLowerCase()))
+                  )
+                : placesData;
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📍</div>
+                        <div class="empty-state-title">No Places Found</div>
+                        <div class="empty-state-text">
+                            ${filter ? `No places match "${filter}"` : 'No places available'}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '<div class="index-columns">';
+            
+            filtered.forEach(place => {
+                html += `
+                    <div class="place-item">
+                        <div class="place-name">${place.name}</div>
+                        ${place.note ? `<div class="place-note">${place.note}</div>` : ''}
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+        
+        // Display relations with search
+        function displayRelations(filter = '') {
+            const container = document.getElementById('relations-content');
+            
+            let filtered = relationsData;
+            if (filter) {
+                filtered = relationsData.filter(r => {
+                    const relationType = r.type.replace(/-/g, ' ').toLowerCase();
+                    const getPersonName = (id) => {
+                        const person = personsData.find(p => '#' + p.id === id);
+                        return person ? person.name.toLowerCase() : '';
+                    };
+                    
+                    const activeNames = r.active.map(getPersonName).join(' ');
+                    const passiveNames = r.passive.map(getPersonName).join(' ');
+                    const mutualNames = r.mutual.map(getPersonName).join(' ');
+                    
+                    const searchText = filter.toLowerCase();
+                    return relationType.includes(searchText) ||
+                           activeNames.includes(searchText) ||
+                           passiveNames.includes(searchText) ||
+                           mutualNames.includes(searchText);
+                });
+            }
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔗</div>
+                        <div class="empty-state-title">No Relations Found</div>
+                        <div class="empty-state-text">
+                            ${filter ? `No relationships match "${filter}"` : 'No relationships available'}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '<div>';
+            
+            filtered.forEach(relation => {
+                const relationType = relation.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                
+                const getPersonLink = (id) => {
+                    const person = personsData.find(p => '#' + p.id === id);
+                    if (person) {
+                        return `<a href="#person-${person.id}" onclick="switchToPersonsTab('${person.id}')">${person.name}</a>`;
+                    }
+                    return id.replace('#', '');
+                };
+                
+                if (relation.active.length > 0 && relation.passive.length > 0) {
+                    const activeLinks = relation.active.map(getPersonLink).join(', ');
+                    const passiveLinks = relation.passive.map(getPersonLink).join(', ');
+                    
+                    html += `
+                        <div class="relation-item">
+                            <span class="relation-type">${relationType}</span>
+                            <span class="relation-desc">${activeLinks} → ${passiveLinks}</span>
+                        </div>
+                    `;
+                }
+                
+                if (relation.mutual.length > 0) {
+                    const mutualLinks = relation.mutual.map(getPersonLink);
+                    
+                    html += `
+                        <div class="relation-item">
+                            <span class="relation-type">${relationType}</span>
+                            <span class="relation-desc">${mutualLinks.join(' ↔ ')}</span>
+                        </div>
+                    `;
+                }
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+        
+        // Toggle person card expansion
+        function togglePersonCard(cardId) {
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.classList.toggle('expanded');
+            }
+        }
+        
+        // Scroll to person and expand
+        function scrollToPersonAndExpand(personId) {
+            const cardId = `person-${personId}`;
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => {
+                    card.classList.add('expanded');
+                }, 500);
+            }
+        }
+        
+        // Switch to persons tab and highlight person
+        function switchToPersonsTab(personId) {
+            // Switch to persons tab
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-tab="persons"]').classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById('persons-tab').classList.add('active');
+            
+            // Scroll to and expand person
+            setTimeout(() => {
+                scrollToPersonAndExpand(personId);
+            }, 100);
+        }
+        
+        // Setup search functionality
+        function setupSearch() {
+            document.getElementById('person-search').addEventListener('input', (e) => {
+                displayPersons(e.target.value);
+            });
+            
+            document.getElementById('place-search').addEventListener('input', (e) => {
+                displayPlaces(e.target.value);
+            });
+            
+            document.getElementById('relation-search').addEventListener('input', (e) => {
+                displayRelations(e.target.value);
+            });
+        }
+        
+        // Setup alphabetical navigation
+        function setupAlphabeticalNav() {
+            const letters = new Set();
+            personsData.forEach(person => {
+                const firstLetter = person.name.charAt(0).toUpperCase();
+                if (firstLetter.match(/[A-Z]/)) {
+                    letters.add(firstLetter);
+                }
+            });
+            
+            const container = document.getElementById('persons-alpha-letters');
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+            
+            alphabet.forEach(letter => {
+                const button = document.createElement('button');
+                button.className = 'alpha-letter';
+                button.textContent = letter;
+                
+                if (!letters.has(letter)) {
+                    button.classList.add('disabled');
+                } else {
+                    button.addEventListener('click', () => {
+                        // Find first person with this letter
+                        const person = personsData.find(p => 
+                            p.name.charAt(0).toUpperCase() === letter
+                        );
+                        if (person) {
+                            const cardId = `person-${person.id}`;
+                            const card = document.getElementById(cardId);
+                            if (card) {
+                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                // Highlight briefly
+                                card.style.background = '#fff3cd';
+                                setTimeout(() => {
+                                    card.style.background = '';
+                                }, 2000);
+                            }
+                        }
+                    });
+                }
+                
+                container.appendChild(button);
+            });
+        }
+        
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', loadIndexData);
+    </script>
+</body>
+</html>
