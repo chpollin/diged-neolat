@@ -119,6 +119,12 @@
             setupEventListeners();
             setupViewToggle();
             handleURLState();
+            
+            // Listen for hash changes (when navigating from index)
+            window.addEventListener('hashchange', () => {
+                debugLog('URL', 'Hash changed, handling navigation');
+                handleURLState();
+            });
         });
 
         // Load and Parse TEI XML
@@ -166,6 +172,12 @@
                 if (loadingEl) {
                     loadingEl.style.display = 'none';
                 }
+                
+                // Handle URL hash navigation after content is loaded
+                debugLog('TEI', 'Content loaded, checking for URL hash navigation');
+                setTimeout(() => {
+                    handleURLState();
+                }, 100);
                 
             } catch (error) {
                 console.error('Failed to load TEI:', error);
@@ -1035,11 +1047,27 @@
             if (hash) {
                 const poemId = hash.substring(1);
                 debugLog('URL', `Hash detected: ${poemId}`);
-                const poem = document.getElementById(poemId);
+                
+                // Try to find the element immediately
+                let poem = document.getElementById(poemId);
                 if (poem) {
                     setTimeout(() => {
                         poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 500);
+                } else {
+                    // If not found, wait for content to load and try again
+                    debugLog('URL', `Element ${poemId} not found, waiting for content...`);
+                    const checkForElement = () => {
+                        poem = document.getElementById(poemId);
+                        if (poem) {
+                            debugLog('URL', `Element ${poemId} found, scrolling...`);
+                            poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            // Keep checking every 500ms for up to 10 seconds
+                            setTimeout(checkForElement, 500);
+                        }
+                    };
+                    setTimeout(checkForElement, 1000);
                 }
             }
             
