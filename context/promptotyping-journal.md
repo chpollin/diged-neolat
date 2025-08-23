@@ -135,37 +135,22 @@ This document records the Promptotyping process and the decisions.
 
 ## index
 
-1. **Extracted ~120 named persons** from the Latin poetry text "Lucina" by Aurelius Laurentius Albrisius
+### Person
 
-2. **Created TEI XML structure** with:
-   - `<person xml:id="">` for each individual
-   - `<persName>` with forename/surname/addName
-   - `<occupation>` where known
-   - `<note>` for biographical details
-   - `<listRef>` with `<ref target="">` for each poem appearance
+* Extracted ~120 named persons from the Latin poetry text "Lucina" and created TEI XML structure with `<person xml:id="">`, `<persName>` with forename/surname/addName, `<occupation>` where known, biographical notes, and `<listRef>` with poem appearances.
+* Organized into categories: Author (1), Primary patron (1), Noble families [Sforza (2), Simonetta (9), Visconti (5), Lamia (2)], Church officials (3), Humanists/poets (10), Nobility/counts (6), Other officials/nobles (~40), Antagonists/criticized (6), Deceased persons (3), Literary/fictional women (10), Minor characters (~20).
+* Distinguished between historical persons (15th century Milan), literary personas (women in love poems), and deceased persons (sepulchral poems).
+* Used Latin and Italian name forms as they appear in the text; tracked appearances using poem references (e.g., I,10 = Book 1, Poem 10).
 
-3. **Organized persons into categories**:
-   - Author (1)
-   - Primary patron (1) 
-   - Sforza dynasty (2)
-   - Simonetta family (9)
-   - Visconti family (5)
-   - Church officials (3)
-   - Humanists/poets (10)
-   - Nobility/counts (6)
-   - Lamia family (2)
-   - Other officials/nobles (~40)
-   - Antagonists/criticized (6)
-   - Deceased persons (3)
-   - Literary/fictional women (10)
-   - Additional minor characters (~20)
+### Places
 
-4. **Tracked appearances** using poem references (e.g., I,10 = Book 1, Poem 10)
+* Extract all places and categorise them. Then, return a list of all places, categorised by context. --> also so habe ich alle orte extrahiert. ich habe es parallel mit gemini pro und gpt5 gemacht; jweils mit kontrollier dich selber iterationen (ich wollte mein opus request sparen); mit Opus habe ich dann alle ergebnisse in das tei xml synstehthesiert
 
-5. **Distinguished** between:
-   - Historical persons (real people from 15th century Milan)
-   - Literary personas (women in love poems)
-   - Deceased persons (in sepulchral poems)
+### Relations
 
-6. **Used Latin and Italian name forms** as they appear in the text
+* entire text + annotated persons and annotated places, and then relations created → the persons now have better context
 
+### The LLM-extracted information needs to be verified.
+
+* Important: There may be hallucinations everywhere here. But the idea is that the editor can find them in the interface and verify everything.
+* But this can no be done in the edition interface! 

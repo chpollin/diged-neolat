@@ -26,9 +26,8 @@
         <publisher>[Publisher]</publisher>
         <date when="2024">2024</date>
         <availability>
-          <licence target="https://creativecommons.org/licenses/by/4.0/">
-            Creative Commons Attribution 4.0 International
-          </licence>
+          <licence target="https://creativecommons.org/licenses/by/4.0/"> Creative Commons
+            Attribution 4.0 International </licence>
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -41,44 +40,43 @@
             <idno>Mss. 6028</idno>
           </msIdentifier>
           <msContents>
-            <summary>Collection of 128 Latin occasional poems (Gelegenheitsgedichte) in three books, 
-                     comprising 2,224 verses total. Individual poems range from 2 to 124 verses.</summary>
+            <summary>Collection of 128 Latin occasional poems (Gelegenheitsgedichte) in three books,
+              comprising 2,224 verses total. Individual poems range from 2 to 124 verses.</summary>
             <msItem>
               <author ref="#albrisius">Aurelius Laurentius Albrisius</author>
               <title>Lucina</title>
-              <note>The collection includes a prefatory dedication poem (praefatio) to Cicco Simonetta
-                    and three books with the following structure:</note>
+              <note>The collection includes a prefatory dedication poem (praefatio) to Cicco
+                Simonetta and three books with the following structure:</note>
               <msItem n="praef">
                 <locus>[To be determined from manuscript]</locus>
                 <title>Praefatio</title>
                 <rubric>Dedication to Cicco Simonetta</rubric>
-                <note>Defends youthful love begun at age twenty (knapp zwanzig Jahre alt) as 
-                      temporally bounded episode that found fulfillment (concessis)</note>
+                <note>Defends youthful love begun at age twenty (knapp zwanzig Jahre alt) as
+                  temporally bounded episode that found fulfillment (concessis)</note>
               </msItem>
               <msItem n="1">
                 <locus>[To be determined from manuscript]</locus>
                 <title>Liber Primus</title>
-                <note>43 poems. Depicts yearning for Lucina. Opening poem (I.1) narrates first 
-                      encounter with Lucina early in the morning (am frühen Morgen) at the church 
-                      of San Francesco while heading to law studies (studiorum ad iura meorum). 
-                      She appears with beautiful form (wunderschönen Gestalt) at window. 
-                      Includes conflict with rival Franciscus Varensis, numerous epigrams in 
-                      Martial's style.</note>
+                <note>43 poems. Depicts yearning for Lucina. Opening poem (I.1) narrates first
+                  encounter with Lucina early in the morning (am frühen Morgen) at the church of San
+                  Francesco while heading to law studies (studiorum ad iura meorum). She appears
+                  with beautiful form (wunderschönen Gestalt) at window. Includes conflict with
+                  rival Franciscus Varensis, numerous epigrams in Martial's style.</note>
               </msItem>
               <msItem n="2">
                 <locus>[To be determined from manuscript]</locus>
                 <title>Liber Secundus</title>
-                <note>37 poems. Dedicated to Gian Giacomo Simonetta (Cicco's eldest son). 
-                      Culminates in poem II.37 with erotic banquet scene.</note>
+                <note>37 poems. Dedicated to Gian Giacomo Simonetta (Cicco's eldest son). Culminates
+                  in poem II.37 with erotic banquet scene.</note>
               </msItem>
               <msItem n="3">
                 <locus>[To be determined from manuscript]</locus>
                 <title>Liber Tertius</title>
-                <note>47 poems. Dedicated to Bishop Giovanni of San Lamberto. Depicts renunciation 
-                      of secular love for ecclesiastical career. In III.9 claims Lucina remained 
-                      virgin. Final poem (III.47) confirms transformation to priest and confessor, 
-                      quotes: "custos rigidus, focum et sacerdos Vestalem pavitans vigilque servo..." 
-                      Mentions muse Euterpe restricting his lyre.</note>
+                <note>47 poems. Dedicated to Bishop Giovanni of San Lamberto. Depicts renunciation
+                  of secular love for ecclesiastical career. In III.9 claims Lucina remained virgin.
+                  Final poem (III.47) confirms transformation to priest and confessor, quotes:
+                  "custos rigidus, focum et sacerdos Vestalem pavitans vigilque servo..." Mentions
+                  muse Euterpe restricting his lyre.</note>
               </msItem>
               <colophon>Finita et perfecta II Augusti MCCCCLXXIIII</colophon>
             </msItem>
@@ -87,8 +85,7 @@
             <objectDesc>
               <supportDesc material="parchment">
                 <support>Parchment</support>
-                <extent>176 folios 
-                  <dimensions type="leaf" unit="mm">
+                <extent>176 folios <dimensions type="leaf" unit="mm">
                     <height>220</height>
                     <width>145</width>
                   </dimensions>
@@ -102,29 +99,30 @@
               <handNote script="humanistic">Humanistic script</handNote>
             </handDesc>
             <decoDesc>
-              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely Simonetta)</decoNote>
+              <decoNote>Illuminated initials, marginal ornaments, coat of arms (likely
+                Simonetta)</decoNote>
             </decoDesc>
           </physDesc>
           <history>
             <origin>
               <origDate when="1474-08-02">2 August 1474</origDate>
               <origPlace cert="low">Northern Italy</origPlace>
-              <note>Manuscript marks biographical caesura as Albrisius compiled poems from his 
-                    time as teacher and student before entering ecclesiastical service</note>
+              <note>Manuscript marks biographical caesura as Albrisius compiled poems from his time
+                as teacher and student before entering ecclesiastical service</note>
             </origin>
             <provenance>Probably from Cicco Simonetta's library</provenance>
           </history>
         </msDesc>
-        
+
         <!-- Additional manuscripts -->
         <listWit>
           <witness xml:id="M">Madrid, Biblioteca Nacional, Mss. 6028 (complete text)</witness>
-          <witness xml:id="R">Florence, Biblioteca Riccardiana 1458 (contains 2 poems, 
-                              one also in Lucina)</witness>
-          <witness xml:id="A">Milan, Biblioteca Ambrosiana E 12 sup. (astronomical texts 
-                              copied by Albrisius 1476, includes occasional verses)</witness>
+          <witness xml:id="R">Florence, Biblioteca Riccardiana 1458 (contains 2 poems, one also in
+            Lucina)</witness>
+          <witness xml:id="A">Milan, Biblioteca Ambrosiana E 12 sup. (astronomical texts copied by
+            Albrisius 1476, includes occasional verses)</witness>
         </listWit>
-        
+
         <!-- Literary models explicitly mentioned in sources -->
         <listBibl type="literary-models">
           <head>Literary Models and Influences</head>
@@ -133,30 +131,30 @@
           <bibl>Propertius (Cynthia) - elegiac model</bibl>
           <bibl>Catullus - influences meter (Hendekasyllabus) and language</bibl>
           <bibl>Martial - model for witty epigrams and invectives</bibl>
-          <bibl>Horace - influences strophic forms (Sapphic, Asclepiadean) and Maecenas topos 
-                (Cicco Simonetta as "alter Maecenas")</bibl>
-          <bibl>Petrarch (Canzoniere and Epistulae metricae) - three-book structure, 
-                autobiographical claims, metrical variety</bibl>
+          <bibl>Horace - influences strophic forms (Sapphic, Asclepiadean) and Maecenas topos (Cicco
+            Simonetta as "alter Maecenas")</bibl>
+          <bibl>Petrarch (Canzoniere and Epistulae metricae) - three-book structure,
+            autobiographical claims, metrical variety</bibl>
           <bibl>Andreas Capellanus - structural model for love's progression</bibl>
         </listBibl>
       </sourceDesc>
     </fileDesc>
-    
+
     <encodingDesc>
       <projectDesc>
-        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines 
-           with customizations for Renaissance Latin occasional poetry. The work represents a 
-           Petrarchan carmina collection functioning as literary autobiography and professional 
-           portfolio (Bewerbungsmappe), a popular form (beliebte Darstellungsmöglichkeit) for 
-           Quattrocento poets.</p>
+        <p>Digital edition of Aurelius Laurentius Albrisius's Lucina, following TEI P5 Guidelines
+          with customizations for Renaissance Latin occasional poetry. The work represents a
+          Petrarchan carmina collection functioning as literary autobiography and professional
+          portfolio (Bewerbungsmappe), a popular form (beliebte Darstellungsmöglichkeit) for
+          Quattrocento poets.</p>
       </projectDesc>
       <editorialDecl>
         <correction>
           <p>Manifest scribal errors corrected with original readings preserved in apparatus.</p>
         </correction>
         <normalization>
-          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal 
-             punctuation normalization for comprehension.</p>
+          <p>Original orthography preserved. Abbreviations expanded and marked. Minimal punctuation
+            normalization for comprehension.</p>
         </normalization>
         <quotation>
           <p>Quotation marks not in original; added editorially where appropriate.</p>
@@ -223,7 +221,7 @@
             <catDesc>Programmatic and poetological-literary sociological texts</catDesc>
           </category>
         </taxonomy>
-        
+
         <!-- Metrical forms mentioned in sources -->
         <taxonomy xml:id="meters">
           <category xml:id="hendecasyllable">
@@ -241,7 +239,7 @@
         </taxonomy>
       </classDecl>
     </encodingDesc>
-    
+
     <profileDesc>
       <creation>
         <date cert="low">[Poems composed over period ending 1474]</date>
@@ -261,915 +259,1607 @@
     </profileDesc>
   </teiHeader>
   <standOff>
-  <listPlace>
-          <place xml:id="pavia">
-            <placeName>Pavia</placeName>
-            <note>Location of Sforza court; many addressees located here</note>
-          </place>
-          <place xml:id="milan">
-            <placeName>Milan</placeName>
-            <note>Location of Sforza court; many addressees located here</note>
-          </place>
-          <place xml:id="cremona">
-            <placeName>Cremona</placeName>
-            <note>Albrisius's birthplace (ca. 1440-1445); some addressees located here</note>
-          </place>
-          <place xml:id="ferrara">
-            <placeName>Ferrara</placeName>
-            <note>Some addressees located here</note>
-          </place>
-          <place xml:id="perugia">
-            <placeName>Perugia</placeName>
-            <note>Where Albrisius studied canon law (Kanonistik)</note>
-          </place>
-          <place xml:id="san-francesco">
-            <placeName>Church of San Francesco</placeName>
-            <note>Location of first encounter with Lucina (I.1)</note>
-          </place>
-          <place xml:id="rome">
-            <placeName>Rome</placeName>
-            <note>Likely location of poet laureate coronation</note>
-          </place>
-        </listPlace>
+    <!-- places index -->
+    <listPlace>
+      <!-- Contemporary Italian Places -->
+      <place xml:id="calabria" type="region">
+        <placeName xml:lang="it">Calabria</placeName>
+        <note type="context">A region in Southern Italy</note>
+        <note type="source">
+          <ref type="wordForm">Calabrae</ref>
+          <ref type="poem">Praefatio</ref>
+        </note>
+      </place>
+
+      <place xml:id="carpi" type="town">
+        <placeName xml:lang="it">Carpi</placeName>
+        <location>
+          <region>Emilia-Romagna</region>
+        </location>
+        <note type="context">A town in the Emilia-Romagna region</note>
+        <note type="source">
+          <ref type="wordForm">Carpensem</ref>
+          <ref type="poem">III, 1</ref>
+        </note>
+      </place>
+
+      <place xml:id="cremona" type="city">
+        <placeName xml:lang="it">Cremona</placeName>
+        <location>
+          <region>Lombardy</region>
+        </location>
+        <note type="context">A city in Lombardy</note>
+        <note type="source">
+          <ref type="wordForm">Cremonae</ref>
+          <ref type="poem">II, 2</ref>
+          <ref type="poem">II, 14</ref>
+        </note>
+      </place>
+
+      <place xml:id="etruria" type="region">
+        <placeName xml:lang="la">Etruria</placeName>
+        <placeName xml:lang="it" type="modern">Tuscany</placeName>
+        <note type="context">The region of Tuscany, referred to by its ancient name</note>
+        <note type="source">
+          <ref type="wordForm">hetruscae</ref>
+          <ref type="poem">II, 22</ref>
+        </note>
+      </place>
+
+      <place xml:id="felsina" type="city">
+        <placeName xml:lang="la" type="ancient">Felsina</placeName>
+        <placeName xml:lang="it" type="modern">Bologna</placeName>
+        <note type="context">The ancient name for Bologna</note>
+        <note type="source">
+          <ref type="wordForm">Felsinae</ref>
+          <ref type="poem">II, 22</ref>
+        </note>
+      </place>
+
+      <place xml:id="formiae" type="city">
+        <placeName xml:lang="it">Formiae</placeName>
+        <location>
+          <region>Lazio</region>
+        </location>
+        <note type="context">A city in Lazio</note>
+        <note type="source">
+          <ref type="wordForm">Formias</ref>
+          <ref type="poem">III, 16</ref>
+        </note>
+      </place>
+
+      <place xml:id="insubrium" type="region">
+        <placeName xml:lang="la">Insubrium</placeName>
+        <note type="context">Land of the Insubres; the region around Milan (Duchy of Milan)</note>
+        <note type="source">
+          <ref type="wordForm">insubrium</ref>
+          <ref type="wordForm">Insubrium</ref>
+          <ref type="poem">Praefatio</ref>
+          <ref type="poem">I, 21</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">III, 13</ref>
+        </note>
+      </place>
+
+      <place xml:id="italia" type="country">
+        <placeName xml:lang="la">Italia</placeName>
+        <placeName xml:lang="it">Italy</placeName>
+        <note type="context">The Italian peninsula</note>
+        <note type="source">
+          <ref type="wordForm">Italiam</ref>
+          <ref type="wordForm">Italiae</ref>
+          <ref type="wordForm">Italae</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">II, 6</ref>
+          <ref type="poem">III, 13</ref>
+        </note>
+      </place>
+
+      <place xml:id="latium" type="region">
+        <placeName xml:lang="la">Latium</placeName>
+        <note type="context">The region of central Italy, used poetically for Italy</note>
+        <note type="source">
+          <ref type="wordForm">Latio</ref>
+          <ref type="poem">I, 9</ref>
+          <ref type="poem">I, 21</ref>
+          <ref type="poem">II, 5</ref>
+          <ref type="poem">II, 14</ref>
+          <ref type="poem">III, 1</ref>
+          <ref type="poem">III, 6</ref>
+        </note>
+      </place>
+
+      <place xml:id="liguria" type="region">
+        <placeName xml:lang="it">Liguria</placeName>
+        <note type="context">A region in northwest Italy</note>
+        <note type="source">
+          <ref type="wordForm">ligurum</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">II, 22</ref>
+          <ref type="poem">III, 13</ref>
+        </note>
+      </place>
+
+      <place xml:id="pavia" type="city">
+        <placeName xml:lang="la">Papia</placeName>
+        <placeName xml:lang="it">Pavia</placeName>
+        <location>
+          <region>Lombardy</region>
+        </location>
+        <note type="context">The city in Lombardy where the book was completed</note>
+        <note type="source">
+          <ref type="wordForm">Papiae</ref>
+          <ref type="poem">Colophon / End Note</ref>
+        </note>
+      </place>
+
+      <place xml:id="perugia" type="city">
+        <placeName xml:lang="it">Perugia</placeName>
+        <note type="context">A city in central Italy</note>
+        <note type="source">
+          <ref type="wordForm">Perusi</ref>
+          <ref type="poem">II, 22</ref>
+        </note>
+      </place>
+
+      <place xml:id="rome" type="city">
+        <placeName xml:lang="la">Roma</placeName>
+        <placeName xml:lang="it">Rome</placeName>
+        <note type="context">The city of Rome</note>
+        <note type="source">
+          <ref type="wordForm">Romano</ref>
+          <ref type="wordForm">Roma</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">II, 22</ref>
+          <ref type="poem">III, 5</ref>
+        </note>
+      </place>
+
+      <place xml:id="quirinal" type="hill">
+        <placeName xml:lang="la">Quirinus collis</placeName>
+        <placeName xml:lang="en">Quirinal Hill</placeName>
+        <note type="context">One of the Seven Hills of Rome</note>
+        <note type="source">
+          <ref type="wordForm">Quirino</ref>
+          <ref type="poem">II, 2</ref>
+        </note>
+      </place>
+
+      <place xml:id="sicily" type="island">
+        <placeName xml:lang="la">Sicula</placeName>
+        <placeName xml:lang="it">Sicily</placeName>
+        <note type="context">The island of Sicily</note>
+        <note type="source">
+          <ref type="wordForm">Siculae</ref>
+          <ref type="poem">I, 17</ref>
+          <ref type="poem">II, 22</ref>
+        </note>
+      </place>
+
+      <place xml:id="trigoli" type="estate">
+        <placeName>Trigoli</placeName>
+        <note type="context">A local estate or village</note>
+        <note type="source">
+          <ref type="wordForm">Trigoli</ref>
+          <ref type="poem">I, 6</ref>
+        </note>
+      </place>
+
+      <!-- Ancient & Mythological Places -->
+      <place xml:id="aether" type="mythological">
+        <placeName>Aether</placeName>
+        <note type="context">The upper sky or heavens, the abode of the gods</note>
+        <note type="source">
+          <ref type="wordForm">aetherii</ref>
+          <ref type="wordForm">aethera</ref>
+          <ref type="wordForm">aethere</ref>
+          <ref type="poem">I, 6</ref>
+          <ref type="poem">I, 20</ref>
+          <ref type="poem">I, 43</ref>
+          <ref type="poem">and many others</ref>
+        </note>
+      </place>
+
+      <place xml:id="albula" type="river">
+        <placeName xml:lang="la" type="ancient">Albula</placeName>
+        <placeName type="modern">Tiber</placeName>
+        <note type="context">An ancient name for the Tiber river</note>
+        <note type="source">
+          <ref type="wordForm">Albulae</ref>
+          <ref type="poem">II, 19</ref>
+        </note>
+      </place>
+
+      <place xml:id="asia" type="region">
+        <placeName>Asia</placeName>
+        <note type="context">The Roman province of Asia Minor or the continent</note>
+        <note type="source">
+          <ref type="wordForm">Asiae</ref>
+          <ref type="poem">II, 19</ref>
+          <ref type="poem">III, 10</ref>
+        </note>
+      </place>
+
+      <place xml:id="canopus" type="city">
+        <placeName>Canopus</placeName>
+        <note type="context">An ancient city in Egypt known for its luxury</note>
+        <note type="source">
+          <ref type="wordForm">Canopo</ref>
+          <ref type="poem">II, 14</ref>
+        </note>
+      </place>
+
+      <place xml:id="cecropia" type="region">
+        <placeName xml:lang="la">Cecropia</placeName>
+        <note type="context">Land of Cecrops; a poetic name for Athens/Attica</note>
+        <note type="source">
+          <ref type="wordForm">Caecropidas</ref>
+          <ref type="poem">III, 6</ref>
+        </note>
+      </place>
+
+      <place xml:id="colchis" type="region">
+        <placeName>Colchis</placeName>
+        <note type="context">A region on the Black Sea, associated with Medea and magic</note>
+        <note type="source">
+          <ref type="wordForm">Colchicas</ref>
+          <ref type="poem">I, 43</ref>
+        </note>
+      </place>
+
+      <place xml:id="helicon" type="mountain">
+        <placeName xml:lang="la">Elicon</placeName>
+        <placeName xml:lang="en">Helicon</placeName>
+        <note type="context">The mythological mountain home of the Muses</note>
+        <note type="source">
+          <ref type="wordForm">Eliconis</ref>
+          <ref type="poem">I, 15</ref>
+        </note>
+      </place>
+
+      <place xml:id="hesperia" type="region">
+        <placeName>Hesperia</placeName>
+        <note type="context">A classical poetic name for Italy ("the western land")</note>
+        <note type="source">
+          <ref type="wordForm">Hesperiae</ref>
+          <ref type="poem">I, 20</ref>
+          <ref type="poem">III, 13</ref>
+          <ref type="poem">III, 16</ref>
+          <ref type="poem">III, 29</ref>
+        </note>
+      </place>
+
+      <place xml:id="ida" type="mountain">
+        <placeName>Ida</placeName>
+        <note type="context">A mountain near Troy</note>
+        <note type="source">
+          <ref type="wordForm">Idae</ref>
+          <ref type="poem">I, 24</ref>
+        </note>
+      </place>
+
+      <place xml:id="knossos" type="city">
+        <placeName xml:lang="la">Gnosium</placeName>
+        <placeName xml:lang="la">Cnosius</placeName>
+        <placeName xml:lang="en">Knossos</placeName>
+        <note type="context">A major city in ancient Crete</note>
+        <note type="source">
+          <ref type="wordForm">Gnosium</ref>
+          <ref type="wordForm">Cnosius</ref>
+          <ref type="poem">I, 25</ref>
+          <ref type="poem">I, 43</ref>
+        </note>
+      </place>
+
+      <place xml:id="lesbos" type="island">
+        <placeName>Lesbos</placeName>
+        <note type="context">A Greek island, home of lyric poets like Sappho</note>
+        <note type="source">
+          <ref type="wordForm">Lesbio</ref>
+          <ref type="poem">II, 2</ref>
+          <ref type="poem">II, 14</ref>
+        </note>
+      </place>
+
+      <place xml:id="lethe" type="river">
+        <placeName>Lethe</placeName>
+        <note type="context">A river of forgetfulness in the underworld</note>
+        <note type="source">
+          <ref type="wordForm">Lethes</ref>
+          <ref type="poem">I, 43</ref>
+        </note>
+      </place>
+
+      <place xml:id="libya" type="region">
+        <placeName>Libya</placeName>
+        <note type="context">North Africa, often referring to its deserts</note>
+        <note type="source">
+          <ref type="wordForm">Libyes</ref>
+          <ref type="poem">I, 17</ref>
+          <ref type="poem">I, 30</ref>
+        </note>
+      </place>
+
+      <place xml:id="maeonia" type="region">
+        <placeName>Maeonia</placeName>
+        <note type="context">A region in ancient Lydia, associated with Homer and epic poetry</note>
+        <note type="source">
+          <ref type="wordForm">maeonia</ref>
+          <ref type="poem">III, 1</ref>
+          <ref type="poem">III, 16</ref>
+        </note>
+      </place>
+
+      <place xml:id="eryx" type="mountain">
+        <placeName xml:lang="la">Ericina</placeName>
+        <placeName>Mount Eryx</placeName>
+        <note type="context">A mountain in Sicily with a famous temple to Venus</note>
+        <note type="source">
+          <ref type="wordForm">Ericina</ref>
+          <ref type="poem">I, 25</ref>
+        </note>
+      </place>
+
+      <place xml:id="olympus" type="mountain">
+        <placeName>Olympus</placeName>
+        <note type="context">The mythical mountain home of the Greek gods</note>
+        <note type="source">
+          <ref type="wordForm">olympiacae</ref>
+          <ref type="poem">III, 6</ref>
+        </note>
+      </place>
+
+      <place xml:id="paphos" type="city">
+        <placeName>Paphos</placeName>
+        <note type="context">A city in Cyprus, sacred to Venus</note>
+        <note type="source">
+          <ref type="wordForm">Paphia</ref>
+          <ref type="poem">I, 3</ref>
+          <ref type="poem">II, 19</ref>
+        </note>
+      </place>
+
+      <place xml:id="parthia" type="kingdom">
+        <placeName>Parthia</placeName>
+        <note type="context">An ancient kingdom in Iran</note>
+        <note type="source">
+          <ref type="wordForm">Parthia</ref>
+          <ref type="wordForm">Parthorum</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">I, 39</ref>
+        </note>
+      </place>
+
+      <place xml:id="pharia" type="island">
+        <placeName xml:lang="la">Pharia</placeName>
+        <placeName>Pharos</placeName>
+        <note type="context">The island of the lighthouse of Alexandria, Egypt</note>
+        <note type="source">
+          <ref type="wordForm">pharia</ref>
+          <ref type="poem">III, 29</ref>
+        </note>
+      </place>
+
+      <place xml:id="phrygia" type="kingdom">
+        <placeName>Phrygia</placeName>
+        <note type="context">A kingdom in ancient Anatolia</note>
+        <note type="source">
+          <ref type="wordForm">phrygio</ref>
+          <ref type="poem">II, 14</ref>
+          <ref type="poem">III, 31</ref>
+        </note>
+      </place>
+
+      <place xml:id="phlegethon" type="river">
+        <placeName>Phlegethon</placeName>
+        <note type="context">The river of fire in the underworld</note>
+        <note type="source">
+          <ref type="wordForm">phlegetontaea</ref>
+          <ref type="wordForm">phlegetontis</ref>
+          <ref type="poem">I, 43</ref>
+          <ref type="poem">II, 1</ref>
+        </note>
+      </place>
+
+      <place xml:id="rhodope" type="mountain">
+        <placeName>Rhodope</placeName>
+        <note type="context">A mountain range in Thrace</note>
+        <note type="source">
+          <ref type="wordForm">Rhodopen</ref>
+          <ref type="poem">II, 24</ref>
+        </note>
+      </place>
+
+      <place xml:id="sabine" type="valley">
+        <placeName>Sabine Valley</placeName>
+        <note type="context">A region in ancient central Italy</note>
+        <note type="source">
+          <ref type="wordForm">sabellus</ref>
+          <ref type="wordForm">sabino</ref>
+          <ref type="poem">II, 22</ref>
+          <ref type="poem">III, 28</ref>
+        </note>
+      </place>
+
+      <place xml:id="samos" type="island">
+        <placeName>Samos</placeName>
+        <note type="context">A Greek island, home of the philosopher Pythagoras</note>
+        <note type="source">
+          <ref type="wordForm">Samii</ref>
+          <ref type="poem">II, 18</ref>
+        </note>
+      </place>
+
+      <place xml:id="styx" type="river">
+        <placeName>Styx</placeName>
+        <note type="context">The principal river of the underworld</note>
+        <note type="source">
+          <ref type="wordForm">Styga</ref>
+          <ref type="wordForm">Stygis</ref>
+          <ref type="poem">I, 17</ref>
+          <ref type="poem">I, 43</ref>
+          <ref type="poem">III, 16</ref>
+        </note>
+      </place>
+
+      <place xml:id="syrtes" type="sandbank">
+        <placeName>Syrtes</placeName>
+        <note type="context">Treacherous sandbanks off the coast of Libya</note>
+        <note type="source">
+          <ref type="wordForm">syrtes</ref>
+          <ref type="poem">I, 17</ref>
+          <ref type="poem">II, 24</ref>
+        </note>
+      </place>
+
+      <place xml:id="tartarus" type="mythological">
+        <placeName>Tartarus</placeName>
+        <note type="context">The abyss of the underworld for torment and punishment</note>
+        <note type="source">
+          <ref type="wordForm">tartara</ref>
+          <ref type="poem">III, 32</ref>
+        </note>
+      </place>
+
+      <place xml:id="thessaly" type="region">
+        <placeName>Thessaly</placeName>
+        <note type="context">A region in Greece, associated with magic and witches</note>
+        <note type="source">
+          <ref type="wordForm">Thessalis</ref>
+          <ref type="wordForm">thaessalis</ref>
+          <ref type="poem">I, 5</ref>
+          <ref type="poem">II, 1</ref>
+        </note>
+      </place>
+
+      <place xml:id="thrace" type="region">
+        <placeName>Thrace</placeName>
+        <note type="context">A region in southeastern Europe</note>
+        <note type="source">
+          <ref type="wordForm">traicius</ref>
+          <ref type="wordForm">Threicius</ref>
+          <ref type="poem">II, 24</ref>
+          <ref type="poem">III, 1</ref>
+        </note>
+      </place>
+
+      <place xml:id="troy" type="city">
+        <placeName>Troy</placeName>
+        <note type="context">The ancient city of the Trojan War</note>
+        <note type="source">
+          <ref type="wordForm">Troia</ref>
+          <ref type="poem">I, 24</ref>
+        </note>
+      </place>
+
+      <!-- Natural Features (Seas, Rivers, etc.) -->
+      <place xml:id="acheron" type="river">
+        <placeName>Acheron</placeName>
+        <note type="context">A river of the Greek underworld</note>
+        <note type="source">
+          <ref type="wordForm">Acheron</ref>
+          <ref type="poem">I, 43</ref>
+        </note>
+      </place>
+
+      <place xml:id="adriatic" type="sea">
+        <placeName xml:lang="la">Hadriacas aquas</placeName>
+        <placeName>Adriatic Sea</placeName>
+        <note type="context">The sea to the east of Italy</note>
+        <note type="source">
+          <ref type="wordForm">hadriacas</ref>
+          <ref type="poem">III, 42</ref>
+        </note>
+      </place>
+
+      <place xml:id="anguigerum" type="river">
+        <placeName>Anguigerum</placeName>
+        <note type="context">River of the Serpent; a poetic reference to a river associated with the
+          Visconti-Sforza emblem</note>
+        <note type="source">
+          <ref type="wordForm">Anguigerum</ref>
+          <ref type="wordForm">Anguigeri</ref>
+          <ref type="poem">I, 30</ref>
+          <ref type="poem">I, 41</ref>
+        </note>
+      </place>
+
+      <place xml:id="eridanus" type="river">
+        <placeName xml:lang="la">Eridanus</placeName>
+        <placeName type="modern">Po River</placeName>
+        <note type="context">The classical name for the Po River</note>
+        <note type="source">
+          <ref type="wordForm">Eridanum</ref>
+          <ref type="poem">I, 20</ref>
+        </note>
+      </place>
+
+      <place xml:id="ionian" type="sea">
+        <placeName xml:lang="la">Ionio mari</placeName>
+        <placeName>Ionian Sea</placeName>
+        <note type="context">The sea to the south of Italy</note>
+        <note type="source">
+          <ref type="wordForm">ionio</ref>
+          <ref type="poem">III, 29</ref>
+        </note>
+      </place>
+
+      <place xml:id="liris" type="river">
+        <placeName>Liris</placeName>
+        <note type="context">A river in central Italy</note>
+        <note type="source">
+          <ref type="wordForm">Lyrim</ref>
+          <ref type="poem">III, 16</ref>
+        </note>
+      </place>
+
+      <place xml:id="pontus" type="sea">
+        <placeName>Pontus</placeName>
+        <note type="context">The Black Sea</note>
+        <note type="source">
+          <ref type="wordForm">Pontus</ref>
+          <ref type="poem">I, 9</ref>
+          <ref type="poem">I, 43</ref>
+        </note>
+      </place>
+
+      <place xml:id="rhine" type="river">
+        <placeName xml:lang="la">Rhenus</placeName>
+        <placeName>Rhine</placeName>
+        <note type="context">A major river in Europe</note>
+        <note type="source">
+          <ref type="wordForm">Rhenus</ref>
+          <ref type="poem">II, 22</ref>
+        </note>
+      </place>
+
+      <place xml:id="charybdis" type="whirlpool">
+        <placeName>Charybdis</placeName>
+        <note type="context">A treacherous whirlpool in the Strait of Messina</note>
+        <note type="source">
+          <ref type="wordForm">Charybdis</ref>
+          <ref type="poem">I, 17</ref>
+          <ref type="poem">II, 24</ref>
+          <ref type="poem">III, 14</ref>
+        </note>
+      </place>
+
+      <place xml:id="tanais" type="river">
+        <placeName xml:lang="la">Tanais</placeName>
+        <placeName type="modern">Don River</placeName>
+        <note type="context">The ancient name for the Don River</note>
+        <note type="source">
+          <ref type="wordForm">Tanain</ref>
+          <ref type="poem">III, 13</ref>
+        </note>
+      </place>
+
+      <place xml:id="ticino" type="river">
+        <placeName xml:lang="la">Ticinus</placeName>
+        <placeName xml:lang="it">Ticino</placeName>
+        <note type="context">A river in northern Italy</note>
+        <note type="source">
+          <ref type="wordForm">Ticinum</ref>
+          <ref type="poem">I, 20</ref>
+        </note>
+      </place>
+    </listPlace>
+
+    <!-- person index -->
     <listPerson>
-
-  <!-- AUTHOR -->
-  <person xml:id="albrisius">
-    <persName><name>
-      <forename>Aurelius</forename>
-      <forename>Laurentius</forename>
-      <surname>Albrisius</surname>
-    </name></persName>
-    <occupation>Poet laureate, priest</occupation>
-    <note>Author of the Lucina collection</note>
-  </person>
-
-  <!-- PRIMARY PATRON -->
-  <person xml:id="cicco-simonetta">
-    <persName><name>
-      <forename>Cicco</forename>
-      <surname>Simonetta</surname>
-      <addName>Cichus</addName>
-      <addName>Mecoenas</addName>
-    </name></persName>
-    <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
-    <note>Primary patron, addressed as "Mecoenas"</note>
-    <note type="appearances">Praefatio; I,1; I,4; I,17; I,19; I,25; I,35; III,10; III,21; III,26; III,47</note>
-  </person>
-
-  <!-- SFORZA DYNASTY -->
-  <person xml:id="galeazzo-sforza">
-    <persName><name>
-      <forename>Galeazzo</forename>
-      <forename>Maria</forename>
-      <surname>Sforza</surname>
-      <addName>Galeacius</addName>
-      <addName>Caesar</addName>
-    </name></persName>
-    <occupation>Duke of Milan</occupation>
-    <note type="appearances">I,9; I,15; I,21; I,30; II,22</note>
-  </person>
-
-  <person xml:id="francesco-sforza">
-    <persName><name>
-      <forename>Francesco</forename>
-      <surname>Sforza</surname>
-      <addName>Franciscus Sphorcia</addName>
-    </name></persName>
-    <occupation>Duke of Milan</occupation>
-    <note type="appearances">III,41</note>
-  </person>
-
-  <!-- SIMONETTA FAMILY -->
-  <person xml:id="giovanni-simonetta">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <surname>Simonetta</surname>
-      <addName>Iohannes</addName>
-    </name></persName>
-    <note type="appearances">I,3</note>
-  </person>
-
-  <person xml:id="giovanni-giacomo-simonetta">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Giacomo</forename>
-      <surname>Simonetta</surname>
-      <addName>Iohannes Iacobus</addName>
-    </name></persName>
-    <note>Son of Cicco Simonetta</note>
-    <note type="appearances">II,1; II,5; II,9; II,20; II,37; III,46</note>
-  </person>
-
-  <person xml:id="sigismondo-simonetta">
-    <persName><name>
-      <forename>Sigismondo</forename>
-      <surname>Simonetta</surname>
-      <addName>Sigismundus</addName>
-    </name></persName>
-    <occupation>Bishop</occupation>
-    <note type="appearances">II,3; II,18; II,27</note>
-  </person>
-
-  <person xml:id="andrea-simonetta">
-    <persName><name>
-      <forename>Andrea</forename>
-      <surname>Simonetta</surname>
-    </name></persName>
-    <note type="appearances">I,38</note>
-  </person>
-
-  <person xml:id="antonio-federico-simonetta">
-    <persName><name>
-      <forename>Antonio</forename>
-      <forename>Federico</forename>
-      <surname>Simonetta</surname>
-      <addName>Antonius Fredericus</addName>
-    </name></persName>
-    <note type="appearances">II,23; III,14</note>
-  </person>
-
-  <person xml:id="lodovico-simonetta">
-    <persName><name>
-      <forename>Lodovico</forename>
-      <surname>Simonetta</surname>
-      <addName>Lodovicus</addName>
-    </name></persName>
-    <note type="appearances">II,21; III,22</note>
-  </person>
-
-  <person xml:id="guido-antonio-simonetta">
-    <persName><name>
-      <forename>Guido</forename>
-      <forename>Antonio</forename>
-      <surname>Simonetta</surname>
-      <addName>Guidonus Antonius</addName>
-    </name></persName>
-    <note type="appearances">III,15; III,44</note>
-  </person>
-
-  <person xml:id="giovanni-francesco-simonetta">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Francesco</forename>
-      <surname>Simonetta</surname>
-      <addName>Iohannes Franciscus</addName>
-    </name></persName>
-    <note type="appearances">II,32</note>
-  </person>
-
-  <!-- VISCONTI FAMILY -->
-  <person xml:id="filippo-visconti">
-    <persName><name>
-      <forename>Filippo</forename>
-      <surname>Visconti</surname>
-      <addName>Philippus Vicecomes</addName>
-    </name></persName>
-    <note type="appearances">I,2</note>
-  </person>
-
-  <person xml:id="gaspare-visconti">
-    <persName><name>
-      <forename>Gaspare</forename>
-      <surname>Visconti</surname>
-      <addName>Gasparem Vicecomitem</addName>
-    </name></persName>
-    <note type="appearances">I,12</note>
-  </person>
-
-  <person xml:id="azone-visconti">
-    <persName><name>
-      <forename>Azone</forename>
-      <surname>Visconti</surname>
-      <addName>Azo Vicecomes</addName>
-    </name></persName>
-    <note type="appearances">I,16</note>
-  </person>
-
-  <person xml:id="ambrogio-visconti">
-    <persName><name>
-      <forename>Ambrogio</forename>
-      <surname>Visconti</surname>
-      <addName>Ambrosius Vicecomes</addName>
-    </name></persName>
-    <note type="appearances">I,27</note>
-  </person>
-
-  <person xml:id="ascanio-visconti">
-    <persName><name>
-      <forename>Ascanio</forename>
-      <surname>Visconti</surname>
-      <addName>Ascanius Vicecomes</addName>
-    </name></persName>
-    <occupation>Protonotary, later Cardinal</occupation>
-    <note type="appearances">II,2; III,12</note>
-  </person>
-
-  <!-- HUMANISTS AND POETS -->
-  <person xml:id="francesco-filelfo">
-    <persName><name>
-      <forename>Francesco</forename>
-      <surname>Filelfo</surname>
-      <addName>Franciscus Philelfus</addName>
-    </name></persName>
-    <occupation>Humanist, poet</occupation>
-    <note type="appearances">I,11; III,23; III,36</note>
-  </person>
-
-  <person xml:id="battista-plasio">
-    <persName><name>
-      <forename>Battista</forename>
-      <surname>Plasio</surname>
-      <addName>Baptista Plasius</addName>
-    </name></persName>
-    <occupation>Poet</occupation>
-    <note type="appearances">II,6; III,37</note>
-  </person>
-
-  <person xml:id="tito-strozzi">
-    <persName><name>
-      <forename>Tito</forename>
-      <surname>Strozzi</surname>
-      <addName>Titus Strozza</addName>
-    </name></persName>
-    <occupation>Poet</occupation>
-    <note type="appearances">II,15; II,26</note>
-  </person>
-
-  <person xml:id="lorenzo-strozzi">
-    <persName><name>
-      <forename>Lorenzo</forename>
-      <surname>Strozzi</surname>
-      <addName>Laurentius Strozza</addName>
-    </name></persName>
-    <occupation>Poet</occupation>
-    <note type="appearances">II,24; II,26</note>
-  </person>
-
-  <!-- CHURCH OFFICIALS -->
-  <person xml:id="giovanni-stefano-bortigella">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Stefano</forename>
-      <surname>Bortigella</surname>
-      <addName>Iohannes Stephanus Borthigela</addName>
-    </name></persName>
-    <occupation>Bishop</occupation>
-    <note type="appearances">I,20; I,37</note>
-  </person>
-
-  <person xml:id="giovanni-lamberto">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <roleName>Bishop of San Lamberto</roleName>
-      <addName>Iohannes Sancti Lamberti</addName>
-    </name></persName>
-    <occupation>Bishop</occupation>
-    <note type="appearances">III,1; III,18</note>
-  </person>
-
-  <person xml:id="giovanni-campisio">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <surname>Campisio</surname>
-      <addName>Iohannes Campisius</addName>
-    </name></persName>
-    <occupation>Bishop</occupation>
-    <note type="appearances">III,25</note>
-  </person>
-
-  <!-- NOBILITY -->
-  <person xml:id="pietro-verme">
-    <persName><name>
-      <forename>Pietro</forename>
-      <surname>Verme</surname>
-      <addName>Petrus Vermius</addName>
-    </name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">I,14</note>
-  </person>
-
-  <person xml:id="guido-torello">
-    <persName><name>
-      <forename>Guido</forename>
-      <forename>Galeazzo</forename>
-      <surname>Torello</surname>
-      <addName>Guidonus Galeacius Torellus</addName>
-    </name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">I,24; II,4; III,24</note>
-  </person>
-
-  <person xml:id="antonio-guidone">
-    <persName><name>
-      <forename>Antonio</forename>
-      <surname>Guidone</surname>
-      <addName>Antonius Guidonus</addName>
-    </name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">II,19; II,28</note>
-  </person>
-
-  <person xml:id="galeotto">
-    <persName><name>
-      <forename>Galeotto</forename>
-      <addName>Galeotus</addName>
-    </name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">I,9; II,31</note>
-  </person>
-
-  <person xml:id="giovanni-attendolo">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <surname>Attendolo</surname>
-      <addName>Iohannes Attendulus</addName>
-    </name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">I,29</note>
-  </person>
-
-  <!-- LAMIA FAMILY -->
-  <person xml:id="lamia-formio">
-    <persName><name>
-      <forename>Lamia</forename>
-      <surname>Formio</surname>
-      <addName>Lamias Formius</addName>
-    </name></persName>
-    <note type="appearances">I,10; I,13; I,23; I,40; II,13</note>
-  </person>
-
-  <person xml:id="guglielmo-lamia">
-    <persName><name>
-      <forename>Guglielmo</forename>
-      <surname>Lamia</surname>
-      <addName>Guilielminus Lamias</addName>
-    </name></persName>
-    <note type="appearances">II,35; III,16; III,28</note>
-  </person>
-
-  <!-- OTHER PERSONS -->
-  <person xml:id="francesco-varense">
-    <persName><name>
-      <forename>Francesco</forename>
-      <surname>Varense</surname>
-      <addName>Franciscus Varensis</addName>
-    </name></persName>
-    <note type="appearances">I,5</note>
-  </person>
-
-  <person xml:id="giacomo-marno">
-    <persName><name>
-      <forename>Giacomo</forename>
-      <surname>Marno</surname>
-      <addName>Iacobus Marnus</addName>
-    </name></persName>
-    <note type="appearances">I,6; III,9</note>
-  </person>
-
-  <person xml:id="giovanni-giacomo-idropota">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Giacomo</forename>
-      <addName>hydropotes</addName>
-    </name></persName>
-    <note type="appearances">I,7</note>
-  </person>
-
-  <person xml:id="brando-castiglione">
-    <persName><name>
-      <forename>Brando</forename>
-      <surname>Castiglione</surname>
-      <addName>Brandus Castillionem</addName>
-    </name></persName>
-    <note type="appearances">I,13</note>
-  </person>
-
-  <person xml:id="giovanni-antonio-vezano">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Antonio</forename>
-      <surname>Vezano</surname>
-      <addName>Iohannes Antonus Vezanus</addName>
-    </name></persName>
-    <note type="appearances">I,18</note>
-  </person>
-
-  <person xml:id="tommaso-aesino">
-    <persName><name>
-      <forename>Tommaso</forename>
-      <surname>Aesino</surname>
-      <addName>Thomas Haesinus/Hesinus</addName>
-    </name></persName>
-    <note type="appearances">I,22; II,30</note>
-  </person>
-
-  <person xml:id="giovanni-pietro-comino">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Pietro</forename>
-      <surname>Comino</surname>
-      <addName>Iohannes Petrus Cominus</addName>
-    </name></persName>
-    <note type="appearances">I,26</note>
-  </person>
-
-  <person xml:id="sero-florentino">
-    <persName><name>
-      <forename>Sero</forename>
-      <addName>Florentinus</addName>
-    </name></persName>
-    <note type="appearances">I,28; II,15</note>
-  </person>
-
-  <person xml:id="blasio">
-    <persName><name>
-      <forename>Blasio</forename>
-      <addName>Blasius</addName>
-    </name></persName>
-    <note type="appearances">I,32; II,12</note>
-  </person>
-
-  <person xml:id="vitulino-barboo">
-    <persName><name>
-      <forename>Vitulino</forename>
-      <surname>Barboo</surname>
-      <addName>Vitulinus Barbous</addName>
-    </name></persName>
-    <note type="appearances">I,33</note>
-  </person>
-
-  <person xml:id="lodovico-petrobono">
-    <persName><name>
-      <forename>Lodovico</forename>
-      <forename>Petrobono</forename>
-      <surname>Putea</surname>
-      <addName>Lodovicus Petrobonus</addName>
-    </name></persName>
-    <note type="appearances">I,39</note>
-  </person>
-
-  <person xml:id="giacomo-bonarello">
-    <persName><name>
-      <forename>Giacomo</forename>
-      <surname>Bonarello</surname>
-      <addName>Iacobus Bonarellus</addName>
-    </name></persName>
-    <note type="appearances">I,41; III,11</note>
-  </person>
-
-  <person xml:id="leonardo-glusiano">
-    <persName><name>
-      <forename>Leonardo</forename>
-      <surname>Glusiano</surname>
-      <addName>Leonardus Glusianum</addName>
-    </name></persName>
-    <note type="appearances">I,42; III,21</note>
-  </person>
-
-  <person xml:id="battista-ponzono">
-    <persName><name>
-      <forename>Battista</forename>
-      <surname>Ponzono</surname>
-      <addName>Baptista Ponçonos</addName>
-    </name></persName>
-    <note type="appearances">II,8</note>
-  </person>
-
-  <person xml:id="margarita-ponzono">
-    <persName><name>
-      <forename>Margarita</forename>
-      <surname>Ponzono</surname>
-    </name></persName>
-    <note type="appearances">II,8</note>
-  </person>
-
-  <person xml:id="baldassarre-mellio">
-    <persName><name>
-      <forename>Baldassarre</forename>
-      <surname>Mellio</surname>
-      <addName>Baldasar Mellium</addName>
-    </name></persName>
-    <note type="appearances">II,14; II,29</note>
-  </person>
-
-  <person xml:id="filippo-ferusino">
-    <persName><name>
-      <forename>Filippo</forename>
-      <surname>Ferusino</surname>
-      <addName>Philippus Ferufinus</addName>
-    </name></persName>
-    <note type="appearances">II,16; III,40</note>
-  </person>
-
-  <person xml:id="alessandro-coleta">
-    <persName><name>
-      <forename>Alessandro</forename>
-      <surname>Coleta</surname>
-      <addName>Alexander Coleta</addName>
-    </name></persName>
-    <note type="appearances">II,25</note>
-  </person>
-
-  <person xml:id="francesco-firmano">
-    <persName><name>
-      <forename>Francesco</forename>
-      <surname>Firmano</surname>
-      <addName>Franciscus Firmanus</addName>
-    </name></persName>
-    <note type="appearances">II,33</note>
-  </person>
-
-  <person xml:id="gerolamo-guidone">
-    <persName><name>
-      <forename>Gerolamo</forename>
-      <surname>Guidone</surname>
-      <addName>Hieronymus Guidonus</addName>
-    </name></persName>
-    <note type="appearances">II,36</note>
-  </person>
-
-  <person xml:id="bonino">
-    <persName><name>
-      <forename>Bonino</forename>
-      <addName>Boninus</addName>
-    </name></persName>
-    <note type="appearances">III,2</note>
-  </person>
-
-  <person xml:id="plantanide">
-    <persName><name>
-      <forename>Plantanide</forename>
-      <addName>Plantanidum</addName>
-    </name></persName>
-    <note type="appearances">III,4</note>
-  </person>
-
-  <person xml:id="giacomo-antiquario">
-    <persName><name>
-      <forename>Giacomo</forename>
-      <surname>Antiquario</surname>
-      <addName>Iacobus Antiquarius</addName>
-    </name></persName>
-    <note type="appearances">III,8</note>
-  </person>
-
-  <person xml:id="andreotto-maino">
-    <persName><name>
-      <forename>Andreotto</forename>
-      <surname>Maino</surname>
-      <addName>Andreotus Mainus</addName>
-    </name></persName>
-    <note type="appearances">III,13</note>
-  </person>
-
-  <person xml:id="fulgosio">
-    <persName><name>
-      <forename>Fulgosio</forename>
-      <addName>Fulgosius</addName>
-    </name></persName>
-    <note type="appearances">III,17</note>
-  </person>
-
-  <person xml:id="marco-troto">
-    <persName><name>
-      <forename>Marco</forename>
-      <surname>Troto</surname>
-      <addName>Marcus Trotus</addName>
-    </name></persName>
-    <note type="appearances">III,19</note>
-  </person>
-
-  <person xml:id="giovanni-molo">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <surname>Molo</surname>
-      <addName>Iohannes Molus</addName>
-    </name></persName>
-    <note type="appearances">III,20</note>
-  </person>
-
-  <person xml:id="lorenzo-landino">
-    <persName><name>
-      <forename>Lorenzo</forename>
-      <surname>Landino</surname>
-      <addName>Laurentius Landinus</addName>
-    </name></persName>
-    <note type="appearances">III,27</note>
-  </person>
-
-  <person xml:id="lauro">
-    <persName><name>
-      <forename>Lauro</forename>
-      <addName>Laurus</addName>
-    </name></persName>
-    <note type="appearances">III,30</note>
-  </person>
-
-  <person xml:id="giovanni-antonio-gerrardo">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Antonio</forename>
-      <surname>Gerrardo</surname>
-      <addName>Iohannes Antonius Gerrardus</addName>
-    </name></persName>
-    <note type="appearances">III,33</note>
-  </person>
-
-  <!-- ANTAGONISTS/CRITICIZED -->
-  <person xml:id="cerverio">
-    <persName><name>
-      <forename>Cerverio</forename>
-      <addName>Cerverius</addName>
-    </name></persName>
-    <note type="appearances">II,34; III,3; III,23</note>
-  </person>
-
-  <person xml:id="piccolo">
-    <persName><name>
-      <forename>Piccolo</forename>
-      <addName>Picculus</addName>
-    </name></persName>
-    <note type="appearances">III,35; III,39</note>
-  </person>
-
-  <person xml:id="tonso">
-    <persName><name>
-      <forename>Tonso</forename>
-      <addName>Tonsum</addName>
-    </name></persName>
-    <note type="appearances">II,10</note>
-  </person>
-
-  <person xml:id="vitulino-lechno">
-    <persName><name>
-      <forename>Vitulino</forename>
-      <surname>Lechno</surname>
-      <addName>Lechnon</addName>
-    </name></persName>
-    <note type="appearances">I,36; III,38</note>
-  </person>
-
-  <person xml:id="borsio-arsenocita">
-    <persName><name>
-      <forename>Borsio</forename>
-      <addName>Arsenociten</addName>
-    </name></persName>
-    <note type="appearances">II,7</note>
-  </person>
-
-  <person xml:id="apto">
-    <persName><name>
-      <forename>Apto</forename>
-      <addName>Aptus</addName>
-    </name></persName>
-    <note type="appearances">II,28</note>
-  </person>
-
-  <!-- DECEASED PERSONS -->
-  <person xml:id="taddeo-dovarense">
-    <persName><name>
-      <forename>Taddeo</forename>
-      <addName>Dovarensis</addName>
-    </name></persName>
-    <note>Deceased, mentioned in sepulchral poem</note>
-    <note type="appearances">II,17</note>
-  </person>
-
-  <person xml:id="federico-malumbra">
-    <persName><name>
-      <forename>Federico</forename>
-      <surname>Malumbra</surname>
-      <addName>Fredericus Malumbrae</addName>
-    </name></persName>
-    <note>Deceased, mentioned in sepulchral poem</note>
-    <note type="appearances">III,34</note>
-  </person>
-
-  <person xml:id="francesca-bonarella">
-    <persName><name>
-      <forename>Francesca</forename>
-      <surname>Bonarella</surname>
-      <addName>Franciscae Bonarellae</addName>
-    </name></persName>
-    <note>Wife of Giacomo Bonarello, deceased</note>
-    <note type="appearances">III,11</note>
-  </person>
-
-  <!-- LITERARY/FICTIONAL WOMEN -->
-  <person xml:id="lucina" role="literary">
-    <persName><name>Lucina</name></persName>
-    <note>The beloved, central figure of the collection</note>
-    <note type="appearances">I,8; I,17; I,34; I,43; II,34; II,37; III,9; III,46 and many more</note>
-  </person>
-
-  <person xml:id="barbara" role="literary">
-    <persName><name>Barbara</name></persName>
-    <note type="appearances">II,32</note>
-  </person>
-
-  <person xml:id="blanca" role="literary">
-    <persName><name>Blanca</name></persName>
-    <note type="appearances">II,20; III,13</note>
-  </person>
-
-  <person xml:id="lydia" role="literary">
-    <persName><name>Lydia</name></persName>
-    <note type="appearances">I,29</note>
-  </person>
-
-  <person xml:id="lampronina" role="literary">
-    <persName><name>Lampronina</name></persName>
-    <note type="appearances">II,33</note>
-  </person>
-
-  <person xml:id="tharsia" role="literary">
-    <persName><name>Tharsia</name></persName>
-    <note type="appearances">III,31</note>
-  </person>
-
-  <person xml:id="paula" role="literary">
-    <persName><name>Paula</name></persName>
-    <note type="appearances">III,43</note>
-  </person>
-
-  <person xml:id="catharina" role="literary">
-    <persName><name>Catharina</name></persName>
-    <note type="appearances">III,29</note>
-  </person>
-
-  <person xml:id="francha-camilla" role="literary">
-    <persName><name>
-      <forename>Francha</forename>
-      <surname>Camilla</surname>
-    </name></persName>
-    <note type="appearances">III,42</note>
-  </person>
-
-  <!-- ADDITIONAL PERSONS IN POEMS -->
-  <person xml:id="cicinello">
-    <persName><name>Cicinello</name></persName>
-    <note type="appearances">I,7</note>
-  </person>
-
-  <person xml:id="cirillo">
-    <persName><name>Cirillo</name></persName>
-    <note type="appearances">I,27</note>
-  </person>
-
-  <person xml:id="alba">
-    <persName><name>Alba</name></persName>
-    <note type="appearances">I,27</note>
-  </person>
-
-  <person xml:id="giusto">
-    <persName><name>Giusto</name></persName>
-    <note type="appearances">I,36</note>
-  </person>
-
-  <person xml:id="ruffo">
-    <persName><name>Ruffo</name></persName>
-    <note type="appearances">I,36</note>
-  </person>
-
-  <person xml:id="bartolomeo">
-    <persName><name>Bartolomeo</name></persName>
-    <note type="appearances">II,35</note>
-  </person>
-
-  <person xml:id="leuceo">
-    <persName><name>Leuceo</name></persName>
-    <note type="appearances">II,33</note>
-  </person>
-
-  <person xml:id="antrace">
-    <persName><name>Antrace</name></persName>
-    <note type="appearances">II,33</note>
-  </person>
-
-  <person xml:id="cavalcabove">
-    <persName><name>Cavalcabove</name></persName>
-    <note type="appearances">II,14</note>
-  </person>
-
-  <person xml:id="quintilius-carbo">
-    <persName><name>
-      <forename>Quintilius</forename>
-      <surname>Carbo</surname>
-    </name></persName>
-    <note type="appearances">I,15; III,1</note>
-  </person>
-
-  <person xml:id="giovanni-pietro-casate">
-    <persName><name>
-      <forename>Giovanni</forename>
-      <forename>Pietro</forename>
-      <surname>de Casate</surname>
-      <addName>Iohannes Petrus de Casate</addName>
-    </name></persName>
-    <note type="appearances">III,31</note>
-  </person>
-
-  <person xml:id="paolo-bonino">
-    <persName><name>
-      <forename>Paolo</forename>
-      <surname>Bonino</surname>
-      <addName>Paulus Boninus</addName>
-    </name></persName>
-    <note type="appearances">III,29</note>
-  </person>
-
-  <person xml:id="polidoro">
-    <persName><name>Polidoro</name></persName>
-    <note type="appearances">III,42</note>
-  </person>
-
-  <person xml:id="alfonso">
-    <persName><name>Alfonso</name></persName>
-    <occupation>Count</occupation>
-    <note type="appearances">III,43</note>
-  </person>
-
-  <person xml:id="gelio">
-    <persName><name>Gelio</name></persName>
-    <note type="appearances">III,15</note>
-  </person>
-
-  <person xml:id="rizardo">
-    <persName><name>Rizardo</name></persName>
-    <note>Father of Federico Malumbra</note>
-    <note type="appearances">III,34</note>
-  </person>
-
-  <person xml:id="archigene">
-    <persName><name>Archigene</name></persName>
-    <occupation>Physician</occupation>
-    <note type="appearances">II,18</note>
-  </person>
-
-  <person xml:id="marco-antonio">
-    <persName><name>
-      <forename>Marco</forename>
-      <forename>Antonio</forename>
-      <addName>Marcusantonius</addName>
-    </name></persName>
-    <note type="appearances">II,8</note>
-  </person>
-
-  <person xml:id="giovanni">
-    <persName><name>Giovanni</name></persName>
-    <note type="appearances">II,8; III,5</note>
-  </person>
-
-  <person xml:id="iulia">
-    <persName><name>Iulia</name></persName>
-    <note type="appearances">II,8</note>
-  </person>
-
-  <person xml:id="fidelia">
-    <persName><name>Fidelia</name></persName>
-    <note type="appearances">II,8</note>
-  </person>
-
-  <person xml:id="cipello">
-    <persName><name>Cipello</name></persName>
-    <note type="appearances">II,14</note>
-  </person>
-
-  <person xml:id="craessa">
-    <persName><name>Craessa</name></persName>
-    <note>puella</note>
-    <note type="appearances">I,24</note>
-  </person>
-
-  <person xml:id="melliae">
-    <persName><name>Melliae</name></persName>
-    <note>puella</note>
-    <note type="appearances">II,14</note>
-  </person>
-
-  <person xml:id="lycamber">
-    <persName><name>Lycamber</name></persName>
-    <note type="appearances">III,23</note>
-  </person>
-
-  <person xml:id="cherilus">
-    <persName><name>Cherilus</name></persName>
-    <note type="appearances">III,23</note>
-  </person>
-
-  <person xml:id="iopas">
-    <persName><name>Iopas</name></persName>
-    <note type="appearances">III,36</note>
-  </person>
-
-</listPerson>
+      <!-- AUTHOR -->
+      <person xml:id="albrisius">
+        <persName><name>
+            <forename>Aurelius</forename>
+            <forename>Laurentius</forename>
+            <surname>Albrisius</surname>
+          </name></persName>
+        <occupation>Poet laureate, priest</occupation>
+        <note>Author of the Lucina collection</note>
+      </person>
+
+      <!-- PRIMARY PATRON -->
+      <person xml:id="cicco-simonetta">
+        <persName><name>
+            <forename>Cicco</forename>
+            <surname>Simonetta</surname>
+            <addName>Cichus</addName>
+            <addName>Mecoenas</addName>
+          </name></persName>
+        <occupation>Secretary to Duke Galeazzo Maria Sforza</occupation>
+        <note>Primary patron, addressed as "Mecoenas"</note>
+        <note type="appearances">Praefatio; I,1; I,4; I,17; I,19; I,25; I,35; III,10; III,21;
+          III,26; III,47</note>
+      </person>
+
+      <!-- SFORZA DYNASTY -->
+      <person xml:id="galeazzo-sforza">
+        <persName><name>
+            <forename>Galeazzo</forename>
+            <forename>Maria</forename>
+            <surname>Sforza</surname>
+            <addName>Galeacius</addName>
+            <addName>Caesar</addName>
+          </name></persName>
+        <occupation>Duke of Milan</occupation>
+        <note type="appearances">I,9; I,15; I,21; I,30; II,22</note>
+      </person>
+
+      <person xml:id="francesco-sforza">
+        <persName><name>
+            <forename>Francesco</forename>
+            <surname>Sforza</surname>
+            <addName>Franciscus Sphorcia</addName>
+          </name></persName>
+        <occupation>Duke of Milan</occupation>
+        <note type="appearances">III,41</note>
+      </person>
+
+      <!-- SIMONETTA FAMILY -->
+      <person xml:id="giovanni-simonetta">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <surname>Simonetta</surname>
+            <addName>Iohannes</addName>
+          </name></persName>
+        <note type="appearances">I,3</note>
+      </person>
+
+      <person xml:id="giovanni-giacomo-simonetta">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Giacomo</forename>
+            <surname>Simonetta</surname>
+            <addName>Iohannes Iacobus</addName>
+          </name></persName>
+        <note>Son of Cicco Simonetta</note>
+        <note type="appearances">II,1; II,5; II,9; II,20; II,37; III,46</note>
+      </person>
+
+      <person xml:id="sigismondo-simonetta">
+        <persName><name>
+            <forename>Sigismondo</forename>
+            <surname>Simonetta</surname>
+            <addName>Sigismundus</addName>
+          </name></persName>
+        <occupation>Bishop</occupation>
+        <note type="appearances">II,3; II,18; II,27</note>
+      </person>
+
+      <person xml:id="andrea-simonetta">
+        <persName><name>
+            <forename>Andrea</forename>
+            <surname>Simonetta</surname>
+          </name></persName>
+        <note type="appearances">I,38</note>
+      </person>
+
+      <person xml:id="antonio-federico-simonetta">
+        <persName><name>
+            <forename>Antonio</forename>
+            <forename>Federico</forename>
+            <surname>Simonetta</surname>
+            <addName>Antonius Fredericus</addName>
+          </name></persName>
+        <note type="appearances">II,23; III,14</note>
+      </person>
+
+      <person xml:id="lodovico-simonetta">
+        <persName><name>
+            <forename>Lodovico</forename>
+            <surname>Simonetta</surname>
+            <addName>Lodovicus</addName>
+          </name></persName>
+        <note type="appearances">II,21; III,22</note>
+      </person>
+
+      <person xml:id="guido-antonio-simonetta">
+        <persName><name>
+            <forename>Guido</forename>
+            <forename>Antonio</forename>
+            <surname>Simonetta</surname>
+            <addName>Guidonus Antonius</addName>
+          </name></persName>
+        <note type="appearances">III,15; III,44</note>
+      </person>
+
+      <person xml:id="giovanni-francesco-simonetta">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Francesco</forename>
+            <surname>Simonetta</surname>
+            <addName>Iohannes Franciscus</addName>
+          </name></persName>
+        <note type="appearances">II,32</note>
+      </person>
+
+      <!-- VISCONTI FAMILY -->
+      <person xml:id="filippo-visconti">
+        <persName><name>
+            <forename>Filippo</forename>
+            <surname>Visconti</surname>
+            <addName>Philippus Vicecomes</addName>
+          </name></persName>
+        <note type="appearances">I,2</note>
+      </person>
+
+      <person xml:id="gaspare-visconti">
+        <persName><name>
+            <forename>Gaspare</forename>
+            <surname>Visconti</surname>
+            <addName>Gasparem Vicecomitem</addName>
+          </name></persName>
+        <note type="appearances">I,12</note>
+      </person>
+
+      <person xml:id="azone-visconti">
+        <persName><name>
+            <forename>Azone</forename>
+            <surname>Visconti</surname>
+            <addName>Azo Vicecomes</addName>
+          </name></persName>
+        <note type="appearances">I,16</note>
+      </person>
+
+      <person xml:id="ambrogio-visconti">
+        <persName><name>
+            <forename>Ambrogio</forename>
+            <surname>Visconti</surname>
+            <addName>Ambrosius Vicecomes</addName>
+          </name></persName>
+        <note type="appearances">I,27</note>
+      </person>
+
+      <person xml:id="ascanio-visconti">
+        <persName><name>
+            <forename>Ascanio</forename>
+            <surname>Visconti</surname>
+            <addName>Ascanius Vicecomes</addName>
+          </name></persName>
+        <occupation>Protonotary, later Cardinal</occupation>
+        <note type="appearances">II,2; III,12</note>
+      </person>
+
+      <!-- HUMANISTS AND POETS -->
+      <person xml:id="francesco-filelfo">
+        <persName><name>
+            <forename>Francesco</forename>
+            <surname>Filelfo</surname>
+            <addName>Franciscus Philelfus</addName>
+          </name></persName>
+        <occupation>Humanist, poet</occupation>
+        <note type="appearances">I,11; III,23; III,36</note>
+      </person>
+
+      <person xml:id="battista-plasio">
+        <persName><name>
+            <forename>Battista</forename>
+            <surname>Plasio</surname>
+            <addName>Baptista Plasius</addName>
+          </name></persName>
+        <occupation>Poet</occupation>
+        <note type="appearances">II,6; III,37</note>
+      </person>
+
+      <person xml:id="tito-strozzi">
+        <persName><name>
+            <forename>Tito</forename>
+            <surname>Strozzi</surname>
+            <addName>Titus Strozza</addName>
+          </name></persName>
+        <occupation>Poet</occupation>
+        <note type="appearances">II,15; II,26</note>
+      </person>
+
+      <person xml:id="lorenzo-strozzi">
+        <persName><name>
+            <forename>Lorenzo</forename>
+            <surname>Strozzi</surname>
+            <addName>Laurentius Strozza</addName>
+          </name></persName>
+        <occupation>Poet</occupation>
+        <note type="appearances">II,24; II,26</note>
+      </person>
+
+      <!-- CHURCH OFFICIALS -->
+      <person xml:id="giovanni-stefano-bortigella">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Stefano</forename>
+            <surname>Bortigella</surname>
+            <addName>Iohannes Stephanus Borthigela</addName>
+          </name></persName>
+        <occupation>Bishop</occupation>
+        <note type="appearances">I,20; I,37</note>
+      </person>
+
+      <person xml:id="giovanni-lamberto">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <roleName>Bishop of San Lamberto</roleName>
+            <addName>Iohannes Sancti Lamberti</addName>
+          </name></persName>
+        <occupation>Bishop</occupation>
+        <note type="appearances">III,1; III,18</note>
+      </person>
+
+      <person xml:id="giovanni-campisio">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <surname>Campisio</surname>
+            <addName>Iohannes Campisius</addName>
+          </name></persName>
+        <occupation>Bishop</occupation>
+        <note type="appearances">III,25</note>
+      </person>
+
+      <!-- NOBILITY -->
+      <person xml:id="pietro-verme">
+        <persName><name>
+            <forename>Pietro</forename>
+            <surname>Verme</surname>
+            <addName>Petrus Vermius</addName>
+          </name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">I,14</note>
+      </person>
+
+      <person xml:id="guido-torello">
+        <persName><name>
+            <forename>Guido</forename>
+            <forename>Galeazzo</forename>
+            <surname>Torello</surname>
+            <addName>Guidonus Galeacius Torellus</addName>
+          </name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">I,24; II,4; III,24</note>
+      </person>
+
+      <person xml:id="antonio-guidone">
+        <persName><name>
+            <forename>Antonio</forename>
+            <surname>Guidone</surname>
+            <addName>Antonius Guidonus</addName>
+          </name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">II,19; II,28</note>
+      </person>
+
+      <person xml:id="galeotto">
+        <persName><name>
+            <forename>Galeotto</forename>
+            <addName>Galeotus</addName>
+          </name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">I,9; II,31</note>
+      </person>
+
+      <person xml:id="giovanni-attendolo">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <surname>Attendolo</surname>
+            <addName>Iohannes Attendulus</addName>
+          </name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">I,29</note>
+      </person>
+
+      <!-- LAMIA FAMILY -->
+      <person xml:id="lamia-formio">
+        <persName><name>
+            <forename>Lamia</forename>
+            <surname>Formio</surname>
+            <addName>Lamias Formius</addName>
+          </name></persName>
+        <note type="appearances">I,10; I,13; I,23; I,40; II,13</note>
+      </person>
+
+      <person xml:id="guglielmo-lamia">
+        <persName><name>
+            <forename>Guglielmo</forename>
+            <surname>Lamia</surname>
+            <addName>Guilielminus Lamias</addName>
+          </name></persName>
+        <note type="appearances">II,35; III,16; III,28</note>
+      </person>
+
+      <!-- OTHER PERSONS -->
+      <person xml:id="francesco-varense">
+        <persName><name>
+            <forename>Francesco</forename>
+            <surname>Varense</surname>
+            <addName>Franciscus Varensis</addName>
+          </name></persName>
+        <note type="appearances">I,5</note>
+      </person>
+
+      <person xml:id="giacomo-marno">
+        <persName><name>
+            <forename>Giacomo</forename>
+            <surname>Marno</surname>
+            <addName>Iacobus Marnus</addName>
+          </name></persName>
+        <note type="appearances">I,6; III,9</note>
+      </person>
+
+      <person xml:id="giovanni-giacomo-idropota">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Giacomo</forename>
+            <addName>hydropotes</addName>
+          </name></persName>
+        <note type="appearances">I,7</note>
+      </person>
+
+      <person xml:id="brando-castiglione">
+        <persName><name>
+            <forename>Brando</forename>
+            <surname>Castiglione</surname>
+            <addName>Brandus Castillionem</addName>
+          </name></persName>
+        <note type="appearances">I,13</note>
+      </person>
+
+      <person xml:id="giovanni-antonio-vezano">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Antonio</forename>
+            <surname>Vezano</surname>
+            <addName>Iohannes Antonus Vezanus</addName>
+          </name></persName>
+        <note type="appearances">I,18</note>
+      </person>
+
+      <person xml:id="tommaso-aesino">
+        <persName><name>
+            <forename>Tommaso</forename>
+            <surname>Aesino</surname>
+            <addName>Thomas Haesinus/Hesinus</addName>
+          </name></persName>
+        <note type="appearances">I,22; II,30</note>
+      </person>
+
+      <person xml:id="giovanni-pietro-comino">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Pietro</forename>
+            <surname>Comino</surname>
+            <addName>Iohannes Petrus Cominus</addName>
+          </name></persName>
+        <note type="appearances">I,26</note>
+      </person>
+
+      <person xml:id="sero-florentino">
+        <persName><name>
+            <forename>Sero</forename>
+            <addName>Florentinus</addName>
+          </name></persName>
+        <note type="appearances">I,28; II,15</note>
+      </person>
+
+      <person xml:id="blasio">
+        <persName><name>
+            <forename>Blasio</forename>
+            <addName>Blasius</addName>
+          </name></persName>
+        <note type="appearances">I,32; II,12</note>
+      </person>
+
+      <person xml:id="vitulino-barboo">
+        <persName><name>
+            <forename>Vitulino</forename>
+            <surname>Barboo</surname>
+            <addName>Vitulinus Barbous</addName>
+          </name></persName>
+        <note type="appearances">I,33</note>
+      </person>
+
+      <person xml:id="lodovico-petrobono">
+        <persName><name>
+            <forename>Lodovico</forename>
+            <forename>Petrobono</forename>
+            <surname>Putea</surname>
+            <addName>Lodovicus Petrobonus</addName>
+          </name></persName>
+        <note type="appearances">I,39</note>
+      </person>
+
+      <person xml:id="giacomo-bonarello">
+        <persName><name>
+            <forename>Giacomo</forename>
+            <surname>Bonarello</surname>
+            <addName>Iacobus Bonarellus</addName>
+          </name></persName>
+        <note type="appearances">I,41; III,11</note>
+      </person>
+
+      <person xml:id="leonardo-glusiano">
+        <persName><name>
+            <forename>Leonardo</forename>
+            <surname>Glusiano</surname>
+            <addName>Leonardus Glusianum</addName>
+          </name></persName>
+        <note type="appearances">I,42; III,21</note>
+      </person>
+
+      <person xml:id="battista-ponzono">
+        <persName><name>
+            <forename>Battista</forename>
+            <surname>Ponzono</surname>
+            <addName>Baptista Ponçonos</addName>
+          </name></persName>
+        <note type="appearances">II,8</note>
+      </person>
+
+      <person xml:id="margarita-ponzono">
+        <persName><name>
+            <forename>Margarita</forename>
+            <surname>Ponzono</surname>
+          </name></persName>
+        <note type="appearances">II,8</note>
+      </person>
+
+      <person xml:id="baldassarre-mellio">
+        <persName><name>
+            <forename>Baldassarre</forename>
+            <surname>Mellio</surname>
+            <addName>Baldasar Mellium</addName>
+          </name></persName>
+        <note type="appearances">II,14; II,29</note>
+      </person>
+
+      <person xml:id="filippo-ferusino">
+        <persName><name>
+            <forename>Filippo</forename>
+            <surname>Ferusino</surname>
+            <addName>Philippus Ferufinus</addName>
+          </name></persName>
+        <note type="appearances">II,16; III,40</note>
+      </person>
+
+      <person xml:id="alessandro-coleta">
+        <persName><name>
+            <forename>Alessandro</forename>
+            <surname>Coleta</surname>
+            <addName>Alexander Coleta</addName>
+          </name></persName>
+        <note type="appearances">II,25</note>
+      </person>
+
+      <person xml:id="francesco-firmano">
+        <persName><name>
+            <forename>Francesco</forename>
+            <surname>Firmano</surname>
+            <addName>Franciscus Firmanus</addName>
+          </name></persName>
+        <note type="appearances">II,33</note>
+      </person>
+
+      <person xml:id="gerolamo-guidone">
+        <persName><name>
+            <forename>Gerolamo</forename>
+            <surname>Guidone</surname>
+            <addName>Hieronymus Guidonus</addName>
+          </name></persName>
+        <note type="appearances">II,36</note>
+      </person>
+
+      <person xml:id="bonino">
+        <persName><name>
+            <forename>Bonino</forename>
+            <addName>Boninus</addName>
+          </name></persName>
+        <note type="appearances">III,2</note>
+      </person>
+
+      <person xml:id="plantanide">
+        <persName><name>
+            <forename>Plantanide</forename>
+            <addName>Plantanidum</addName>
+          </name></persName>
+        <note type="appearances">III,4</note>
+      </person>
+
+      <person xml:id="giacomo-antiquario">
+        <persName><name>
+            <forename>Giacomo</forename>
+            <surname>Antiquario</surname>
+            <addName>Iacobus Antiquarius</addName>
+          </name></persName>
+        <note type="appearances">III,8</note>
+      </person>
+
+      <person xml:id="andreotto-maino">
+        <persName><name>
+            <forename>Andreotto</forename>
+            <surname>Maino</surname>
+            <addName>Andreotus Mainus</addName>
+          </name></persName>
+        <note type="appearances">III,13</note>
+      </person>
+
+      <person xml:id="fulgosio">
+        <persName><name>
+            <forename>Fulgosio</forename>
+            <addName>Fulgosius</addName>
+          </name></persName>
+        <note type="appearances">III,17</note>
+      </person>
+
+      <person xml:id="marco-troto">
+        <persName><name>
+            <forename>Marco</forename>
+            <surname>Troto</surname>
+            <addName>Marcus Trotus</addName>
+          </name></persName>
+        <note type="appearances">III,19</note>
+      </person>
+
+      <person xml:id="giovanni-molo">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <surname>Molo</surname>
+            <addName>Iohannes Molus</addName>
+          </name></persName>
+        <note type="appearances">III,20</note>
+      </person>
+
+      <person xml:id="lorenzo-landino">
+        <persName><name>
+            <forename>Lorenzo</forename>
+            <surname>Landino</surname>
+            <addName>Laurentius Landinus</addName>
+          </name></persName>
+        <note type="appearances">III,27</note>
+      </person>
+
+      <person xml:id="lauro">
+        <persName><name>
+            <forename>Lauro</forename>
+            <addName>Laurus</addName>
+          </name></persName>
+        <note type="appearances">III,30</note>
+      </person>
+
+      <person xml:id="giovanni-antonio-gerrardo">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Antonio</forename>
+            <surname>Gerrardo</surname>
+            <addName>Iohannes Antonius Gerrardus</addName>
+          </name></persName>
+        <note type="appearances">III,33</note>
+      </person>
+
+      <!-- ANTAGONISTS/CRITICIZED -->
+      <person xml:id="cerverio">
+        <persName><name>
+            <forename>Cerverio</forename>
+            <addName>Cerverius</addName>
+          </name></persName>
+        <note type="appearances">II,34; III,3; III,23</note>
+      </person>
+
+      <person xml:id="piccolo">
+        <persName><name>
+            <forename>Piccolo</forename>
+            <addName>Picculus</addName>
+          </name></persName>
+        <note type="appearances">III,35; III,39</note>
+      </person>
+
+      <person xml:id="tonso">
+        <persName><name>
+            <forename>Tonso</forename>
+            <addName>Tonsum</addName>
+          </name></persName>
+        <note type="appearances">II,10</note>
+      </person>
+
+      <person xml:id="vitulino-lechno">
+        <persName><name>
+            <forename>Vitulino</forename>
+            <surname>Lechno</surname>
+            <addName>Lechnon</addName>
+          </name></persName>
+        <note type="appearances">I,36; III,38</note>
+      </person>
+
+      <person xml:id="borsio-arsenocita">
+        <persName><name>
+            <forename>Borsio</forename>
+            <addName>Arsenociten</addName>
+          </name></persName>
+        <note type="appearances">II,7</note>
+      </person>
+
+      <person xml:id="apto">
+        <persName><name>
+            <forename>Apto</forename>
+            <addName>Aptus</addName>
+          </name></persName>
+        <note type="appearances">II,28</note>
+      </person>
+
+      <!-- DECEASED PERSONS -->
+      <person xml:id="taddeo-dovarense">
+        <persName><name>
+            <forename>Taddeo</forename>
+            <addName>Dovarensis</addName>
+          </name></persName>
+        <note>Deceased, mentioned in sepulchral poem</note>
+        <note type="appearances">II,17</note>
+      </person>
+
+      <person xml:id="federico-malumbra">
+        <persName><name>
+            <forename>Federico</forename>
+            <surname>Malumbra</surname>
+            <addName>Fredericus Malumbrae</addName>
+          </name></persName>
+        <note>Deceased, mentioned in sepulchral poem</note>
+        <note type="appearances">III,34</note>
+      </person>
+
+      <person xml:id="francesca-bonarella">
+        <persName><name>
+            <forename>Francesca</forename>
+            <surname>Bonarella</surname>
+            <addName>Franciscae Bonarellae</addName>
+          </name></persName>
+        <note>Wife of Giacomo Bonarello, deceased</note>
+        <note type="appearances">III,11</note>
+      </person>
+
+      <!-- LITERARY/FICTIONAL WOMEN -->
+      <person xml:id="lucina" role="literary">
+        <persName><name>Lucina</name></persName>
+        <note>The beloved, central figure of the collection</note>
+        <note type="appearances">I,8; I,17; I,34; I,43; II,34; II,37; III,9; III,46 and many
+          more</note>
+      </person>
+
+      <person xml:id="barbara" role="literary">
+        <persName><name>Barbara</name></persName>
+        <note type="appearances">II,32</note>
+      </person>
+
+      <person xml:id="blanca" role="literary">
+        <persName><name>Blanca</name></persName>
+        <note type="appearances">II,20; III,13</note>
+      </person>
+
+      <person xml:id="lydia" role="literary">
+        <persName><name>Lydia</name></persName>
+        <note type="appearances">I,29</note>
+      </person>
+
+      <person xml:id="lampronina" role="literary">
+        <persName><name>Lampronina</name></persName>
+        <note type="appearances">II,33</note>
+      </person>
+
+      <person xml:id="tharsia" role="literary">
+        <persName><name>Tharsia</name></persName>
+        <note type="appearances">III,31</note>
+      </person>
+
+      <person xml:id="paula" role="literary">
+        <persName><name>Paula</name></persName>
+        <note type="appearances">III,43</note>
+      </person>
+
+      <person xml:id="catharina" role="literary">
+        <persName><name>Catharina</name></persName>
+        <note type="appearances">III,29</note>
+      </person>
+
+      <person xml:id="francha-camilla" role="literary">
+        <persName><name>
+            <forename>Francha</forename>
+            <surname>Camilla</surname>
+          </name></persName>
+        <note type="appearances">III,42</note>
+      </person>
+
+      <!-- ADDITIONAL PERSONS IN POEMS -->
+      <person xml:id="cicinello">
+        <persName><name>Cicinello</name></persName>
+        <note type="appearances">I,7</note>
+      </person>
+
+      <person xml:id="cirillo">
+        <persName><name>Cirillo</name></persName>
+        <note type="appearances">I,27</note>
+      </person>
+
+      <person xml:id="alba">
+        <persName><name>Alba</name></persName>
+        <note type="appearances">I,27</note>
+      </person>
+
+      <person xml:id="giusto">
+        <persName><name>Giusto</name></persName>
+        <note type="appearances">I,36</note>
+      </person>
+
+      <person xml:id="ruffo">
+        <persName><name>Ruffo</name></persName>
+        <note type="appearances">I,36</note>
+      </person>
+
+      <person xml:id="bartolomeo">
+        <persName><name>Bartolomeo</name></persName>
+        <note type="appearances">II,35</note>
+      </person>
+
+      <person xml:id="leuceo">
+        <persName><name>Leuceo</name></persName>
+        <note type="appearances">II,33</note>
+      </person>
+
+      <person xml:id="antrace">
+        <persName><name>Antrace</name></persName>
+        <note type="appearances">II,33</note>
+      </person>
+
+      <person xml:id="cavalcabove">
+        <persName><name>Cavalcabove</name></persName>
+        <note type="appearances">II,14</note>
+      </person>
+
+      <person xml:id="quintilius-carbo">
+        <persName><name>
+            <forename>Quintilius</forename>
+            <surname>Carbo</surname>
+          </name></persName>
+        <note type="appearances">I,15; III,1</note>
+      </person>
+
+      <person xml:id="giovanni-pietro-casate">
+        <persName><name>
+            <forename>Giovanni</forename>
+            <forename>Pietro</forename>
+            <surname>de Casate</surname>
+            <addName>Iohannes Petrus de Casate</addName>
+          </name></persName>
+        <note type="appearances">III,31</note>
+      </person>
+
+      <person xml:id="paolo-bonino">
+        <persName><name>
+            <forename>Paolo</forename>
+            <surname>Bonino</surname>
+            <addName>Paulus Boninus</addName>
+          </name></persName>
+        <note type="appearances">III,29</note>
+      </person>
+
+      <person xml:id="polidoro">
+        <persName><name>Polidoro</name></persName>
+        <note type="appearances">III,42</note>
+      </person>
+
+      <person xml:id="alfonso">
+        <persName><name>Alfonso</name></persName>
+        <occupation>Count</occupation>
+        <note type="appearances">III,43</note>
+      </person>
+
+      <person xml:id="gelio">
+        <persName><name>Gelio</name></persName>
+        <note type="appearances">III,15</note>
+      </person>
+
+      <person xml:id="rizardo">
+        <persName><name>Rizardo</name></persName>
+        <note>Father of Federico Malumbra</note>
+        <note type="appearances">III,34</note>
+      </person>
+
+      <person xml:id="archigene">
+        <persName><name>Archigene</name></persName>
+        <occupation>Physician</occupation>
+        <note type="appearances">II,18</note>
+      </person>
+
+      <person xml:id="marco-antonio">
+        <persName><name>
+            <forename>Marco</forename>
+            <forename>Antonio</forename>
+            <addName>Marcusantonius</addName>
+          </name></persName>
+        <note type="appearances">II,8</note>
+      </person>
+
+      <person xml:id="giovanni">
+        <persName><name>Giovanni</name></persName>
+        <note type="appearances">II,8; III,5</note>
+      </person>
+
+      <person xml:id="iulia">
+        <persName><name>Iulia</name></persName>
+        <note type="appearances">II,8</note>
+      </person>
+
+      <person xml:id="fidelia">
+        <persName><name>Fidelia</name></persName>
+        <note type="appearances">II,8</note>
+      </person>
+
+      <person xml:id="cipello">
+        <persName><name>Cipello</name></persName>
+        <note type="appearances">II,14</note>
+      </person>
+
+      <person xml:id="craessa">
+        <persName><name>Craessa</name></persName>
+        <note>puella</note>
+        <note type="appearances">I,24</note>
+      </person>
+
+      <person xml:id="melliae">
+        <persName><name>Melliae</name></persName>
+        <note>puella</note>
+        <note type="appearances">II,14</note>
+      </person>
+
+      <person xml:id="lycamber">
+        <persName><name>Lycamber</name></persName>
+        <note type="appearances">III,23</note>
+      </person>
+
+      <person xml:id="cherilus">
+        <persName><name>Cherilus</name></persName>
+        <note type="appearances">III,23</note>
+      </person>
+
+      <person xml:id="iopas">
+        <persName><name>Iopas</name></persName>
+        <note type="appearances">III,36</note>
+      </person>
+
+    </listPerson>
     <listRelation>
-      <relation name="patron-of" active="#cicco-simonetta" passive="#albrisius"/>
-      <relation name="father-of" active="#cicco-simonetta"
-        passive="#giovanni-simonetta #giacomo-simonetta"/>
-      <relation name="rival-of" mutual="#albrisius #franciscus-varensis"/>
-      <relation name="beloved-of" active="#lucina" passive="#albrisius"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#albrisius"/>
+      <relation name="serves" active="#albrisius" passive="#galeazzo-sforza"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#cicco-simonetta"/>
+      <relation name="serves" active="#cicco-simonetta" passive="#galeazzo-sforza"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#giovanni-giacomo-simonetta"/>
+      <relation name="serves" active="#giovanni-giacomo-simonetta" passive="#galeazzo-sforza"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#andrea-simonetta"/>
+      <relation name="serves" active="#andrea-simonetta" passive="#galeazzo-sforza"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#galeotto"/>
+      <relation name="serves" active="#galeotto" passive="#galeazzo-sforza"/>
+      <relation name="rules_over" active="#galeazzo-sforza" passive="#giacomo-bonarello"/>
+      <relation name="serves" active="#giacomo-bonarello" passive="#galeazzo-sforza"/>
+      <relation name="advisor_to" active="#andreotto-maino" passive="#ascanio-visconti"/>
+      
+      <relation name="patron_of" active="#cicco-simonetta" passive="#albrisius"/>
+      <relation name="client_of" active="#albrisius" passive="#cicco-simonetta"/>
+      
+      <relation name="parent_of" active="#cicco-simonetta" passive="#giovanni-giacomo-simonetta"/>
+      <relation name="child_of" active="#giovanni-giacomo-simonetta" passive="#cicco-simonetta"/>
+      <relation name="spouse_of" active="#giacomo-bonarello" passive="#francesca-bonarella"/>
+      <relation name="spouse_of" active="#francesca-bonarella" passive="#giacomo-bonarello"/>
+      <relation name="spouse_of" active="#paolo-bonino" passive="#catharina"/>
+      <relation name="spouse_of" active="#catharina" passive="#paolo-bonino"/>
+      <relation name="parent-in-law_of" active="#guglielmo-lamia" passive="#bartolomeo"/>
+      <relation name="child-in-law_of" active="#bartolomeo" passive="#guglielmo-lamia"/>
+      
+      <relation name="beloved_by" active="#lucina" passive="#albrisius"/>
+      <relation name="loves" active="#albrisius" passive="#lucina"/>
+      <relation name="lover_of" active="#francha-camilla" passive="#polidoro"/>
+      <relation name="lover_of" active="#polidoro" passive="#francha-camilla"/>
+      <relation name="lover_of" active="#giovanni-pietro-casate" passive="#tharsia"/>
+      <relation name="abandoned_by" active="#tharsia" passive="#giovanni-pietro-casate"/>
+      <relation name="loves" active="#giovanni-francesco-simonetta" passive="#barbara"/>
+      <relation name="loves" active="#gerolamo-guidone" passive="#candida"/>
+      <relation name="lover_of" active="#lampronina" passive="#anthrace"/>
+      <relation name="lover_of" active="#anthrace" passive="#lampronina"/>
+      <relation name="rejected_lover_of" active="#leuceo" passive="#lampronina"/>
+      
+      <relation name="friend_of" active="#albrisius" passive="#giacomo-marno"/>
+      <relation name="friend_of" active="#giacomo-marno" passive="#albrisius"/>
+      <relation name="friend_of" active="#giacomo-bonarello" passive="#lamia-formio"/>
+      <relation name="friend_of" active="#lamia-formio" passive="#giacomo-bonarello"/>
+      
+      <relation name="rival_of" active="#albrisius" passive="#francesco-varense"/>
+      <relation name="rival_of" active="#francesco-varense" passive="#albrisius"/>
+      <relation name="antagonist_of" active="#cerverio" passive="#albrisius"/>
+      <relation name="criticized_by" active="#albrisius" passive="#cerverio"/>
+      
+      <relation name="godparent_for_children_of" active="#albrisius" passive="#battista-ponzono #margarita-ponzono"/>
+      
+      <relation name="colleague_of" active="#albrisius" passive="#francesco-filelfo"/>
+      <relation name="colleague_of" active="#francesco-filelfo" passive="#albrisius"/>
+      <relation name="colleague_of" active="#albrisius" passive="#battista-plasio"/>
+      <relation name="colleague_of" active="#battista-plasio" passive="#albrisius"/>
+      <relation name="colleague_of" active="#albrisius" passive="#quintilius-carbo"/>
+      <relation name="colleague_of" active="#quintilius-carbo" passive="#albrisius"/>
+      <relation name="colleague_of" active="#albrisius" passive="#tito-strozzi"/>
+      <relation name="colleague_of" active="#tito-strozzi" passive="#albrisius"/>
+      <relation name="colleague_of" active="#albrisius" passive="#lorenzo-strozzi"/>
+      <relation name="colleague_of" active="#lorenzo-strozzi" passive="#albrisius"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#cicco-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#filippo-visconti"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#francesco-varense"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giacomo-marno"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-giacomo-idropota"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#galeazzo-sforza"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lamia-formio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#francesco-filelfo"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#gaspare-visconti"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#brando-castiglione"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#pietro-verme"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#azone-visconti"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-antonio-vezano"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-stefano-bortigella"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#tommaso-aesino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#guido-torello"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-pietro-comino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#ambrogio-visconti"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#sero-florentino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-attendolo"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#blasio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#vitulino-barboo"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#andrea-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lodovico-petrobono"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giacomo-bonarello"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#leonardo-glusiano"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-giacomo-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#ascanio-visconti"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#sigismondo-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#battista-plasio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#battista-ponzono"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#margarita-ponzono"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#baldassarre-mellio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#filippo-ferusino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#antonio-guidone"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lodovico-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#antonio-federico-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lorenzo-strozzi"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#alessandro-coleta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#tito-strozzi"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-francesco-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#francesco-firmano"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#guglielmo-lamia"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#gerolamo-guidone"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-lamberto"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#bonino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#plantanide"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giacomo-antiquario"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#andreotto-maino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#guido-antonio-simonetta"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#fulgosio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#marco-troto"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-molo"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-campisio"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lorenzo-landino"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#lauro"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#giovanni-antonio-gerrardo"/>
+      <relation name="dedicates_poem_to" active="#albrisius" passive="#francesco-sforza"/>
     </listRelation>
   </standOff>
   <text>
@@ -1227,12 +1917,12 @@
           </lg>
           <lg type="elegiac">
             <l n="3">(<app>
-              <lem>Exacta</lem>
-              <rdg wit="#C">exactae</rdg>
-            </app> fuerant iam nata crepuscula  <app>
-              <lem>nocte</lem>
-              <rdg wit="#C">noctis</rdg>
-            </app>),</l>
+                <lem>Exacta</lem>
+                <rdg wit="#C">exactae</rdg>
+              </app> fuerant iam nata crepuscula <app>
+                <lem>nocte</lem>
+                <rdg wit="#C">noctis</rdg>
+              </app>),</l>
             <l n="4">Visa mihi niveo surgere nympha toro.</l>
           </lg>
           <lg type="elegiac">
