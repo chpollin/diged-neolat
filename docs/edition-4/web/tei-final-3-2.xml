@@ -2589,6 +2589,7 @@
           </lg>
           <lg type="elegiac">
             <l n="13">Musis amicus Pieridum foves</l>
+            <pb facs="image_14_1__left.jpg" n="14.1"/>
             <l n="14">Solus ministros: Solus et advenis</l>
           </lg>
           <lg type="elegiac">
@@ -2637,6 +2638,7 @@
         <div type="poem" n="21" xml:id="poem-I.21">
           <head type="number">I, 21</head>
           <head type="dedication">Ad Deum Galaecium</head>
+          <pb facs="image_14_1__left.jpg" n="14.1"/>
           <lg type="elegiac">
             <l n="1">Care deo populisque, ducum iustissme princeps</l>
             <l n="2">Insubrium, pacem bella manuque geris!</l>
