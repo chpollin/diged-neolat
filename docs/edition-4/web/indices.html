@@ -876,6 +876,15 @@
             }
         }
 
+        // Convert Roman numeral to number
+        function romanToNumber(roman) {
+            const romanNumerals = {
+                'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 
+                'VI': 6, 'VII': 7, 'VIII': 8, 'IX': 9, 'X': 10
+            };
+            return romanNumerals[roman] || 1;
+        }
+
         // Enhanced Person Extraction
         function extractEnhancedPersons() {
             const persons = teiData.querySelectorAll('standOff listPerson person');
@@ -984,11 +993,39 @@
                     console.log(`Death data for ${id}:`, deathData);
                 }
                 
-                // Extract notes with types
-                const notes = Array.from(person.querySelectorAll('note')).map(note => ({
-                    type: note.getAttribute('type') || 'general',
-                    content: note.textContent.trim()
-                }));
+                // Extract notes with types and parse appearances
+                const notes = Array.from(person.querySelectorAll('note')).map(note => {
+                    const noteType = note.getAttribute('type') || 'general';
+                    const content = note.textContent.trim();
+                    
+                    // Parse appearances if this is an appearances note
+                    let appearances = [];
+                    if (noteType === 'appearances' && content) {
+                        // Parse "I,9; I,15; I,21; I,30; II,22" format
+                        appearances = content.split(';')
+                            .map(ref => ref.trim())
+                            .filter(ref => ref)
+                            .map(ref => {
+                                // Convert "I,9" to "poem-I.9" format
+                                const match = ref.match(/([IVX]+),(\d+)/);
+                                if (match) {
+                                    const romanNum = match[1];
+                                    const poemNum = match[2];
+                                    return {
+                                        display: ref,
+                                        link: `poem-${romanNum}.${poemNum}`
+                                    };
+                                }
+                                return { display: ref, link: null };
+                            });
+                    }
+                    
+                    return {
+                        type: noteType,
+                        content: content,
+                        appearances: appearances
+                    };
+                });
                 
                 // Extract occupation
                 const occupation = person.querySelector('occupation')?.textContent?.trim();
@@ -1301,12 +1338,35 @@
                         </div>
                     ` : ''}
                     
-                    ${person.notes.map(note => `
-                        <div style="margin: 1rem 0;">
-                            ${note.type !== 'general' ? `<em>${note.type}:</em> ` : ''}
-                            ${note.content}
-                        </div>
-                    `).join('')}
+                    ${person.notes.map(note => {
+                        if (note.type === 'appearances' && note.appearances.length > 0) {
+                            return `
+                                <div style="margin: 1rem 0;">
+                                    <strong>Appearances:</strong>
+                                    <div style="margin-top: 0.5rem;">
+                                        ${note.appearances.map(app => 
+                                            app.link ? 
+                                                `<a href="index.html#${app.link}" 
+                                                    style="color: var(--primary); text-decoration: none; margin-right: 0.5rem; 
+                                                           padding: 0.25rem 0.5rem; background: rgba(44, 90, 160, 0.1); 
+                                                           border-radius: 3px; font-size: 0.9rem; font-weight: 500;"
+                                                    title="Jump to ${app.display} in the edition">${app.display}</a>` : 
+                                                `<span style="margin-right: 0.5rem; padding: 0.25rem 0.5rem; 
+                                                        background: var(--light-gray); border-radius: 3px; 
+                                                        font-size: 0.9rem;">${app.display}</span>`
+                                        ).join('')}
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div style="margin: 1rem 0;">
+                                    ${note.type !== 'general' ? `<em>${note.type}:</em> ` : ''}
+                                    ${note.content}
+                                </div>
+                            `;
+                        }
+                    }).join('')}
                     
                     ${relationships.length > 0 ? `
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
@@ -1436,14 +1496,27 @@
                         <div class="occurrences-section">
                             <div class="occurrences-title">Referenced in poems:</div>
                             <div class="occurrence-pills">
-                                ${place.occurrences.map(occ => 
-                                    `<a href="index.html#poem-${occ.poem.replace(/[,\s]/g, '-')}" 
+                                ${place.occurrences.map(occ => {
+                                    // Convert poem reference to proper link format
+                                    let poemLink = '';
+                                    const match = occ.poem.match(/([IVX]+),?\s*(\d+)/);
+                                    if (match) {
+                                        const romanNum = match[1];
+                                        const poemNum = match[2];
+                                        poemLink = `poem-${romanNum}.${poemNum}`;
+                                    } else if (occ.poem.toLowerCase().includes('praefatio')) {
+                                        poemLink = 'praefatio';
+                                    } else {
+                                        poemLink = occ.poem.replace(/[,\s]/g, '-').toLowerCase();
+                                    }
+                                    
+                                    return `<a href="index.html#${poemLink}" 
                                         class="occurrence-pill" 
-                                        title="${occ.wordForm ? `As "${occ.wordForm}"` : ''}">
+                                        title="${occ.wordForm ? `As "${occ.wordForm}" - ` : ''}Jump to ${occ.poem} in the edition">
                                         ${occ.poem}
                                         ${occ.wordForm ? ` (${occ.wordForm})` : ''}
-                                    </a>`
-                                ).join('')}
+                                    </a>`;
+                                }).join('')}
                             </div>
                         </div>
                     ` : ''}
