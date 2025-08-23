@@ -153,4 +153,13 @@ This document records the Promptotyping process and the decisions.
 ### The LLM-extracted information needs to be verified.
 
 * Important: There may be hallucinations everywhere here. But the idea is that the editor can find them in the interface and verify everything.
-* But this can no be done in the edition interface! 
+* But this can no be done in the edition interface!
+
+## Metrical Analysis Pipeline
+
+* I had no idea how rhyme works in the source text. So I built a system prompt from the source material to conduct a deep research search. From those deep research results, I then constructed another system prompt to process the source, develop an analytical approach, and feed the analysis back into the TEI.
+* The workflow uses the source context to write a query, retrieves additional knowledge (beyond just the LLM's inherent knowledge) from deep research results, combines this as "deep research extended context," and builds a query to analyze the source. The system prompt performed the analysis.
+* I worked with Gemini 2.5 because of its larger context window. However, I discovered the JSON output was far too large since every single line was being analyzed. I made it much more compact and generated metrical-summary-gemini.json.
+* In the next step, I created a Python script to insert this data into the TEI. While implementing the Python-to-TEI integration, I learned new things about the TEI structure, and I retroactively incorporated this understanding by extending the JSON schema.
+* I created the expanded JSON with Gemini, then switched back to Opus to write the extended Python script.
++ the new json was very long so output in 2 "continue", problem könnte sien dass halluzinationsen sich eingeschlichen haben, json zsuammen kopiren lästig
