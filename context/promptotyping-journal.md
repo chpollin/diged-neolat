@@ -163,3 +163,4 @@ This document records the Promptotyping process and the decisions.
 * In the next step, I created a Python script to insert this data into the TEI. While implementing the Python-to-TEI integration, I learned new things about the TEI structure, and I retroactively incorporated this understanding by extending the JSON schema.
 * I created the expanded JSON with Gemini, then switched back to Opus to write the extended Python script.
 + the new json was very long so output in 2 "continue", problem könnte sien dass halluzinationsen sich eingeschlichen haben, json zsuammen kopiren lästig
+* ich ahbe can claude opus ein snippet egegebnund um ehrliches feedback. es hat kritische fehler erkannt; habe es vorschläge zur verbesserung gegeen und habe dann das josn nochmal übverarbeitet!
