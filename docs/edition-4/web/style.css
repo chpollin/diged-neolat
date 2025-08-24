@@ -252,6 +252,9 @@ button, select, input{
   font-variant: small-caps;     /* small caps */
   margin: var(--gap-3) 0;
 }
+.page-break-before{
+  margin-bottom: var(--gap-1);
+}
 
 /* Commentary */
 .commentary-view .note{

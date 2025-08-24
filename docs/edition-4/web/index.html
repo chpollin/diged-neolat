@@ -370,7 +370,7 @@
                 });
                 
                 // Combine for full title
-                const title = dedication || 'Untitled';
+                const title = dedication || (isPraefatio ? '' : 'Untitled');
                 
                 // Extract metrical analysis from note element
                 let poemMeter = null;
@@ -459,19 +459,29 @@
                 
                 // Find start page
                 let startPage = null;
-                // Check for pb before or within poem
-                const firstPb = poemDiv.querySelector('pb');
-                if (firstPb) {
-                    startPage = firstPb.getAttribute('n');
+                
+                // Special handling for praefatio in <front>
+                if (isPraefatio) {
+                    // For praefatio, check if there's a pb as immediate previous sibling
+                    const prevSibling = poemDiv.previousElementSibling;
+                    if (prevSibling && prevSibling.tagName === 'pb') {
+                        startPage = prevSibling.getAttribute('n');
+                    }
                 } else {
-                    // Look for preceding pb
-                    let prevNode = poemDiv.previousElementSibling;
-                    while (prevNode) {
-                        if (prevNode.tagName === 'pb') {
-                            startPage = prevNode.getAttribute('n');
-                            break;
+                    // For regular poems in <body>, check for pb within the poem
+                    const firstPb = poemDiv.querySelector('pb');
+                    if (firstPb) {
+                        startPage = firstPb.getAttribute('n');
+                    } else {
+                        // Look for preceding pb as sibling (usually won't happen in body)
+                        let prevNode = poemDiv.previousElementSibling;
+                        while (prevNode) {
+                            if (prevNode.tagName === 'pb') {
+                                startPage = prevNode.getAttribute('n');
+                                break;
+                            }
+                            prevNode = prevNode.previousElementSibling;
                         }
-                        prevNode = prevNode.previousElementSibling;
                     }
                 }
                 
@@ -622,7 +632,7 @@
                 // Add title - combine number and dedication on one line
                 let displayTitle;
                 if (poem.isPraefatio) {
-                    displayTitle = `Praefatio — ${poem.title}`;
+                    displayTitle = poem.title ? `Praefatio — ${poem.title}` : 'Praefatio';
                 } else if (poem.poemNumber) {
                     displayTitle = `${poem.poemNumber} — ${poem.title}`;
                 } else {
@@ -636,7 +646,15 @@
                     meterBadge = `<span class="meter-badge" title="${meterDesc.replace(/"/g, '&quot;')}">${poem.meter}</span>`;
                 }
                 
+                // Add page break before poem only for praefatio 
+                // (since it's the only one with a page break immediately before it)
+                let pageBreakHtml = '';
+                if (poem.startPage && poem.isPraefatio) {
+                    pageBreakHtml = `<span class="page-break page-break-before">— page ${poem.startPage} —</span>`;
+                }
+                
                 const titleHtml = `
+                    ${pageBreakHtml}
                     <h3 class="poem-title">${displayTitle} ${meterBadge}</h3>
                 `;
                 poemEl.innerHTML = titleHtml;
