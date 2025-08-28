@@ -847,7 +847,7 @@
         // Enhanced Data Loading
         async function loadEnhancedIndexData() {
             try {
-                const response = await fetch('./tei-final-3-2.xml');
+                const response = await fetch('./tei-final-3-3.xml');
                 const xmlText = await response.text();
                 const parser = new DOMParser();
                 teiData = parser.parseFromString(xmlText, 'text/xml');
