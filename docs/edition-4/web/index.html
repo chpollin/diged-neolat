@@ -22,11 +22,6 @@
                 <button class="toggle" data-view="commentary">Commentary</button>
                 <button class="toggle" data-view="translation">Translation</button>
             </div>
-            <div class="metrics-toggle">
-                <button id="metricsToggle" class="toggle-btn">
-                    <span class="metrics-icon">⌣</span> Metrics
-                </button>
-            </div>
         </div>
 
         <div class="nav-right">
@@ -106,8 +101,6 @@
         let searchResults = [];
         let currentSearchIndex = -1;
         let allPages = [];
-        let metricsEnabled = false;
-        let meterDefinitions = {};
 
         // Simple logging function
         function debugLog(category, message, data = null) {
@@ -136,7 +129,7 @@
 
         // Load and Parse TEI XML
         async function loadTEI() {
-            const teiPath = './tei-final-3-3.xml';
+            const teiPath = './tei-final-3-2.xml';
             debugLog('TEI', `Loading TEI from: ${teiPath}`);
             
             try {
@@ -161,7 +154,6 @@
                 
                 // Extract data
                 extractPageMapping();
-                extractMeterDefinitions();
                 extractPersons();
                 extractPoems();
                 extractApparatus();
@@ -317,27 +309,6 @@
             console.log('Extracted persons:', persons);
         }
 
-        // Extract meter definitions from TEI header
-        function extractMeterDefinitions() {
-            debugLog('EXTRACT', 'Starting meter definitions extraction');
-            
-            const metDecl = teiDoc.querySelector('metDecl');
-            if (metDecl) {
-                const metSyms = metDecl.querySelectorAll('metSym');
-                metSyms.forEach(metSym => {
-                    const value = metSym.getAttribute('value');
-                    if (value) {
-                        meterDefinitions[value] = metSym.textContent.trim();
-                        debugLog('METER', `Added definition for ${value}`);
-                    }
-                });
-            } else {
-                debugLog('EXTRACT', 'No metDecl found in TEI header');
-            }
-            
-            console.log('Extracted meter definitions:', meterDefinitions);
-        }
-
         // Extract poems from TEI
         function extractPoems() {
             debugLog('EXTRACT', 'Starting poem extraction');
@@ -370,45 +341,20 @@
                 });
                 
                 // Combine for full title
-                const title = dedication || (isPraefatio ? '' : 'Untitled');
-                
-                // Extract metrical analysis from note element
-                let poemMeter = null;
-                let poemThemes = [];
-                const metricalNote = poemDiv.querySelector('note[type="metrical-analysis"]');
-                if (metricalNote) {
-                    const meterSeg = metricalNote.querySelector('seg[type="meter"]');
-                    if (meterSeg) {
-                        poemMeter = meterSeg.textContent.trim();
-                    }
-                    const themesSeg = metricalNote.querySelector('seg[type="themes"]');
-                    if (themesSeg) {
-                        poemThemes = themesSeg.textContent.split(';').map(t => t.trim());
-                    }
-                }
+                const title = dedication || 'Untitled';
                 
                 // Extract lines and page breaks
                 const lines = [];
                 const pageBreaks = [];
-                const lineGroups = [];
                 
                 // Get all line groups
                 const lgElements = poemDiv.querySelectorAll('lg');
                 lgElements.forEach(lg => {
-                    // Extract line group metrical info
-                    const lgType = lg.getAttribute('type');
-                    const lgMet = lg.getAttribute('met');
-                    const lgRhyme = lg.getAttribute('rhyme');
-                    const groupLines = [];
-                    
                     // Process all child nodes to maintain order
                     lg.childNodes.forEach(node => {
                         if (node.nodeType === 1) { // Element node
                             if (node.tagName === 'l') {
                                 const lineNum = node.getAttribute('n');
-                                const lineMet = node.getAttribute('met');
-                                const lineReal = node.getAttribute('real');
-                                
                                 // Get line text, preserving app elements
                                 let lineText = '';
                                 node.childNodes.forEach(child => {
@@ -424,16 +370,10 @@
                                         lineText += child.textContent;
                                     }
                                 });
-                                
-                                const lineData = {
+                                lines.push({
                                     n: parseInt(lineNum) || lines.length + 1,
-                                    text: lineText.trim(),
-                                    met: lineMet,
-                                    real: lineReal
-                                };
-                                
-                                lines.push(lineData);
-                                groupLines.push(lineData);
+                                    text: lineText.trim()
+                                });
                             } else if (node.tagName === 'pb') {
                                 const n = node.getAttribute('n');
                                 if (n) {
@@ -445,43 +385,23 @@
                             }
                         }
                     });
-                    
-                    // Store line group info if it has lines
-                    if (groupLines.length > 0) {
-                        lineGroups.push({
-                            type: lgType,
-                            met: lgMet,
-                            rhyme: lgRhyme,
-                            lines: groupLines
-                        });
-                    }
                 });
                 
                 // Find start page
                 let startPage = null;
-                
-                // Special handling for praefatio in <front>
-                if (isPraefatio) {
-                    // For praefatio, check if there's a pb as immediate previous sibling
-                    const prevSibling = poemDiv.previousElementSibling;
-                    if (prevSibling && prevSibling.tagName === 'pb') {
-                        startPage = prevSibling.getAttribute('n');
-                    }
+                // Check for pb before or within poem
+                const firstPb = poemDiv.querySelector('pb');
+                if (firstPb) {
+                    startPage = firstPb.getAttribute('n');
                 } else {
-                    // For regular poems in <body>, check for pb within the poem
-                    const firstPb = poemDiv.querySelector('pb');
-                    if (firstPb) {
-                        startPage = firstPb.getAttribute('n');
-                    } else {
-                        // Look for preceding pb as sibling (usually won't happen in body)
-                        let prevNode = poemDiv.previousElementSibling;
-                        while (prevNode) {
-                            if (prevNode.tagName === 'pb') {
-                                startPage = prevNode.getAttribute('n');
-                                break;
-                            }
-                            prevNode = prevNode.previousElementSibling;
+                    // Look for preceding pb
+                    let prevNode = poemDiv.previousElementSibling;
+                    while (prevNode) {
+                        if (prevNode.tagName === 'pb') {
+                            startPage = prevNode.getAttribute('n');
+                            break;
                         }
+                        prevNode = prevNode.previousElementSibling;
                     }
                 }
                 
@@ -497,10 +417,7 @@
                     lines: lines,
                     pageBreaks: pageBreaks,
                     startPage: startPage,
-                    isPraefatio: isPraefatio,
-                    meter: poemMeter,
-                    themes: poemThemes,
-                    lineGroups: lineGroups
+                    isPraefatio: isPraefatio
                 };
                 
                 poems.push(poem);
@@ -632,30 +549,15 @@
                 // Add title - combine number and dedication on one line
                 let displayTitle;
                 if (poem.isPraefatio) {
-                    displayTitle = poem.title ? `Praefatio — ${poem.title}` : 'Praefatio';
+                    displayTitle = `Praefatio — ${poem.title}`;
                 } else if (poem.poemNumber) {
                     displayTitle = `${poem.poemNumber} — ${poem.title}`;
                 } else {
                     displayTitle = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
                 }
                 
-                // Add meter badge if available
-                let meterBadge = '';
-                if (poem.meter && metricsEnabled) {
-                    const meterDesc = meterDefinitions[poem.meter] || poem.meter;
-                    meterBadge = `<span class="meter-badge" title="${meterDesc.replace(/"/g, '&quot;')}">${poem.meter}</span>`;
-                }
-                
-                // Add page break before poem only for praefatio 
-                // (since it's the only one with a page break immediately before it)
-                let pageBreakHtml = '';
-                if (poem.startPage && poem.isPraefatio) {
-                    pageBreakHtml = `<span class="page-break page-break-before">— page ${poem.startPage} —</span>`;
-                }
-                
                 const titleHtml = `
-                    ${pageBreakHtml}
-                    <h3 class="poem-title">${displayTitle} ${meterBadge}</h3>
+                    <h3 class="poem-title">${displayTitle}</h3>
                 `;
                 poemEl.innerHTML = titleHtml;
                 
@@ -682,20 +584,9 @@
                     // Create line element
                     const lineEl = document.createElement('div');
                     lineEl.className = line.n % 2 === 1 ? 'line hex' : 'line pent';
-                    if (metricsEnabled) {
-                        lineEl.className += ' metrics-enabled';
-                    }
                     lineEl.dataset.lineNum = line.n;
                     lineEl.dataset.poemId = poem.id;
-                    
-                    // Add scansion if metrics enabled
-                    let scansionHtml = '';
-                    if (metricsEnabled && line.real) {
-                        scansionHtml = `<span class="scansion">${line.real}</span>`;
-                    }
-                    
                     lineEl.innerHTML = `
-                        ${scansionHtml}
                         <span class="ln">${line.n}</span>
                         <span class="txt">${processLineWithApparatus(line.text, poem.id, line.n)}</span>
                     `;
@@ -1082,20 +973,6 @@
                     }
                 });
             });
-            
-            // Metrics toggle functionality
-            const metricsToggle = document.getElementById('metricsToggle');
-            if (metricsToggle) {
-                metricsToggle.addEventListener('click', () => {
-                    metricsEnabled = !metricsEnabled;
-                    metricsToggle.classList.toggle('active', metricsEnabled);
-                    debugLog('METRICS', `Metrics ${metricsEnabled ? 'enabled' : 'disabled'}`);
-                    
-                    // Re-render poems with updated metrics display
-                    renderPoems();
-                    setupScrollObserver();
-                });
-            }
         }
 
         // Search functionality
