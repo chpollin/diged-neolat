@@ -17,8 +17,10 @@ app.use(cors({
     credentials: true
 }));
 
-// Parse XML as text
+// Parse XML as text and JSON
 app.use(express.text({ type: 'text/xml', limit: '10mb' }));
+app.use(express.text({ type: 'application/xml', limit: '10mb' }));
+app.use(express.json());
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -42,7 +44,48 @@ async function ensureOutputDir() {
 // Initialize output directory on startup
 ensureOutputDir();
 
-// Save TEI XML endpoint
+// Save TEI XML endpoint (for indices.html TEI header editing)
+app.post('/save-tei', async (req, res) => {
+    try {
+        const xmlContent = req.body;
+        
+        if (!xmlContent || xmlContent.trim().length === 0) {
+            return res.status(400).json({ 
+                success: false, 
+                error: 'No XML content provided' 
+            });
+        }
+
+        // Ensure output directory exists
+        await ensureOutputDir();
+
+        // Generate timestamp-based filename for TEI header edits
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+        const filename = `tei-header-edited-${timestamp}.xml`;
+        const filePath = path.join(OUTPUT_DIR, filename);
+        
+        // Write new content to output folder
+        await fs.writeFile(filePath, xmlContent, 'utf8');
+        
+        console.log(`TEI header saved to output folder: ${filename}`);
+        
+        res.json({ 
+            success: true, 
+            message: 'TEI header saved successfully',
+            filename: filename,
+            filepath: filePath
+        });
+        
+    } catch (error) {
+        console.error('Save error:', error);
+        res.status(500).json({ 
+            success: false, 
+            error: error.message 
+        });
+    }
+});
+
+// Save TEI XML endpoint (for main edition editing)
 app.post('/save', async (req, res) => {
     try {
         const xmlContent = req.body;
@@ -136,7 +179,7 @@ async function validateTEI(xmlContent) {
 // Get original TEI XML endpoint (source file)
 app.get('/original', async (req, res) => {
     try {
-        const filePath = path.join(__dirname, 'tei-final-3-3.xml');
+        const filePath = path.join(__dirname, 'tei-final-3-4.xml');
         const content = await fs.readFile(filePath, 'utf8');
         res.type('text/xml').send(content);
     } catch (error) {
@@ -204,7 +247,7 @@ app.post('/compare', async (req, res) => {
     try {
         const { original, edited } = req.body;
         
-        const originalPath = path.join(__dirname, original || 'tei-final-3-3.xml');
+        const originalPath = path.join(__dirname, original || 'tei-final-3-4.xml');
         const editedPath = path.join(OUTPUT_DIR, edited);
         
         const originalContent = await fs.readFile(originalPath, 'utf8');

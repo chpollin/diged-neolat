@@ -630,6 +630,7 @@
             <a href="about.html" class="nav-link-btn">About</a>
             <a href="editorial.html" class="nav-link-btn">Editorial</a>
             <button class="nav-link-btn active">Index</button>
+            <button id="editToggleBtn" class="nav-link-btn" onclick="toggleEditMode()" style="margin-left: auto; background-color: #28a745; color: white;">✏️ Edit Mode</button>
         </div>
     </header>
 
@@ -827,6 +828,9 @@
     <!-- Include vis.js for network visualization -->
     <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
     
+    <!-- Include edit mode functionality -->
+    <script src="indices-edit-mode.js"></script>
+    
     <script>
         // Enhanced Data Storage
         let teiData = null;
@@ -847,10 +851,11 @@
         // Enhanced Data Loading
         async function loadEnhancedIndexData() {
             try {
-                const response = await fetch('./tei-final-3-3.xml');
+                const response = await fetch('./tei-final-3-4.xml');
                 const xmlText = await response.text();
                 const parser = new DOMParser();
                 teiData = parser.parseFromString(xmlText, 'text/xml');
+                teiDoc = parser.parseFromString(xmlText, 'text/xml'); // Keep original for saving
                 
                 if (teiData.querySelector('parsererror')) {
                     throw new Error('Failed to parse TEI XML');
