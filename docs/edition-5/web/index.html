@@ -14,6 +14,9 @@
             <a href="about.html" class="nav-link-btn">About</a>
             <a href="editorial.html" class="nav-link-btn">Editorial Introduction</a>
             <a href="indices.html" class="nav-link-btn">Index</a>
+            <button id="metricsToggle" class="nav-link-btn metrics-toggle" title="Toggle metrical annotations">
+                📏 Metrics
+            </button>
         </div>
 
         <div class="nav-center">
@@ -585,8 +588,22 @@
                     displayTitle = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
                 }
                 
+                // Add meter information if metrics enabled
+                let meterInfo = '';
+                if (metricsEnabled) {
+                    // Try to get meter from TEI
+                    const poemTeiDiv = teiDoc.querySelector(`div[*|id="${poem.id}"], div[xml\\:id="${poem.id}"]`);
+                    let meterType = 'elegiac'; // default
+                    if (poemTeiDiv) {
+                        meterType = extractPoemMeter(poemTeiDiv);
+                    }
+                    
+                    const meterDisplay = meterDefinitions[meterType] || meterType;
+                    meterInfo = `<span class="meter-info" title="Metrical form: ${meterDisplay}">[${meterDisplay}]</span>`;
+                }
+                
                 const titleHtml = `
-                    <h3 class="poem-title">${displayTitle}</h3>
+                    <h3 class="poem-title">${displayTitle} ${meterInfo}</h3>
                 `;
                 poemEl.innerHTML = titleHtml;
                 
@@ -615,9 +632,13 @@
                     lineEl.className = line.n % 2 === 1 ? 'line hex' : 'line pent';
                     lineEl.dataset.lineNum = line.n;
                     lineEl.dataset.poemId = poem.id;
+                    // Apply metrical marks if enabled
+                    const processedText = processLineWithApparatus(line.text, poem.id, line.n);
+                    const finalText = addMetricalMarks(processedText, line.n, 'elegiac');
+                    
                     lineEl.innerHTML = `
                         <span class="ln">${line.n}</span>
-                        <span class="txt">${processLineWithApparatus(line.text, poem.id, line.n)}</span>
+                        <span class="txt">${finalText}</span>
                     `;
                     
                     // Group into couplets
@@ -751,6 +772,79 @@
         function getRomanNumeral(num) {
             const numerals = ['', 'I', 'II', 'III', 'IV', 'V'];
             return numerals[num] || num.toString();
+        }
+
+        // Toggle metrics display
+        function toggleMetrics() {
+            metricsEnabled = !metricsEnabled;
+            const button = document.getElementById('metricsToggle');
+            
+            if (metricsEnabled) {
+                button.classList.add('active');
+                button.style.background = '#28a745';
+                button.style.color = 'white';
+                document.body.classList.add('metrics-enabled');
+                debugLog('METRICS', 'Metrics display enabled');
+            } else {
+                button.classList.remove('active');
+                button.style.background = '';
+                button.style.color = '';
+                document.body.classList.remove('metrics-enabled');
+                debugLog('METRICS', 'Metrics display disabled');
+            }
+            
+            // Re-render poems with metrics
+            renderPoems();
+            setupScrollObserver();
+        }
+
+        // Extract meter type from poem
+        function extractPoemMeter(poemDiv) {
+            // Look for @met attribute on lg elements
+            const lgElements = poemDiv.querySelectorAll('lg');
+            for (let lg of lgElements) {
+                const met = lg.getAttribute('met');
+                if (met) {
+                    return met;
+                }
+                // Also check type attribute
+                const type = lg.getAttribute('type');
+                if (type && (type.includes('elegiac') || type.includes('hexameter') || type.includes('pentameter'))) {
+                    return type;
+                }
+            }
+            
+            // Default for this collection (elegiac couplets)
+            return 'elegiac';
+        }
+
+        // Add metrical marks to text
+        function addMetricalMarks(text, lineNum, meterType) {
+            if (!metricsEnabled) return text;
+            
+            // For elegiac couplets
+            if (meterType === 'elegiac' || meterType === 'elegiac-couplet') {
+                // Hexameter (odd lines)
+                if (lineNum % 2 === 1) {
+                    // Add caesura mark in middle of hexameter
+                    const words = text.split(' ');
+                    const midPoint = Math.floor(words.length / 2);
+                    if (words.length > 3) {
+                        words[midPoint] = words[midPoint] + ' ||';
+                    }
+                    return words.join(' ');
+                } else {
+                    // Pentameter (even lines) - add caesura
+                    const words = text.split(' ');
+                    const midPoint = Math.floor(words.length / 2);
+                    if (words.length > 2) {
+                        words[midPoint] = words[midPoint] + ' |';
+                    }
+                    return words.join(' ');
+                }
+            }
+            
+            return text;
         }
 
         // Setup scroll observer for image synchronization
@@ -894,7 +988,8 @@
         function setupEventListeners() {
             debugLog('INIT', 'Setting up event listeners');
             
-            // Nav buttons are now direct links - no JS needed
+            // Metrics toggle button
+            document.getElementById('metricsToggle')?.addEventListener('click', toggleMetrics);
             
             // Book selector
             document.getElementById('bookSelect').addEventListener('change', (e) => {

@@ -222,6 +222,57 @@ button, select, input{
 .poem-id{ font-size: 16px; color: var(--gray-mid); }
 .poem-title{ font-size: var(--size-title); font-family: var(--font-latin); margin-bottom: var(--gap-2); }
 
+/* ========== Metrics Display ========== */
+.metrics-toggle {
+  background: transparent;
+  border: 1px solid var(--gray-mid);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 8px;
+}
+
+.metrics-toggle:hover {
+  background: var(--gray-light);
+  border-color: var(--secondary);
+}
+
+.metrics-toggle.active {
+  background: #28a745 !important;
+  color: white !important;
+  border-color: #28a745 !important;
+}
+
+.meter-info {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 2px 8px;
+  background: var(--gray-light);
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: normal;
+  border-radius: 4px;
+  font-family: var(--font-ui);
+}
+
+body.metrics-enabled .meter-info {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #4caf50;
+}
+
+/* Highlight hexameter and pentameter differently when metrics enabled */
+body.metrics-enabled .line.hex {
+  border-left: 3px solid #4caf50;
+  padding-left: 12px;
+  margin-left: -12px;
+}
+
+body.metrics-enabled .line.pent {
+  border-left: 3px solid #2196f3;
+}
+
 /* Lines */
 .couplet{ margin: 0 0 var(--gap-1); }
 .line{
