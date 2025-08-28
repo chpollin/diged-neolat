@@ -99,6 +99,8 @@ button, select, input{
 .nav-center{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: var(--gap-2);
 }
 .nav-right{
   display:flex;
@@ -249,6 +251,9 @@ button, select, input{
   color: var(--gray-mid);
   font-variant: small-caps;     /* small caps */
   margin: var(--gap-3) 0;
+}
+.page-break-before{
+  margin-bottom: var(--gap-1);
 }
 
 /* Commentary */
@@ -604,3 +609,89 @@ mark.hl.pulse{
 .text-view::-webkit-scrollbar{ width: 10px; }
 .text-view::-webkit-scrollbar-thumb{ background: #d0d7de; border-radius: 8px; }
 .text-view::-webkit-scrollbar-thumb:hover{ background: #b9c1c9; }
+
+/* ========== Metrical Annotations ========== */
+#metricsToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #d0d7de;
+  border-radius: var(--radius);
+  color: var(--gray-mid);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+#metricsToggle:hover {
+  background: var(--gray-light);
+  border-color: var(--secondary);
+}
+
+#metricsToggle.active {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+.metrics-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Meter badge on poem titles */
+.meter-badge {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 2px 8px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  vertical-align: middle;
+  cursor: help;
+}
+
+/* Scansion marks above lines */
+.line.metrics-enabled {
+  position: relative;
+  padding-top: 20px;
+}
+
+.scansion {
+  position: absolute;
+  top: 0;
+  left: 30px; /* Align with text after line number */
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+/* Rhyme scheme indicators */
+.line.metrics-enabled[data-rhyme]::after {
+  content: attr(data-rhyme);
+  position: absolute;
+  right: -30px;
+  color: var(--gray-mid);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  #metricsToggle {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .meter-badge {
+    display: block;
+    margin: 4px 0 0 0;
+    width: fit-content;
+  }
+}
