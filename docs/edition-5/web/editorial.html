@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Introduction - Lucina Digital Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .editorial-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        /* Single responsive grid */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .editorial-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Full width sections span all columns */
+        .editorial-section.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .editorial-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .editorial-section h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .metadata-table {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .metadata-table th {
+            text-align: left;
+            padding: 0.5rem;
+            background: #f5f5f5;
+            font-weight: 600;
+            width: 35%;
+            vertical-align: top;
+        }
+        
+        .metadata-table td {
+            padding: 0.5rem;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .tag {
+            background: #e9ecef;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .loading-message {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="nav" role="banner">
+        <div class="nav-left">
+            <div class="brand">Lucina Digital Edition</div>
+            <a href="index.html" class="nav-link-btn">← Back to Edition</a>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <button class="nav-link-btn active">Editorial Introduction</button>
+            <a href="indices.html" class="nav-link-btn">Index</a>
+        </div>
+    </header>
+
+    <main class="editorial-container">
+        <h1>Editorial Introduction</h1>
+        
+        <div id="editorialContent" class="loading-message">
+            Loading editorial information...
+        </div>
+    </main>
+
+    <script>
+        // Load and parse TEI for editorial content
+        async function loadEditorialContent() {
+            try {
+                const response = await fetch('./tei-final-3-2.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const teiDoc = parser.parseFromString(xmlText, 'text/xml');
+                
+                // Check for parsing errors
+                if (teiDoc.querySelector('parsererror')) {
+                    throw new Error('Failed to parse TEI XML');
+                }
+                
+                displayEditorialContent(teiDoc);
+            } catch (error) {
+                document.getElementById('editorialContent').innerHTML = `
+                    <div class="error-message">
+                        Failed to load editorial content: ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        function displayEditorialContent(teiDoc) {
+            const container = document.getElementById('editorialContent');
+            let html = '<div class="editorial-grid">';
+            
+            // The Work and Its Context - Full Width
+            const msDesc = teiDoc.querySelector('msDesc');
+            const msContents = msDesc?.querySelector('msContents');
+            if (msContents) {
+                html += `
+                    <section class="editorial-section full-width">
+                        <h2>The Work and Its Context</h2>
+                `;
+                
+                const summary = msContents.querySelector('summary');
+                if (summary) {
+                    html += `<p>${summary.textContent}</p>`;
+                }
+                
+                // Historical Context
+                const originNote = teiDoc.querySelector('history origin note')?.textContent;
+                if (originNote) {
+                    html += `<h3>Historical Context</h3><p>${originNote}</p>`;
+                }
+                
+                // Structure of the Work
+                const msItems = msContents.querySelectorAll('msItem[n]');
+                if (msItems.length > 0) {
+                    html += '<h3>Structure of the Work</h3><ul>';
+                    msItems.forEach(item => {
+                        const title = item.querySelector('title')?.textContent;
+                        const rubric = item.querySelector('rubric')?.textContent;
+                        const note = item.querySelector('note')?.textContent;
+                        
+                        if (title) {
+                            html += `<li><strong>${title}:</strong> `;
+                            if (rubric) html += `${rubric}. `;
+                            if (note) html += note;
+                            html += '</li>';
+                        }
+                    });
+                    
+                    // Add colophon if present
+                    const colophon = msContents.querySelector('colophon')?.textContent;
+                    if (colophon) {
+                        html += `<li><strong>Colophon:</strong> ${colophon}</li>`;
+                    }
+                    
+                    html += '</ul>';
+                }
+                
+                html += '</section>';
+            }
+            
+            // Literary Context
+            const litModels = teiDoc.querySelector('listBibl[type="literary-models"]');
+            if (litModels) {
+                const bibls = litModels.querySelectorAll('bibl');
+                if (bibls.length > 0) {
+                    html += `
+                        <section class="editorial-section">
+                            <h2>Literary Models & Influences</h2>
+                            <ul>
+                    `;
+                    bibls.forEach(bibl => {
+                        html += `<li>${bibl.textContent}</li>`;
+                    });
+                    html += '</ul></section>';
+                }
+            }
+            
+            // Genre Categories
+            const genres = teiDoc.querySelectorAll('taxonomy[xml\\:id="genres"] category');
+            if (genres.length > 0) {
+                html += `
+                    <section class="editorial-section">
+                        <h2>Genre Categories</h2>
+                        <p>The poems in Lucina represent a wide range of occasional poetry genres typical of the Quattrocento:</p>
+                        <ul>
+                `;
+                genres.forEach(genre => {
+                    const catDesc = genre.querySelector('catDesc')?.textContent;
+                    if (catDesc) {
+                        html += `<li>${catDesc}</li>`;
+                    }
+                });
+                html += '</ul></section>';
+            }
+            
+            // Metrical Forms
+            const meters = teiDoc.querySelectorAll('taxonomy[xml\\:id="meters"] category');
+            if (meters.length > 0) {
+                html += `
+                    <section class="editorial-section">
+                        <h2>Metrical Forms</h2>
+                        <p>Albrisius employs various classical meters throughout the collection:</p>
+                        <ul>
+                `;
+                meters.forEach(meter => {
+                    const catDesc = meter.querySelector('catDesc')?.textContent;
+                    if (catDesc) {
+                        html += `<li>${catDesc}</li>`;
+                    }
+                });
+                html += '</ul></section>';
+            }
+            
+            // Editorial Principles
+            const encodingDesc = teiDoc.querySelector('encodingDesc');
+            if (encodingDesc) {
+                html += `
+                    <section class="editorial-section">
+                        <h2>Editorial Principles</h2>
+                `;
+                
+                const projectDesc = encodingDesc.querySelector('projectDesc p');
+                if (projectDesc) {
+                    html += `<p>${projectDesc.textContent}</p>`;
+                }
+                
+                const editorialDecl = encodingDesc.querySelector('editorialDecl');
+                if (editorialDecl) {
+                    html += '<h3>Editorial Decisions</h3><ul>';
+                    
+                    const correction = editorialDecl.querySelector('correction p')?.textContent;
+                    const normalization = editorialDecl.querySelector('normalization p')?.textContent;
+                    const quotation = editorialDecl.querySelector('quotation p')?.textContent;
+                    
+                    if (correction) html += `<li><strong>Correction:</strong> ${correction}</li>`;
+                    if (normalization) html += `<li><strong>Normalization:</strong> ${normalization}</li>`;
+                    if (quotation) html += `<li><strong>Quotation:</strong> ${quotation}</li>`;
+                    html += '</ul>';
+                }
+                
+                html += '</section>';
+            }
+            
+            // Digital Edition Information
+            html += `
+                <section class="editorial-section">
+                    <h2>About This Digital Edition</h2>
+                    <table class="metadata-table">
+            `;
+            
+            const publisher = teiDoc.querySelector('publicationStmt publisher')?.textContent;
+            const pubDate = teiDoc.querySelector('publicationStmt date');
+            const editor = teiDoc.querySelector('titleStmt editor')?.textContent;
+            const encoder = teiDoc.querySelector('titleStmt respStmt persName')?.textContent;
+            const licence = teiDoc.querySelector('publicationStmt licence');
+            
+            if (publisher) {
+                html += `<tr><th>Publisher</th><td>${publisher}</td></tr>`;
+            }
+            if (editor) {
+                html += `<tr><th>Editor</th><td>${editor}</td></tr>`;
+            }
+            if (encoder) {
+                html += `<tr><th>TEI Encoding</th><td>${encoder}</td></tr>`;
+            }
+            if (pubDate) {
+                html += `<tr><th>Publication Date</th><td>${pubDate.textContent}</td></tr>`;
+            }
+            if (licence) {
+                const target = licence.getAttribute('target');
+                html += `
+                    <tr>
+                        <th>License</th>
+                        <td><a href="${target}" target="_blank">${licence.textContent}</a></td>
+                    </tr>
+                `;
+            }
+            
+            html += '</table></section>';
+            
+            // Manuscript Witnesses
+            const witnesses = teiDoc.querySelectorAll('listWit witness');
+            if (witnesses.length > 0) {
+                html += `
+                    <section class="editorial-section">
+                        <h2>Manuscript Witnesses</h2>
+                        <ul>
+                `;
+                witnesses.forEach(witness => {
+                    const id = witness.getAttribute('xml:id');
+                    const text = witness.textContent;
+                    html += `<li><strong>${id}:</strong> ${text}</li>`;
+                });
+                html += '</ul></section>';
+            }
+            
+            // Keywords
+            const keywords = teiDoc.querySelectorAll('keywords term');
+            if (keywords.length > 0) {
+                html += `
+                    <section class="editorial-section">
+                        <h2>Keywords</h2>
+                        <div class="tag-list">
+                `;
+                keywords.forEach(term => {
+                    html += `<span class="tag">${term.textContent}</span>`;
+                });
+                html += '</div></section>';
+            }
+            
+            html += '</div>'; // Close grid
+            
+            container.innerHTML = html;
+        }
+        
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', loadEditorialContent);
+    </script>
+</body>
+</html>

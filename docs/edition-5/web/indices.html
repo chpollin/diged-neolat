@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Lucina Digital Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --primary-dark: #1a3d6b;
+            --secondary: #5d4e75;
+            --accent: #8b7355;
+            --success: #2d5a3d;
+            --danger: #8b3a3a;
+            --warning: #8b6914;
+            --info: #2d5a5a;
+            --light: #fefefe;
+            --light-gray: #f7f7f7;
+            --medium-gray: #e8e8e8;
+            --dark: #2c2c2c;
+            --text-muted: #666666;
+            --border: #d4d4d4;
+            --shadow: rgba(0,0,0,0.08);
+            --shadow-sm: rgba(0,0,0,0.04);
+            --shadow-lg: rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--light);
+            font-family: "Times New Roman", Times, "Liberation Serif", serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Enhanced Container */
+        .index-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Dashboard Statistics */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .stat-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            font-weight: normal;
+        }
+
+        .stat-card-icon.persons { background: rgba(44, 90, 160, 0.08); color: var(--primary); }
+        .stat-card-icon.places { background: rgba(45, 90, 61, 0.08); color: var(--success); }
+        .stat-card-icon.relations { background: rgba(93, 78, 117, 0.08); color: var(--secondary); }
+        .stat-card-icon.occurrences { background: rgba(139, 115, 85, 0.08); color: var(--accent); }
+
+        .stat-card-value {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .stat-card-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .stat-card-detail {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Enhanced Tabs */
+        .index-tabs-wrapper {
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            background: var(--light);
+            padding-bottom: 2rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .index-tabs {
+            display: flex;
+            gap: 1px;
+            background: var(--medium-gray);
+            padding: 2px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            background: var(--light-gray);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: inherit;
+        }
+
+        .tab-button:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+
+        .tab-icon {
+            font-size: 1.2rem;
+        }
+
+        .tab-count {
+            background: rgba(255,255,255,0.2);
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+        }
+
+        /* Enhanced Search and Filters */
+        .controls-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 3rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 0.25rem;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .search-input:not(:placeholder-shown) ~ .search-clear {
+            display: block;
+        }
+
+        /* Filter Pills */
+        .filter-section {
+            margin-top: 1.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-pill {
+            background: var(--light-gray);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 3px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-muted);
+            font-family: inherit;
+        }
+
+        .filter-pill:hover {
+            background: white;
+            color: var(--dark);
+            border-color: var(--primary);
+        }
+
+        .filter-pill.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Enhanced Content Cards */
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px var(--shadow-sm);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 2px 8px var(--shadow);
+            transform: translateY(-1px);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--light-gray);
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        .card-header.person {
+            background: rgba(44, 90, 160, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-header.place {
+            background: rgba(45, 90, 61, 0.05);
+            border-left: 4px solid var(--success);
+        }
+
+        .card-header.relation {
+            background: rgba(93, 78, 117, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .card-badges {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: rgba(44, 90, 160, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .content-card.expanded .card-body {
+            max-height: 1000px;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s;
+        }
+
+        .content-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Occurrences List */
+        .occurrences-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .occurrences-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .occurrence-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .occurrence-pill {
+            background: var(--light);
+            padding: 0.375rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.825rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .occurrence-pill:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        /* Relationship Visualization */
+        .viz-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow-sm);
+            margin-bottom: 2rem;
+            min-height: 500px;
+        }
+
+        #relationshipGraph {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .viz-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .viz-control-btn {
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .viz-control-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Timeline View */
+        .timeline-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow-sm);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            min-width: 800px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: absolute;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px var(--shadow);
+            z-index: 10;
+        }
+
+        /* Map View */
+        .map-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        #mapView {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #e5e5e5;
+            position: relative;
+        }
+
+        .map-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #6c757d;
+        }
+
+        /* Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-card {
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+
+        /* Empty States */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #6c757d;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .empty-state-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .index-container {
+                padding: 1rem;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .index-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .filter-pills {
+                flex-direction: column;
+            }
+
+            .filter-pill {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Tooltips */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="nav" role="banner">
+        <div class="nav-left">
+            <div class="brand">Lucina Digital Edition</div>
+            <a href="index.html" class="nav-link-btn">← Back to Edition</a>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <a href="editorial.html" class="nav-link-btn">Editorial</a>
+            <button class="nav-link-btn active">Index</button>
+        </div>
+    </header>
+
+    <main class="index-container">
+        <header style="margin-bottom: 3rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 2rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--dark); font-family: 'Georgia', 'Times New Roman', serif; font-weight: 400;">Index Nominum et Locorum</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); font-style: italic; margin: 0;">Comprehensive Index of Persons, Places, and Relationships</p>
+        </header>
+        
+        <!-- Dashboard Statistics -->
+        <div class="dashboard" id="dashboard">
+            <div class="stat-card" onclick="switchToTab('persons')">
+                <div class="stat-card-icon persons">👥</div>
+                <div class="stat-card-value" id="stat-persons">0</div>
+                <div class="stat-card-label">Persons</div>
+                <div class="stat-card-detail" id="stat-persons-detail">Loading...</div>
+            </div>
+            
+            <div class="stat-card" onclick="switchToTab('places')">
+                <div class="stat-card-icon places">📍</div>
+                <div class="stat-card-value" id="stat-places">0</div>
+                <div class="stat-card-label">Places</div>
+                <div class="stat-card-detail" id="stat-places-detail">Loading...</div>
+            </div>
+            
+            <div class="stat-card" onclick="switchToTab('relations')">
+                <div class="stat-card-icon relations">🔗</div>
+                <div class="stat-card-value" id="stat-relations">0</div>
+                <div class="stat-card-label">Relationships</div>
+                <div class="stat-card-detail" id="stat-relations-detail">Loading...</div>
+            </div>
+            
+            <div class="stat-card" onclick="switchToTab('timeline')">
+                <div class="stat-card-icon occurrences">📅</div>
+                <div class="stat-card-value" id="stat-occurrences">0</div>
+                <div class="stat-card-label">Occurrences</div>
+                <div class="stat-card-detail" id="stat-occurrences-detail">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Enhanced Tab Navigation -->
+        <div class="index-tabs-wrapper">
+            <div class="index-tabs">
+                <button class="tab-button active" data-tab="persons" onclick="switchToTab('persons')">
+                    <span class="tab-icon">👥</span>
+                    <span>Persons</span>
+                    <span class="tab-count" id="persons-count">0</span>
+                </button>
+                <button class="tab-button" data-tab="places" onclick="switchToTab('places')">
+                    <span class="tab-icon">📍</span>
+                    <span>Places</span>
+                    <span class="tab-count" id="places-count">0</span>
+                </button>
+                <button class="tab-button" data-tab="relations" onclick="switchToTab('relations')">
+                    <span class="tab-icon">🔗</span>
+                    <span>Relations</span>
+                    <span class="tab-count" id="relations-count">0</span>
+                </button>
+                <button class="tab-button" data-tab="timeline" onclick="switchToTab('timeline')">
+                    <span class="tab-icon">📅</span>
+                    <span>Timeline</span>
+                </button>
+                <button class="tab-button" data-tab="visualization" onclick="switchToTab('visualization')">
+                    <span class="tab-icon">📊</span>
+                    <span>Network</span>
+                </button>
+                <button class="tab-button" data-tab="map" onclick="switchToTab('map')">
+                    <span class="tab-icon">🗺️</span>
+                    <span>Map</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Persons Tab -->
+        <div id="persons-tab" class="tab-content active">
+            <div class="controls-section">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" 
+                           id="person-search" 
+                           class="search-input" 
+                           placeholder="Search persons by name, role, occupation, or notes..."
+                           autocomplete="off">
+                    <button class="search-clear" onclick="clearSearch('person-search')">✕</button>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-label">Filter by Category</div>
+                    <div class="filter-pills" id="person-filters">
+                        <button class="filter-pill active" data-filter="all" onclick="filterPersons('all')">All</button>
+                        <button class="filter-pill" data-filter="patron" onclick="filterPersons('patron')">Patrons</button>
+                        <button class="filter-pill" data-filter="clergy" onclick="filterPersons('clergy')">Clergy</button>
+                        <button class="filter-pill" data-filter="literary" onclick="filterPersons('literary')">Literary</button>
+                        <button class="filter-pill" data-filter="rival" onclick="filterPersons('rival')">Rivals</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="persons-content" class="content-grid">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- Places Tab -->
+        <div id="places-tab" class="tab-content" style="display: none;">
+            <div class="controls-section">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" 
+                           id="place-search" 
+                           class="search-input" 
+                           placeholder="Search places by name (ancient or modern) or description..."
+                           autocomplete="off">
+                    <button class="search-clear" onclick="clearSearch('place-search')">✕</button>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-label">Filter by Type</div>
+                    <div class="filter-pills" id="place-filters">
+                        <button class="filter-pill active" data-filter="all" onclick="filterPlaces('all')">All</button>
+                        <button class="filter-pill" data-filter="region" onclick="filterPlaces('region')">Regions</button>
+                        <button class="filter-pill" data-filter="city" onclick="filterPlaces('city')">Cities</button>
+                        <button class="filter-pill" data-filter="town" onclick="filterPlaces('town')">Towns</button>
+                        <button class="filter-pill" data-filter="country" onclick="filterPlaces('country')">Countries</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="places-content" class="content-grid">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- Relations Tab -->
+        <div id="relations-tab" class="tab-content" style="display: none;">
+            <div class="controls-section">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" 
+                           id="relation-search" 
+                           class="search-input" 
+                           placeholder="Search relationships by type or person name..."
+                           autocomplete="off">
+                    <button class="search-clear" onclick="clearSearch('relation-search')">✕</button>
+                </div>
+            </div>
+            
+            <div id="relations-content" class="content-grid">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- Timeline Tab -->
+        <div id="timeline-tab" class="tab-content" style="display: none;">
+            <div class="timeline-container">
+                <h2>Historical Timeline</h2>
+                <div id="timeline" class="timeline">
+                    <div class="timeline-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization Tab -->
+        <div id="visualization-tab" class="tab-content" style="display: none;">
+            <div class="viz-container">
+                <h2>Relationship Network</h2>
+                <div class="viz-controls">
+                    <button class="viz-control-btn" onclick="resetNetwork()">Reset View</button>
+                    <button class="viz-control-btn" onclick="togglePhysics()">Toggle Physics</button>
+                    <button class="viz-control-btn" onclick="exportNetwork()">Export Image</button>
+                </div>
+                <div id="relationshipGraph"></div>
+            </div>
+        </div>
+
+        <!-- Map Tab -->
+        <div id="map-tab" class="tab-content" style="display: none;">
+            <div class="map-container">
+                <h2>Geographic Distribution</h2>
+                <div id="mapView">
+                    <div class="map-placeholder">
+                        <div style="font-size: 3rem;">🗺️</div>
+                        <div>Interactive map coming soon</div>
+                        <div style="font-size: 0.875rem; margin-top: 1rem;">Places will be plotted with their occurrences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include vis.js for network visualization -->
+    <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    
+    <script>
+        // Enhanced Data Storage
+        let teiData = null;
+        let personsData = [];
+        let placesData = [];
+        let relationsData = [];
+        let occurrencesData = {};
+        let network = null;
+        let currentFilter = 'all';
+        let currentTab = 'persons';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEnhancedIndexData();
+            setupEventListeners();
+        });
+
+        // Enhanced Data Loading
+        async function loadEnhancedIndexData() {
+            try {
+                const response = await fetch('./tei-final-3-2.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                teiData = parser.parseFromString(xmlText, 'text/xml');
+                
+                if (teiData.querySelector('parsererror')) {
+                    throw new Error('Failed to parse TEI XML');
+                }
+                
+                // Extract all data with enhancements
+                extractEnhancedPersons();
+                extractEnhancedPlaces();
+                extractEnhancedRelations();
+                extractOccurrences();
+                
+                // Update UI
+                updateDashboard();
+                displayPersons();
+                displayPlaces();
+                displayRelations();
+                createTimeline();
+                createNetworkVisualization();
+                
+            } catch (error) {
+                console.error('Failed to load index data:', error);
+                showError('Failed to load data. Please refresh the page.');
+            }
+        }
+
+        // Convert Roman numeral to number
+        function romanToNumber(roman) {
+            const romanNumerals = {
+                'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 
+                'VI': 6, 'VII': 7, 'VIII': 8, 'IX': 9, 'X': 10
+            };
+            return romanNumerals[roman] || 1;
+        }
+
+        // Enhanced Person Extraction
+        function extractEnhancedPersons() {
+            const persons = teiData.querySelectorAll('standOff listPerson person');
+            personsData = [];
+            
+            persons.forEach(person => {
+                const id = person.getAttribute('xml:id');
+                const role = person.getAttribute('role');
+                
+                // Extract comprehensive name data with multiple fallbacks
+                const persName = person.querySelector('persName');
+                let names = {
+                    primary: '',
+                    alternate: [],
+                    forenames: [],
+                    surname: '',
+                    roleName: ''
+                };
+                
+                if (persName) {
+                    // Method 1: Try structured name with <name> wrapper
+                    const nameElement = persName.querySelector('name');
+                    if (nameElement) {
+                        names.forenames = Array.from(nameElement.querySelectorAll('forename'))
+                            .map(f => f.textContent.trim()).filter(f => f);
+                        names.surname = nameElement.querySelector('surname')?.textContent?.trim() || '';
+                        names.primary = `${names.forenames.join(' ')} ${names.surname}`.trim();
+                    }
+                    
+                    // Method 2: Try direct forename/surname in persName
+                    if (!names.primary) {
+                        const forenames = Array.from(persName.querySelectorAll('forename')).map(f => f.textContent.trim()).filter(f => f);
+                        const surname = persName.querySelector('surname')?.textContent?.trim() || '';
+                        const roleName = persName.querySelector('roleName')?.textContent?.trim() || '';
+                        
+                        if (forenames.length > 0 || surname) {
+                            names.forenames = forenames;
+                            names.surname = surname;
+                            names.primary = `${forenames.join(' ')} ${surname}`.trim();
+                        } else if (roleName) {
+                            names.primary = roleName;
+                            names.roleName = roleName;
+                        }
+                    }
+                    
+                    // Method 3: Use persName text content directly (after removing child elements)
+                    if (!names.primary) {
+                        let textContent = persName.textContent.trim();
+                        // Clean up by removing extra whitespace
+                        textContent = textContent.replace(/\s+/g, ' ');
+                        if (textContent) {
+                            names.primary = textContent;
+                        }
+                    }
+                    
+                    // Extract alternate names
+                    names.alternate = Array.from(persName.querySelectorAll('addName'))
+                        .map(n => ({
+                            type: n.getAttribute('type'),
+                            value: n.textContent.trim()
+                        }))
+                        .filter(n => n.value);
+                    
+                    // Extract role name
+                    const roleName = persName.querySelector('roleName');
+                    if (roleName) {
+                        names.roleName = roleName.textContent.trim();
+                        if (!names.primary) {
+                            names.primary = names.roleName;
+                        }
+                    }
+                }
+                
+                // Final fallback: use xml:id as name
+                if (!names.primary && id) {
+                    names.primary = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                }
+                
+                // Ensure we always have some name
+                if (!names.primary) {
+                    names.primary = 'Unknown Person';
+                }
+                
+                // Extract birth and death information
+                const birth = person.querySelector('birth');
+                const death = person.querySelector('death');
+                
+                let birthData = null;
+                if (birth) {
+                    birthData = {
+                        when: birth.getAttribute('when'),
+                        notBefore: birth.getAttribute('notBefore'),
+                        notAfter: birth.getAttribute('notAfter'),
+                        place: birth.querySelector('placeName')?.textContent?.trim()
+                    };
+                    console.log(`Birth data for ${id}:`, birthData);
+                }
+                
+                let deathData = null;
+                if (death) {
+                    deathData = {
+                        when: death.getAttribute('when'),
+                        notAfter: death.getAttribute('notAfter'),
+                        place: death.querySelector('placeName')?.textContent?.trim()
+                    };
+                    console.log(`Death data for ${id}:`, deathData);
+                }
+                
+                // Extract notes with types and parse appearances
+                const notes = Array.from(person.querySelectorAll('note')).map(note => {
+                    const noteType = note.getAttribute('type') || 'general';
+                    const content = note.textContent.trim();
+                    
+                    // Parse appearances if this is an appearances note
+                    let appearances = [];
+                    if (noteType === 'appearances' && content) {
+                        // Parse "I,9; I,15; I,21; I,30; II,22" format
+                        appearances = content.split(';')
+                            .map(ref => ref.trim())
+                            .filter(ref => ref)
+                            .map(ref => {
+                                // Convert "I,9" to "poem-I.9" format
+                                const match = ref.match(/([IVX]+),(\d+)/);
+                                if (match) {
+                                    const romanNum = match[1];
+                                    const poemNum = match[2];
+                                    return {
+                                        display: ref,
+                                        link: `poem-${romanNum}.${poemNum}`
+                                    };
+                                }
+                                return { display: ref, link: null };
+                            });
+                    }
+                    
+                    return {
+                        type: noteType,
+                        content: content,
+                        appearances: appearances
+                    };
+                });
+                
+                // Extract occupation
+                const occupation = person.querySelector('occupation')?.textContent?.trim();
+                
+                // Determine category
+                let category = 'Other';
+                if (role === 'patron' || id.includes('simonetta')) {
+                    category = 'Patrons & Family';
+                } else if (role === 'clergy' || occupation?.toLowerCase().includes('bishop')) {
+                    category = 'Clergy';
+                } else if (role === 'literary') {
+                    category = 'Literary Figures';
+                } else if (notes.some(n => n.content.toLowerCase().includes('rival'))) {
+                    category = 'Rivals & Associates';
+                }
+                
+                personsData.push({
+                    id,
+                    names,
+                    role,
+                    category,
+                    birth: birthData,
+                    death: deathData,
+                    occupation,
+                    notes,
+                    occurrences: []  // Will be populated later
+                });
+            });
+            
+            // Sort by primary name
+            personsData.sort((a, b) => 
+                a.names.primary.localeCompare(b.names.primary)
+            );
+        }
+
+        // Enhanced Place Extraction
+        function extractEnhancedPlaces() {
+            const places = teiData.querySelectorAll('listPlace place');
+            placesData = [];
+            
+            places.forEach(place => {
+                const id = place.getAttribute('xml:id');
+                const type = place.getAttribute('type');
+                
+                // Extract all place names (ancient, modern, etc.)
+                const placeNames = Array.from(place.querySelectorAll('placeName')).map(pn => ({
+                    lang: pn.getAttribute('xml:lang'),
+                    type: pn.getAttribute('type'),
+                    value: pn.textContent.trim()
+                }));
+                
+                // Extract notes with references
+                const notes = Array.from(place.querySelectorAll('note')).map(note => {
+                    const refs = Array.from(note.querySelectorAll('ref')).map(ref => ({
+                        type: ref.getAttribute('type'),
+                        value: ref.textContent.trim()
+                    }));
+                    
+                    return {
+                        type: note.getAttribute('type'),
+                        content: note.textContent.trim(),
+                        references: refs
+                    };
+                });
+                
+                // Extract occurrences from references
+                const occurrences = [];
+                notes.forEach(note => {
+                    note.references.forEach(ref => {
+                        if (ref.type === 'poem') {
+                            occurrences.push({
+                                poem: ref.value,
+                                wordForm: note.references.find(r => r.type === 'wordForm')?.value
+                            });
+                        }
+                    });
+                });
+                
+                placesData.push({
+                    id,
+                    type,
+                    names: placeNames,
+                    notes,
+                    occurrences
+                });
+            });
+            
+            placesData.sort((a, b) => {
+                const aName = a.names[0]?.value || '';
+                const bName = b.names[0]?.value || '';
+                return aName.localeCompare(bName);
+            });
+        }
+
+        // Enhanced Relation Extraction
+        function extractEnhancedRelations() {
+            const relations = teiData.querySelectorAll('standOff listRelation relation');
+            relationsData = [];
+            
+            relations.forEach(relation => {
+                const name = relation.getAttribute('name');
+                const active = relation.getAttribute('active');
+                const passive = relation.getAttribute('passive');
+                const mutual = relation.getAttribute('mutual');
+                
+                // Parse and enhance relation data
+                const relationData = {
+                    type: name,
+                    displayName: name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                    participants: {
+                        active: active ? active.split(' ').map(id => id.replace('#', '')) : [],
+                        passive: passive ? passive.split(' ').map(id => id.replace('#', '')) : [],
+                        mutual: mutual ? mutual.split(' ').map(id => id.replace('#', '')) : []
+                    }
+                };
+                
+                // Only add relations where all participants exist
+                const allParticipants = [
+                    ...relationData.participants.active,
+                    ...relationData.participants.passive,
+                    ...relationData.participants.mutual
+                ];
+                
+                const validParticipants = allParticipants.every(id => 
+                    personsData.some(p => p.id === id)
+                );
+                
+                if (!validParticipants) {
+                    console.warn(`Invalid relation ${name}: some participants not found`, allParticipants);
+                    return; // Skip this relation
+                }
+                
+                // Add resolved names for easier display
+                relationData.resolvedNames = {
+                    active: relationData.participants.active.map(id => 
+                        personsData.find(p => p.id === id)?.names.primary || id
+                    ),
+                    passive: relationData.participants.passive.map(id => 
+                        personsData.find(p => p.id === id)?.names.primary || id
+                    ),
+                    mutual: relationData.participants.mutual.map(id => 
+                        personsData.find(p => p.id === id)?.names.primary || id
+                    )
+                };
+                
+                relationsData.push(relationData);
+            });
+        }
+
+        // Extract Occurrences from Text
+        function extractOccurrences() {
+            // This would parse the actual poem text to find occurrences
+            // For now, using the references from notes
+            let totalOccurrences = 0;
+            
+            placesData.forEach(place => {
+                totalOccurrences += place.occurrences.length;
+            });
+            
+            occurrencesData = {
+                total: totalOccurrences,
+                byType: {
+                    persons: personsData.reduce((sum, p) => sum + (p.occurrences?.length || 0), 0),
+                    places: totalOccurrences
+                }
+            };
+        }
+
+        // Update Dashboard
+        function updateDashboard() {
+            // Update statistics
+            document.getElementById('stat-persons').textContent = personsData.length;
+            document.getElementById('stat-places').textContent = placesData.length;
+            document.getElementById('stat-relations').textContent = relationsData.length;
+            document.getElementById('stat-occurrences').textContent = occurrencesData.total || 0;
+            
+            // Update details
+            const categories = {};
+            personsData.forEach(p => {
+                categories[p.category] = (categories[p.category] || 0) + 1;
+            });
+            document.getElementById('stat-persons-detail').textContent = 
+                Object.entries(categories).map(([cat, count]) => `${count} ${cat}`).join(', ');
+            
+            const placeTypes = {};
+            placesData.forEach(p => {
+                placeTypes[p.type] = (placeTypes[p.type] || 0) + 1;
+            });
+            document.getElementById('stat-places-detail').textContent = 
+                Object.entries(placeTypes).map(([type, count]) => `${count} ${type}s`).join(', ');
+            
+            document.getElementById('stat-relations-detail').textContent = 
+                `${relationsData.filter(r => r.participants.active.length > 0).length} active, ` +
+                `${relationsData.filter(r => r.participants.mutual.length > 0).length} mutual`;
+            
+            document.getElementById('stat-occurrences-detail').textContent = 
+                `Across ${placesData.filter(p => p.occurrences.length > 0).length} locations`;
+            
+            // Update tab counts
+            document.getElementById('persons-count').textContent = personsData.length;
+            document.getElementById('places-count').textContent = placesData.length;
+            document.getElementById('relations-count').textContent = relationsData.length;
+        }
+
+        // Display Enhanced Persons
+        function displayPersons(filter = '') {
+            const container = document.getElementById('persons-content');
+            container.innerHTML = '';
+            
+            let filtered = personsData;
+            
+            // Apply search filter
+            if (filter) {
+                const searchLower = filter.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.names.primary.toLowerCase().includes(searchLower) ||
+                    p.names.alternate.some(n => n.value.toLowerCase().includes(searchLower)) ||
+                    p.occupation?.toLowerCase().includes(searchLower) ||
+                    p.notes.some(n => n.content.toLowerCase().includes(searchLower))
+                );
+            }
+            
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(p => {
+                    if (currentFilter === 'patron') return p.category === 'Patrons & Family';
+                    if (currentFilter === 'clergy') return p.category === 'Clergy';
+                    if (currentFilter === 'literary') return p.category === 'Literary Figures';
+                    if (currentFilter === 'rival') return p.category === 'Rivals & Associates';
+                    return true;
+                });
+            }
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-title">No Persons Found</div>
+                        <div class="empty-state-text">Try adjusting your search or filters</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            filtered.forEach(person => {
+                const card = createPersonCard(person);
+                container.appendChild(card);
+            });
+        }
+
+        // Create Enhanced Person Card
+        function createPersonCard(person) {
+            const card = document.createElement('div');
+            card.className = 'content-card fade-in';
+            card.id = `person-${person.id}`;
+            
+            // Generate life dates string
+            let lifeDates = '';
+            if (person.birth || person.death) {
+                const birthYear = person.birth?.when || person.birth?.notBefore || '?';
+                const deathYear = person.death?.when || '?';
+                lifeDates = `(${birthYear} – ${deathYear})`;
+            }
+            
+            // Get alternate names
+            const altNames = person.names.alternate
+                .map(n => `${n.value}${n.type ? ` (${n.type})` : ''}`)
+                .join(', ');
+            
+            // Get relationships
+            const relationships = relationsData.filter(r => 
+                r.participants.active.includes(person.id) ||
+                r.participants.passive.includes(person.id) ||
+                r.participants.mutual.includes(person.id)
+            );
+            
+            card.innerHTML = `
+                <div class="card-header person" onclick="toggleCard('person-${person.id}')">
+                    <div>
+                        <div class="card-title">
+                            <span>${person.names.primary} ${lifeDates}</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="card-subtitle">${person.category}</div>
+                        <div class="card-badges">
+                            ${person.role ? `<span class="badge">${person.role}</span>` : ''}
+                            ${person.occupation ? `<span class="badge">${person.occupation}</span>` : ''}
+                            ${person.occurrences.length > 0 ? `<span class="badge">${person.occurrences.length} mentions</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    ${altNames ? `
+                        <div style="margin-bottom: 1rem;">
+                            <strong>Also known as:</strong> ${altNames}
+                        </div>
+                    ` : ''}
+                    
+                    ${person.birth ? `
+                        <div style="margin-bottom: 0.5rem;">
+                            <strong>Born:</strong> ${person.birth.when || `ca. ${person.birth.notBefore}-${person.birth.notAfter}`}
+                            ${person.birth.place ? ` in ${person.birth.place}` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    ${person.death ? `
+                        <div style="margin-bottom: 0.5rem;">
+                            <strong>Died:</strong> ${person.death.when}
+                            ${person.death.place ? ` in ${person.death.place}` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    ${person.notes.map(note => {
+                        if (note.type === 'appearances' && note.appearances.length > 0) {
+                            return `
+                                <div style="margin: 1rem 0;">
+                                    <strong>Appearances:</strong>
+                                    <div style="margin-top: 0.5rem;">
+                                        ${note.appearances.map(app => 
+                                            app.link ? 
+                                                `<a href="index.html#${app.link}" 
+                                                    style="color: var(--primary); text-decoration: none; margin-right: 0.5rem; 
+                                                           padding: 0.25rem 0.5rem; background: rgba(44, 90, 160, 0.1); 
+                                                           border-radius: 3px; font-size: 0.9rem; font-weight: 500;"
+                                                    title="Jump to ${app.display} in the edition">${app.display}</a>` : 
+                                                `<span style="margin-right: 0.5rem; padding: 0.25rem 0.5rem; 
+                                                        background: var(--light-gray); border-radius: 3px; 
+                                                        font-size: 0.9rem;">${app.display}</span>`
+                                        ).join('')}
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div style="margin: 1rem 0;">
+                                    ${note.type !== 'general' ? `<em>${note.type}:</em> ` : ''}
+                                    ${note.content}
+                                </div>
+                            `;
+                        }
+                    }).join('')}
+                    
+                    ${relationships.length > 0 ? `
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <strong>Relationships:</strong>
+                            <div style="margin-top: 0.5rem;">
+                                ${relationships.map(r => {
+                                    let desc = r.displayName + ': ';
+                                    if (r.participants.active.includes(person.id)) {
+                                        desc += `${r.displayName} of ${r.resolvedNames.passive.join(', ')}`;
+                                    } else if (r.participants.passive.includes(person.id)) {
+                                        desc += `${r.resolvedNames.active.join(', ')} is ${r.displayName}`;
+                                    } else {
+                                        desc += `mutual with ${r.resolvedNames.mutual.filter(n => n !== person.names.primary).join(', ')}`;
+                                    }
+                                    return `<div style="margin: 0.25rem 0;">• ${desc}</div>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    ${person.occurrences.length > 0 ? `
+                        <div class="occurrences-section">
+                            <div class="occurrences-title">Appears in:</div>
+                            <div class="occurrence-pills">
+                                ${person.occurrences.map(occ => 
+                                    `<a href="index.html#${occ.poem}" class="occurrence-pill">${occ.poem}</a>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Display Enhanced Places
+        function displayPlaces(filter = '') {
+            const container = document.getElementById('places-content');
+            container.innerHTML = '';
+            
+            let filtered = placesData;
+            
+            if (filter) {
+                const searchLower = filter.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.names.some(n => n.value.toLowerCase().includes(searchLower)) ||
+                    p.notes.some(n => n.content.toLowerCase().includes(searchLower))
+                );
+            }
+            
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(p => p.type === currentFilter);
+            }
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📍</div>
+                        <div class="empty-state-title">No Places Found</div>
+                        <div class="empty-state-text">Try adjusting your search or filters</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            filtered.forEach(place => {
+                const card = createPlaceCard(place);
+                container.appendChild(card);
+            });
+        }
+
+        // Create Enhanced Place Card
+        function createPlaceCard(place) {
+            const card = document.createElement('div');
+            card.className = 'content-card fade-in';
+            card.id = `place-${place.id}`;
+            
+            // Get primary and alternate names
+            const primaryName = place.names.find(n => !n.type) || place.names[0];
+            const modernName = place.names.find(n => n.type === 'modern');
+            const ancientName = place.names.find(n => n.type === 'ancient');
+            
+            // Get context note
+            const contextNote = place.notes.find(n => n.type === 'context');
+            
+            card.innerHTML = `
+                <div class="card-header place" onclick="toggleCard('place-${place.id}')">
+                    <div>
+                        <div class="card-title">
+                            <span>${primaryName.value}</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="card-subtitle">
+                            ${place.type ? place.type.charAt(0).toUpperCase() + place.type.slice(1) : ''}
+                            ${modernName ? ` • Modern: ${modernName.value}` : ''}
+                            ${ancientName ? ` • Ancient: ${ancientName.value}` : ''}
+                        </div>
+                        <div class="card-badges">
+                            ${place.names.filter(n => n.lang).map(n => 
+                                `<span class="badge">${n.lang.toUpperCase()}</span>`
+                            ).join('')}
+                            ${place.occurrences.length > 0 ? 
+                                `<span class="badge">${place.occurrences.length} references</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    ${place.names.length > 1 ? `
+                        <div style="margin-bottom: 1rem;">
+                            <strong>Names:</strong>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                ${place.names.map(n => 
+                                    `<li>${n.value}${n.type ? ` (${n.type})` : ''}${n.lang ? ` [${n.lang}]` : ''}</li>`
+                                ).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    
+                    ${contextNote ? `
+                        <div style="margin-bottom: 1rem;">
+                            <strong>Context:</strong> ${contextNote.content}
+                        </div>
+                    ` : ''}
+                    
+                    ${place.occurrences.length > 0 ? `
+                        <div class="occurrences-section">
+                            <div class="occurrences-title">Referenced in poems:</div>
+                            <div class="occurrence-pills">
+                                ${place.occurrences.map(occ => {
+                                    // Convert poem reference to proper link format
+                                    let poemLink = '';
+                                    const match = occ.poem.match(/([IVX]+),?\s*(\d+)/);
+                                    if (match) {
+                                        const romanNum = match[1];
+                                        const poemNum = match[2];
+                                        poemLink = `poem-${romanNum}.${poemNum}`;
+                                    } else if (occ.poem.toLowerCase().includes('praefatio')) {
+                                        poemLink = 'praefatio';
+                                    } else {
+                                        poemLink = occ.poem.replace(/[,\s]/g, '-').toLowerCase();
+                                    }
+                                    
+                                    return `<a href="index.html#${poemLink}" 
+                                        class="occurrence-pill" 
+                                        title="${occ.wordForm ? `As "${occ.wordForm}" - ` : ''}Jump to ${occ.poem} in the edition">
+                                        ${occ.poem}
+                                        ${occ.wordForm ? ` (${occ.wordForm})` : ''}
+                                    </a>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Display Enhanced Relations
+        function displayRelations(filter = '') {
+            const container = document.getElementById('relations-content');
+            container.innerHTML = '';
+            
+            let filtered = relationsData;
+            
+            if (filter) {
+                const searchLower = filter.toLowerCase();
+                filtered = filtered.filter(r => 
+                    r.displayName.toLowerCase().includes(searchLower) ||
+                    r.resolvedNames.active.some(n => n.toLowerCase().includes(searchLower)) ||
+                    r.resolvedNames.passive.some(n => n.toLowerCase().includes(searchLower)) ||
+                    r.resolvedNames.mutual.some(n => n.toLowerCase().includes(searchLower))
+                );
+            }
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔗</div>
+                        <div class="empty-state-title">No Relations Found</div>
+                        <div class="empty-state-text">Try adjusting your search</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            filtered.forEach(relation => {
+                const card = createRelationCard(relation);
+                container.appendChild(card);
+            });
+        }
+
+        // Create Relation Card
+        function createRelationCard(relation) {
+            const card = document.createElement('div');
+            card.className = 'content-card fade-in';
+            
+            let relationshipDescriptions = [];
+            
+            // Active-Passive relationships
+            if (relation.participants.active.length > 0 && relation.participants.passive.length > 0) {
+                relation.participants.active.forEach(activeId => {
+                    relation.participants.passive.forEach(passiveId => {
+                        const activePerson = personsData.find(p => p.id === activeId);
+                        const passivePerson = personsData.find(p => p.id === passiveId);
+                        
+                        relationshipDescriptions.push({
+                            type: 'directed',
+                            from: activePerson?.names.primary || activeId,
+                            to: passivePerson?.names.primary || passiveId,
+                            fromId: activeId,
+                            toId: passiveId
+                        });
+                    });
+                });
+            }
+            
+            // Mutual relationships
+            if (relation.participants.mutual.length > 0) {
+                const mutualNames = relation.participants.mutual.map(id => {
+                    const person = personsData.find(p => p.id === id);
+                    return { name: person?.names.primary || id, id };
+                });
+                
+                relationshipDescriptions.push({
+                    type: 'mutual',
+                    participants: mutualNames
+                });
+            }
+            
+            card.innerHTML = `
+                <div class="card-header relation">
+                    <div>
+                        <div class="card-title">
+                            <span>${relation.displayName}</span>
+                        </div>
+                        <div class="card-subtitle">
+                            ${relationshipDescriptions.length} connection${relationshipDescriptions.length !== 1 ? 's' : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="max-height: none;">
+                    ${relationshipDescriptions.map(desc => {
+                        if (desc.type === 'directed') {
+                            return `
+                                <div style="margin: 0.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                                    <a href="#person-${desc.fromId}" 
+                                       onclick="event.preventDefault(); goToPerson('${desc.fromId}')"
+                                       style="color: var(--primary); text-decoration: none; font-weight: 500;">
+                                        ${desc.from}
+                                    </a>
+                                    <span style="color: #6c757d;">→</span>
+                                    <a href="#person-${desc.toId}" 
+                                       onclick="event.preventDefault(); goToPerson('${desc.toId}')"
+                                       style="color: var(--primary); text-decoration: none; font-weight: 500;">
+                                        ${desc.to}
+                                    </a>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div style="margin: 0.5rem 0;">
+                                    <span style="color: #6c757d;">Mutual between:</span>
+                                    ${desc.participants.map(p => 
+                                        `<a href="#person-${p.id}" 
+                                            onclick="event.preventDefault(); goToPerson('${p.id}')"
+                                            style="color: var(--primary); text-decoration: none; font-weight: 500; margin: 0 0.25rem;">
+                                            ${p.name}
+                                        </a>`
+                                    ).join(' ↔ ')}
+                                </div>
+                            `;
+                        }
+                    }).join('')}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Create Timeline View
+        function createTimeline() {
+            const container = document.getElementById('timeline');
+            container.innerHTML = '<div class="timeline-line"></div>'; // Clear and reset
+            
+            console.log('Creating timeline with persons:', personsData.length);
+            
+            // Filter persons with dates - be more flexible
+            const personsWithDates = personsData.filter(p => {
+                const hasBirth = p.birth?.when || p.birth?.notBefore || p.birth?.notAfter;
+                const hasDeath = p.death?.when || p.death?.notAfter;
+                const result = hasBirth || hasDeath;
+                
+                if (result) {
+                    console.log('Person with dates:', p.names.primary, {
+                        birth: p.birth,
+                        death: p.death
+                    });
+                }
+                return result;
+            });
+            
+            console.log(`Found ${personsWithDates.length} persons with date information`);
+            
+            if (personsWithDates.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📅</div>
+                        <div class="empty-state-title">No Timeline Data</div>
+                        <div class="empty-state-text">No persons with date information found</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Calculate date range
+            let minYear = 9999;
+            let maxYear = 0;
+            
+            personsWithDates.forEach(p => {
+                let birthYear = 0;
+                let deathYear = 0;
+                
+                // Parse birth year more flexibly
+                if (p.birth?.when) {
+                    birthYear = parseInt(p.birth.when.replace(/[^\d]/g, ''));
+                } else if (p.birth?.notBefore) {
+                    birthYear = parseInt(p.birth.notBefore.replace(/[^\d]/g, ''));
+                }
+                
+                // Parse death year more flexibly
+                if (p.death?.when) {
+                    deathYear = parseInt(p.death.when.replace(/[^\d]/g, ''));
+                } else {
+                    deathYear = birthYear + 70; // Estimate lifespan
+                }
+                
+                if (birthYear > 1300 && birthYear < 1600) { // Reasonable date range
+                    if (birthYear < minYear) minYear = birthYear;
+                    if (deathYear > maxYear) maxYear = deathYear;
+                }
+            });
+            
+            // Fallback if no valid dates
+            if (minYear === 9999) {
+                minYear = 1400;
+                maxYear = 1500;
+            }
+            
+            const range = maxYear - minYear || 100;
+            
+            // Create timeline items
+            personsWithDates.forEach((person, index) => {
+                let birthYear = 0;
+                let deathYear = 0;
+                
+                if (person.birth?.when) {
+                    birthYear = parseInt(person.birth.when.replace(/[^\d]/g, ''));
+                } else if (person.birth?.notBefore) {
+                    birthYear = parseInt(person.birth.notBefore.replace(/[^\d]/g, ''));
+                }
+                
+                if (person.death?.when) {
+                    deathYear = parseInt(person.death.when.replace(/[^\d]/g, ''));
+                } else {
+                    deathYear = birthYear + 70;
+                }
+                
+                // Only show items with reasonable dates
+                if (birthYear > 1300 && birthYear < 1600) {
+                    const startPos = Math.max(0, ((birthYear - minYear) / range) * 100);
+                    const endPos = Math.min(100, ((deathYear - minYear) / range) * 100);
+                    const width = Math.max(5, endPos - startPos);
+                    
+                    const item = document.createElement('div');
+                    item.className = 'timeline-item';
+                    item.style.left = `${startPos}%`;
+                    item.style.width = `${width}%`;
+                    item.style.top = `${(index % 5) * 50 + 20}px`;
+                    
+                    const displayBirth = person.birth?.when || (person.birth?.notBefore ? `c.${person.birth.notBefore}` : '?');
+                    const displayDeath = person.death?.when || '?';
+                    
+                    item.innerHTML = `
+                        <div style="font-weight: 500; font-size: 0.9rem;">${person.names.primary}</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">${displayBirth} – ${displayDeath}</div>
+                    `;
+                    item.onclick = () => goToPerson(person.id);
+                    
+                    container.appendChild(item);
+                }
+            });
+        }
+
+        // Create Network Visualization
+        function createNetworkVisualization() {
+            const container = document.getElementById('relationshipGraph');
+            
+            // Prepare nodes
+            const nodes = personsData.map(person => ({
+                id: person.id,
+                label: person.names.primary,
+                group: person.category,
+                title: `${person.names.primary}\n${person.category}\n${person.role || ''}`
+            }));
+            
+            // Prepare edges
+            const edges = [];
+            relationsData.forEach(relation => {
+                // Active-Passive relationships
+                relation.participants.active.forEach(activeId => {
+                    relation.participants.passive.forEach(passiveId => {
+                        edges.push({
+                            from: activeId,
+                            to: passiveId,
+                            label: relation.displayName,
+                            arrows: 'to',
+                            color: { color: '#0066cc' }
+                        });
+                    });
+                });
+                
+                // Mutual relationships
+                if (relation.participants.mutual.length > 1) {
+                    for (let i = 0; i < relation.participants.mutual.length - 1; i++) {
+                        for (let j = i + 1; j < relation.participants.mutual.length; j++) {
+                            edges.push({
+                                from: relation.participants.mutual[i],
+                                to: relation.participants.mutual[j],
+                                label: relation.displayName,
+                                color: { color: '#6f42c1' }
+                            });
+                        }
+                    }
+                }
+            });
+            
+            // Create network
+            const data = { nodes, edges };
+            const options = {
+                nodes: {
+                    shape: 'dot',
+                    size: 20,
+                    font: { size: 12 },
+                    borderWidth: 2
+                },
+                edges: {
+                    width: 2,
+                    font: { size: 10, align: 'middle' },
+                    smooth: { type: 'curvedCW', roundness: 0.2 }
+                },
+                physics: {
+                    barnesHut: {
+                        gravitationalConstant: -30000,
+                        springConstant: 0.04,
+                        damping: 0.09
+                    }
+                },
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 200,
+                    zoomView: true,
+                    dragView: true
+                },
+                configure: {
+                    enabled: false
+                }
+            };
+            
+            network = new vis.Network(container, data, options);
+            
+            // Handle click events
+            network.on('click', function(params) {
+                if (params.nodes.length > 0) {
+                    const nodeId = params.nodes[0];
+                    goToPerson(nodeId);
+                }
+            });
+        }
+
+        // Navigation Functions
+        function switchToTab(tabName) {
+            // Update tabs
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            const targetTab = document.getElementById(`${tabName}-tab`);
+            if (targetTab) {
+                targetTab.style.display = 'block';
+                targetTab.classList.add('fade-in');
+            }
+            
+            currentTab = tabName;
+        }
+
+        function goToPerson(personId) {
+            switchToTab('persons');
+            setTimeout(() => {
+                const card = document.getElementById(`person-${personId}`);
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    card.classList.add('expanded');
+                    // Highlight effect
+                    card.style.boxShadow = '0 0 20px rgba(0, 102, 204, 0.5)';
+                    setTimeout(() => {
+                        card.style.boxShadow = '';
+                    }, 2000);
+                }
+            }, 100);
+        }
+
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.classList.toggle('expanded');
+            }
+        }
+
+        function clearSearch(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = '';
+            input.dispatchEvent(new Event('input'));
+        }
+
+        function filterPersons(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('#person-filters .filter-pill').forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.dataset.filter === filter) {
+                    pill.classList.add('active');
+                }
+            });
+            displayPersons(document.getElementById('person-search').value);
+        }
+
+        function filterPlaces(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('#place-filters .filter-pill').forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.dataset.filter === filter) {
+                    pill.classList.add('active');
+                }
+            });
+            displayPlaces(document.getElementById('place-search').value);
+        }
+
+        // Network control functions
+        function resetNetwork() {
+            if (network) {
+                network.fit();
+            }
+        }
+
+        function togglePhysics() {
+            if (network) {
+                const physics = network.physics.options.enabled;
+                network.setOptions({ physics: { enabled: !physics } });
+            }
+        }
+
+        function exportNetwork() {
+            if (network) {
+                const canvas = document.querySelector('#relationshipGraph canvas');
+                const link = document.createElement('a');
+                link.download = 'relationship-network.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Search inputs
+            document.getElementById('person-search').addEventListener('input', (e) => {
+                displayPersons(e.target.value);
+            });
+            
+            document.getElementById('place-search').addEventListener('input', (e) => {
+                displayPlaces(e.target.value);
+            });
+            
+            document.getElementById('relation-search').addEventListener('input', (e) => {
+                displayRelations(e.target.value);
+            });
+        }
+
+        // Error handling
+        function showError(message) {
+            console.error(message);
+            // Could show a toast notification here
+        }
+    </script>
+</body>
+</html>

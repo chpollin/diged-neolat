@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucina Digital Edition - Madrid BN Mss. 6028</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="nav" role="banner">
+        <div class="nav-left">
+            <div class="brand">Lucina Digital Edition</div>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <a href="editorial.html" class="nav-link-btn">Editorial Introduction</a>
+            <a href="indices.html" class="nav-link-btn">Index</a>
+        </div>
+
+        <div class="nav-center">
+            <div class="view-toggle">
+                <button class="toggle active" data-view="latin">Latin</button>
+                <button class="toggle" data-view="commentary">Commentary</button>
+                <button class="toggle" data-view="translation">Translation</button>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <label class="sr-only" for="bookSelect">Book</label>
+            <select id="bookSelect" class="nav-select">
+                <option value="">All Books</option>
+            </select>
+
+            <label class="sr-only" for="poemSelect">Poem</label>
+            <select id="poemSelect" class="nav-select">
+                <option value="">Select Poem</option>
+            </select>
+
+            <div class="searchbox">
+                <input id="searchInput" class="search-input" type="search" placeholder="Search...">
+                <div class="search-meta" id="searchMeta" style="display:none">
+                    <span id="searchCount">0</span>
+                    <button id="prevResult" class="icon-btn">←</button>
+                    <button id="nextResult" class="icon-btn">→</button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main id="layout">
+        <!-- Text Panel -->
+        <section id="textPanel">
+            <div id="latinView" class="text-view active" data-view="latin">
+                <div class="loading">Loading manuscript...</div>
+            </div>
+            <div id="commentaryView" class="text-view" data-view="commentary">
+                <div class="commentary-view">
+                    <p>Commentary view - coming soon</p>
+                </div>
+            </div>
+            <div id="translationView" class="text-view" data-view="translation">
+                <div class="translation-view">
+                    <p>Translation view - coming soon</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Panel (renamed from imageViewer) -->
+        <section id="imagePanel">
+            <div class="image-controls">
+                <div class="left">
+                    <button id="zoomOut" class="icon-btn">−</button>
+                    <button id="zoomIn" class="icon-btn">+</button>
+                    <button id="zoomFit" class="icon-btn">Fit</button>
+                    <button id="rotateBtn" class="icon-btn">↻</button>
+                </div>
+                <div class="center" id="pageInfo">Page —</div>
+                <div class="right" style="justify-content: flex-end">
+                    <button id="prevPage" class="icon-btn">←</button>
+                    <button id="nextPage" class="icon-btn">→</button>
+                </div>
+            </div>
+            <div class="image-stage" id="imageContainer">
+                <div class="image-overlay" style="display:flex">Select a poem to view manuscript</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Mode Module (only loaded in local environment) -->
+    <script src="edit-mode.js"></script>
+
+    <script>
+        // Global State with extensive logging
+        let teiDoc = null;
+        let poems = [];
+        let pageMapping = {};
+        let persons = {};
+        let apparatusData = [];
+        let currentPage = null;
+        let currentZoom = 1;
+        let currentRotation = 0;
+        let searchResults = [];
+        let currentSearchIndex = -1;
+        let allPages = [];
+
+        // Simple logging function
+        function debugLog(category, message, data = null) {
+            const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
+            const logMsg = `[${timestamp}] ${category}: ${message}`;
+            console.log(logMsg, data || '');
+        }
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', () => {
+            debugLog('INIT', 'Application starting');
+            console.log('Current location:', window.location.href);
+            console.log('Base path:', window.location.pathname);
+            
+            loadTEI();
+            setupEventListeners();
+            setupViewToggle();
+            handleURLState();
+            
+            // Listen for hash changes (when navigating from index)
+            window.addEventListener('hashchange', () => {
+                debugLog('URL', 'Hash changed, handling navigation');
+                handleURLState();
+            });
+        });
+
+        // Load and Parse TEI XML
+        async function loadTEI() {
+            const teiPath = './tei-final-3-3.xml';
+            debugLog('TEI', `Loading TEI from: ${teiPath}`);
+            
+            try {
+                const response = await fetch(teiPath);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const xmlString = await response.text();
+                debugLog('TEI', `Loaded XML, size: ${xmlString.length} bytes`);
+                
+                const parser = new DOMParser();
+                teiDoc = parser.parseFromString(xmlString, 'text/xml');
+                
+                // Check for parsing errors
+                const parserError = teiDoc.querySelector('parsererror');
+                if (parserError) {
+                    throw new Error('XML parsing failed: ' + parserError.textContent);
+                }
+                
+                debugLog('TEI', 'XML parsed successfully');
+                
+                // Make TEI document globally accessible for edit mode
+                window.teiDoc = teiDoc;
+                
+                // Extract data
+                extractPageMapping();
+                extractPersons();
+                extractPoems();
+                extractApparatus();
+                
+                // Verify extraction
+                verifyExtraction();
+                
+                // Populate UI
+                populateBookSelector();
+                populatePoemSelector();
+                renderPoems();
+                setupScrollObserver();
+                
+                // Mark content as fully rendered for hash navigation
+                window.teiContentReady = true;
+                debugLog('TEI', 'TEI content rendering complete');
+                
+                // Remove loading state
+                const loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.style.display = 'none';
+                }
+                
+                // Handle URL hash navigation after content is loaded
+                debugLog('TEI', 'Content loaded, checking for URL hash navigation');
+                // Wait a bit longer for DOM to settle, especially on external navigation
+                setTimeout(() => {
+                    handleURLState();
+                }, 500);
+                
+            } catch (error) {
+                console.error('Failed to load TEI:', error);
+                debugLog('ERROR', `TEI loading failed: ${error.message}`);
+                const loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.textContent = `Failed to load: ${error.message}`;
+                }
+            }
+        }
+
+        // Extract page-to-image mapping from TEI
+        function extractPageMapping() {
+            debugLog('EXTRACT', 'Starting page mapping extraction');
+            
+            const pageBreaks = teiDoc.querySelectorAll('pb');
+            debugLog('EXTRACT', `Found ${pageBreaks.length} page breaks`);
+            
+            pageBreaks.forEach((pb, index) => {
+                const facs = pb.getAttribute('facs');
+                const n = pb.getAttribute('n');
+                
+                if (facs && n) {
+                    // The TEI already has page numbers in format "6.1", "6.2" etc
+                    pageMapping[n] = facs;
+                    allPages.push(n);
+                    
+                    if (index < 5 || index >= pageBreaks.length - 5) {
+                        debugLog('PAGE', `Mapped page ${n} → ${facs}`);
+                    }
+                }
+            });
+            
+            console.log('Full page mapping:', pageMapping);
+            console.log('Total pages mapped:', Object.keys(pageMapping).length);
+            console.log('All page numbers:', allPages);
+            debugLog('EXTRACT', `Extracted ${Object.keys(pageMapping).length} page mappings`);
+        }
+
+        // Extract critical apparatus from TEI
+        function extractApparatus() {
+            debugLog('EXTRACT', 'Starting apparatus extraction');
+            
+            const appElements = teiDoc.querySelectorAll('app');
+            debugLog('EXTRACT', `Found ${appElements.length} apparatus elements`);
+            console.log('App elements found:', appElements);
+            
+            apparatusData = [];
+            
+            appElements.forEach((app, index) => {
+                const lem = app.querySelector('lem');
+                const rdgs = app.querySelectorAll('rdg');
+                
+                console.log(`Processing app ${index}:`, app, 'lem:', lem, 'rdgs:', rdgs);
+                
+                if (lem && rdgs.length > 0) {
+                    const lemWit = lem.getAttribute('wit') || '#M';  // Default to #M if no wit attribute
+                    const lemText = lem.textContent.trim();
+                    
+                    const readings = [];
+                    rdgs.forEach(rdg => {
+                        const wit = rdg.getAttribute('wit');
+                        const text = rdg.textContent.trim();
+                        readings.push({ wit, text });
+                    });
+                    
+                    // Find the line this apparatus belongs to
+                    let lineElement = app.closest('l');
+                    let lineNum = lineElement ? lineElement.getAttribute('n') : null;
+                    
+                    // Find the poem this belongs to
+                    let poemDiv = app.closest('div[type="poem"], div[type="praefatio"]');
+                    let poemId = poemDiv ? poemDiv.getAttribute('xml:id') : null;
+                    
+                    console.log(`App ${index} details:`, {
+                        lemText, lemWit, readings, lineNum, poemId
+                    });
+                    
+                    const entry = {
+                        id: `app-${index}`,
+                        lemma: { wit: lemWit, text: lemText },
+                        readings: readings,
+                        lineNum: lineNum,
+                        poemId: poemId,
+                        element: app
+                    };
+                    
+                    apparatusData.push(entry);
+                    
+                    debugLog('APPARATUS', `Entry ${index}: "${lemText}" (${lemWit}) vs "${readings.map(r => r.text).join(', ')}" in line ${lineNum} of poem ${poemId}`);
+                }
+            });
+            
+            console.log('Final extracted apparatus entries:', apparatusData);
+            console.log('Apparatus data length:', apparatusData.length);
+        }
+
+        // Extract person data from standOff
+        function extractPersons() {
+            debugLog('EXTRACT', 'Starting person extraction');
+            
+            const listPerson = teiDoc.querySelector('standOff listPerson');
+            if (listPerson) {
+                const personElements = listPerson.querySelectorAll('person');
+                debugLog('EXTRACT', `Found ${personElements.length} person elements`);
+                
+                personElements.forEach(person => {
+                    const id = person.getAttribute('xml:id');
+                    const persName = person.querySelector('persName');
+                    const note = person.querySelector('note');
+                    
+                    if (id && persName) {
+                        persons[id] = {
+                            name: persName.textContent.trim(),
+                            role: note ? note.textContent.trim() : ''
+                        };
+                        debugLog('PERSON', `Added: ${id} = ${persons[id].name}`);
+                    }
+                });
+            } else {
+                debugLog('EXTRACT', 'No standOff/listPerson found in TEI');
+            }
+            
+            console.log('Extracted persons:', persons);
+        }
+
+        // Extract poems from TEI
+        function extractPoems() {
+            debugLog('EXTRACT', 'Starting poem extraction');
+            
+            // Include both poems and the praefatio
+            const poemDivs = teiDoc.querySelectorAll('div[type="poem"], div[type="praefatio"]');
+            debugLog('EXTRACT', `Found ${poemDivs.length} poem/praefatio divs`);
+            
+            poemDivs.forEach((poemDiv, index) => {
+                const isPraefatio = poemDiv.getAttribute('type') === 'praefatio';
+                const bookDiv = poemDiv.closest('div[type="book"]');
+                const bookNum = isPraefatio ? '0' : (bookDiv?.getAttribute('n') || '1');
+                const poemNum = isPraefatio ? '0' : (poemDiv.getAttribute('n') || (index + 1).toString());
+                // Extract both head elements for number and dedication
+                const heads = poemDiv.querySelectorAll('head');
+                let poemNumber = '';
+                let dedication = '';
+                
+                heads.forEach(head => {
+                    const type = head.getAttribute('type');
+                    if (type === 'number') {
+                        poemNumber = head.textContent.trim();
+                    } else if (type === 'dedication') {
+                        dedication = head.textContent.trim();
+                    } else if (type === 'author' && isPraefatio) {
+                        // For praefatio, use author head as main text
+                        poemNumber = 'Praefatio';
+                        dedication = head.textContent.trim();
+                    }
+                });
+                
+                // Combine for full title
+                const title = dedication || 'Untitled';
+                
+                // Extract lines and page breaks
+                const lines = [];
+                const pageBreaks = [];
+                
+                // Get all line groups
+                const lgElements = poemDiv.querySelectorAll('lg');
+                lgElements.forEach(lg => {
+                    // Process all child nodes to maintain order
+                    lg.childNodes.forEach(node => {
+                        if (node.nodeType === 1) { // Element node
+                            if (node.tagName === 'l') {
+                                const lineNum = node.getAttribute('n');
+                                // Get line text, preserving app elements
+                                let lineText = '';
+                                node.childNodes.forEach(child => {
+                                    if (child.nodeType === 3) { // Text node
+                                        lineText += child.textContent;
+                                    } else if (child.tagName === 'app') {
+                                        // Use lemma text for display
+                                        const lem = child.querySelector('lem');
+                                        if (lem) {
+                                            lineText += lem.textContent;
+                                        }
+                                    } else {
+                                        lineText += child.textContent;
+                                    }
+                                });
+                                lines.push({
+                                    n: parseInt(lineNum) || lines.length + 1,
+                                    text: lineText.trim()
+                                });
+                            } else if (node.tagName === 'pb') {
+                                const n = node.getAttribute('n');
+                                if (n) {
+                                    pageBreaks.push({
+                                        page: n,
+                                        afterLine: lines.length
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+                
+                // Find start page
+                let startPage = null;
+                // Check for pb before or within poem
+                const firstPb = poemDiv.querySelector('pb');
+                if (firstPb) {
+                    startPage = firstPb.getAttribute('n');
+                } else {
+                    // Look for preceding pb
+                    let prevNode = poemDiv.previousElementSibling;
+                    while (prevNode) {
+                        if (prevNode.tagName === 'pb') {
+                            startPage = prevNode.getAttribute('n');
+                            break;
+                        }
+                        prevNode = prevNode.previousElementSibling;
+                    }
+                }
+                
+                // Check if the poem has an xml:id and use it
+                const xmlId = poemDiv.getAttribute('xml:id');
+                
+                const poem = {
+                    id: xmlId || (isPraefatio ? 'praefatio' : `poem-${bookNum}.${poemNum}`),
+                    book: parseInt(bookNum),
+                    number: parseInt(poemNum),
+                    poemNumber: poemNumber,  // Store the formatted number
+                    title: title,
+                    lines: lines,
+                    pageBreaks: pageBreaks,
+                    startPage: startPage,
+                    isPraefatio: isPraefatio
+                };
+                
+                poems.push(poem);
+                
+                if (index < 3) {
+                    debugLog('POEM', `Added poem ${poem.id}: "${title.substring(0, 30)}..." with ${lines.length} lines`);
+                }
+            });
+            
+            console.log(`Extracted ${poems.length} poems total`);
+            console.log('First 3 poems:', poems.slice(0, 3));
+        }
+
+        // Verify extraction completeness
+        function verifyExtraction() {
+            debugLog('VERIFY', 'Starting extraction verification');
+            
+            // Count statistics
+            const stats = {
+                totalPoems: poems.length,
+                totalLines: poems.reduce((sum, p) => sum + p.lines.length, 0),
+                totalPages: Object.keys(pageMapping).length,
+                poemsPerBook: {}
+            };
+            
+            // Count poems per book
+            poems.forEach(poem => {
+                if (!stats.poemsPerBook[poem.book]) {
+                    stats.poemsPerBook[poem.book] = 0;
+                }
+                stats.poemsPerBook[poem.book]++;
+            });
+            
+            // Verify expected counts
+            const expected = {
+                poems: 127,  // Based on grep count
+                minLines: 2000,  // Approximate
+                minPages: 100   // Approximate
+            };
+            
+            console.log('=== EXTRACTION VERIFICATION ===');
+            console.log('Statistics:', stats);
+            console.log('Expected minimums:', expected);
+            
+            if (stats.totalPoems < expected.poems) {
+                console.warn(`WARNING: Only extracted ${stats.totalPoems} poems, expected ${expected.poems}`);
+            }
+            
+            if (stats.totalLines < expected.minLines) {
+                console.warn(`WARNING: Only extracted ${stats.totalLines} lines, expected at least ${expected.minLines}`);
+            }
+            
+            debugLog('VERIFY', `Verification complete: ${stats.totalPoems} poems, ${stats.totalLines} lines, ${stats.totalPages} pages`);
+            
+            return stats;
+        }
+
+        // Populate book selector
+        function populateBookSelector() {
+            const bookSelect = document.getElementById('bookSelect');
+            const books = [...new Set(poems.map(p => p.book))].sort();
+            
+            debugLog('UI', `Populating book selector with ${books.length} books`);
+            
+            bookSelect.innerHTML = '<option value="">All Books</option>';
+            books.forEach(book => {
+                const option = document.createElement('option');
+                option.value = book;
+                option.textContent = `Book ${book}`;
+                bookSelect.appendChild(option);
+            });
+        }
+
+        // Populate poem selector
+        function populatePoemSelector() {
+            const poemSelect = document.getElementById('poemSelect');
+            const bookSelect = document.getElementById('bookSelect');
+            const selectedBook = bookSelect.value;
+            
+            poemSelect.innerHTML = '<option value="">Select Poem</option>';
+            
+            // For praefatio (book 0), only show it when "All Books" is selected
+            const filteredPoems = selectedBook ? 
+                poems.filter(p => p.book == selectedBook && !p.isPraefatio) : poems;
+            
+            debugLog('UI', `Populating poem selector with ${filteredPoems.length} poems`);
+            
+            filteredPoems.forEach(poem => {
+                const option = document.createElement('option');
+                option.value = poem.id;
+                let displayText;
+                if (poem.isPraefatio) {
+                    displayText = `Praefatio — ${poem.title}`;
+                } else if (poem.poemNumber) {
+                    displayText = `${poem.poemNumber} — ${poem.title}`;
+                } else {
+                    displayText = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                }
+                option.textContent = displayText.substring(0, 60) + (displayText.length > 60 ? '...' : '');
+                poemSelect.appendChild(option);
+            });
+        }
+
+        // Render poems in Latin view
+        function renderPoems() {
+            const latinView = document.getElementById('latinView');
+            latinView.innerHTML = '';
+            
+            const bookSelect = document.getElementById('bookSelect');
+            const selectedBook = bookSelect.value;
+            
+            // For praefatio (book 0), only show it when "All Books" is selected
+            const filteredPoems = selectedBook ? 
+                poems.filter(p => p.book == selectedBook && !p.isPraefatio) : poems;
+            
+            debugLog('RENDER', `Rendering ${filteredPoems.length} poems`);
+            
+            filteredPoems.forEach(poem => {
+                const poemEl = document.createElement('div');
+                poemEl.className = 'poem';
+                poemEl.id = poem.id;
+                poemEl.dataset.poemId = poem.id;
+                poemEl.dataset.book = poem.book;
+                poemEl.dataset.number = poem.number;
+                if (poem.startPage) {
+                    poemEl.dataset.startPage = poem.startPage;
+                }
+                
+                // Add title - combine number and dedication on one line
+                let displayTitle;
+                if (poem.isPraefatio) {
+                    displayTitle = `Praefatio — ${poem.title}`;
+                } else if (poem.poemNumber) {
+                    displayTitle = `${poem.poemNumber} — ${poem.title}`;
+                } else {
+                    displayTitle = `${getRomanNumeral(poem.book)}, ${poem.number} — ${poem.title}`;
+                }
+                
+                const titleHtml = `
+                    <h3 class="poem-title">${displayTitle}</h3>
+                `;
+                poemEl.innerHTML = titleHtml;
+                
+                // Add lines with couplet formatting
+                let currentCouplet = null;
+                let pageBreakIndex = 0;
+                
+                poem.lines.forEach((line, index) => {
+                    // Check for page break before this line
+                    while (pageBreakIndex < poem.pageBreaks.length && 
+                           poem.pageBreaks[pageBreakIndex].afterLine === index) {
+                        if (currentCouplet) {
+                            poemEl.appendChild(currentCouplet);
+                            currentCouplet = null;
+                        }
+                        const pageBreak = document.createElement('span');
+                        pageBreak.className = 'page-break';
+                        pageBreak.dataset.page = poem.pageBreaks[pageBreakIndex].page;
+                        pageBreak.textContent = `— page ${poem.pageBreaks[pageBreakIndex].page} —`;
+                        poemEl.appendChild(pageBreak);
+                        pageBreakIndex++;
+                    }
+                    
+                    // Create line element
+                    const lineEl = document.createElement('div');
+                    lineEl.className = line.n % 2 === 1 ? 'line hex' : 'line pent';
+                    lineEl.dataset.lineNum = line.n;
+                    lineEl.dataset.poemId = poem.id;
+                    lineEl.innerHTML = `
+                        <span class="num">${line.n}</span>
+                        <span class="txt">${processLineWithApparatus(line.text, poem.id, line.n)}</span>
+                    `;
+                    
+                    // Group into couplets
+                    if (line.n % 2 === 1) {
+                        if (currentCouplet) {
+                            poemEl.appendChild(currentCouplet);
+                        }
+                        currentCouplet = document.createElement('div');
+                        currentCouplet.className = 'couplet';
+                        currentCouplet.appendChild(lineEl);
+                    } else {
+                        if (currentCouplet) {
+                            currentCouplet.appendChild(lineEl);
+                        } else {
+                            // Orphaned pentameter
+                            currentCouplet = document.createElement('div');
+                            currentCouplet.className = 'couplet';
+                            currentCouplet.appendChild(lineEl);
+                        }
+                    }
+                });
+                
+                // Add final couplet
+                if (currentCouplet) {
+                    poemEl.appendChild(currentCouplet);
+                }
+                
+                // Check for remaining page breaks
+                while (pageBreakIndex < poem.pageBreaks.length) {
+                    const pageBreak = document.createElement('span');
+                    pageBreak.className = 'page-break';
+                    pageBreak.dataset.page = poem.pageBreaks[pageBreakIndex].page;
+                    pageBreak.textContent = `— page ${poem.pageBreaks[pageBreakIndex].page} —`;
+                    poemEl.appendChild(pageBreak);
+                    pageBreakIndex++;
+                }
+                
+                latinView.appendChild(poemEl);
+            });
+        }
+
+        // Process line text with apparatus markers
+        function processLineWithApparatus(text, poemId, lineNum) {
+            // Debug all calls
+            if (poemId === 'poem-1.1' && lineNum == 3) {
+                console.log('SPECIAL DEBUG: Processing line 3 of poem-1.1');
+                console.log('Available apparatus data:', apparatusData);
+                console.log('Looking for poemId:', poemId, 'lineNum:', lineNum);
+            }
+            
+            // Find apparatus entries for this line
+            const lineApparatus = apparatusData.filter(app => 
+                app.poemId === poemId && app.lineNum == lineNum
+            );
+            
+            if (lineApparatus.length > 0) {
+                console.log(`Processing line ${lineNum} of poem ${poemId}:`, {
+                    text,
+                    apparatusEntries: lineApparatus
+                });
+            }
+            
+            if (lineApparatus.length === 0) {
+                return text;
+            }
+            
+            let processedText = text;
+            
+            // Replace each apparatus lemma with inline apparatus
+            lineApparatus.forEach(app => {
+                const lemmaText = app.lemma.text;
+                const regex = new RegExp(`\\b${escapeRegex(lemmaText)}\\b`, 'gi');
+                console.log(`Attempting to replace "${lemmaText}" in "${text}" with regex:`, regex);
+                
+                processedText = processedText.replace(regex, (match) => {
+                    console.log(`Matched "${match}", creating inline apparatus`);
+                    // Create inline apparatus display
+                    const variants = app.readings.map(r => 
+                        `<span class="apparatus-variant">${r.text}</span> <span class="apparatus-wit">${r.wit}</span>`
+                    ).join(', ');
+                    
+                    return `<span class="apparatus-inline">
+                        <span class="apparatus-lemma-inline">${match}</span>
+                        <span class="apparatus-bracket">[</span><span class="apparatus-wit">${app.lemma.wit}</span><span class="apparatus-bracket">:</span>
+                        ${variants}<span class="apparatus-bracket">]</span>
+                    </span>`;
+                });
+            });
+            
+            if (processedText !== text) {
+                console.log(`Line ${lineNum} transformed from: "${text}" to:`, processedText);
+            }
+            
+            return processedText;
+        }
+        
+        // Escape special regex characters
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Wrap person references with tooltips - DISABLED due to display issues
+        function wrapPersonReferences(text) {
+            // Temporarily disabled person wrapping to fix display issues
+            // Will need proper HTML escaping and careful regex matching
+            return text;
+            
+            /* Original code - needs fixing:
+            let result = text;
+            
+            Object.entries(persons).forEach(([id, person]) => {
+                const names = [person.name];
+                const parts = person.name.split(' ');
+                if (parts.length > 1) {
+                    names.push(parts[parts.length - 1]);
+                }
+                
+                names.forEach(name => {
+                    const regex = new RegExp(`\\b${name}\\b`, 'gi');
+                    result = result.replace(regex, (match) => {
+                        return `<span class="person" data-id="${id}" title="${person.name}${person.role ? ' - ' + person.role : ''}">${match}</span>`;
+                    });
+                });
+            });
+            
+            return result;
+            */
+        }
+
+        // Convert number to Roman numeral
+        function getRomanNumeral(num) {
+            const numerals = ['', 'I', 'II', 'III', 'IV', 'V'];
+            return numerals[num] || num.toString();
+        }
+
+        // Setup scroll observer for image synchronization
+        function setupScrollObserver() {
+            debugLog('OBSERVER', 'Setting up scroll observer');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.dataset.startPage) {
+                            debugLog('SCROLL', `Poem ${entry.target.id} in view, page: ${entry.target.dataset.startPage}`);
+                            updateImage(entry.target.dataset.startPage);
+                        } else if (entry.target.dataset.page) {
+                            debugLog('SCROLL', `Page break ${entry.target.dataset.page} in view`);
+                            updateImage(entry.target.dataset.page);
+                        }
+                    }
+                });
+            }, { 
+                threshold: 0.3,  // Trigger earlier for better sync
+                rootMargin: '-50px 0px -200px 0px'  // Adjusted for better alignment
+            });
+
+            // Observe poems and page breaks
+            const poemElements = document.querySelectorAll('.poem[data-start-page]');
+            const pageBreakElements = document.querySelectorAll('.page-break[data-page]');
+            
+            debugLog('OBSERVER', `Observing ${poemElements.length} poems and ${pageBreakElements.length} page breaks`);
+            
+            poemElements.forEach(el => observer.observe(el));
+            pageBreakElements.forEach(el => observer.observe(el));
+        }
+
+        // Update manuscript image
+        function updateImage(pageNumber) {
+            if (currentPage === pageNumber) return;
+            
+            currentPage = pageNumber;
+            const imagePath = pageMapping[pageNumber];
+            const imageContainer = document.getElementById('imageContainer');
+            const pageInfo = document.getElementById('pageInfo');
+            const overlay = imageContainer.querySelector('.image-overlay');
+            
+            debugLog('IMAGE', `Updating to page ${pageNumber}`);
+            pageInfo.textContent = `Page ${pageNumber}`;
+            
+            if (imagePath) {
+                // Build the correct relative path
+                const fullPath = `../../facsimiles/${imagePath}`;
+                debugLog('IMAGE', `Loading image from: ${fullPath}`);
+                console.log('Full image path:', fullPath);
+                
+                // Hide overlay
+                if (overlay) overlay.style.display = 'none';
+                
+                // Check if image already exists
+                let img = document.getElementById('manuscriptImage');
+                if (!img) {
+                    img = document.createElement('img');
+                    img.id = 'manuscriptImage';
+                    imageContainer.appendChild(img);
+                }
+                
+                img.src = fullPath;
+                img.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+                
+                img.onload = () => {
+                    debugLog('IMAGE', `Successfully loaded: ${imagePath}`);
+                };
+                
+                img.onerror = () => {
+                    debugLog('ERROR', `Failed to load image: ${fullPath}`);
+                    console.error('Image load failed:', fullPath);
+                    // Show placeholder image or message
+                    if (overlay) {
+                        overlay.style.display = 'flex';
+                        overlay.innerHTML = `
+                            <div style="text-align: center; padding: 20px;">
+                                <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                                <div>Page ${pageNumber}</div>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">Image not available</div>
+                            </div>
+                        `;
+                    }
+                };
+                
+                // Setup drag to pan
+                setupImageDrag(img);
+            } else {
+                debugLog('IMAGE', `No image mapping for page ${pageNumber}`);
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                    overlay.innerHTML = `
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                            <div>Page ${pageNumber}</div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Manuscript page not yet mapped</div>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Setup image dragging
+        function setupImageDrag(img) {
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+            
+            img.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                img.style.cursor = 'grabbing';
+                startX = e.pageX - img.offsetLeft;
+                startY = e.pageY - img.offsetTop;
+                scrollLeft = img.parentElement.scrollLeft;
+                scrollTop = img.parentElement.scrollTop;
+            });
+            
+            img.addEventListener('mouseleave', () => {
+                isDragging = false;
+                img.style.cursor = 'grab';
+            });
+            
+            img.addEventListener('mouseup', () => {
+                isDragging = false;
+                img.style.cursor = 'grab';
+            });
+            
+            img.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - img.offsetLeft;
+                const y = e.pageY - img.offsetTop;
+                const walkX = (x - startX) * 2;
+                const walkY = (y - startY) * 2;
+                img.parentElement.scrollLeft = scrollLeft - walkX;
+                img.parentElement.scrollTop = scrollTop - walkY;
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            debugLog('INIT', 'Setting up event listeners');
+            
+            // Nav buttons are now direct links - no JS needed
+            
+            // Book selector
+            document.getElementById('bookSelect').addEventListener('change', (e) => {
+                debugLog('UI', `Book selected: ${e.target.value || 'All'}`);
+                populatePoemSelector();
+                renderPoems();
+                setupScrollObserver();
+            });
+            
+            // Poem selector
+            document.getElementById('poemSelect').addEventListener('change', (e) => {
+                if (e.target.value) {
+                    debugLog('UI', `Poem selected: ${e.target.value}`);
+                    const poem = document.getElementById(e.target.value);
+                    if (poem) {
+                        poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+            
+            // Zoom controls
+            document.getElementById('zoomIn').addEventListener('click', () => {
+                currentZoom = Math.min(3, currentZoom + 0.25);
+                debugLog('ZOOM', `Zoom in: ${currentZoom}`);
+                updateZoom();
+            });
+            
+            document.getElementById('zoomOut').addEventListener('click', () => {
+                currentZoom = Math.max(0.5, currentZoom - 0.25);
+                debugLog('ZOOM', `Zoom out: ${currentZoom}`);
+                updateZoom();
+            });
+            
+            document.getElementById('zoomFit').addEventListener('click', () => {
+                currentZoom = 1;
+                debugLog('ZOOM', 'Zoom reset to 1');
+                updateZoom();
+            });
+            
+            document.getElementById('rotateBtn').addEventListener('click', () => {
+                currentRotation = (currentRotation + 90) % 360;
+                debugLog('ROTATE', `Rotation: ${currentRotation}°`);
+                updateZoom();
+            });
+            
+            // Page navigation
+            document.getElementById('prevPage').addEventListener('click', () => {
+                const index = allPages.indexOf(currentPage);
+                if (index > 0) {
+                    debugLog('NAV', `Previous page: ${allPages[index - 1]}`);
+                    updateImage(allPages[index - 1]);
+                }
+            });
+            
+            document.getElementById('nextPage').addEventListener('click', () => {
+                const index = allPages.indexOf(currentPage);
+                if (index < allPages.length - 1) {
+                    debugLog('NAV', `Next page: ${allPages[index + 1]}`);
+                    updateImage(allPages[index + 1]);
+                }
+            });
+            
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                performSearch(e.target.value);
+            });
+            
+            document.getElementById('prevResult').addEventListener('click', () => {
+                navigateSearch(-1);
+            });
+            
+            document.getElementById('nextResult').addEventListener('click', () => {
+                navigateSearch(1);
+            });
+            
+        }
+
+        // Update zoom
+        function updateZoom() {
+            const img = document.getElementById('manuscriptImage');
+            if (img) {
+                img.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+            }
+        }
+
+        // Setup view toggle
+        function setupViewToggle() {
+            const toggles = document.querySelectorAll('.toggle');
+            const views = document.querySelectorAll('.text-view');
+            
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const view = toggle.dataset.view;
+                    debugLog('VIEW', `Switching to ${view} view`);
+                    
+                    // Update toggles
+                    toggles.forEach(t => t.classList.remove('active'));
+                    toggle.classList.add('active');
+                    
+                    // Update views
+                    views.forEach(v => v.classList.remove('active'));
+                    const targetView = document.querySelector(`.text-view[data-view="${view}"]`);
+                    if (targetView) {
+                        targetView.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Search functionality
+        function performSearch(query) {
+            // Clear previous highlights
+            document.querySelectorAll('.hl').forEach(el => {
+                el.outerHTML = el.textContent;
+            });
+            
+            searchResults = [];
+            currentSearchIndex = -1;
+            
+            if (!query || query.length < 2) {
+                document.getElementById('searchMeta').style.display = 'none';
+                return;
+            }
+            
+            debugLog('SEARCH', `Searching for: "${query}"`);
+            
+            // Search in poem text
+            const textElements = document.querySelectorAll('.txt');
+            const regex = new RegExp(`(${query})`, 'gi');
+            
+            textElements.forEach(el => {
+                if (regex.test(el.textContent)) {
+                    el.innerHTML = el.textContent.replace(regex, '<mark class="hl">$1</mark>');
+                    el.querySelectorAll('.hl').forEach(highlight => {
+                        searchResults.push(highlight);
+                    });
+                }
+            });
+            
+            // Update search meta
+            const searchMeta = document.getElementById('searchMeta');
+            const searchCount = document.getElementById('searchCount');
+            
+            if (searchResults.length > 0) {
+                searchMeta.style.display = 'flex';
+                searchCount.textContent = searchResults.length;
+                currentSearchIndex = 0;
+                searchResults[0].classList.add('pulse');
+                searchResults[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                debugLog('SEARCH', `Found ${searchResults.length} results`);
+            } else {
+                searchMeta.style.display = 'none';
+                debugLog('SEARCH', 'No results found');
+            }
+        }
+
+        // Navigate search results
+        function navigateSearch(direction) {
+            if (searchResults.length === 0) return;
+            
+            // Remove current highlight
+            if (currentSearchIndex >= 0) {
+                searchResults[currentSearchIndex].classList.remove('pulse');
+            }
+            
+            // Update index
+            currentSearchIndex += direction;
+            if (currentSearchIndex < 0) {
+                currentSearchIndex = searchResults.length - 1;
+            } else if (currentSearchIndex >= searchResults.length) {
+                currentSearchIndex = 0;
+            }
+            
+            // Add current highlight and scroll
+            searchResults[currentSearchIndex].classList.add('pulse');
+            searchResults[currentSearchIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            debugLog('SEARCH', `Navigated to result ${currentSearchIndex + 1}/${searchResults.length}`);
+        }
+
+        // Handle URL state
+        function handleURLState() {
+            // Check for hash in URL
+            const hash = window.location.hash;
+            if (hash) {
+                const poemId = hash.substring(1);
+                debugLog('URL', `Hash detected: ${poemId}, content ready: ${window.teiContentReady || false}`);
+                
+                // Enhanced element finder with persistent retry
+                const findAndScrollToPoem = (attempts = 0, maxAttempts = 50) => {
+                    // Check if content is ready and element exists
+                    const poem = document.getElementById(poemId);
+                    
+                    if (poem) {
+                        debugLog('URL', `Element ${poemId} found after ${attempts} attempts, scrolling...`);
+                        // Give a moment for any final rendering
+                        setTimeout(() => {
+                            poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Highlight the target poem briefly for visual feedback
+                            poem.style.backgroundColor = 'rgba(44, 90, 160, 0.1)';
+                            setTimeout(() => {
+                                poem.style.backgroundColor = '';
+                            }, 2000);
+                        }, 200);
+                        return;
+                    }
+                    
+                    // If content isn't ready yet, wait longer between attempts
+                    const waitTime = window.teiContentReady ? 200 : 500;
+                    
+                    // If not found and haven't exceeded max attempts
+                    if (attempts < maxAttempts) {
+                        debugLog('URL', `Element ${poemId} not found, attempt ${attempts + 1}/${maxAttempts} (waiting ${waitTime}ms)`);
+                        setTimeout(() => {
+                            findAndScrollToPoem(attempts + 1, maxAttempts);
+                        }, waitTime);
+                    } else {
+                        debugLog('URL', `Element ${poemId} not found after ${maxAttempts} attempts, giving up`);
+                        // List available poem elements for debugging
+                        const availablePoems = document.querySelectorAll('[id^="poem-"]');
+                        console.warn(`Failed to find ${poemId}. Available poems:`, 
+                            Array.from(availablePoems).slice(0, 10).map(p => p.id));
+                    }
+                };
+                
+                // Start the search
+                findAndScrollToPoem();
+            }
+            
+            // Update URL when scrolling
+            let scrollTimeout;
+            document.getElementById('textPanel').addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const poems = document.querySelectorAll('.poem');
+                    const scrollTop = document.getElementById('textPanel').scrollTop;
+                    
+                    for (let poem of poems) {
+                        const rect = poem.getBoundingClientRect();
+                        if (rect.top >= 0 && rect.top <= 200) {
+                            window.history.replaceState(null, '', '#' + poem.id);
+                            break;
+                        }
+                    }
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>

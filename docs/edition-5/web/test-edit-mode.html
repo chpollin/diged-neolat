@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Mode Test - Lucina Digital Edition</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .test-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .console {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .console-line {
+            margin: 2px 0;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Edit Mode Test Suite</h1>
+    
+    <div class="test-section">
+        <h2>Environment Detection</h2>
+        <div class="test-item">
+            <strong>Current Location:</strong> <code id="currentLocation"></code>
+            <span id="envStatus" class="status pending">Checking...</span>
+        </div>
+        <div class="test-item">
+            <strong>Edit Mode Available:</strong> <code id="editModeAvailable">Checking...</code>
+            <span id="editModeStatus" class="status pending">Checking...</span>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Server Connection Test</h2>
+        <div class="test-item">
+            <button onclick="testServerConnection()">Test Server Connection</button>
+            <span id="serverStatus" class="status pending">Not tested</span>
+        </div>
+        <div class="test-item">
+            <strong>Server URL:</strong> <code>http://localhost:3001</code>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>File System API Test</h2>
+        <div class="test-item">
+            <button onclick="testFileSystemAPI()">Test File System API</button>
+            <span id="fsApiStatus" class="status pending">Not tested</span>
+        </div>
+        <div class="test-item">
+            <strong>Browser:</strong> <code id="browserInfo"></code>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Edit Mode Functionality Tests</h2>
+        <div class="test-item">
+            <button onclick="runAllTests()">Run All Tests</button>
+            <button onclick="clearConsole()">Clear Console</button>
+        </div>
+        
+        <div class="test-item">
+            <h3>Test Results:</h3>
+            <ul id="testResults"></ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Manual Test Instructions</h2>
+        <ol>
+            <li>Open <code>index.html</code> in your browser locally</li>
+            <li>Check if "Edit Mode" button appears in navigation</li>
+            <li>Click the button or press <code>Ctrl+E</code> to enable edit mode</li>
+            <li>Hover over poem text - should show yellow border</li>
+            <li>Click on a verse to edit it</li>
+            <li>Make changes and observe green background on modified lines</li>
+            <li>Click "Diff View" to review changes</li>
+            <li>Test saving with either File System API or server</li>
+        </ol>
+    </div>
+
+    <div class="console" id="console">
+        <div class="console-line">Test console initialized...</div>
+    </div>
+
+    <script>
+        // Initialize test environment
+        document.addEventListener('DOMContentLoaded', () => {
+            checkEnvironment();
+            document.getElementById('browserInfo').textContent = navigator.userAgent.substring(0, 50) + '...';
+        });
+
+        function log(message, type = 'info') {
+            const console = document.getElementById('console');
+            const line = document.createElement('div');
+            line.className = 'console-line';
+            const timestamp = new Date().toLocaleTimeString();
+            line.textContent = `[${timestamp}] ${type.toUpperCase()}: ${message}`;
+            console.appendChild(line);
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('console').innerHTML = '<div class="console-line">Console cleared.</div>';
+        }
+
+        function checkEnvironment() {
+            const location = window.location;
+            const hostname = location.hostname;
+            const protocol = location.protocol;
+            
+            document.getElementById('currentLocation').textContent = location.href;
+            
+            const isLocal = hostname === 'localhost' || 
+                          hostname === '127.0.0.1' || 
+                          hostname === '' || 
+                          protocol === 'file:';
+            
+            const envStatus = document.getElementById('envStatus');
+            const editModeStatus = document.getElementById('editModeStatus');
+            const editModeAvailable = document.getElementById('editModeAvailable');
+            
+            if (isLocal) {
+                envStatus.className = 'status pass';
+                envStatus.textContent = 'Local';
+                editModeStatus.className = 'status pass';
+                editModeStatus.textContent = 'Yes';
+                editModeAvailable.textContent = 'true';
+                log('Local environment detected - edit mode should be available');
+            } else {
+                envStatus.className = 'status fail';
+                envStatus.textContent = 'Remote';
+                editModeStatus.className = 'status fail';
+                editModeStatus.textContent = 'No';
+                editModeAvailable.textContent = 'false';
+                log('Remote environment - edit mode disabled', 'warn');
+            }
+        }
+
+        async function testServerConnection() {
+            const status = document.getElementById('serverStatus');
+            status.className = 'status pending';
+            status.textContent = 'Testing...';
+            
+            try {
+                log('Testing server connection to http://localhost:3001/health');
+                const response = await fetch('http://localhost:3001/health');
+                const data = await response.json();
+                
+                if (data.status === 'running') {
+                    status.className = 'status pass';
+                    status.textContent = 'Connected';
+                    log('Server connection successful: ' + data.message, 'success');
+                } else {
+                    throw new Error('Unexpected response');
+                }
+            } catch (error) {
+                status.className = 'status fail';
+                status.textContent = 'Failed';
+                log('Server connection failed: ' + error.message, 'error');
+                log('Make sure to run: npm install && npm start', 'info');
+            }
+        }
+
+        async function testFileSystemAPI() {
+            const status = document.getElementById('fsApiStatus');
+            status.className = 'status pending';
+            status.textContent = 'Testing...';
+            
+            try {
+                if ('showSaveFilePicker' in window) {
+                    status.className = 'status pass';
+                    status.textContent = 'Supported';
+                    log('File System Access API is supported', 'success');
+                    
+                    // Test actual save dialog (user must cancel)
+                    log('Testing save dialog - you can cancel it', 'info');
+                    
+                } else {
+                    status.className = 'status fail';
+                    status.textContent = 'Not Supported';
+                    log('File System Access API not supported in this browser', 'warn');
+                    log('Use Chrome or Edge 86+ for full support', 'info');
+                }
+            } catch (error) {
+                status.className = 'status fail';
+                status.textContent = 'Error';
+                log('Error testing File System API: ' + error.message, 'error');
+            }
+        }
+
+        async function runAllTests() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '';
+            
+            const tests = [
+                {
+                    name: 'Environment Detection',
+                    test: () => {
+                        const hostname = window.location.hostname;
+                        return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+                    }
+                },
+                {
+                    name: 'Edit Mode Script Loaded',
+                    test: () => {
+                        return typeof window.editMode !== 'undefined';
+                    }
+                },
+                {
+                    name: 'Edit Mode API Available',
+                    test: () => {
+                        return typeof window.editModeAPI !== 'undefined';
+                    }
+                },
+                {
+                    name: 'Browser Compatibility',
+                    test: () => {
+                        return 'contentEditable' in document.body && 
+                               'IntersectionObserver' in window;
+                    }
+                },
+                {
+                    name: 'Local Storage Available',
+                    test: () => {
+                        try {
+                            localStorage.setItem('test', 'test');
+                            localStorage.removeItem('test');
+                            return true;
+                        } catch {
+                            return false;
+                        }
+                    }
+                }
+            ];
+            
+            for (const test of tests) {
+                const li = document.createElement('li');
+                try {
+                    const passed = await test.test();
+                    li.innerHTML = `${test.name}: <span class="status ${passed ? 'pass' : 'fail'}">${passed ? 'PASS' : 'FAIL'}</span>`;
+                    log(`Test "${test.name}": ${passed ? 'PASS' : 'FAIL'}`, passed ? 'success' : 'error');
+                } catch (error) {
+                    li.innerHTML = `${test.name}: <span class="status fail">ERROR</span>`;
+                    log(`Test "${test.name}" error: ${error.message}`, 'error');
+                }
+                results.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

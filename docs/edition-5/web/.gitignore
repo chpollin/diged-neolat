@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Output folder for edited TEI files
+output/
+
+# Backup files
+*.backup.*.xml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
