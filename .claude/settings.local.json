@@ -5,7 +5,8 @@
       "Bash(dir)",
       "Bash(dir:*)",
       "Bash(start /B cmd /c \"start web\\index_sync.html\")",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

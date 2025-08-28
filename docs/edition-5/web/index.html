@@ -103,6 +103,8 @@
         let searchResults = [];
         let currentSearchIndex = -1;
         let allPages = [];
+        let metricsEnabled = false;
+        let meterDefinitions = {};
 
         // Simple logging function
         function debugLog(category, message, data = null) {
@@ -159,6 +161,7 @@
                 
                 // Extract data
                 extractPageMapping();
+                extractMeterDefinitions();
                 extractPersons();
                 extractPoems();
                 extractApparatus();
@@ -283,6 +286,27 @@
             
             console.log('Final extracted apparatus entries:', apparatusData);
             console.log('Apparatus data length:', apparatusData.length);
+        }
+
+        // Extract meter definitions from TEI header
+        function extractMeterDefinitions() {
+            debugLog('EXTRACT', 'Starting meter definitions extraction');
+            
+            const metDecl = teiDoc.querySelector('metDecl');
+            if (metDecl) {
+                const metSyms = metDecl.querySelectorAll('metSym');
+                metSyms.forEach(metSym => {
+                    const value = metSym.getAttribute('value');
+                    if (value) {
+                        meterDefinitions[value] = metSym.textContent.trim();
+                        debugLog('METER', `Added definition for ${value}`);
+                    }
+                });
+            } else {
+                debugLog('EXTRACT', 'No metDecl found in TEI header');
+            }
+            
+            console.log('Extracted meter definitions:', meterDefinitions);
         }
 
         // Extract person data from standOff
@@ -592,7 +616,7 @@
                     lineEl.dataset.lineNum = line.n;
                     lineEl.dataset.poemId = poem.id;
                     lineEl.innerHTML = `
-                        <span class="num">${line.n}</span>
+                        <span class="ln">${line.n}</span>
                         <span class="txt">${processLineWithApparatus(line.text, poem.id, line.n)}</span>
                     `;
                     

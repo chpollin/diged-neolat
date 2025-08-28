@@ -486,7 +486,7 @@
 
     // Track line changes
     function trackLineChange(element) {
-        const lineNum = element.closest('.line')?.querySelector('.num')?.textContent;
+        const lineNum = element.closest('.line')?.querySelector('.ln')?.textContent;
         const poemId = element.closest('.poem')?.id;
         
         if (!lineNum || !poemId) return;
