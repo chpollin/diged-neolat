@@ -450,10 +450,11 @@
                 poem.lines.forEach((line, index) => {
                     const lineNum = index + 1;
                     const isPentameter = lineNum % 2 === 0;
+                    const lineText = typeof line === 'object' ? line.text : line;
                     html += `
                         <div class="line ${isPentameter ? 'pentameter' : ''}">
                             <span class="line-number">${lineNum}</span>
-                            <span class="line-text">${line}</span>
+                            <span class="line-text">${lineText}</span>
                         </div>
                     `;
                 });
@@ -484,7 +485,8 @@
                         const lineNum = index + 1;
                         const isPentameter = lineNum % 2 === 0;
                         const indent = isPentameter ? '  ' : '';
-                        text += `${lineNum.toString().padStart(3)} ${indent}${line}\n`;
+                        const lineText = typeof line === 'object' ? line.text : line;
+                        text += `${lineNum.toString().padStart(3)} ${indent}${lineText}\n`;
                     });
                 }
                 
@@ -562,7 +564,8 @@
                 
                 poem.lines.forEach((line, index) => {
                     const isPentameter = (index + 1) % 2 === 0;
-                    html += `<p class="line ${isPentameter ? 'pentameter' : ''}">${line}</p>`;
+                    const lineText = typeof line === 'object' ? line.text : line;
+                    html += `<p class="line ${isPentameter ? 'pentameter' : ''}">${lineText}</p>`;
                 });
                 
                 html += `</div>`;
