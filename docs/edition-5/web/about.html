@@ -7,106 +7,376 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #fafaf8 0%, #f0f0ed 100%);
+            min-height: 100vh;
         }
+        
+        .about-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a4a7f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: 2px;
+            color: white;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .about-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Single responsive grid */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-        
-        .about-section {
+        .content-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        /* Full width sections span all columns */
-        .about-section.full-width {
-            grid-column: 1 / -1;
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
         }
         
-        .about-section h2 {
-            color: #333;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #3a5a8f 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+            color: white;
         }
         
-        .about-section h3 {
-            color: #555;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .metadata-table {
-            width: 100%;
-            margin: 1rem 0;
-        }
-        
-        .metadata-table th {
-            text-align: left;
-            padding: 0.5rem;
-            background: #f5f5f5;
+        .content-card h2 {
+            color: #1e3a5f;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
-            width: 35%;
-            vertical-align: top;
+            border: none;
+            padding: 0;
         }
         
-        .metadata-table td {
-            padding: 0.5rem;
+        .content-card h3 {
+            color: #2a4a7f;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
         
-        .tag-list {
+        .content-card p {
+            line-height: 1.8;
+            color: #495057;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Info grid for metadata */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-top: 3px solid #1e3a5f;
+        }
+        
+        .info-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+            color: #1e3a5f;
+            font-weight: 500;
+        }
+        
+        /* Team member cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .team-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #3a5a8f 100%);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+        }
+        
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .team-email {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .team-email:hover {
+            text-decoration: underline;
+        }
+        
+        /* Timeline for versions */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e9ecef;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 0 2rem;
+        }
+        
+        .timeline-date {
+            width: 120px;
+            text-align: center;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #e9ecef;
+        }
+        
+        /* Citation box */
+        .citation-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #1e3a5f;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .citation-box h3 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+        
+        .citation-text {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            color: #495057;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .copy-btn {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #1e3a5f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #2a4a7f;
+            transform: translateY(-1px);
+        }
+        
+        /* Tech stack badges */
+        .tech-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
         }
         
-        .tag {
-            background: #e9ecef;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 20px;
             font-size: 0.9rem;
             color: #495057;
+            transition: all 0.3s;
         }
         
-        ul {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin: 0.5rem 0;
+        .tech-badge:hover {
+            background: #1e3a5f;
+            color: white;
+            border-color: #1e3a5f;
         }
         
         .loading-message {
             text-align: center;
-            padding: 3rem;
+            padding: 4rem;
             color: #6c757d;
+        }
+        
+        .loading-message::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            margin: 2rem auto 0;
+            display: block;
+            border: 3px solid #e9ecef;
+            border-top-color: #1e3a5f;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
         .error-message {
             background: #f8d7da;
             color: #721c24;
-            padding: 1rem;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        /* Quick links */
+        .quick-links {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .quick-link {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e9ecef;
             border-radius: 8px;
-            margin: 1rem 0;
+            color: #1e3a5f;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .quick-link:hover {
+            background: #1e3a5f;
+            color: white;
+            border-color: #1e3a5f;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
         }
     </style>
 </head>
@@ -122,11 +392,14 @@
         </div>
     </header>
 
+    <div class="about-hero">
+        <h1>About This Edition</h1>
+        <p>A digital critical edition of Aurelius Laurentius Albrisius's Lucina</p>
+    </div>
+
     <main class="about-container">
-        <h1>About this Digital Edition</h1>
-        
         <div id="aboutContent" class="loading-message">
-            Loading TEI metadata...
+            Loading edition information...
         </div>
     </main>
 
@@ -148,7 +421,8 @@
             } catch (error) {
                 document.getElementById('aboutContent').innerHTML = `
                     <div class="error-message">
-                        Failed to load TEI metadata: ${error.message}
+                        <strong>Failed to load TEI metadata</strong><br>
+                        ${error.message}
                     </div>
                 `;
             }
@@ -156,269 +430,300 @@
         
         function displayTEIMetadata(teiDoc) {
             const container = document.getElementById('aboutContent');
-            let html = '<div class="about-grid">';
+            let html = '';
             
-            // Manuscript Section
+            // Quick Links
+            html += `
+                <div class="quick-links">
+                    <a href="#manuscript" class="quick-link">Manuscript</a>
+                    <a href="#team" class="quick-link">Team</a>
+                    <a href="#technical" class="quick-link">Technical</a>
+                    <a href="#citation" class="quick-link">Citation</a>
+                    <a href="#license" class="quick-link">License</a>
+                </div>
+            `;
+            
+            // Title and Description
+            const titleStmt = teiDoc.querySelector('titleStmt');
+            const title = titleStmt?.querySelector('title')?.textContent;
+            const author = titleStmt?.querySelector('author')?.textContent;
+            const respStmts = titleStmt?.querySelectorAll('respStmt');
+            
+            html += `
+                <div class="content-card">
+                    <div class="section-icon">📖</div>
+                    <h2>About the Edition</h2>
+                    <p>This digital critical edition presents ${title || 'the complete works'} by ${author || 'Aurelius Laurentius Albrisius'}, 
+                    offering scholars and students unprecedented access to this important Renaissance text.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="tech-badges">
+                        <span class="tech-badge">128 Poems</span>
+                        <span class="tech-badge">Critical Apparatus</span>
+                        <span class="tech-badge">Prosopographical Data</span>
+                        <span class="tech-badge">Metrical Analysis</span>
+                        <span class="tech-badge">Manuscript Images</span>
+                        <span class="tech-badge">TEI P5 Encoded</span>
+                        <span class="tech-badge">Open Access</span>
+                    </div>
+                </div>
+            `;
+            
+            // Manuscript Information
             const msDesc = teiDoc.querySelector('msDesc');
             if (msDesc) {
-                html += `
-                    <section class="about-section">
-                        <h2>The Manuscript</h2>
-                        <table class="metadata-table">
-                `;
-                
-                // Title and Author from titleStmt
-                const title = teiDoc.querySelector('titleStmt title')?.textContent;
-                const author = teiDoc.querySelector('titleStmt author persName');
-                if (title) {
-                    html += `
-                        <tr>
-                            <th>Title</th>
-                            <td>${title}</td>
-                        </tr>
-                    `;
-                }
-                
-                if (author) {
-                    const forenames = Array.from(author.querySelectorAll('forename')).map(f => f.textContent).join(' ');
-                    const surname = author.querySelector('surname')?.textContent || '';
-                    const altNames = Array.from(author.querySelectorAll('addName')).map(a => a.textContent);
-                    
-                    html += `
-                        <tr>
-                            <th>Author</th>
-                            <td>${forenames} ${surname}${altNames.length ? '<br><small>Also: ' + altNames.join(', ') + '</small>' : ''}</td>
-                        </tr>
-                    `;
-                }
-                
-                // Manuscript Identifier
                 const msIdentifier = msDesc.querySelector('msIdentifier');
-                if (msIdentifier) {
-                    const repository = msIdentifier.querySelector('repository')?.textContent;
-                    const settlement = msIdentifier.querySelector('settlement')?.textContent;
-                    const country = msIdentifier.querySelector('country')?.textContent;
-                    const idno = msIdentifier.querySelector('idno')?.textContent;
-                    
-                    html += `
-                        <tr>
-                            <th>Repository</th>
-                            <td>${repository}, ${settlement}</td>
-                        </tr>
-                        <tr>
-                            <th>Shelfmark</th>
-                            <td>${idno}</td>
-                        </tr>
-                    `;
-                }
+                const repository = msIdentifier?.querySelector('repository')?.textContent;
+                const idno = msIdentifier?.querySelector('idno')?.textContent;
+                const altIds = msIdentifier?.querySelectorAll('altIdentifier idno');
                 
-                // Date from history
-                const origDate = msDesc.querySelector('history origin origDate');
-                if (origDate) {
-                    html += `
-                        <tr>
-                            <th>Date</th>
-                            <td>${origDate.textContent}</td>
-                        </tr>
-                    `;
-                }
+                const physDesc = msDesc.querySelector('physDesc');
+                const support = physDesc?.querySelector('support p')?.textContent;
+                const extent = physDesc?.querySelector('extent')?.textContent;
+                const foliation = physDesc?.querySelector('foliation p')?.textContent;
                 
-                // Language
-                const language = teiDoc.querySelector('langUsage language')?.textContent;
-                if (language) {
-                    html += `
-                        <tr>
-                            <th>Language</th>
-                            <td>${language}</td>
-                        </tr>
-                    `;
-                }
-                
-                // Summary from msContents
-                const summary = msDesc.querySelector('msContents summary')?.textContent;
-                if (summary) {
-                    const match = summary.match(/(\d+)[^\d]*poems.*?(\d+)[^\d]*verses/i);
-                    if (match) {
-                        html += `
-                            <tr>
-                                <th>Extent</th>
-                                <td>${match[1]} poems, ${match[2]} verses</td>
-                            </tr>
-                        `;
-                    }
-                }
-                
-                html += '</table></section>';
-            }
-            
-            // Physical Description
-            const physDesc = msDesc?.querySelector('physDesc');
-            if (physDesc) {
                 html += `
-                    <section class="about-section">
-                        <h2>Physical Description</h2>
-                        <table class="metadata-table">
+                    <div class="content-card" id="manuscript">
+                        <div class="section-icon">📜</div>
+                        <h2>The Manuscript</h2>
+                        
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <div class="info-label">Repository</div>
+                                <div class="info-value">${repository || 'Unknown'}</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-label">Shelfmark</div>
+                                <div class="info-value">${idno || 'Unknown'}</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-label">Material</div>
+                                <div class="info-value">${support?.split('.')[0] || 'Paper'}</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-label">Extent</div>
+                                <div class="info-value">${extent || 'Unknown'}</div>
+                            </div>
                 `;
                 
-                const support = physDesc.querySelector('support')?.textContent;
-                const extent = physDesc.querySelector('extent')?.textContent?.split('\n')[0].trim();
-                const dimensions = physDesc.querySelector('dimensions');
-                const layout = physDesc.querySelector('layout')?.textContent;
-                const handNote = physDesc.querySelector('handNote')?.textContent;
-                const decoNote = physDesc.querySelector('decoNote')?.textContent;
-                
-                if (support) {
-                    html += `<tr><th>Material</th><td>${support}</td></tr>`;
-                }
-                if (extent) {
-                    html += `<tr><th>Extent</th><td>${extent}</td></tr>`;
-                }
-                if (dimensions) {
-                    const height = dimensions.querySelector('height')?.textContent;
-                    const width = dimensions.querySelector('width')?.textContent;
-                    html += `<tr><th>Dimensions</th><td>${height} × ${width} mm</td></tr>`;
-                }
-                if (layout) {
-                    html += `<tr><th>Layout</th><td>${layout}</td></tr>`;
-                }
-                if (handNote) {
-                    html += `<tr><th>Script</th><td>${handNote}</td></tr>`;
-                }
-                if (decoNote) {
-                    html += `<tr><th>Decoration</th><td>${decoNote}</td></tr>`;
+                if (altIds && altIds.length > 0) {
+                    altIds.forEach(altId => {
+                        const type = altId.parentElement.getAttribute('type');
+                        html += `
+                            <div class="info-card">
+                                <div class="info-label">${type || 'Alternative ID'}</div>
+                                <div class="info-value">${altId.textContent}</div>
+                            </div>
+                        `;
+                    });
                 }
                 
-                html += '</table></section>';
+                html += `
+                        </div>
+                        ${foliation ? `<p><strong>Foliation:</strong> ${foliation}</p>` : ''}
+                    </div>
+                `;
             }
             
-            // History
-            const history = msDesc?.querySelector('history');
-            if (history) {
+            // Editorial Team
+            if (respStmts && respStmts.length > 0) {
                 html += `
-                    <section class="about-section">
-                        <h2>History</h2>
-                        <table class="metadata-table">
+                    <div class="content-card" id="team">
+                        <div class="section-icon">👥</div>
+                        <h2>Editorial Team</h2>
+                        <div class="team-grid">
                 `;
                 
-                const origin = history.querySelector('origin');
-                if (origin) {
-                    const origDate = origin.querySelector('origDate');
-                    const origPlace = origin.querySelector('origPlace');
-                    const note = origin.querySelector('note');
+                respStmts.forEach(stmt => {
+                    const resp = stmt.querySelector('resp')?.textContent;
+                    const name = stmt.querySelector('persName')?.textContent;
+                    const email = stmt.querySelector('email')?.textContent;
                     
-                    if (origDate) {
+                    if (name) {
+                        const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
                         html += `
-                            <tr>
-                                <th>Date</th>
-                                <td>${origDate.textContent} ${origDate.getAttribute('when') ? `(${origDate.getAttribute('when')})` : ''}</td>
-                            </tr>
+                            <div class="team-card">
+                                <div class="team-avatar">${initials}</div>
+                                <div class="team-name">${name}</div>
+                                <div class="team-role">${resp || 'Editor'}</div>
+                                ${email ? `<a href="mailto:${email}" class="team-email">${email}</a>` : ''}
+                            </div>
                         `;
                     }
-                    
-                    if (origPlace) {
-                        html += `
-                            <tr>
-                                <th>Place of Origin</th>
-                                <td>${origPlace.textContent}</td>
-                            </tr>
-                        `;
-                    }
-                    
-                    if (note) {
-                        html += `
-                            <tr>
-                                <th>Note</th>
-                                <td>${note.textContent}</td>
-                            </tr>
-                        `;
-                    }
-                }
-                
-                const provenance = history.querySelector('provenance');
-                if (provenance) {
-                    html += `
-                        <tr>
-                            <th>Provenance</th>
-                            <td>${provenance.textContent}</td>
-                        </tr>
-                    `;
-                }
-                
-                html += '</table></section>';
-            }
-            
-            // The Author Section (from standOff)
-            const albrisius = teiDoc.querySelector('standOff person[xml\\:id="albrisius"]');
-            if (albrisius) {
-                html += `
-                    <section class="about-section">
-                        <h2>The Author</h2>
-                `;
-                
-                const persName = albrisius.querySelector('persName');
-                const birth = albrisius.querySelector('birth');
-                const occupation = albrisius.querySelector('occupation')?.textContent;
-                const note = albrisius.querySelector('note')?.textContent;
-                
-                if (persName) {
-                    const forenames = Array.from(persName.querySelectorAll('forename')).map(f => f.textContent).join(' ');
-                    const surname = persName.querySelector('surname')?.textContent;
-                    html += `<p><strong>${forenames} ${surname}</strong>`;
-                }
-                
-                if (birth) {
-                    const placeName = birth.querySelector('placeName')?.textContent;
-                    const notBefore = birth.getAttribute('notBefore');
-                    const notAfter = birth.getAttribute('notAfter');
-                    html += ` (${placeName}, ca. ${notBefore}-${notAfter})`;
-                }
-                
-                if (occupation) {
-                    html += ` was a ${occupation.toLowerCase()}.`;
-                }
-                
-                if (note) {
-                    html += ` ${note}`;
-                }
-                
-                html += '</p>';
-                
-                // Add more context if available
-                const originNote = teiDoc.querySelector('history origin note')?.textContent;
-                if (originNote) {
-                    html += `<p>${originNote}</p>`;
-                }
-                
-                html += '</section>';
-            }
-            
-            
-            
-            // Manuscript Witnesses
-            const witnesses = teiDoc.querySelectorAll('listWit witness');
-            if (witnesses.length > 0) {
-                html += `
-                    <section class="about-section">
-                        <h2>Manuscript Witnesses</h2>
-                        <ul>
-                `;
-                witnesses.forEach(witness => {
-                    const id = witness.getAttribute('xml:id');
-                    const text = witness.textContent;
-                    html += `<li><strong>${id}:</strong> ${text}</li>`;
                 });
-                html += '</ul></section>';
+                
+                html += `
+                        </div>
+                    </div>
+                `;
             }
             
+            // Technical Information
+            const encodingDesc = teiDoc.querySelector('encodingDesc');
+            if (encodingDesc) {
+                html += `
+                    <div class="content-card" id="technical">
+                        <div class="section-icon">⚙️</div>
+                        <h2>Technical Details</h2>
+                        
+                        <h3>Encoding Standards</h3>
+                        <p>This edition follows the Text Encoding Initiative (TEI) P5 Guidelines, ensuring long-term preservation and interoperability.</p>
+                        
+                        <h3>Technology Stack</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript ES6+</span>
+                            <span class="tech-badge">TEI P5</span>
+                            <span class="tech-badge">XML</span>
+                            <span class="tech-badge">JSON</span>
+                            <span class="tech-badge">Web Components</span>
+                        </div>
+                `;
+                
+                const editorialDecl = encodingDesc.querySelector('editorialDecl');
+                if (editorialDecl) {
+                    const correction = editorialDecl.querySelector('correction p')?.textContent;
+                    const normalization = editorialDecl.querySelector('normalization p')?.textContent;
+                    
+                    html += `
+                        <h3>Editorial Policies</h3>
+                        <div class="info-grid">
+                            ${correction ? `
+                                <div class="info-card">
+                                    <div class="info-label">Corrections</div>
+                                    <div class="info-value">${correction}</div>
+                                </div>
+                            ` : ''}
+                            ${normalization ? `
+                                <div class="info-card">
+                                    <div class="info-label">Normalization</div>
+                                    <div class="info-value">${normalization}</div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                
+                html += `</div>`;
+            }
             
+            // Publication and Version Info
+            const publicationStmt = teiDoc.querySelector('publicationStmt');
+            const revisionDesc = teiDoc.querySelector('revisionDesc');
             
+            if (publicationStmt || revisionDesc) {
+                html += `
+                    <div class="content-card">
+                        <div class="section-icon">📅</div>
+                        <h2>Publication History</h2>
+                `;
+                
+                if (publicationStmt) {
+                    const publisher = publicationStmt.querySelector('publisher')?.textContent;
+                    const date = publicationStmt.querySelector('date')?.getAttribute('when');
+                    const availability = publicationStmt.querySelector('availability licence')?.textContent;
+                    
+                    html += `
+                        <div class="info-grid">
+                            ${publisher ? `
+                                <div class="info-card">
+                                    <div class="info-label">Publisher</div>
+                                    <div class="info-value">${publisher}</div>
+                                </div>
+                            ` : ''}
+                            ${date ? `
+                                <div class="info-card">
+                                    <div class="info-label">Publication Date</div>
+                                    <div class="info-value">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                
+                if (revisionDesc) {
+                    const changes = revisionDesc.querySelectorAll('change');
+                    if (changes.length > 0) {
+                        html += `
+                            <h3>Version History</h3>
+                            <div class="timeline">
+                        `;
+                        
+                        changes.forEach((change, index) => {
+                            const when = change.getAttribute('when');
+                            const who = change.getAttribute('who');
+                            const desc = change.textContent;
+                            
+                            html += `
+                                <div class="timeline-item">
+                                    <div class="timeline-date">${when ? new Date(when).toLocaleDateString() : 'Unknown'}</div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <strong>${who?.replace('#', '') || 'Editor'}</strong><br>
+                                        ${desc}
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        html += `</div>`;
+                    }
+                }
+                
+                html += `</div>`;
+            }
             
-            html += '</div>'; // Close grid
+            // Citation
+            html += `
+                <div class="content-card" id="citation">
+                    <div class="section-icon">📝</div>
+                    <h2>How to Cite</h2>
+                    <div class="citation-box">
+                        <h3>Recommended Citation</h3>
+                        <div class="citation-text" id="citationText">
+                            ${author || 'Albrisius, Aurelius Laurentius'}. <em>${title || 'Lucina'}</em>. 
+                            Digital Critical Edition. Ed. ${respStmts?.[0]?.querySelector('persName')?.textContent || 'Editor'}. 
+                            ${new Date().getFullYear()}. Web. &lt;${window.location.href}&gt;.
+                        </div>
+                        <button class="copy-btn" onclick="copyCitation()">Copy Citation</button>
+                    </div>
+                </div>
+            `;
+            
+            // License
+            const licence = publicationStmt?.querySelector('availability licence');
+            if (licence) {
+                const licenseUrl = licence.getAttribute('target');
+                const licenseText = licence.textContent;
+                
+                html += `
+                    <div class="content-card" id="license">
+                        <div class="section-icon">⚖️</div>
+                        <h2>License & Usage</h2>
+                        <p>${licenseText}</p>
+                        ${licenseUrl ? `<p><a href="${licenseUrl}" target="_blank" class="quick-link">View Full License →</a></p>` : ''}
+                    </div>
+                `;
+            }
             
             container.innerHTML = html;
         }
         
-        // Load on page load
+        // Copy citation function
+        function copyCitation() {
+            const citationText = document.getElementById('citationText').innerText;
+            navigator.clipboard.writeText(citationText).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Load metadata when page loads
         document.addEventListener('DOMContentLoaded', loadTEIMetadata);
     </script>
 </body>

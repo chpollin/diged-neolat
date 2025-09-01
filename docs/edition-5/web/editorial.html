@@ -7,106 +7,259 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #fafaf8 0%, #f0f0ed 100%);
+            min-height: 100vh;
         }
+        
+        .editorial-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a4a7f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .editorial-hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: 2px;
+            color: white;
+        }
+        
+        .editorial-hero p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         .editorial-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Single responsive grid */
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-        
-        .editorial-section {
+        .content-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        /* Full width sections span all columns */
-        .editorial-section.full-width {
-            grid-column: 1 / -1;
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
         }
         
-        .editorial-section h2 {
-            color: #333;
-            border-bottom: 2px solid #007acc;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #3a5a8f 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .content-card h2 {
+            color: #1e3a5f;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border: none;
+            padding: 0;
+        }
+        
+        .content-card h3 {
+            color: #2a4a7f;
             font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
         
-        .editorial-section h3 {
-            color: #555;
-            margin-top: 1.5rem;
+        .content-card p {
+            line-height: 1.8;
+            color: #495057;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Replace bullet lists with cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #1e3a5f;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            background: #e9ecef;
+            transform: translateX(4px);
+        }
+        
+        .feature-card strong {
+            color: #1e3a5f;
+            display: block;
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
         
-        .metadata-table {
+        .feature-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+        
+        /* Meter definitions as elegant table */
+        .meter-table {
             width: 100%;
-            margin: 1rem 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 0 0 1px #e9ecef;
         }
         
-        .metadata-table th {
+        .meter-table th {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a4a7f 100%);
+            color: white;
+            padding: 1rem;
             text-align: left;
-            padding: 0.5rem;
-            background: #f5f5f5;
+            font-weight: 500;
+        }
+        
+        .meter-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            background: white;
+        }
+        
+        .meter-table tr:hover td {
+            background: #f8f9fa;
+        }
+        
+        .meter-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .meter-abbr {
             font-weight: 600;
-            width: 35%;
-            vertical-align: top;
+            color: #1e3a5f;
+            font-family: 'Courier New', monospace;
         }
         
-        .metadata-table td {
-            padding: 0.5rem;
-        }
-        
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-        
-        .tag {
-            background: #e9ecef;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
+        .meter-pattern {
+            font-family: 'Courier New', monospace;
+            color: #6c757d;
             font-size: 0.9rem;
-            color: #495057;
         }
         
-        ul {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
+        /* Stats as visual cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
-        li {
-            margin: 0.5rem 0;
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a5f;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
         }
         
         .loading-message {
             text-align: center;
-            padding: 3rem;
+            padding: 4rem;
             color: #6c757d;
+        }
+        
+        .loading-message::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            margin: 2rem auto 0;
+            display: block;
+            border: 3px solid #e9ecef;
+            border-top-color: #1e3a5f;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
         .error-message {
             background: #f8d7da;
             color: #721c24;
-            padding: 1rem;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        /* Navigation pills */
+        .section-nav {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+        
+        .section-nav a {
+            padding: 0.75rem 1.5rem;
+            background: white;
             border-radius: 8px;
-            margin: 1rem 0;
+            color: #495057;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        
+        .section-nav a:hover {
+            background: #1e3a5f;
+            color: white;
         }
     </style>
 </head>
@@ -122,9 +275,12 @@
         </div>
     </header>
 
-    <main class="editorial-container">
+    <div class="editorial-hero">
         <h1>Editorial Introduction</h1>
-        
+        <p>A comprehensive guide to the edition of Aurelius Laurentius Albrisius's Lucina</p>
+    </div>
+
+    <main class="editorial-container">
         <div id="editorialContent" class="loading-message">
             Loading editorial information...
         </div>
@@ -148,7 +304,8 @@
             } catch (error) {
                 document.getElementById('editorialContent').innerHTML = `
                     <div class="error-message">
-                        Failed to load editorial content: ${error.message}
+                        <strong>Failed to load editorial content</strong><br>
+                        ${error.message}
                     </div>
                 `;
             }
@@ -156,14 +313,27 @@
         
         function displayEditorialContent(teiDoc) {
             const container = document.getElementById('editorialContent');
-            let html = '<div class="editorial-grid">';
+            let html = '';
             
-            // The Work and Its Context - Full Width
+            // Quick navigation
+            html += `
+                <div class="section-nav">
+                    <a href="#context">Historical Context</a>
+                    <a href="#structure">Work Structure</a>
+                    <a href="#literary">Literary Models</a>
+                    <a href="#genres">Genres</a>
+                    <a href="#meters">Metrical Forms</a>
+                    <a href="#editorial">Editorial Principles</a>
+                </div>
+            `;
+            
+            // The Work and Its Context
             const msDesc = teiDoc.querySelector('msDesc');
             const msContents = msDesc?.querySelector('msContents');
             if (msContents) {
                 html += `
-                    <section class="editorial-section full-width">
+                    <div class="content-card" id="context">
+                        <div class="section-icon">📜</div>
                         <h2>The Work and Its Context</h2>
                 `;
                 
@@ -178,33 +348,47 @@
                     html += `<h3>Historical Context</h3><p>${originNote}</p>`;
                 }
                 
-                // Structure of the Work
-                const msItems = msContents.querySelectorAll('msItem[n]');
-                if (msItems.length > 0) {
-                    html += '<h3>Structure of the Work</h3><ul>';
-                    msItems.forEach(item => {
-                        const title = item.querySelector('title')?.textContent;
-                        const rubric = item.querySelector('rubric')?.textContent;
-                        const note = item.querySelector('note')?.textContent;
-                        
-                        if (title) {
-                            html += `<li><strong>${title}:</strong> `;
-                            if (rubric) html += `${rubric}. `;
-                            if (note) html += note;
-                            html += '</li>';
-                        }
-                    });
+                html += '</div>';
+            }
+            
+            // Structure of the Work
+            const msItems = msContents?.querySelectorAll('msItem[n]');
+            if (msItems && msItems.length > 0) {
+                html += `
+                    <div class="content-card" id="structure">
+                        <div class="section-icon">📚</div>
+                        <h2>Structure of the Work</h2>
+                        <p>The collection is organized into four distinct books:</p>
+                        <div class="feature-grid">
+                `;
+                
+                msItems.forEach(item => {
+                    const title = item.querySelector('title')?.textContent;
+                    const rubric = item.querySelector('rubric')?.textContent;
+                    const note = item.querySelector('note')?.textContent;
                     
-                    // Add colophon if present
-                    const colophon = msContents.querySelector('colophon')?.textContent;
-                    if (colophon) {
-                        html += `<li><strong>Colophon:</strong> ${colophon}</li>`;
+                    if (title) {
+                        html += `
+                            <div class="feature-card">
+                                <strong>${title}</strong>
+                                <p>${rubric || ''} ${note || ''}</p>
+                            </div>
+                        `;
                     }
-                    
-                    html += '</ul>';
+                });
+                
+                // Add colophon if present
+                const colophon = msContents?.querySelector('colophon')?.textContent;
+                if (colophon) {
+                    html += `
+                        <div class="feature-card">
+                            <strong>Colophon</strong>
+                            <p>${colophon}</p>
+                        </div>
+                    `;
                 }
                 
-                html += '</section>';
+                html += '</div></div>';
             }
             
             // Literary Context
@@ -213,14 +397,23 @@
                 const bibls = litModels.querySelectorAll('bibl');
                 if (bibls.length > 0) {
                     html += `
-                        <section class="editorial-section">
+                        <div class="content-card" id="literary">
+                            <div class="section-icon">🏛️</div>
                             <h2>Literary Models & Influences</h2>
-                            <ul>
+                            <p>Albrisius draws upon a rich tradition of classical and contemporary sources:</p>
+                            <div class="feature-grid">
                     `;
                     bibls.forEach(bibl => {
-                        html += `<li>${bibl.textContent}</li>`;
+                        const text = bibl.textContent;
+                        const [author, ...rest] = text.split(':');
+                        html += `
+                            <div class="feature-card">
+                                <strong>${author}</strong>
+                                <p>${rest.join(':') || ''}</p>
+                            </div>
+                        `;
                     });
-                    html += '</ul></section>';
+                    html += '</div></div>';
                 }
             }
             
@@ -228,141 +421,147 @@
             const genres = teiDoc.querySelectorAll('taxonomy[xml\\:id="genres"] category');
             if (genres.length > 0) {
                 html += `
-                    <section class="editorial-section">
+                    <div class="content-card" id="genres">
+                        <div class="section-icon">✍️</div>
                         <h2>Genre Categories</h2>
-                        <p>The poems in Lucina represent a wide range of occasional poetry genres typical of the Quattrocento:</p>
-                        <ul>
+                        <p>The poems represent a wide range of occasional poetry typical of the Quattrocento:</p>
+                        <div class="feature-grid">
                 `;
                 genres.forEach(genre => {
                     const catDesc = genre.querySelector('catDesc')?.textContent;
+                    const catId = genre.getAttribute('xml:id');
                     if (catDesc) {
-                        html += `<li>${catDesc}</li>`;
+                        html += `
+                            <div class="feature-card">
+                                <strong>${catId?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Genre'}</strong>
+                                <p>${catDesc}</p>
+                            </div>
+                        `;
                     }
                 });
-                html += '</ul></section>';
+                html += '</div></div>';
             }
             
             // Metrical Forms
-            const meters = teiDoc.querySelectorAll('taxonomy[xml\\:id="meters"] category');
+            const meters = teiDoc.querySelectorAll('metDecl metSym');
             if (meters.length > 0) {
                 html += `
-                    <section class="editorial-section">
+                    <div class="content-card" id="meters">
+                        <div class="section-icon">📏</div>
                         <h2>Metrical Forms</h2>
-                        <p>Albrisius employs various classical meters throughout the collection:</p>
-                        <ul>
+                        <p>The collection employs various classical meters:</p>
+                        <table class="meter-table">
+                            <thead>
+                                <tr>
+                                    <th>Meter</th>
+                                    <th>Pattern</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                 `;
+                
                 meters.forEach(meter => {
-                    const catDesc = meter.querySelector('catDesc')?.textContent;
-                    if (catDesc) {
-                        html += `<li>${catDesc}</li>`;
-                    }
+                    const abbr = meter.getAttribute('value');
+                    const termText = meter.querySelector('term')?.textContent || '';
+                    const pattern = termText.match(/Pattern: ([^.]+)/)?.[1] || '';
+                    const desc = meter.querySelector('desc p')?.textContent || termText;
+                    
+                    html += `
+                        <tr>
+                            <td><span class="meter-abbr">${abbr}</span></td>
+                            <td><span class="meter-pattern">${pattern}</span></td>
+                            <td>${desc.replace(/Pattern: [^.]+\.?/, '').trim()}</td>
+                        </tr>
+                    `;
                 });
-                html += '</ul></section>';
+                
+                html += '</tbody></table></div>';
             }
             
             // Editorial Principles
-            const encodingDesc = teiDoc.querySelector('encodingDesc');
-            if (encodingDesc) {
+            const editorialDecl = teiDoc.querySelector('editorialDecl');
+            if (editorialDecl) {
                 html += `
-                    <section class="editorial-section">
+                    <div class="content-card" id="editorial">
+                        <div class="section-icon">📝</div>
                         <h2>Editorial Principles</h2>
                 `;
                 
-                const projectDesc = encodingDesc.querySelector('projectDesc p');
-                if (projectDesc) {
-                    html += `<p>${projectDesc.textContent}</p>`;
+                const corrections = editorialDecl.querySelector('correction p')?.textContent;
+                const normalization = editorialDecl.querySelector('normalization p')?.textContent;
+                const punctuation = editorialDecl.querySelector('punctuation p')?.textContent;
+                
+                if (corrections || normalization || punctuation) {
+                    html += '<div class="feature-grid">';
+                    
+                    if (corrections) {
+                        html += `
+                            <div class="feature-card">
+                                <strong>Corrections</strong>
+                                <p>${corrections}</p>
+                            </div>
+                        `;
+                    }
+                    
+                    if (normalization) {
+                        html += `
+                            <div class="feature-card">
+                                <strong>Normalization</strong>
+                                <p>${normalization}</p>
+                            </div>
+                        `;
+                    }
+                    
+                    if (punctuation) {
+                        html += `
+                            <div class="feature-card">
+                                <strong>Punctuation</strong>
+                                <p>${punctuation}</p>
+                            </div>
+                        `;
+                    }
+                    
+                    html += '</div>';
                 }
                 
-                const editorialDecl = encodingDesc.querySelector('editorialDecl');
-                if (editorialDecl) {
-                    html += '<h3>Editorial Decisions</h3><ul>';
-                    
-                    const correction = editorialDecl.querySelector('correction p')?.textContent;
-                    const normalization = editorialDecl.querySelector('normalization p')?.textContent;
-                    const quotation = editorialDecl.querySelector('quotation p')?.textContent;
-                    
-                    if (correction) html += `<li><strong>Correction:</strong> ${correction}</li>`;
-                    if (normalization) html += `<li><strong>Normalization:</strong> ${normalization}</li>`;
-                    if (quotation) html += `<li><strong>Quotation:</strong> ${quotation}</li>`;
-                    html += '</ul>';
-                }
-                
-                html += '</section>';
+                html += '</div>';
             }
             
-            // Digital Edition Information
+            // Statistics
+            const poems = teiDoc.querySelectorAll('div[type="poem"]');
+            const persons = teiDoc.querySelectorAll('person');
+            const places = teiDoc.querySelectorAll('place');
+            
             html += `
-                <section class="editorial-section">
-                    <h2>About This Digital Edition</h2>
-                    <table class="metadata-table">
+                <div class="content-card">
+                    <div class="section-icon">📊</div>
+                    <h2>Edition Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">${poems.length}</span>
+                            <span class="stat-label">Poems</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${persons.length}</span>
+                            <span class="stat-label">Persons</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${places.length}</span>
+                            <span class="stat-label">Places</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Books</span>
+                        </div>
+                    </div>
+                </div>
             `;
-            
-            const publisher = teiDoc.querySelector('publicationStmt publisher')?.textContent;
-            const pubDate = teiDoc.querySelector('publicationStmt date');
-            const editor = teiDoc.querySelector('titleStmt editor')?.textContent;
-            const encoder = teiDoc.querySelector('titleStmt respStmt persName')?.textContent;
-            const licence = teiDoc.querySelector('publicationStmt licence');
-            
-            if (publisher) {
-                html += `<tr><th>Publisher</th><td>${publisher}</td></tr>`;
-            }
-            if (editor) {
-                html += `<tr><th>Editor</th><td>${editor}</td></tr>`;
-            }
-            if (encoder) {
-                html += `<tr><th>TEI Encoding</th><td>${encoder}</td></tr>`;
-            }
-            if (pubDate) {
-                html += `<tr><th>Publication Date</th><td>${pubDate.textContent}</td></tr>`;
-            }
-            if (licence) {
-                const target = licence.getAttribute('target');
-                html += `
-                    <tr>
-                        <th>License</th>
-                        <td><a href="${target}" target="_blank">${licence.textContent}</a></td>
-                    </tr>
-                `;
-            }
-            
-            html += '</table></section>';
-            
-            // Manuscript Witnesses
-            const witnesses = teiDoc.querySelectorAll('listWit witness');
-            if (witnesses.length > 0) {
-                html += `
-                    <section class="editorial-section">
-                        <h2>Manuscript Witnesses</h2>
-                        <ul>
-                `;
-                witnesses.forEach(witness => {
-                    const id = witness.getAttribute('xml:id');
-                    const text = witness.textContent;
-                    html += `<li><strong>${id}:</strong> ${text}</li>`;
-                });
-                html += '</ul></section>';
-            }
-            
-            // Keywords
-            const keywords = teiDoc.querySelectorAll('keywords term');
-            if (keywords.length > 0) {
-                html += `
-                    <section class="editorial-section">
-                        <h2>Keywords</h2>
-                        <div class="tag-list">
-                `;
-                keywords.forEach(term => {
-                    html += `<span class="tag">${term.textContent}</span>`;
-                });
-                html += '</div></section>';
-            }
-            
-            html += '</div>'; // Close grid
             
             container.innerHTML = html;
         }
         
-        // Load on page load
+        // Load content when page loads
         document.addEventListener('DOMContentLoaded', loadEditorialContent);
     </script>
 </body>
