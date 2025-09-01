@@ -1,0 +1,27 @@
+{
+  "name": "tei-edit-server",
+  "version": "1.0.0",
+  "description": "Local development server for TEI XML editing in Lucina Digital Edition",
+  "main": "edit-server.js",
+  "scripts": {
+    "start": "node edit-server.js",
+    "dev": "nodemon edit-server.js",
+    "validate": "node validate-tei.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "xmldom": "^0.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "TEI",
+    "XML",
+    "digital-edition",
+    "edit-server"
+  ],
+  "author": "",
+  "license": "MIT"
+}

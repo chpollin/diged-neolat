@@ -1,0 +1,30 @@
+{
+  "poems": [
+    {
+      "id": "poem-praefatio",
+      "title": "To Cicco Simonetta, My Maecenas",
+      "translator": "Sample Translation",
+      "lines": [
+        "Accept, Cicco, these verses which your poet offers,",
+        "A small gift, but given with a grateful heart.",
+        "You who, like Maecenas of old, support the Muses,",
+        "And nurture poets with your generous hand.",
+        "May these humble songs please your discerning ear,",
+        "As I sing of love and the flames that burn within.",
+        "Lucina shall be my theme, that radiant maiden,",
+        "Whose beauty rivals the morning star itself.",
+        "Through elegiac verse I'll tell our story,",
+        "How Cupid's arrows found their mark in me.",
+        "But you, great patron, are the one who makes this possible,",
+        "Without your support, my voice would be but silence.",
+        "So take these offerings of a grateful client,",
+        "Who owes to you whatever fame he gains.",
+        "May the Sforza court long flourish under your guidance,",
+        "And may poetry bloom beneath your care.",
+        "Thus speaks Albrisius, your devoted poet,",
+        "Who dedicates this work to you alone."
+      ],
+      "notes": "This translation captures the formal tone of the Renaissance Latin dedication."
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cleanup Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .check {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        h1 {
+            color: #333;
+        }
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edition-5 Cleanup Verification</h1>
+    <div id="results"></div>
+    <div class="summary" id="summary"></div>
+
+    <script>
+        const results = document.getElementById('results');
+        const summary = document.getElementById('summary');
+        let checks = [];
+
+        async function checkFile(path, description) {
+            try {
+                const response = await fetch(path);
+                const success = response.ok;
+                const check = {
+                    path,
+                    description,
+                    success,
+                    status: response.status
+                };
+                checks.push(check);
+                
+                const div = document.createElement('div');
+                div.className = success ? 'check success' : 'check error';
+                div.textContent = `${success ? '✓' : '✗'} ${description}: ${path} (${response.status})`;
+                results.appendChild(div);
+                
+                return success;
+            } catch (error) {
+                const check = {
+                    path,
+                    description,
+                    success: false,
+                    error: error.message
+                };
+                checks.push(check);
+                
+                const div = document.createElement('div');
+                div.className = 'check error';
+                div.textContent = `✗ ${description}: ${path} (Error: ${error.message})`;
+                results.appendChild(div);
+                
+                return false;
+            }
+        }
+
+        async function runVerification() {
+            results.innerHTML = '<p>Running verification checks...</p>';
+            
+            // Check HTML files
+            await checkFile('index.html', 'Main index page');
+            await checkFile('about.html', 'About page');
+            await checkFile('editorial.html', 'Editorial page');
+            await checkFile('indices.html', 'Indices page');
+            
+            // Check JavaScript modules in js/ directory
+            await checkFile('js/prosopography.js', 'Prosopography module');
+            await checkFile('js/metrics.js', 'Metrics module');
+            await checkFile('js/commentary.js', 'Commentary module');
+            await checkFile('js/translation.js', 'Translation module');
+            await checkFile('js/export.js', 'Export module');
+            await checkFile('js/edit-mode.js', 'Edit mode module');
+            await checkFile('js/init-master.js', 'Master init module');
+            
+            // Check data files
+            await checkFile('data/albricus_albricii_commentum_omnibus.xml', 'TEI XML data');
+            await checkFile('data/commentary.json', 'Commentary JSON');
+            await checkFile('data/translations.json', 'Translations JSON');
+            
+            // Check test files
+            await checkFile('tests/test-complete.html', 'Complete test suite');
+            await checkFile('tests/final-test.html', 'Final test');
+            
+            // Check server files
+            await checkFile('server/edit-server.js', 'Edit server');
+            await checkFile('server/package.json', 'Server package.json');
+            
+            // Generate summary
+            const successful = checks.filter(c => c.success).length;
+            const failed = checks.filter(c => !c.success).length;
+            const total = checks.length;
+            
+            summary.innerHTML = `
+                <h2>Summary</h2>
+                <p><strong>Total Checks:</strong> ${total}</p>
+                <p><strong>Successful:</strong> ${successful}</p>
+                <p><strong>Failed:</strong> ${failed}</p>
+                <p><strong>Success Rate:</strong> ${Math.round(successful/total * 100)}%</p>
+                ${failed === 0 ? '<p style="color: green; font-weight: bold;">✓ All checks passed! Cleanup successful.</p>' : 
+                  '<p style="color: red; font-weight: bold;">✗ Some checks failed. Please review.</p>'}
+            `;
+        }
+
+        // Run verification on page load
+        runVerification();
+    </script>
+</body>
+</html>

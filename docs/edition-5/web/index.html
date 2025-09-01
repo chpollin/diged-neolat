@@ -90,15 +90,27 @@
         </section>
     </main>
 
-    <!-- Edit Mode Module (only loaded in local environment) -->
-    <script src="edit-mode.js"></script>
+    <!-- Enhanced Modules for Edition-5 -->
+    <script src="js/prosopography.js"></script>
+    <script src="js/metrics.js"></script>
+    <script src="js/commentary.js"></script>
+    <script src="js/translation.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/edit-mode.js"></script>
+    <script src="js/init-master.js"></script>
 
     <script>
-        // Global State with extensive logging
-        let teiDoc = null;
-        let poems = [];
-        let pageMapping = {};
-        let persons = {};
+        // Global State with extensive logging - Made globally accessible
+        window.teiDoc = null;
+        window.poems = [];
+        window.pageMapping = {};
+        window.persons = {};
+        
+        // Also keep local references for backward compatibility
+        let teiDoc = window.teiDoc;
+        let poems = window.poems;
+        let pageMapping = window.pageMapping;
+        let persons = window.persons;
         let apparatusData = [];
         let currentPage = null;
         let currentZoom = 1;
@@ -168,6 +180,23 @@
                 extractPersons();
                 extractPoems();
                 extractApparatus();
+                
+                // Dispatch events for module coordination
+                window.dispatchEvent(new CustomEvent('teiLoaded', { 
+                    detail: { teiDoc: window.teiDoc } 
+                }));
+                window.dispatchEvent(new CustomEvent('poemsLoaded', { 
+                    detail: { poems: window.poems } 
+                }));
+                window.dispatchEvent(new CustomEvent('dataReady', { 
+                    detail: { 
+                        poems: window.poems,
+                        persons: window.persons,
+                        pageMapping: window.pageMapping 
+                    } 
+                }));
+                
+                debugLog('EVENTS', 'Dispatched module coordination events');
                 
                 // Verify extraction
                 verifyExtraction();
@@ -452,7 +481,8 @@
                     isPraefatio: isPraefatio
                 };
                 
-                poems.push(poem);
+                window.poems.push(poem);  // Update global
+                poems = window.poems;  // Keep local reference in sync
                 
                 if (index < 3) {
                     debugLog('POEM', `Added poem ${poem.id}: "${title.substring(0, 30)}..." with ${lines.length} lines`);

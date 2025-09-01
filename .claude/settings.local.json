@@ -6,7 +6,13 @@
       "Bash(dir:*)",
       "Bash(start /B cmd /c \"start web\\index_sync.html\")",
       "Bash(rm:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(start /B cmd /c \"start index.html\")",
+      "Bash(node:*)",
+      "Bash(start:*)"
     ],
     "deny": [],
     "ask": []

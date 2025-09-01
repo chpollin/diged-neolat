@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "id": "note-1",
+      "target": "poem-praefatio",
+      "category": "literary",
+      "text": "The praefatio establishes Albrisius's relationship with his patron Cicco Simonetta, explicitly comparing him to Maecenas, the famous patron of Augustan poets.",
+      "author": "Editor",
+      "timestamp": "2024-01-15"
+    },
+    {
+      "id": "note-2",
+      "target": "poem-I.1-line-1",
+      "category": "textual",
+      "text": "The manuscript reading 'Mecoenatem' preserves the medieval spelling. Classical Latin would have 'Maecenatem'.",
+      "author": "Editor",
+      "timestamp": "2024-01-15"
+    },
+    {
+      "id": "note-3",
+      "target": "poem-I.1",
+      "category": "historical",
+      "text": "This poem was likely written shortly after Albrisius arrived at the Sforza court in Milan, around 1470.",
+      "author": "Editor",
+      "timestamp": "2024-01-15"
+    }
+  ]
+}

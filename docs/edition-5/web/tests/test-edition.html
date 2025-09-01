@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Edition-5 Features</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .log {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: 1px solid #007bff;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edition-5 Feature Testing</h1>
+    
+    <div class="test-section">
+        <h2>Environment Check</h2>
+        <p>Current URL: <code id="currentUrl"></code></p>
+        <p>Protocol: <code id="protocol"></code></p>
+        <p>Hostname: <code id="hostname"></code></p>
+        <p>Is Local: <span id="isLocal" class="status">Checking...</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Edit Mode Features</h2>
+        <button onclick="testEditMode()">Test Edit Mode</button>
+        <button onclick="testFileSystemAPI()">Test File System API</button>
+        <button onclick="testServerConnection()">Test Server Connection</button>
+        <div id="editModeResults" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>TEI Data Loading</h2>
+        <button onclick="testTEILoading()">Test TEI Loading</button>
+        <button onclick="testDataExtraction()">Test Data Extraction</button>
+        <div id="teiResults" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Metrics Display</h2>
+        <button onclick="testMetrics()">Test Metrics System</button>
+        <div id="metricsResults" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Feature Status Summary</h2>
+        <ul id="statusSummary"></ul>
+    </div>
+
+    <script>
+        // Environment check
+        document.getElementById('currentUrl').textContent = window.location.href;
+        document.getElementById('protocol').textContent = window.location.protocol;
+        document.getElementById('hostname').textContent = window.location.hostname || 'file://';
+        
+        const isLocal = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' || 
+                       window.location.hostname === '' ||
+                       window.location.protocol === 'file:';
+        
+        const localSpan = document.getElementById('isLocal');
+        localSpan.textContent = isLocal ? 'Yes' : 'No';
+        localSpan.className = 'status ' + (isLocal ? 'pass' : 'fail');
+
+        function log(elementId, message, type = 'info') {
+            const logDiv = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            logDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function testEditMode() {
+            const logId = 'editModeResults';
+            log(logId, 'Testing Edit Mode initialization...', 'info');
+            
+            // Check if edit-mode.js is loaded
+            if (typeof window.editMode !== 'undefined') {
+                log(logId, '✓ Edit mode object found', 'success');
+                log(logId, `  - Enabled: ${window.editMode.enabled}`, 'info');
+                log(logId, `  - Local environment: ${window.editMode.isLocalEnvironment}`, 'info');
+                log(logId, `  - Has unsaved changes: ${window.editMode.hasUnsavedChanges}`, 'info');
+            } else {
+                log(logId, '✗ Edit mode not loaded', 'error');
+                log(logId, 'Loading edit-mode.js...', 'info');
+                
+                const script = document.createElement('script');
+                script.src = 'edit-mode.js';
+                script.onload = () => {
+                    log(logId, '✓ Edit mode script loaded', 'success');
+                    setTimeout(() => testEditMode(), 100);
+                };
+                script.onerror = () => {
+                    log(logId, '✗ Failed to load edit-mode.js', 'error');
+                };
+                document.head.appendChild(script);
+            }
+        }
+
+        function testFileSystemAPI() {
+            const logId = 'editModeResults';
+            log(logId, 'Testing File System Access API...', 'info');
+            
+            if ('showSaveFilePicker' in window) {
+                log(logId, '✓ File System Access API available', 'success');
+                log(logId, '  - Browser: ' + navigator.userAgent.match(/(Chrome|Edge)\/[\d.]+/)?.[0], 'info');
+            } else {
+                log(logId, '⚠ File System Access API not available', 'error');
+                log(logId, '  - Use Chrome or Edge for full support', 'info');
+            }
+        }
+
+        async function testServerConnection() {
+            const logId = 'editModeResults';
+            log(logId, 'Testing edit server connection...', 'info');
+            
+            try {
+                const response = await fetch('http://localhost:3001/health');
+                if (response.ok) {
+                    const data = await response.json();
+                    log(logId, '✓ Server is running', 'success');
+                    log(logId, `  - Status: ${data.status}`, 'info');
+                    log(logId, `  - Uptime: ${data.uptime}s`, 'info');
+                } else {
+                    throw new Error('Server responded with ' + response.status);
+                }
+            } catch (error) {
+                log(logId, '✗ Server not accessible', 'error');
+                log(logId, '  - Run: npm start', 'info');
+                log(logId, '  - Error: ' + error.message, 'error');
+            }
+        }
+
+        async function testTEILoading() {
+            const logId = 'teiResults';
+            log(logId, 'Loading TEI XML file...', 'info');
+            
+            try {
+                const response = await fetch('tei-final-3-4.xml');
+                if (!response.ok) throw new Error('Failed to fetch TEI file');
+                
+                const text = await response.text();
+                log(logId, '✓ TEI file loaded', 'success');
+                log(logId, `  - Size: ${(text.length / 1024).toFixed(2)} KB`, 'info');
+                
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/xml');
+                
+                if (doc.querySelector('parsererror')) {
+                    throw new Error('XML parsing error');
+                }
+                
+                log(logId, '✓ TEI parsed successfully', 'success');
+                
+                // Extract statistics
+                const poems = doc.querySelectorAll('div[type="poem"]');
+                const lines = doc.querySelectorAll('l');
+                const persons = doc.querySelectorAll('person');
+                const places = doc.querySelectorAll('place');
+                
+                log(logId, `  - Poems: ${poems.length}`, 'info');
+                log(logId, `  - Lines: ${lines.length}`, 'info');
+                log(logId, `  - Persons: ${persons.length}`, 'info');
+                log(logId, `  - Places: ${places.length}`, 'info');
+                
+            } catch (error) {
+                log(logId, '✗ Failed to load TEI', 'error');
+                log(logId, '  - Error: ' + error.message, 'error');
+            }
+        }
+
+        async function testDataExtraction() {
+            const logId = 'teiResults';
+            log(logId, 'Testing data extraction...', 'info');
+            
+            try {
+                const response = await fetch('tei-final-3-4.xml');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/xml');
+                
+                // Test poem extraction
+                const poems = [];
+                doc.querySelectorAll('div[type="poem"]').forEach(poemDiv => {
+                    const id = poemDiv.getAttribute('xml:id');
+                    const head = poemDiv.querySelector('head[type="dedication"]');
+                    const lines = poemDiv.querySelectorAll('l');
+                    poems.push({
+                        id,
+                        title: head?.textContent.trim(),
+                        lineCount: lines.length
+                    });
+                });
+                
+                log(logId, `✓ Extracted ${poems.length} poems`, 'success');
+                if (poems.length > 0) {
+                    log(logId, `  - First poem: ${poems[0].id} (${poems[0].lineCount} lines)`, 'info');
+                    log(logId, `  - Last poem: ${poems[poems.length-1].id}`, 'info');
+                }
+                
+                // Test person extraction
+                const persons = new Map();
+                doc.querySelectorAll('person').forEach(person => {
+                    const id = person.getAttribute('xml:id');
+                    const name = person.querySelector('persName')?.textContent;
+                    if (id && name) {
+                        persons.set(id, name);
+                    }
+                });
+                
+                log(logId, `✓ Extracted ${persons.size} persons`, 'success');
+                
+            } catch (error) {
+                log(logId, '✗ Data extraction failed', 'error');
+                log(logId, '  - Error: ' + error.message, 'error');
+            }
+        }
+
+        function testMetrics() {
+            const logId = 'metricsResults';
+            log(logId, 'Testing metrics system...', 'info');
+            
+            // Check for metrics-related elements
+            const metricsButton = document.getElementById('metricsToggle');
+            if (metricsButton) {
+                log(logId, '✓ Metrics toggle button found', 'success');
+            } else {
+                log(logId, '⚠ Metrics toggle button not found', 'error');
+                log(logId, '  - Should be in navigation bar', 'info');
+            }
+            
+            // Check for meter definitions
+            const meterDefinitions = {
+                'elegiac': 'Elegiac couplet',
+                'hexameter': 'Dactylic hexameter',
+                'pentameter': 'Dactylic pentameter'
+            };
+            
+            log(logId, '✓ Meter definitions available', 'success');
+            Object.entries(meterDefinitions).forEach(([key, value]) => {
+                log(logId, `  - ${key}: ${value}`, 'info');
+            });
+        }
+
+        // Update status summary
+        function updateSummary() {
+            const summary = document.getElementById('statusSummary');
+            const features = [
+                { name: 'Edit Mode', status: typeof window.editMode !== 'undefined' },
+                { name: 'File System API', status: 'showSaveFilePicker' in window },
+                { name: 'Local Environment', status: isLocal },
+                { name: 'TEI File', status: false }, // Will be updated by tests
+                { name: 'Metrics System', status: false } // Will be updated by tests
+            ];
+            
+            summary.innerHTML = features.map(f => 
+                `<li>${f.name}: <span class="status ${f.status ? 'pass' : 'fail'}">${f.status ? 'Ready' : 'Not Ready'}</span></li>`
+            ).join('');
+        }
+
+        // Initial summary
+        updateSummary();
+    </script>
+</body>
+</html>
