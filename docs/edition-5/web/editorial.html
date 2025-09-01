@@ -134,7 +134,7 @@
         // Load and parse TEI for editorial content
         async function loadEditorialContent() {
             try {
-                const response = await fetch('./tei-final-3-2.xml');
+                const response = await fetch('./tei-final-3-4.xml');
                 const xmlText = await response.text();
                 const parser = new DOMParser();
                 const teiDoc = parser.parseFromString(xmlText, 'text/xml');
