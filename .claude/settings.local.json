@@ -12,7 +12,8 @@
       "Bash(npm install)",
       "Bash(start /B cmd /c \"start index.html\")",
       "Bash(node:*)",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
