@@ -35,29 +35,68 @@
         
         if (!window.editMode.isLocalEnvironment) {
             console.log('Edit mode disabled - not in local environment');
+            // Still add the UI button but in disabled state
+            addEditModeUI(true); // Pass disabled flag
             return;
         }
 
         console.log('Edit mode available - local environment detected');
-        addEditModeUI();
+        addEditModeUI(false); // Pass enabled flag
         setupEditModeListeners();
-        setupKeyboardShortcuts();
+        // Keyboard shortcuts removed
     }
 
     // Add edit mode UI elements
-    function addEditModeUI() {
+    function addEditModeUI(disabled = false) {
         // Add edit mode toggle button to navigation
         const navRight = document.querySelector('.nav-right');
         if (navRight) {
+            // Create container for button and info
+            const editContainer = document.createElement('div');
+            editContainer.style.display = 'inline-flex';
+            editContainer.style.alignItems = 'center';
+            editContainer.style.marginRight = '8px';
+            
             const editButton = document.createElement('button');
             editButton.id = 'editModeToggle';
             editButton.className = 'nav-link-btn edit-mode-toggle';
-            editButton.innerHTML = '✏️ Edit Mode';
-            editButton.title = 'Toggle edit mode (Ctrl+E)';
+            
+            if (disabled) {
+                editButton.innerHTML = '✏️ Edit';
+                editButton.disabled = true;
+                editButton.style.opacity = '0.5';
+                editButton.style.cursor = 'not-allowed';
+                editButton.style.padding = '5px 10px';
+                editButton.style.fontSize = '13px';
+                editButton.title = 'Edit mode is only available when running locally';
+                
+                // Add info icon
+                const infoIcon = document.createElement('span');
+                infoIcon.innerHTML = 'ⓘ';
+                infoIcon.style.marginLeft = '4px';
+                infoIcon.style.cursor = 'help';
+                infoIcon.style.fontSize = '14px';
+                infoIcon.style.color = '#6c757d';
+                infoIcon.title = 'Edit mode requires local environment. See Help for instructions.';
+                
+                // Add click handler to info icon
+                infoIcon.onclick = () => {
+                    showEditModeInfo();
+                };
+                
+                editContainer.appendChild(editButton);
+                editContainer.appendChild(infoIcon);
+            } else {
+                editButton.innerHTML = '✏️ Edit';
+                editButton.title = 'Toggle edit mode';
+                editButton.style.padding = '5px 10px';
+                editButton.style.fontSize = '13px';
+                editContainer.appendChild(editButton);
+            }
             
             // Insert before search box
             const searchBox = navRight.querySelector('.searchbox');
-            navRight.insertBefore(editButton, searchBox);
+            navRight.insertBefore(editContainer, searchBox);
         }
 
         // Add floating toolbar (initially hidden)
@@ -67,7 +106,7 @@
         toolbar.style.display = 'none';
         toolbar.innerHTML = `
             <div class="edit-toolbar-content">
-                <button id="saveChangesBtn" class="toolbar-btn primary" title="Save changes (Ctrl+S)">
+                <button id="saveChangesBtn" class="toolbar-btn primary" title="Save changes">
                     💾 Save
                     <span id="unsavedIndicator" class="unsaved-badge" style="display: none;">●</span>
                 </button>
@@ -121,14 +160,15 @@
             .edit-mode-toggle {
                 background: #f8f9fa;
                 border: 1px solid #dee2e6;
-                padding: 5px 12px;
+                padding: 5px 10px !important;
                 border-radius: 4px;
-                margin-right: 10px;
+                margin-right: 6px;
                 cursor: pointer;
                 transition: all 0.2s;
+                font-size: 13px !important;
             }
             
-            .edit-mode-toggle:hover {
+            .edit-mode-toggle:hover:not(:disabled) {
                 background: #e9ecef;
             }
             
@@ -136,6 +176,11 @@
                 background: #28a745;
                 color: white;
                 border-color: #28a745;
+            }
+            
+            .edit-mode-toggle:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
             }
 
             /* Edit mode indicators */
@@ -382,27 +427,7 @@
         document.getElementById('diffViewBtn')?.addEventListener('click', showDiffView);
     }
 
-    // Setup keyboard shortcuts
-    function setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (e) => {
-            // Ctrl+E: Toggle edit mode
-            if (e.ctrlKey && e.key === 'e') {
-                e.preventDefault();
-                toggleEditMode();
-            }
-            
-            // Ctrl+S: Save changes (in edit mode)
-            if (e.ctrlKey && e.key === 's' && window.editMode.enabled) {
-                e.preventDefault();
-                saveChanges();
-            }
-            
-            // Escape: Exit edit mode
-            if (e.key === 'Escape' && window.editMode.enabled) {
-                toggleEditMode();
-            }
-        });
-    }
+    // Keyboard shortcuts have been removed from this project
 
     // Toggle edit mode on/off
     function toggleEditMode() {
@@ -996,12 +1021,74 @@
         initEditMode();
     }
 
+    // Show info modal about edit mode requirements
+    function showEditModeInfo() {
+        const modal = document.createElement('div');
+        modal.className = 'diff-modal';
+        modal.style.display = 'flex';
+        modal.style.zIndex = '3000';
+        modal.innerHTML = `
+            <div class="diff-modal-content" style="max-width: 600px;">
+                <div class="diff-modal-header">
+                    <h3>ℹ️ About Edit Mode</h3>
+                    <button class="close-btn" onclick="this.closest('.diff-modal').remove()">×</button>
+                </div>
+                <div class="diff-content" style="padding: 20px; line-height: 1.6;">
+                    <p><strong>Edit Mode</strong> allows you to modify the TEI XML content directly in your browser.</p>
+                    
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>The edition must be accessed locally (not from a web server)</li>
+                        <li>Use one of these methods:
+                            <ul>
+                                <li>Open the HTML file directly in your browser (file:// protocol)</li>
+                                <li>Run a local server on localhost or 127.0.0.1</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>How to Enable:</h4>
+                    <ol>
+                        <li>Download the edition files to your computer</li>
+                        <li>Open <code>index.html</code> directly in your browser, or</li>
+                        <li>Start a local server:
+                            <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px;">cd docs/edition-5/web
+python -m http.server 8000
+# Then visit: http://localhost:8000</pre>
+                        </li>
+                        <li>The Edit Mode button will become active</li>
+                        <li>Click it to start editing</li>
+                    </ol>
+                    
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Edit Latin text lines directly</li>
+                        <li>Modify TEI attributes</li>
+                        <li>Track changes with diff view</li>
+                        <li>Save changes as new XML file</li>
+                        <li>Validate XML structure</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; padding: 10px; background: #fff3cd; border-radius: 4px;">
+                        <strong>Note:</strong> Edit mode is intentionally disabled in production to protect the integrity of the published edition.
+                    </p>
+                </div>
+                <div class="diff-modal-footer">
+                    <button onclick="this.closest('.diff-modal').remove()" class="toolbar-btn primary">Got it</button>
+                    <button onclick="window.location.href='how-to-use.html'" class="toolbar-btn">View Full Guide</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
     // Export functions for external use
     window.editModeAPI = {
         toggle: toggleEditMode,
         save: saveChanges,
         revert: revertChanges,
-        showDiff: showDiffView
+        showDiff: showDiffView,
+        showInfo: showEditModeInfo
     };
 
 })();

@@ -14,16 +14,25 @@
             <a href="about.html" class="nav-link-btn">About</a>
             <a href="editorial.html" class="nav-link-btn">Editorial Introduction</a>
             <a href="indices.html" class="nav-link-btn">Index</a>
+            <a href="how-to-use.html" class="nav-link-btn">How to Use</a>
             <button id="metricsToggle" class="nav-link-btn metrics-toggle" title="Toggle metrical annotations">
                 📏 Metrics
             </button>
         </div>
 
         <div class="nav-center">
-            <div class="view-toggle">
-                <button class="toggle active" data-view="latin">Latin</button>
-                <button class="toggle" data-view="commentary">Commentary</button>
-                <button class="toggle" data-view="translation">Translation</button>
+            <div class="view-dropdown-container">
+                <button class="view-dropdown-toggle" id="viewDropdownToggle">
+                    <span class="view-label">View:</span>
+                    <span class="view-current" id="viewCurrent">Latin</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="view-dropdown-menu" id="viewDropdownMenu" style="display: none;">
+                    <button class="view-option active" data-view="latin">Latin</button>
+                    <button class="view-option" data-view="latin-metrics">Latin + Metrics</button>
+                    <button class="view-option" data-view="commentary">Commentary</button>
+                    <button class="view-option" data-view="translation">Translation</button>
+                </div>
             </div>
         </div>
 
@@ -118,7 +127,7 @@
         let searchResults = [];
         let currentSearchIndex = -1;
         let allPages = [];
-        let metricsEnabled = false;
+        // Metrics handled by metrics.js module
         let meterDefinitions = {};
 
         // Simple logging function
@@ -620,7 +629,7 @@
                 
                 // Add meter information if metrics enabled
                 let meterInfo = '';
-                if (metricsEnabled) {
+                if (window.metrics && window.metrics.enabled) {
                     // Try to get meter from TEI
                     const poemTeiDiv = teiDoc.querySelector(`div[*|id="${poem.id}"], div[xml\\:id="${poem.id}"]`);
                     let meterType = 'elegiac'; // default
@@ -664,7 +673,7 @@
                     lineEl.dataset.poemId = poem.id;
                     // Apply metrical marks if enabled
                     const processedText = processLineWithApparatus(line.text, poem.id, line.n);
-                    const finalText = addMetricalMarks(processedText, line.n, 'elegiac');
+                    const finalText = processedText; // Metrics handled by metrics.js
                     
                     lineEl.innerHTML = `
                         <span class="ln">${line.n}</span>
@@ -804,29 +813,7 @@
             return numerals[num] || num.toString();
         }
 
-        // Toggle metrics display
-        function toggleMetrics() {
-            metricsEnabled = !metricsEnabled;
-            const button = document.getElementById('metricsToggle');
-            
-            if (metricsEnabled) {
-                button.classList.add('active');
-                button.style.background = '#28a745';
-                button.style.color = 'white';
-                document.body.classList.add('metrics-enabled');
-                debugLog('METRICS', 'Metrics display enabled');
-            } else {
-                button.classList.remove('active');
-                button.style.background = '';
-                button.style.color = '';
-                document.body.classList.remove('metrics-enabled');
-                debugLog('METRICS', 'Metrics display disabled');
-            }
-            
-            // Re-render poems with metrics
-            renderPoems();
-            setupScrollObserver();
-        }
+        // Metrics toggle handled by metrics.js module
 
         // Extract meter type from poem
         function extractPoemMeter(poemDiv) {
@@ -848,34 +835,7 @@
             return 'elegiac';
         }
 
-        // Add metrical marks to text
-        function addMetricalMarks(text, lineNum, meterType) {
-            if (!metricsEnabled) return text;
-            
-            // For elegiac couplets
-            if (meterType === 'elegiac' || meterType === 'elegiac-couplet') {
-                // Hexameter (odd lines)
-                if (lineNum % 2 === 1) {
-                    // Add caesura mark in middle of hexameter
-                    const words = text.split(' ');
-                    const midPoint = Math.floor(words.length / 2);
-                    if (words.length > 3) {
-                        words[midPoint] = words[midPoint] + ' ||';
-                    }
-                    return words.join(' ');
-                } else {
-                    // Pentameter (even lines) - add caesura
-                    const words = text.split(' ');
-                    const midPoint = Math.floor(words.length / 2);
-                    if (words.length > 2) {
-                        words[midPoint] = words[midPoint] + ' |';
-                    }
-                    return words.join(' ');
-                }
-            }
-            
-            return text;
-        }
+        // Metrical marks handled by metrics.js module
 
         // Setup scroll observer for image synchronization
         function setupScrollObserver() {
@@ -1019,7 +979,7 @@
             debugLog('INIT', 'Setting up event listeners');
             
             // Metrics toggle button
-            document.getElementById('metricsToggle')?.addEventListener('click', toggleMetrics);
+            // Metrics toggle handled by metrics.js module
             
             // Book selector
             document.getElementById('bookSelect').addEventListener('change', (e) => {
@@ -1105,27 +1065,87 @@
             }
         }
 
-        // Setup view toggle
+        // Setup view toggle with dropdown
         function setupViewToggle() {
-            const toggles = document.querySelectorAll('.toggle');
+            const dropdownToggle = document.getElementById('viewDropdownToggle');
+            const dropdownMenu = document.getElementById('viewDropdownMenu');
+            const viewOptions = document.querySelectorAll('.view-option');
             const views = document.querySelectorAll('.text-view');
+            const viewCurrent = document.getElementById('viewCurrent');
             
-            toggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const view = toggle.dataset.view;
+            // Toggle dropdown menu
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = dropdownMenu.style.display === 'block';
+                    dropdownMenu.style.display = isOpen ? 'none' : 'block';
+                    dropdownToggle.classList.toggle('open', !isOpen);
+                });
+            }
+            
+            // Handle view selection
+            viewOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const view = option.dataset.view;
                     debugLog('VIEW', `Switching to ${view} view`);
                     
-                    // Update toggles
-                    toggles.forEach(t => t.classList.remove('active'));
-                    toggle.classList.add('active');
+                    // Update active state
+                    viewOptions.forEach(o => o.classList.remove('active'));
+                    option.classList.add('active');
                     
-                    // Update views
-                    views.forEach(v => v.classList.remove('active'));
-                    const targetView = document.querySelector(`.text-view[data-view="${view}"]`);
-                    if (targetView) {
-                        targetView.classList.add('active');
+                    // Update current view display
+                    if (viewCurrent) {
+                        viewCurrent.textContent = option.textContent;
                     }
+                    
+                    // Handle metrics toggle
+                    if (view === 'latin-metrics') {
+                        // Show Latin view with metrics
+                        views.forEach(v => v.classList.remove('active'));
+                        const latinView = document.querySelector('.text-view[data-view="latin"]');
+                        if (latinView) {
+                            latinView.classList.add('active');
+                        }
+                        // Enable metrics
+                        if (window.metricsAPI) {
+                            window.metricsAPI.enable();
+                        }
+                    } else if (view === 'latin') {
+                        // Show Latin view without metrics
+                        views.forEach(v => v.classList.remove('active'));
+                        const latinView = document.querySelector('.text-view[data-view="latin"]');
+                        if (latinView) {
+                            latinView.classList.add('active');
+                        }
+                        // Disable metrics
+                        if (window.metricsAPI) {
+                            window.metricsAPI.disable();
+                        }
+                    } else {
+                        // Show other views (commentary, translation)
+                        views.forEach(v => v.classList.remove('active'));
+                        const targetView = document.querySelector(`.text-view[data-view="${view}"]`);
+                        if (targetView) {
+                            targetView.classList.add('active');
+                        }
+                        // Also disable metrics when switching to non-Latin views
+                        if (window.metricsAPI) {
+                            window.metricsAPI.disable();
+                        }
+                    }
+                    
+                    // Close dropdown
+                    dropdownMenu.style.display = 'none';
+                    dropdownToggle.classList.remove('open');
                 });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownToggle?.contains(e.target) && !dropdownMenu?.contains(e.target)) {
+                    dropdownMenu.style.display = 'none';
+                    dropdownToggle?.classList.remove('open');
+                }
             });
         }
 

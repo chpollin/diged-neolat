@@ -177,12 +177,7 @@
             }
         });
         
-        // Keyboard shortcut for export
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'E') {
-                showExportDialog();
-            }
-        });
+        // Keyboard shortcuts have been removed from this project
     }
 
     // Show export dialog

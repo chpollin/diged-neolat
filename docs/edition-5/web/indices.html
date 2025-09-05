@@ -626,11 +626,17 @@
     <header class="nav" role="banner">
         <div class="nav-left">
             <div class="brand">Lucina Digital Edition</div>
-            <a href="index.html" class="nav-link-btn">← Back to Edition</a>
+        </div>
+        
+        <div class="nav-center">
+            <a href="index.html" class="nav-link-btn">Edition</a>
             <a href="about.html" class="nav-link-btn">About</a>
             <a href="editorial.html" class="nav-link-btn">Editorial</a>
             <button class="nav-link-btn active">Index</button>
-            <button id="editToggleBtn" class="nav-link-btn" onclick="toggleEditMode()" style="margin-left: auto; background-color: #28a745; color: white;">✏️ Edit Mode</button>
+            <a href="how-to-use.html" class="nav-link-btn">Help</a>
+        </div>
+        
+        <div class="nav-right">
         </div>
     </header>
 
@@ -1973,6 +1979,16 @@
             console.error(message);
             // Could show a toast notification here
         }
+    </script>
+    
+    <!-- Include edit mode script for indices page -->
+    <script src="js/edit-mode.js"></script>
+    <script>
+        // Initialize edit mode functionality for indices page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Edit mode will auto-initialize and show the appropriate button
+            console.log('Indices page ready - edit mode will initialize if available');
+        });
     </script>
 </body>
 </html>

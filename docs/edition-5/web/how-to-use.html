@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - Lucina Digital Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.8;
+        }
+        .guide-section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .guide-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .guide-section h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        .feature-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .keyboard-shortcut {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 0 2px;
+        }
+        .tip-box {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="nav" role="banner">
+        <div class="nav-left">
+            <div class="brand">Lucina Digital Edition</div>
+        </div>
+        
+        <div class="nav-center">
+            <a href="index.html" class="nav-link-btn">Edition</a>
+            <a href="about.html" class="nav-link-btn">About</a>
+            <a href="editorial.html" class="nav-link-btn">Editorial</a>
+            <a href="indices.html" class="nav-link-btn">Index</a>
+            <button class="nav-link-btn active">Help</button>
+        </div>
+        
+        <div class="nav-right">
+        </div>
+    </header>
+
+    <div class="guide-container">
+        <h1>How to Use the Lucina Digital Edition</h1>
+        
+        <div class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#navigation">1. Navigating the Edition</a></li>
+                <li><a href="#views">2. Different Views</a></li>
+                <li><a href="#search">3. Search Features</a></li>
+                <li><a href="#manuscript">4. Manuscript Viewer</a></li>
+                <li><a href="#annotations">5. Annotations & Commentary</a></li>
+                <li><a href="#metrics">6. Metrical Analysis</a></li>
+                <li><a href="#export">7. Export Options</a></li>
+                <li><a href="#edit-mode">8. Edit Mode (Advanced)</a></li>
+            </ul>
+        </div>
+
+        <section id="navigation" class="guide-section">
+            <h2>1. Navigating the Edition</h2>
+            
+            <p>The Lucina Digital Edition provides multiple ways to navigate through the text:</p>
+            
+            <h3>Book and Poem Selection</h3>
+            <ul>
+                <li>Use the <strong>Book dropdown</strong> in the navigation bar to select a specific book (1-4)</li>
+                <li>Use the <strong>Poem dropdown</strong> to jump directly to any poem</li>
+                <li>The dropdowns update dynamically based on your selection</li>
+            </ul>
+
+            <h3>Page Navigation</h3>
+            <ul>
+                <li>Use the arrow buttons <span class="keyboard-shortcut">←</span> <span class="keyboard-shortcut">→</span> to navigate between manuscript pages</li>
+                <li>The current page number is displayed in the image viewer header</li>
+                <li>Scroll through the text panel to read continuously</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Tip:</strong> The text and manuscript image stay synchronized as you navigate. Selecting a poem automatically displays the corresponding manuscript page.
+            </div>
+        </section>
+
+        <section id="views" class="guide-section">
+            <h2>2. Different Views</h2>
+            
+            <p>Switch between three different viewing modes using the toggle buttons in the center of the navigation:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Latin View</h4>
+                    <p>The primary Latin text from the manuscript with line numbers and critical apparatus.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Commentary View</h4>
+                    <p>Scholarly commentary and notes on specific passages, references, and interpretations.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Translation View</h4>
+                    <p>Modern language translations of the Latin text for easier comprehension.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="search" class="guide-section">
+            <h2>3. Search Features</h2>
+            
+            <h3>Basic Search</h3>
+            <ul>
+                <li>Type in the search box to find text anywhere in the edition</li>
+                <li>Search results are highlighted in yellow</li>
+                <li>Use the navigation arrows to jump between results</li>
+                <li>The result counter shows current position and total matches</li>
+            </ul>
+
+            <h3>Advanced Search Tips</h3>
+            <ul>
+                <li>Search is case-insensitive by default</li>
+                <li>Searches across all text content including apparatus</li>
+                <li>Clear the search box to remove highlighting</li>
+            </ul>
+
+        </section>
+
+        <section id="manuscript" class="guide-section">
+            <h2>4. Manuscript Viewer</h2>
+            
+            <h3>Image Controls</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Zoom Controls</h4>
+                    <ul>
+                        <li><span class="keyboard-shortcut">+</span> Zoom in</li>
+                        <li><span class="keyboard-shortcut">-</span> Zoom out</li>
+                        <li><span class="keyboard-shortcut">Fit</span> Fit to view</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>Image Manipulation</h4>
+                    <ul>
+                        <li><span class="keyboard-shortcut">↻</span> Rotate image</li>
+                        <li>Drag to pan when zoomed</li>
+                        <li>Double-click to reset view</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>High-Resolution Images</h3>
+            <p>The manuscript images are high-resolution scans that allow detailed examination of the original text, marginalia, and decorations.</p>
+        </section>
+
+        <section id="annotations" class="guide-section">
+            <h2>5. Annotations & Commentary</h2>
+            
+            <h3>Types of Annotations</h3>
+            <ul>
+                <li><strong>Person References:</strong> Highlighted names link to prosopographical information</li>
+                <li><strong>Place References:</strong> Geographic locations with modern identifications</li>
+                <li><strong>Critical Apparatus:</strong> Textual variants and editorial notes</li>
+                <li><strong>Line-specific Commentary:</strong> Scholarly notes on individual lines</li>
+            </ul>
+
+            <h3>Interacting with Annotations</h3>
+            <ul>
+                <li>Hover over highlighted text to see quick information</li>
+                <li>Click on references to see full details</li>
+                <li>Commentary appears in the dedicated Commentary view</li>
+            </ul>
+        </section>
+
+        <section id="metrics" class="guide-section">
+            <h2>6. Metrical Analysis</h2>
+            
+            <p>Toggle metrical annotations using the <span class="keyboard-shortcut">📏 Metrics</span> button in the navigation bar.</p>
+            
+            <h3>Features</h3>
+            <ul>
+                <li>Scansion marks above Latin verses</li>
+                <li>Metrical pattern identification (hexameter, pentameter, etc.)</li>
+                <li>Caesura markings</li>
+                <li>Elision indicators</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Tip:</strong> Metrical annotations can be toggled on/off without affecting other display features.
+            </div>
+        </section>
+
+        <section id="export" class="guide-section">
+            <h2>7. Export Options</h2>
+            
+            <p>Export the edition in various formats for offline use or further analysis:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>TEI XML</h4>
+                    <p>Complete TEI-encoded text with all markup and apparatus.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Plain Text</h4>
+                    <p>Clean text without markup for reading or text analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PDF</h4>
+                    <p>Formatted PDF with selected poems and apparatus.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Citations</h4>
+                    <p>Generate proper academic citations for specific passages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="edit-mode" class="guide-section">
+            <h2>8. Edit Mode (Advanced)</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> Edit Mode is only available when running the edition locally. It is disabled in the online version to protect the integrity of the published edition.
+            </div>
+
+            <h3>What is Edit Mode?</h3>
+            <p>Edit Mode allows scholars and editors to make corrections and annotations directly in the browser, saving changes as new TEI XML files.</p>
+
+            <h3>How to Enable Edit Mode</h3>
+            <ol>
+                <li><strong>Download the edition files</strong> to your local computer</li>
+                <li><strong>Open locally</strong> using one of these methods:
+                    <ul>
+                        <li>Double-click <code>index.html</code> to open in your browser</li>
+                        <li>Or start a local web server:</li>
+                    </ul>
+                    <pre>cd docs/edition-5/web
+python -m http.server 8000
+# Visit: http://localhost:8000</pre>
+                </li>
+                <li><strong>Click the Edit Mode button</strong> to enable edit mode</li>
+                <li><strong>Make your edits</strong> directly in the text</li>
+                <li><strong>Save changes</strong> using the Save button</li>
+            </ol>
+
+            <h3>Edit Mode Features</h3>
+            <ul>
+                <li>Direct text editing with change tracking</li>
+                <li>Attribute modification for TEI elements</li>
+                <li>Diff view to review changes before saving</li>
+                <li>XML validation</li>
+                <li>Export edited version as new TEI file</li>
+                <li>Revert changes if needed</li>
+            </ul>
+
+            <h3>Why is Edit Mode Restricted?</h3>
+            <p>Edit Mode is intentionally limited to local environments to:</p>
+            <ul>
+                <li>Prevent accidental modifications to the published edition</li>
+                <li>Ensure editorial changes go through proper review</li>
+                <li>Maintain the scholarly integrity of the digital edition</li>
+                <li>Allow controlled collaborative editing workflows</li>
+            </ul>
+        </section>
+
+
+        <div class="guide-section">
+            <h2>Need Help?</h2>
+            <p>For additional assistance or to report issues:</p>
+            <ul>
+                <li>Contact the editorial team through the <a href="about.html">About page</a></li>
+                <li>Consult the <a href="editorial.html">Editorial Introduction</a> for scholarly context</li>
+                <li>Review the <a href="indices.html">Index</a> for quick reference</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
